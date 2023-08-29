@@ -6,6 +6,7 @@
         "plugin:@typescript-eslint/recommended",
         "prettier"
     ],
+    "parser": "vue-eslint-parser",
     "parserOptions": {
         "ecmaVersion": "latest",
         "parser": "@typescript-eslint/parser",
