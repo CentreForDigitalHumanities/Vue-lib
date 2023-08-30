@@ -22,10 +22,9 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite build --watch & yarn types --watch --preserveWatchOutput",
     "build": "vite build && yarn types",
-    "types": "vue-tsc --emitDeclarationOnly",
-    "preview": "vite preview"
+    "types": "vue-tsc --emitDeclarationOnly"
   },
   "dependencies": {
     "uu-bootstrap": "git+https://github.com/DH-IT-Portal-Development/bootstrap-theme.git#1.4.0-alpha.1",
