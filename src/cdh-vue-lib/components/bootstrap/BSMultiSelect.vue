@@ -33,21 +33,21 @@ function toggleSelected(key: T) {
 <template>
     <div>
         <div
-            v-for="option in options"
-            :key="option[0]"
+            v-for="[value, label] in options"
+            :key="value"
             class="form-check"
             :class="containerClasses"
         >
             <input
-                :id="'id_' + option[0]"
+                :id="'id_' + value"
                 type="checkbox"
                 class="form-check-input"
-                :value="option[0]"
-                :checked="props.modelValue.includes(option[0])"
-                @click="toggleSelected(option[0])"
+                :value="value"
+                :checked="props.modelValue.includes(value)"
+                @click="toggleSelected(value)"
             />
-            <label class="form-check-label" :for="'id_' + option[0]">{{
-                option[1]
+            <label class="form-check-label" :for="'id_' + value">{{
+                label
             }}</label>
         </div>
     </div>
