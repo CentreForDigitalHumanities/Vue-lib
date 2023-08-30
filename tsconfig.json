@@ -16,8 +16,8 @@
     "noFallthroughCasesInSwitch": true,
     "outDir": "dist",
     "outFile": "dist/index.d.ts",
+    "declarationMap": true,
     "declaration": true,
-    "exclude": ["vite.config.ts"],
     "paths": {
       "@/*": [
         "./src/*"

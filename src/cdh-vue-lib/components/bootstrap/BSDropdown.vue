@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {v4 as UUIDv4} from "uuid";
-import {Button} from ".";
+import {BSButton} from "@/cdh-vue-lib/components/bootstrap";
 import {computed} from "vue";
 
 
@@ -31,7 +31,7 @@ const elId = computed(() => {
 
 <template>
     <div class="dropdown">
-        <Button
+        <BSButton
             :id="elId"
             :variant="variant"
             class="dropdown-toggle"
@@ -39,7 +39,7 @@ const elId = computed(() => {
             aria-expanded="false"
         >
             <slot name="button"/>
-        </Button>
+        </BSButton>
         <ul class="dropdown-menu" :aria-labelledby="elId">
             <slot/>
         </ul>

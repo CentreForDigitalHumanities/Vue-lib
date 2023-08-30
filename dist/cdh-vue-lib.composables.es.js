@@ -17,19 +17,9 @@ express or implied.
 * See the Licence for the specific language governing
 permissions and limitations under the Licence.
 */
-import { BSButton as r, BSCard as B, BSDropdown as i, BSDropdownMultiSelect as n, BSIcon as p, BSMultiSelect as a, BSPagination as l, BSRadioSelect as u, BSSidebar as d } from "./cdh-vue-lib.components.es.js";
-import { useInputValue as m } from "./cdh-vue-lib.composables.es.js";
-import "vue";
-import "uuid";
+function t(e) {
+  return e.target.value;
+}
 export {
-  r as BSButton,
-  B as BSCard,
-  i as BSDropdown,
-  n as BSDropdownMultiSelect,
-  p as BSIcon,
-  a as BSMultiSelect,
-  l as BSPagination,
-  u as BSRadioSelect,
-  d as BSSidebar,
-  m as useInputValue
+  t as useInputValue
 };

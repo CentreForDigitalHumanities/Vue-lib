@@ -1,4 +1,4 @@
-declare module "components/bootstrap/Button.vue" {
+declare module "cdh-vue-lib/components/bootstrap/BSButton.vue" {
     const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         id: {
             type: import("vue").PropType<string | null>;
@@ -120,7 +120,7 @@ declare module "components/bootstrap/Button.vue" {
         };
     };
 }
-declare module "components/bootstrap/Card.vue" {
+declare module "cdh-vue-lib/components/bootstrap/BSCard.vue" {
     const _default_1: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         headerClasses: {
             type: import("vue").PropType<string>;
@@ -148,7 +148,7 @@ declare module "components/bootstrap/Card.vue" {
         };
     };
 }
-declare module "components/bootstrap/DropdownMultiSelect.vue" {
+declare module "cdh-vue-lib/components/bootstrap/BSDropdownMultiSelect.vue" {
     const _default_2: import("vue").DefineComponent<{
         label: {
             type: import("vue").PropType<string>;
@@ -182,7 +182,7 @@ declare module "components/bootstrap/DropdownMultiSelect.vue" {
     }, {}, {}>;
     export default _default_2;
 }
-declare module "components/bootstrap/Icon.vue" {
+declare module "cdh-vue-lib/components/bootstrap/BSIcon.vue" {
     const _default_3: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         symbol: {
             type: import("vue").PropType<string | boolean>;
@@ -327,7 +327,7 @@ declare module "components/bootstrap/Icon.vue" {
         };
     };
 }
-declare module "components/bootstrap/MultiSelect.vue" {
+declare module "cdh-vue-lib/components/bootstrap/BSMultiSelect.vue" {
     const _default_4: <T extends string | number>(__VLS_props: {
         options: [T, string][];
         modelValue: T[];
@@ -369,7 +369,7 @@ declare module "components/bootstrap/MultiSelect.vue" {
     };
     export default _default_4;
 }
-declare module "components/bootstrap/Pagination.vue" {
+declare module "cdh-vue-lib/components/bootstrap/BSPagination.vue" {
     const _default_5: import("vue").DefineComponent<{
         maxPages: {
             type: import("vue").PropType<number>;
@@ -414,7 +414,7 @@ declare module "components/bootstrap/Pagination.vue" {
     }, {}>;
     export default _default_5;
 }
-declare module "components/bootstrap/RadioSelect.vue" {
+declare module "cdh-vue-lib/components/bootstrap/BSRadioSelect.vue" {
     const _default_6: import("vue").DefineComponent<{
         options: {
             type: import("vue").PropType<[string | number, string][]>;
@@ -450,7 +450,7 @@ declare module "components/bootstrap/RadioSelect.vue" {
     }, {}>;
     export default _default_6;
 }
-declare module "components/bootstrap/Sidebar.vue" {
+declare module "cdh-vue-lib/components/bootstrap/BSSidebar.vue" {
     const _default_7: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         id: {
             type: import("vue").PropType<string | null>;
@@ -511,19 +511,19 @@ declare module "components/bootstrap/Sidebar.vue" {
         };
     };
 }
-declare module "components/bootstrap/index" {
-    import Button from "components/bootstrap/Button.vue";
-    import Card from "components/bootstrap/Card.vue";
-    import Dropdown from "components/bootstrap/Dropdown.vue";
-    import DropdownMultiSelect from "components/bootstrap/DropdownMultiSelect.vue";
-    import Icon from "components/bootstrap/Icon.vue";
-    import MultiSelect from "components/bootstrap/MultiSelect.vue";
-    import Pagination from "components/bootstrap/Pagination.vue";
-    import RadioSelect from "components/bootstrap/RadioSelect.vue";
-    import Sidebar from "components/bootstrap/Sidebar.vue";
-    export { Button, Card, Dropdown, DropdownMultiSelect, Icon, MultiSelect, Pagination, RadioSelect, Sidebar };
+declare module "cdh-vue-lib/components/bootstrap/index" {
+    import BSButton from "cdh-vue-lib/components/bootstrap/BSButton.vue";
+    import BSCard from "cdh-vue-lib/components/bootstrap/BSCard.vue";
+    import BSDropdown from "cdh-vue-lib/components/bootstrap/BSDropdown.vue";
+    import BSDropdownMultiSelect from "cdh-vue-lib/components/bootstrap/BSDropdownMultiSelect.vue";
+    import BSIcon from "cdh-vue-lib/components/bootstrap/BSIcon.vue";
+    import BSMultiSelect from "cdh-vue-lib/components/bootstrap/BSMultiSelect.vue";
+    import BSPagination from "cdh-vue-lib/components/bootstrap/BSPagination.vue";
+    import BSRadioSelect from "cdh-vue-lib/components/bootstrap/BSRadioSelect.vue";
+    import BSSidebar from "cdh-vue-lib/components/bootstrap/BSSidebar.vue";
+    export { BSButton, BSCard, BSDropdown, BSDropdownMultiSelect, BSIcon, BSMultiSelect, BSPagination, BSRadioSelect, BSSidebar };
 }
-declare module "components/bootstrap/Dropdown.vue" {
+declare module "cdh-vue-lib/components/bootstrap/BSDropdown.vue" {
     const _default_8: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         id: {
             type: import("vue").PropType<string | null>;
@@ -556,7 +556,7 @@ declare module "components/bootstrap/Dropdown.vue" {
         };
     };
 }
-declare module "components/bootstrap/Modal.vue" {
+declare module "cdh-vue-lib/components/bootstrap/BSModal.vue" {
     const _default_9: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         id: {
             type: import("vue").PropType<string | null>;
@@ -660,16 +660,756 @@ declare module "components/bootstrap/Modal.vue" {
         };
     };
 }
-declare module "composables/useInputValue" {
+declare module "cdh-vue-lib/components/uu-list/types" {
+    interface FilterDefinition {
+        field: string;
+        label: string;
+        options?: [string | number, string][];
+        type: 'radio' | 'checkbox' | "date";
+        children?: FilterDefinition[];
+        initial?: FilterValue;
+    }
+    type FilterValue = string | number | null | string[] | number[];
+    type FilterValues = Record<string, FilterValue>;
+    interface Data {
+        id: number;
+        [Key: string]: any;
+    }
+    interface SortOption {
+        field: string;
+        label: string;
+    }
+    interface ContainerProps {
+        data?: Data[];
+        isLoading: boolean;
+        totalData: number;
+        currentPage: number;
+        searchEnabled: boolean;
+        search: string;
+        sortEnabled: boolean;
+        currentSort: string;
+        sortOptions: SortOption[];
+        pageSize: number;
+        pageSizeOptions: number[];
+        filtersEnabled: boolean;
+        filters?: FilterDefinition[];
+        filterValues?: FilterValues;
+    }
+    type ContainerEmits = {
+        (e: 'update:current-page', value: number): void;
+        (e: 'update:search', value: string): void;
+        (e: 'update:current-sort', value: string): void;
+        (e: 'update:page-size', value: number): void;
+        (e: 'update:filter-values', value: FilterValues): void;
+    };
+    interface _DDC {
+        field: string;
+        label: string;
+    }
+    interface DDCHTML extends _DDC {
+        type: 'html';
+    }
+    interface DDCActions extends _DDC {
+        type: 'actions';
+    }
+    interface DDCString extends _DDC {
+        type: 'string';
+        classes?: string;
+    }
+    interface DateTimeFormatOptions {
+        localeMatcher?: "best fit" | "lookup";
+        weekday?: "long" | "short" | "narrow";
+        era?: "long" | "short" | "narrow";
+        year?: "numeric" | "2-digit";
+        month?: "numeric" | "2-digit" | "long" | "short" | "narrow";
+        day?: "numeric" | "2-digit";
+        hour?: "numeric" | "2-digit";
+        minute?: "numeric" | "2-digit";
+        second?: "numeric" | "2-digit";
+        timeZoneName?: "short" | "long" | "shortOffset" | "longOffset" | "shortGeneric" | "longGeneric";
+        formatMatcher?: "best fit" | "basic";
+        hour12?: boolean;
+        timeZone?: string;
+        dateStyle: "full" | "long" | "medium" | "short";
+        timeStyle: "full" | "long" | "medium" | "short";
+    }
+    interface DDCDate extends _DDC {
+        type: 'date';
+        format?: DateTimeFormatOptions | 'date' | 'time' | 'datetime' | null;
+        classes?: string;
+        language?: string | null;
+    }
+    interface DDCLink extends _DDC {
+        type: 'link';
+        classes?: string;
+    }
+    interface DDCButton extends _DDC {
+        type: 'button';
+        variant: string;
+        size: string;
+    }
+    type DataDefinedColumn = DDCHTML | DDCActions | DDCString | DDCLink | DDCButton | DDCDate;
+    export { FilterDefinition, FilterValue, FilterValues, Data, SortOption, ContainerProps, ContainerEmits, DataDefinedColumn, DDCHTML, DDCActions, DDCString, DDCDate, DDCLink, DDCButton, };
+}
+declare module "cdh-vue-lib/composables/useInputValue" {
     /**
      * Simple composable to get the input value from a @input or @update event
      * @param e
      */
     export default function useInputValue(e: Event): string;
 }
-declare module "cdh-vue-lib" {
-    import { Button, Card, Dropdown, DropdownMultiSelect, Icon, MultiSelect, Pagination, RadioSelect, Sidebar } from "components/bootstrap/index";
-    import useInputValue from "composables/useInputValue";
-    export { Button, Card, Dropdown, DropdownMultiSelect, Icon, MultiSelect, Pagination, RadioSelect, Sidebar };
+declare module "cdh-vue-lib/composables" {
+    import useInputValue from "cdh-vue-lib/composables/useInputValue";
     export { useInputValue };
 }
+declare module "cdh-vue-lib/components/uu-list/Filters/Filter.vue" {
+    import { FilterDefinition, FilterValue } from "cdh-vue-lib/components/uu-list/types";
+    const _default_10: import("vue").DefineComponent<{
+        filter: {
+            type: import("vue").PropType<FilterDefinition>;
+            required: true;
+        };
+        value: {
+            type: import("vue").PropType<FilterValue>;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+        "update:value": (value: FilterValue) => void;
+    }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        filter: {
+            type: import("vue").PropType<FilterDefinition>;
+            required: true;
+        };
+        value: {
+            type: import("vue").PropType<FilterValue>;
+        };
+    }>> & {
+        "onUpdate:value"?: ((value: FilterValue) => any) | undefined;
+    }, {}, {}>;
+    export default _default_10;
+}
+declare module "cdh-vue-lib/components/uu-list/Filters/FilterBar.vue" {
+    import { FilterDefinition, FilterValues } from "cdh-vue-lib/components/uu-list/types";
+    const _default_11: import("vue").DefineComponent<{
+        filters: {
+            type: import("vue").PropType<FilterDefinition[]>;
+            required: true;
+        };
+        filterValues: {
+            type: import("vue").PropType<FilterValues>;
+            required: true;
+        };
+    } | {
+        filters: {
+            type: import("vue").PropType<null | undefined>;
+            required: true;
+        };
+        filterValues: {
+            type: import("vue").PropType<null | undefined>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+        "update:filter-values": (value: FilterValues) => void;
+    }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        filters: {
+            type: import("vue").PropType<FilterDefinition[]>;
+            required: true;
+        };
+        filterValues: {
+            type: import("vue").PropType<FilterValues>;
+            required: true;
+        };
+    }> | import("vue").ExtractPropTypes<{
+        filters: {
+            type: import("vue").PropType<null | undefined>;
+            required: true;
+        };
+        filterValues: {
+            type: import("vue").PropType<null | undefined>;
+            required: true;
+        };
+    }>> & {
+        "onUpdate:filter-values"?: ((value: FilterValues) => any) | undefined;
+    }, {} | {}, {}>;
+    export default _default_11;
+}
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DebugVisualizer.vue" {
+    import { Data } from "cdh-vue-lib/components/uu-list/types";
+    const _default_12: import("vue").DefineComponent<{
+        data: {
+            type: import("vue").PropType<Data[]>;
+        };
+        isLoading: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+            default: boolean;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        data: {
+            type: import("vue").PropType<Data[]>;
+        };
+        isLoading: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+            default: boolean;
+        };
+    }>>, {
+        isLoading: boolean;
+    }, {}>;
+    export default _default_12;
+}
+declare module "cdh-vue-lib/components/uu-list/Controls/Search.vue" {
+    const _default_13: import("vue").DefineComponent<{
+        modelValue: {
+            type: import("vue").PropType<string>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+        "update:modelValue": (value: string) => void;
+        "update:model-value": (value: string) => void;
+    }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        modelValue: {
+            type: import("vue").PropType<string>;
+            required: true;
+        };
+    }>> & {
+        "onUpdate:modelValue"?: ((value: string) => any) | undefined;
+        "onUpdate:model-value"?: ((value: string) => any) | undefined;
+    }, {}, {}>;
+    export default _default_13;
+}
+declare module "cdh-vue-lib/components/uu-list/Containers/Default.vue" {
+    const _default_14: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
+        data: {
+            type: import("vue").PropType<import("cdh-vue-lib/components/uu-list/types").Data[]>;
+        };
+        isLoading: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        totalData: {
+            type: import("vue").PropType<number>;
+            required: true;
+        };
+        currentPage: {
+            type: import("vue").PropType<number>;
+            required: true;
+        };
+        searchEnabled: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        search: {
+            type: import("vue").PropType<string>;
+            required: true;
+        };
+        sortEnabled: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        currentSort: {
+            type: import("vue").PropType<string>;
+            required: true;
+        };
+        sortOptions: {
+            type: import("vue").PropType<import("cdh-vue-lib/components/uu-list/types").SortOption[]>;
+            required: true;
+        };
+        pageSize: {
+            type: import("vue").PropType<number>;
+            required: true;
+        };
+        pageSizeOptions: {
+            type: import("vue").PropType<number[]>;
+            required: true;
+        };
+        filtersEnabled: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        filters: {
+            type: import("vue").PropType<import("cdh-vue-lib/components/uu-list/types").FilterDefinition[]>;
+        };
+        filterValues: {
+            type: import("vue").PropType<import("cdh-vue-lib/components/uu-list/types").FilterValues>;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+        "update:current-page": (value: number) => void;
+        "update:search": (value: string) => void;
+        "update:current-sort": (value: string) => void;
+        "update:page-size": (value: number) => void;
+        "update:filter-values": (value: import("cdh-vue-lib/components/uu-list/types").FilterValues) => void;
+    }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        data: {
+            type: import("vue").PropType<import("cdh-vue-lib/components/uu-list/types").Data[]>;
+        };
+        isLoading: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        totalData: {
+            type: import("vue").PropType<number>;
+            required: true;
+        };
+        currentPage: {
+            type: import("vue").PropType<number>;
+            required: true;
+        };
+        searchEnabled: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        search: {
+            type: import("vue").PropType<string>;
+            required: true;
+        };
+        sortEnabled: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        currentSort: {
+            type: import("vue").PropType<string>;
+            required: true;
+        };
+        sortOptions: {
+            type: import("vue").PropType<import("cdh-vue-lib/components/uu-list/types").SortOption[]>;
+            required: true;
+        };
+        pageSize: {
+            type: import("vue").PropType<number>;
+            required: true;
+        };
+        pageSizeOptions: {
+            type: import("vue").PropType<number[]>;
+            required: true;
+        };
+        filtersEnabled: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        filters: {
+            type: import("vue").PropType<import("cdh-vue-lib/components/uu-list/types").FilterDefinition[]>;
+        };
+        filterValues: {
+            type: import("vue").PropType<import("cdh-vue-lib/components/uu-list/types").FilterValues>;
+        };
+    }>> & {
+        "onUpdate:filter-values"?: ((value: import("cdh-vue-lib/components/uu-list/types").FilterValues) => any) | undefined;
+        "onUpdate:current-page"?: ((value: number) => any) | undefined;
+        "onUpdate:search"?: ((value: string) => any) | undefined;
+        "onUpdate:current-sort"?: ((value: string) => any) | undefined;
+        "onUpdate:page-size"?: ((value: number) => any) | undefined;
+    }, {}, {}>, {
+        data?(_: {
+            data: import("cdh-vue-lib/components/uu-list/types").Data[] | undefined;
+            isLoading: boolean;
+        }): any;
+    }>;
+    export default _default_14;
+    type __VLS_WithTemplateSlots<T, S> = T & {
+        new (): {
+            $slots: S;
+        };
+    };
+}
+declare module "cdh-vue-lib/components/uu-list/Containers/Sidebar.vue" {
+    const _default_15: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
+        data: {
+            type: import("vue").PropType<import("cdh-vue-lib/components/uu-list/types").Data[]>;
+        };
+        isLoading: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        totalData: {
+            type: import("vue").PropType<number>;
+            required: true;
+        };
+        currentPage: {
+            type: import("vue").PropType<number>;
+            required: true;
+        };
+        searchEnabled: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        search: {
+            type: import("vue").PropType<string>;
+            required: true;
+        };
+        sortEnabled: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        currentSort: {
+            type: import("vue").PropType<string>;
+            required: true;
+        };
+        sortOptions: {
+            type: import("vue").PropType<import("cdh-vue-lib/components/uu-list/types").SortOption[]>;
+            required: true;
+        };
+        pageSize: {
+            type: import("vue").PropType<number>;
+            required: true;
+        };
+        pageSizeOptions: {
+            type: import("vue").PropType<number[]>;
+            required: true;
+        };
+        filtersEnabled: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        filters: {
+            type: import("vue").PropType<import("cdh-vue-lib/components/uu-list/types").FilterDefinition[]>;
+        };
+        filterValues: {
+            type: import("vue").PropType<import("cdh-vue-lib/components/uu-list/types").FilterValues>;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+        "update:current-page": (value: number) => void;
+        "update:search": (value: string) => void;
+        "update:current-sort": (value: string) => void;
+        "update:page-size": (value: number) => void;
+        "update:filter-values": (value: import("cdh-vue-lib/components/uu-list/types").FilterValues) => void;
+    }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        data: {
+            type: import("vue").PropType<import("cdh-vue-lib/components/uu-list/types").Data[]>;
+        };
+        isLoading: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        totalData: {
+            type: import("vue").PropType<number>;
+            required: true;
+        };
+        currentPage: {
+            type: import("vue").PropType<number>;
+            required: true;
+        };
+        searchEnabled: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        search: {
+            type: import("vue").PropType<string>;
+            required: true;
+        };
+        sortEnabled: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        currentSort: {
+            type: import("vue").PropType<string>;
+            required: true;
+        };
+        sortOptions: {
+            type: import("vue").PropType<import("cdh-vue-lib/components/uu-list/types").SortOption[]>;
+            required: true;
+        };
+        pageSize: {
+            type: import("vue").PropType<number>;
+            required: true;
+        };
+        pageSizeOptions: {
+            type: import("vue").PropType<number[]>;
+            required: true;
+        };
+        filtersEnabled: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        filters: {
+            type: import("vue").PropType<import("cdh-vue-lib/components/uu-list/types").FilterDefinition[]>;
+        };
+        filterValues: {
+            type: import("vue").PropType<import("cdh-vue-lib/components/uu-list/types").FilterValues>;
+        };
+    }>> & {
+        "onUpdate:filter-values"?: ((value: import("cdh-vue-lib/components/uu-list/types").FilterValues) => any) | undefined;
+        "onUpdate:current-page"?: ((value: number) => any) | undefined;
+        "onUpdate:search"?: ((value: string) => any) | undefined;
+        "onUpdate:current-sort"?: ((value: string) => any) | undefined;
+        "onUpdate:page-size"?: ((value: number) => any) | undefined;
+    }, {}, {}>, {
+        data?(_: {
+            data: import("cdh-vue-lib/components/uu-list/types").Data[];
+            isLoading: boolean;
+        }): any;
+    }>;
+    export default _default_15;
+    type __VLS_WithTemplateSlots<T, S> = T & {
+        new (): {
+            $slots: S;
+        };
+    };
+}
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVString.vue" {
+    import { Data, DDCString } from "cdh-vue-lib/components/uu-list/types";
+    const _default_16: import("vue").DefineComponent<{
+        item: {
+            type: import("vue").PropType<Data>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCString>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        item: {
+            type: import("vue").PropType<Data>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCString>;
+            required: true;
+        };
+    }>>, {}, {}>;
+    export default _default_16;
+}
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVDate.vue" {
+    import { Data, DDCDate } from "cdh-vue-lib/components/uu-list/types";
+    const _default_17: import("vue").DefineComponent<{
+        item: {
+            type: import("vue").PropType<Data>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCDate>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        item: {
+            type: import("vue").PropType<Data>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCDate>;
+            required: true;
+        };
+    }>>, {}, {}>;
+    export default _default_17;
+}
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVButton.vue" {
+    import { Data, DDCButton } from "cdh-vue-lib/components/uu-list/types";
+    const _default_18: import("vue").DefineComponent<{
+        item: {
+            type: import("vue").PropType<Data>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCButton>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        item: {
+            type: import("vue").PropType<Data>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCButton>;
+            required: true;
+        };
+    }>>, {}, {}>;
+    export default _default_18;
+}
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVLink.vue" {
+    import { Data, DDCLink } from "cdh-vue-lib/components/uu-list/types";
+    const _default_19: import("vue").DefineComponent<{
+        item: {
+            type: import("vue").PropType<Data>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCLink>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        item: {
+            type: import("vue").PropType<Data>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCLink>;
+            required: true;
+        };
+    }>>, {}, {}>;
+    export default _default_19;
+}
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVHTML.vue" {
+    import { Data, DDCHTML } from "cdh-vue-lib/components/uu-list/types";
+    const _default_20: import("vue").DefineComponent<{
+        item: {
+            type: import("vue").PropType<Data>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCHTML>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        item: {
+            type: import("vue").PropType<Data>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCHTML>;
+            required: true;
+        };
+    }>>, {}, {}>;
+    export default _default_20;
+}
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVActions.vue" {
+    import { Data, DDCActions } from "cdh-vue-lib/components/uu-list/types";
+    const _default_21: import("vue").DefineComponent<{
+        item: {
+            type: import("vue").PropType<Data>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCActions>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        item: {
+            type: import("vue").PropType<Data>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCActions>;
+            required: true;
+        };
+    }>>, {}, {}>;
+    export default _default_21;
+}
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/DDVColumn.vue" {
+    import { Data, DataDefinedColumn } from "cdh-vue-lib/components/uu-list/types";
+    const _default_22: import("vue").DefineComponent<{
+        item: {
+            type: import("vue").PropType<Data>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DataDefinedColumn>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        item: {
+            type: import("vue").PropType<Data>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DataDefinedColumn>;
+            required: true;
+        };
+    }>>, {}, {}>;
+    export default _default_22;
+}
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/DDVRow.vue" {
+    import { Data, DataDefinedColumn as DDC } from "cdh-vue-lib/components/uu-list/types";
+    const _default_23: import("vue").DefineComponent<{
+        item: {
+            type: import("vue").PropType<Data>;
+            required: true;
+        };
+        columns: {
+            type: import("vue").PropType<DDC[]>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        item: {
+            type: import("vue").PropType<Data>;
+            required: true;
+        };
+        columns: {
+            type: import("vue").PropType<DDC[]>;
+            required: true;
+        };
+    }>>, {}, {}>;
+    export default _default_23;
+}
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/DataDefinedVisualizer.vue" {
+    import { Data, DataDefinedColumn as DDC } from "cdh-vue-lib/components/uu-list/types";
+    const _default_24: import("vue").DefineComponent<{
+        data: {
+            type: import("vue").PropType<Data[] | null>;
+        };
+        isLoading: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+            default: boolean;
+        };
+        columns: {
+            type: import("vue").PropType<DDC[]>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        data: {
+            type: import("vue").PropType<Data[] | null>;
+        };
+        isLoading: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+            default: boolean;
+        };
+        columns: {
+            type: import("vue").PropType<DDC[]>;
+            required: true;
+        };
+    }>>, {
+        isLoading: boolean;
+    }, {}>;
+    export default _default_24;
+}
+declare module "cdh-vue-lib/components/uu-list/UUList.vue" {
+    import { DataDefinedColumn, FilterDefinition } from "cdh-vue-lib/components/uu-list/types";
+    interface Config {
+        locale: string;
+        dataUri: string;
+        sortEnabled: boolean;
+        sortOptions?: SortOption[];
+        filtersEnabled: boolean;
+        filters?: FilterDefinition[];
+        pageSize: number;
+        pageSizeOptions: number[];
+        searchEnabled: boolean;
+        columns: DataDefinedColumn[];
+    }
+    interface SortOption {
+        field: string;
+        label: string;
+    }
+    const _default_25: import("vue").DefineComponent<{
+        config: {
+            type: import("vue").PropType<Config>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        config: {
+            type: import("vue").PropType<Config>;
+            required: true;
+        };
+    }>>, {}, {}>;
+    export default _default_25;
+}
+declare module "cdh-vue-lib/components/uu-list/Controls/SearchIcon.vue" {
+    const _default_26: import("vue").DefineComponent<{}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}, {}>;
+    export default _default_26;
+}
+declare module "cdh-vue-lib/components" {
+    export * from "cdh-vue-lib/components/bootstrap/index";
+}
+declare module "cdh-vue-lib/index" {
+    export * from "cdh-vue-lib/components";
+    export * from "cdh-vue-lib/composables";
+}
+declare module "cdh-vue-lib" {
+    export * from "cdh-vue-lib/index";
+}
+declare module "cdh-vue-lib/components/uu-list" {
+    import UUList from "cdh-vue-lib/components/uu-list/UUList.vue";
+    import * as UUListTypes from "cdh-vue-lib/components/uu-list/types";
+    export { UUList, UUListTypes };
+}
+//# sourceMappingURL=index.d.ts.map
