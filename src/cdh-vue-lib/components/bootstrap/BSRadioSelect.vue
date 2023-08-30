@@ -1,49 +1,44 @@
-<script lang="ts" setup>
-import { ref } from "vue";
-
-interface Props {
-    options: [string | number, string][];
-    modelValue: string | number;
+<script lang="ts" setup generic="T extends string | number">
+const props = withDefaults(defineProps<{
+    options: [T, string][];
+    modelValue: T;
     containerClasses?: string;
-}
-const props = withDefaults(defineProps<Props>(), {
+}>(), {
     containerClasses: "",
 });
 
 // eslint-disable-next-line func-call-spacing
-const emit = defineEmits<{
+const emits = defineEmits<{
+  // Twice, because Vue is dumb
     (
         e: "update:modelValue",
-        value: string | number
+        value: T
+    ): void;
+    (
+        e: "update:model-value",
+        value: T
     ): void;
 }>();
-
-const selected = ref<(string | number)>(props.modelValue);
-
-function toggleSelected(key: string | number) {
-    selected.value = key;
-    emit("update:modelValue", selected.value);
-}
 </script>
 
 <template>
     <div>
         <div
-            v-for="option in options"
-            :key="option[0]"
+            v-for="[value, label] in options"
+            :key="value"
             class="form-check"
             :class="containerClasses"
         >
             <input
-                :id="'id_' + option[0]"
+                :id="'id_' + value"
                 type="radio"
                 class="form-check-input"
-                :value="option[0]"
-                :checked="selected == option[0]"
-                @click="toggleSelected(option[0])"
+                :value="value"
+                :checked="modelValue == value"
+                @click="emits('update:model-value', value)"
             />
-            <label class="form-check-label" :for="'id_' + option[0]">{{
-                option[1]
+            <label class="form-check-label" :for="'id_' + value">{{
+                label
             }}</label>
         </div>
     </div>
