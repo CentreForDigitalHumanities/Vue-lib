@@ -54,8 +54,7 @@ function toggleSelected(key: T) {
             />
             <label class="form-check-label" :for="+'_' + uniqueId">{{
                 label
-            }}</label
-            >Kippig
+            }}</label>
         </div>
     </div>
 </template>
