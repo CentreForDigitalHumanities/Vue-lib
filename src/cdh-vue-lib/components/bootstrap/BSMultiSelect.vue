@@ -1,29 +1,30 @@
 <script lang="ts" setup generic="T extends string | number">
-const props = withDefaults(defineProps<{
-    options: [T, string][];
-    modelValue: T[];
-    containerClasses?: string;
-}>(), {
-    containerClasses: "",
-});
+import { v4 as UUIDv4 } from "uuid";
+
+const props = withDefaults(
+    defineProps<{
+        options: [T, string][];
+        modelValue: T[];
+        containerClasses?: string;
+        uniqueId?: string;
+    }>(),
+    {
+        containerClasses: "",
+        uniqueId: UUIDv4().toString(),
+    }
+);
 
 // eslint-disable-next-line func-call-spacing
 const emit = defineEmits<{
     // Twice, because Vue is dumb
-    (
-        e: "update:modelValue",
-        value: T[]
-    ): void;
-    (
-        e: "update:model-value",
-        value: T
-    ): void;
+    (e: "update:modelValue", value: T[]): void;
+    (e: "update:model-value", value: T): void;
 }>();
 
 function toggleSelected(key: T) {
     const curVal: boolean = props.modelValue.includes(key);
 
-    let copy = [...props.modelValue]
+    let copy = [...props.modelValue];
 
     if (!curVal) copy.push(key);
     else {
@@ -44,16 +45,17 @@ function toggleSelected(key: T) {
             :class="containerClasses"
         >
             <input
-                :id="'id_' + value"
+                :id="'id_' + value + '_' + uniqueId"
                 type="checkbox"
                 class="form-check-input"
                 :value="value"
                 :checked="props.modelValue.includes(value)"
                 @click="toggleSelected(value)"
             />
-            <label class="form-check-label" :for="'id_' + value">{{
+            <label class="form-check-label" :for="+'_' + uniqueId">{{
                 label
-            }}</label>
+            }}</label
+            >Kippig
         </div>
     </div>
 </template>

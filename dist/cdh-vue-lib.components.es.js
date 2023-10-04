@@ -17,9 +17,9 @@ express or implied.
 * See the Licence for the specific language governing
 permissions and limitations under the Licence.
 */
-import { defineComponent as b, computed as v, openBlock as o, createElementBlock as n, normalizeClass as m, createElementVNode as i, renderSlot as c, createCommentVNode as h, createVNode as y, unref as I, withCtx as V, resolveComponent as B, toDisplayString as $, createBlock as C, resolveDynamicComponent as P, Fragment as S, renderList as w, ref as M } from "vue";
-import { v4 as z } from "uuid";
-const D = ["href", "target"], O = { class: "btn-text" }, W = ["type", "name", "disabled"], N = { class: "btn-text" }, E = /* @__PURE__ */ b({
+import { defineComponent as b, computed as g, openBlock as l, createElementBlock as n, normalizeClass as m, createElementVNode as i, renderSlot as u, createCommentVNode as h, createVNode as y, unref as z, withCtx as I, resolveComponent as B, toDisplayString as $, createBlock as V, resolveDynamicComponent as P, Fragment as S, renderList as w, createTextVNode as M } from "vue";
+import { v4 as C } from "uuid";
+const D = ["href", "target"], O = { class: "btn-text" }, N = ["type", "name", "disabled"], W = { class: "btn-text" }, q = /* @__PURE__ */ b({
   __name: "BSButton",
   props: {
     id: { default: null },
@@ -35,119 +35,119 @@ const D = ["href", "target"], O = { class: "btn-text" }, W = ["type", "name", "d
     newTab: { type: Boolean, default: !1 },
     cssClasses: { default: "" }
   },
-  setup(u) {
-    const l = u, a = v(() => {
+  setup(r) {
+    const a = r, s = g(() => {
       let e = "btn ";
-      return l.size === "large" ? e += "btn-lg " : l.size === "small" && (e += "btn-sm "), l.outlined ? e += "btn-outline-" : e += "btn-", e += `${l.variant} `, l.loading && (e += "btn-loading "), l.active && (e += "active "), e;
+      return a.size === "large" ? e += "btn-lg " : a.size === "small" && (e += "btn-sm "), a.outlined ? e += "btn-outline-" : e += "btn-", e += `${a.variant} `, a.loading && (e += "btn-loading "), a.active && (e += "active "), e;
     });
-    return (e, s) => e.href ? (o(), n("a", {
+    return (e, t) => e.href ? (l(), n("a", {
       key: 0,
       href: e.href,
-      class: m(a.value),
+      class: m(s.value),
       target: e.newTab ? "_blank" : "_self"
     }, [
       i("span", O, [
-        c(e.$slots, "default")
+        u(e.$slots, "default")
       ])
-    ], 10, D)) : (o(), n("button", {
+    ], 10, D)) : (l(), n("button", {
       key: 1,
       type: e.input,
-      class: m(a.value),
+      class: m(s.value),
       name: e.name,
       disabled: e.disabled
     }, [
-      i("span", N, [
-        c(e.$slots, "default")
+      i("span", W, [
+        u(e.$slots, "default")
       ])
-    ], 10, W));
+    ], 10, N));
   }
-}), R = { class: "card" }, T = { class: "d-flex" }, j = {
+}), T = { class: "card" }, E = { class: "d-flex" }, R = {
   key: 0,
   class: "me-auto"
-}, F = {
+}, j = {
   key: 2,
   class: "card-image-top"
-}, L = { class: "card-body" }, U = {
+}, F = { class: "card-body" }, K = {
   key: 3,
   class: "card-footer"
-}, q = /* @__PURE__ */ b({
+}, L = /* @__PURE__ */ b({
   __name: "BSCard",
   props: {
     headerClasses: {}
   },
   emits: ["header-icon-clicked"],
-  setup(u, { emit: l }) {
-    const a = u, e = v(() => typeof a.headerClasses < "u" ? "card-header fw-bold " + a.headerClasses : "card-header fw-bold");
-    return (s, r) => (o(), n("div", R, [
-      s.$slots.header ? (o(), n("div", {
+  setup(r, { emit: a }) {
+    const s = r, e = g(() => typeof s.headerClasses < "u" ? "card-header fw-bold " + s.headerClasses : "card-header fw-bold");
+    return (t, d) => (l(), n("div", T, [
+      t.$slots.header ? (l(), n("div", {
         key: 0,
         class: m(e.value)
       }, [
-        c(s.$slots, "header", {}, void 0, !0)
-      ], 2)) : s.$slots.title || s.$slots.header_icon ? (o(), n("div", {
+        u(t.$slots, "header", {}, void 0, !0)
+      ], 2)) : t.$slots.title || t.$slots.header_icon ? (l(), n("div", {
         key: 1,
         class: m(e.value)
       }, [
-        i("div", T, [
-          s.$slots.title ? (o(), n("div", j, [
-            c(s.$slots, "title", {}, void 0, !0)
+        i("div", E, [
+          t.$slots.title ? (l(), n("div", R, [
+            u(t.$slots, "title", {}, void 0, !0)
           ])) : h("", !0),
-          s.$slots.header_icon ? (o(), n("div", {
+          t.$slots.header_icon ? (l(), n("div", {
             key: 1,
             class: "ms-auto card-header-icon",
-            onClick: r[0] || (r[0] = (t) => s.$emit("header-icon-clicked"))
+            onClick: d[0] || (d[0] = (o) => t.$emit("header-icon-clicked"))
           }, [
-            c(s.$slots, "header_icon", {}, void 0, !0)
+            u(t.$slots, "header_icon", {}, void 0, !0)
           ])) : h("", !0)
         ])
       ], 2)) : h("", !0),
-      s.$slots.image ? (o(), n("div", F, [
-        c(s.$slots, "image", {}, void 0, !0)
+      t.$slots.image ? (l(), n("div", j, [
+        u(t.$slots, "image", {}, void 0, !0)
       ])) : h("", !0),
-      i("div", L, [
-        c(s.$slots, "default", {}, void 0, !0)
+      i("div", F, [
+        u(t.$slots, "default", {}, void 0, !0)
       ]),
-      s.$slots.footer ? (o(), n("div", U, [
-        c(s.$slots, "footer", {}, void 0, !0)
+      t.$slots.footer ? (l(), n("div", K, [
+        u(t.$slots, "footer", {}, void 0, !0)
       ])) : h("", !0)
     ]));
   }
 });
-const A = (u, l) => {
-  const a = u.__vccOpts || u;
-  for (const [e, s] of l)
-    a[e] = s;
-  return a;
-}, fe = /* @__PURE__ */ A(q, [["__scopeId", "data-v-06938a02"]]), G = { class: "dropdown" }, H = ["aria-labelledby"], me = /* @__PURE__ */ b({
+const U = (r, a) => {
+  const s = r.__vccOpts || r;
+  for (const [e, t] of a)
+    s[e] = t;
+  return s;
+}, fe = /* @__PURE__ */ U(L, [["__scopeId", "data-v-06938a02"]]), A = { class: "dropdown" }, G = ["aria-labelledby"], me = /* @__PURE__ */ b({
   __name: "BSDropdown",
   props: {
     id: { default: null },
     variant: { default: "primary" }
   },
-  setup(u) {
-    const l = u, a = v(() => l.id !== null ? l.id : "id_" + z().toString());
-    return (e, s) => (o(), n("div", G, [
-      y(I(E), {
-        id: a.value,
+  setup(r) {
+    const a = r, s = g(() => a.id !== null ? a.id : "id_" + C().toString());
+    return (e, t) => (l(), n("div", A, [
+      y(z(q), {
+        id: s.value,
         variant: e.variant,
         class: "dropdown-toggle",
         "data-bs-toggle": "dropdown",
         "aria-expanded": "false"
       }, {
-        default: V(() => [
-          c(e.$slots, "button")
+        default: I(() => [
+          u(e.$slots, "button")
         ]),
         _: 3
       }, 8, ["id", "variant"]),
       i("ul", {
         class: "dropdown-menu",
-        "aria-labelledby": a.value
+        "aria-labelledby": s.value
       }, [
-        c(e.$slots, "default")
-      ], 8, H)
+        u(e.$slots, "default")
+      ], 8, G)
     ]));
   }
-}), J = { class: "dropdown dropdown-select is-hoverable" }, K = { class: "dropdown-trigger" }, Q = {
+}), H = { class: "dropdown dropdown-select is-hoverable" }, J = { class: "dropdown-trigger" }, Q = {
   class: "button",
   "aria-haspopup": "true",
   "aria-controls": "dropdown-menu4"
@@ -162,23 +162,23 @@ const A = (u, l) => {
     modelValue: {}
   },
   emits: ["update:modelValue"],
-  setup(u, { emit: l }) {
-    return (a, e) => {
-      const s = B("Icon"), r = B("MultiSelect");
-      return o(), n("div", J, [
-        i("div", K, [
+  setup(r, { emit: a }) {
+    return (s, e) => {
+      const t = B("Icon"), d = B("MultiSelect");
+      return l(), n("div", H, [
+        i("div", J, [
           i("button", Q, [
-            i("span", null, $(a.label), 1),
-            y(s, { icon: "angle-down" })
+            i("span", null, $(s.label), 1),
+            y(t, { icon: "angle-down" })
           ])
         ]),
         i("div", X, [
           i("div", Y, [
-            y(r, {
-              options: a.options,
-              "model-value": a.modelValue,
+            y(d, {
+              options: s.options,
+              "model-value": s.modelValue,
               "container-classes": "dropdown-item",
-              "onUpdate:modelValue": e[0] || (e[0] = (t) => a.$emit("update:modelValue", t))
+              "onUpdate:modelValue": e[0] || (e[0] = (o) => s.$emit("update:modelValue", o))
             }, null, 8, ["options", "model-value"])
           ])
         ])
@@ -207,15 +207,15 @@ const Z = { key: 0 }, x = { class: "icon me-1" }, he = /* @__PURE__ */ b({
     title: { default: null },
     inverse: { type: Boolean }
   },
-  setup(u) {
-    const l = u, a = v(() => l.inline ? "span" : "div");
-    return (e, s) => {
-      const r = B("font-awesome-icon");
-      return o(), C(P(a.value), null, {
-        default: V(() => [
-          e.$slots.default ? (o(), n("span", Z, [
+  setup(r) {
+    const a = r, s = g(() => a.inline ? "span" : "div");
+    return (e, t) => {
+      const d = B("font-awesome-icon");
+      return l(), V(P(s.value), null, {
+        default: I(() => [
+          e.$slots.default ? (l(), n("span", Z, [
             i("span", x, [
-              y(r, {
+              y(d, {
                 border: e.border,
                 "fixed-width": e.fixedWidth,
                 flip: e.flip,
@@ -235,9 +235,9 @@ const Z = { key: 0 }, x = { class: "icon me-1" }, he = /* @__PURE__ */ b({
               }, null, 8, ["border", "fixed-width", "flip", "icon", "mask", "list-item", "pull", "pulse", "rotation", "swap-opacity", "size", "spin", "transform", "symbol", "title", "inverse"])
             ]),
             i("span", null, [
-              c(e.$slots, "default")
+              u(e.$slots, "default")
             ])
-          ])) : (o(), C(r, {
+          ])) : (l(), V(d, {
             key: 1,
             border: e.border,
             "fixed-width": e.fixedWidth,
@@ -261,55 +261,57 @@ const Z = { key: 0 }, x = { class: "icon me-1" }, he = /* @__PURE__ */ b({
       });
     };
   }
-}), ee = ["id", "value", "checked", "onClick"], se = ["for"], ve = /* @__PURE__ */ b({
+}), ee = ["id", "value", "checked", "onClick"], te = ["for"], ge = /* @__PURE__ */ b({
   __name: "BSMultiSelect",
   props: {
     options: {},
     modelValue: {},
-    containerClasses: { default: "" }
+    containerClasses: { default: "" },
+    uniqueId: { default: C().toString() }
   },
-  emits: ["update:modelValue"],
-  setup(u, { emit: l }) {
-    const a = u;
-    function e(s) {
-      const r = a.modelValue.includes(s);
-      let t = [...a.modelValue];
-      if (!r)
-        t.push(s);
+  emits: ["update:modelValue", "update:model-value"],
+  setup(r, { emit: a }) {
+    const s = r;
+    function e(t) {
+      const d = s.modelValue.includes(t);
+      let o = [...s.modelValue];
+      if (!d)
+        o.push(t);
       else {
-        const d = t.indexOf(s);
-        d > -1 && t.splice(d, 1);
+        const p = o.indexOf(t);
+        p > -1 && o.splice(p, 1);
       }
-      l("update:modelValue", t);
+      a("update:modelValue", o);
     }
-    return (s, r) => (o(), n("div", null, [
-      (o(!0), n(S, null, w(s.options, (t) => (o(), n("div", {
-        key: t[0],
-        class: m(["form-check", s.containerClasses])
+    return (t, d) => (l(), n("div", null, [
+      (l(!0), n(S, null, w(t.options, ([o, p]) => (l(), n("div", {
+        key: o,
+        class: m(["form-check", t.containerClasses])
       }, [
         i("input", {
-          id: "id_" + t[0],
+          id: "id_" + o + "_" + t.uniqueId,
           type: "checkbox",
           class: "form-check-input",
-          value: t[0],
-          checked: a.modelValue.includes(t[0]),
-          onClick: (d) => e(t[0])
+          value: o,
+          checked: s.modelValue.includes(o),
+          onClick: (c) => e(o)
         }, null, 8, ee),
         i("label", {
           class: "form-check-label",
-          for: "id_" + t[0]
-        }, $(t[1]), 9, se)
+          for: +"_" + t.uniqueId
+        }, $(p), 9, te),
+        M("Kippig ")
       ], 2))), 128))
     ]));
   }
-}), te = {
+}), se = {
   class: "pagination justify-content-center",
   role: "navigation",
   "aria-label": "pagination"
-}, ae = ["onClick"], le = {
+}, oe = ["onClick"], ae = {
   key: 1,
   class: "page-link"
-}, ge = /* @__PURE__ */ b({
+}, ve = /* @__PURE__ */ b({
   __name: "BSPagination",
   props: {
     maxPages: {},
@@ -318,87 +320,83 @@ const Z = { key: 0 }, x = { class: "icon me-1" }, he = /* @__PURE__ */ b({
     numOptions: { default: 2 }
   },
   emits: ["change-page"],
-  setup(u, { emit: l }) {
-    const a = u;
-    function e(t, d, p) {
-      return Math.min(Math.max(t, d), p);
+  setup(r, { emit: a }) {
+    const s = r;
+    function e(o, p, c) {
+      return Math.min(Math.max(o, p), c);
     }
-    const s = v(() => {
-      const t = a.numOptions, d = a.currentpage - t, p = a.currentpage + t + 1, k = [], _ = [];
-      let g;
-      for (let f = 1; f <= a.maxPages; f++)
-        (f === 1 || f === a.maxPages || f >= d && f < p) && k.push(f);
+    const t = g(() => {
+      const o = s.numOptions, p = s.currentpage - o, c = s.currentpage + o + 1, k = [], _ = [];
+      let v;
+      for (let f = 1; f <= s.maxPages; f++)
+        (f === 1 || f === s.maxPages || f >= p && f < c) && k.push(f);
       for (const f of k)
-        g && (f - g === 2 ? _.push(g + 1) : f - g !== 1 && _.push(-42)), _.push(f), g = f;
+        v && (f - v === 2 ? _.push(v + 1) : f - v !== 1 && _.push(-42)), _.push(f), v = f;
       return _;
     });
-    function r(t) {
-      t = e(t, 1, a.maxPages), l("change-page", t);
+    function d(o) {
+      o = e(o, 1, s.maxPages), a("change-page", o);
     }
-    return (t, d) => (o(), n("ul", te, [
+    return (o, p) => (l(), n("ul", se, [
       i("li", {
-        class: m(["page-item page-button", t.currentpage === 1 ? "disabled" : ""])
+        class: m(["page-item page-button", o.currentpage === 1 ? "disabled" : ""])
       }, [
-        t.showButtons ? (o(), n("a", {
+        o.showButtons ? (l(), n("a", {
           key: 0,
           class: "page-link",
-          onClick: d[0] || (d[0] = (p) => r(t.currentpage - 1))
+          onClick: p[0] || (p[0] = (c) => d(o.currentpage - 1))
         }, " Vorige ")) : h("", !0)
       ], 2),
-      (o(!0), n(S, null, w(s.value, (p) => (o(), n("li", {
-        key: p,
+      (l(!0), n(S, null, w(t.value, (c) => (l(), n("li", {
+        key: c,
         class: m([
           "page-item",
-          (p === -42 ? "disabled page-ellipsis " : "") + (p === t.currentpage ? "active" : "")
+          (c === -42 ? "disabled page-ellipsis " : "") + (c === o.currentpage ? "active" : "")
         ])
       }, [
-        p !== -42 ? (o(), n("a", {
+        c !== -42 ? (l(), n("a", {
           key: 0,
           class: "page-link",
-          onClick: (k) => r(p)
-        }, $(p), 9, ae)) : (o(), n("span", le, "…"))
+          onClick: (k) => d(c)
+        }, $(c), 9, oe)) : (l(), n("span", ae, "…"))
       ], 2))), 128)),
       i("li", {
-        class: m(["page-item page-button", t.currentpage >= t.maxPages ? "disabled" : ""])
+        class: m(["page-item page-button", o.currentpage >= o.maxPages ? "disabled" : ""])
       }, [
-        t.showButtons ? (o(), n("a", {
+        o.showButtons ? (l(), n("a", {
           key: 0,
           class: "page-link",
-          onClick: d[1] || (d[1] = (p) => r(t.currentpage + 1))
+          onClick: p[1] || (p[1] = (c) => d(o.currentpage + 1))
         }, " Volgende ")) : h("", !0)
       ], 2)
     ]));
   }
-}), oe = ["id", "value", "checked", "onClick"], ne = ["for"], _e = /* @__PURE__ */ b({
+}), le = ["id", "value", "checked", "onClick"], ne = ["for"], _e = /* @__PURE__ */ b({
   __name: "BSRadioSelect",
   props: {
     options: {},
     modelValue: {},
     containerClasses: { default: "" }
   },
-  emits: ["update:modelValue"],
-  setup(u, { emit: l }) {
-    const e = M(u.modelValue);
-    function s(r) {
-      e.value = r, l("update:modelValue", e.value);
-    }
-    return (r, t) => (o(), n("div", null, [
-      (o(!0), n(S, null, w(r.options, (d) => (o(), n("div", {
-        key: d[0],
-        class: m(["form-check", r.containerClasses])
+  emits: ["update:modelValue", "update:model-value"],
+  setup(r, { emit: a }) {
+    return (s, e) => (l(), n("div", null, [
+      (l(!0), n(S, null, w(s.options, ([t, d]) => (l(), n("div", {
+        key: t,
+        class: m(["form-check", s.containerClasses])
       }, [
         i("input", {
-          id: "id_" + d[0],
+          id: "id_" + t,
           type: "radio",
           class: "form-check-input",
-          value: d[0],
-          checked: e.value == d[0],
-          onClick: (p) => s(d[0])
-        }, null, 8, oe),
+          value: t,
+          checked: s.modelValue == t,
+          onClick: (o) => a("update:model-value", t)
+        }, null, 8, le),
         i("label", {
           class: "form-check-label",
-          for: "id_" + d[0]
-        }, $(d[1]), 9, ne)
+          for: "id_" + t
+        }, $(d), 9, ne)
       ], 2))), 128))
     ]));
   }
@@ -411,12 +409,12 @@ const Z = { key: 0 }, x = { class: "icon me-1" }, he = /* @__PURE__ */ b({
     stickySidebar: { type: Boolean, default: !1 },
     mobileStickySidebar: { type: Boolean, default: !1 }
   },
-  setup(u) {
-    const l = u, a = v(() => l.id !== null ? l.id : "id_" + z().toString().replace(/-/g, "")), e = v(() => {
-      let s = "";
-      return l.placement === "right" && (s += "uu-sidebar-right "), l.mobilePlacement === "bottom" && (s += "uu-sidebar-mobile-bottom "), l.stickySidebar && (s += "uu-sidebar-sticky "), l.mobileStickySidebar && (s += "uu-sidebar-mobile-sticky "), s;
+  setup(r) {
+    const a = r, s = g(() => a.id !== null ? a.id : "id_" + C().toString().replace(/-/g, "")), e = g(() => {
+      let t = "";
+      return a.placement === "right" && (t += "uu-sidebar-right "), a.mobilePlacement === "bottom" && (t += "uu-sidebar-mobile-bottom "), a.stickySidebar && (t += "uu-sidebar-sticky "), a.mobileStickySidebar && (t += "uu-sidebar-mobile-sticky "), t;
     });
-    return (s, r) => (o(), n("div", {
+    return (t, d) => (l(), n("div", {
       class: m(["uu-sidebar-container", e.value])
     }, [
       i("aside", ie, [
@@ -424,32 +422,32 @@ const Z = { key: 0 }, x = { class: "icon me-1" }, he = /* @__PURE__ */ b({
           class: "uu-sidebar-toggle",
           type: "button",
           "data-bs-toggle": "collapse",
-          "data-bs-target": "#" + a.value,
+          "data-bs-target": "#" + s.value,
           "aria-expanded": "false"
         }, [
-          c(s.$slots, "sidebar-button")
+          u(t.$slots, "sidebar-button")
         ], 8, re),
         i("div", {
-          id: a.value,
+          id: s.value,
           class: "uu-sidebar-collapse collapse"
         }, [
-          c(s.$slots, "sidebar")
+          u(t.$slots, "sidebar")
         ], 8, de)
       ]),
       i("div", ue, [
-        c(s.$slots, "default")
+        u(t.$slots, "default")
       ])
     ], 2));
   }
 });
 export {
-  E as BSButton,
+  q as BSButton,
   fe as BSCard,
   me as BSDropdown,
   be as BSDropdownMultiSelect,
   he as BSIcon,
-  ve as BSMultiSelect,
-  ge as BSPagination,
+  ge as BSMultiSelect,
+  ve as BSPagination,
   _e as BSRadioSelect,
   ye as BSSidebar
 };
