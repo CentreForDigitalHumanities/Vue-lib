@@ -47,7 +47,22 @@ interface Props {
         | "warning"
         | "danger"
         | "light"
-        | "dark";
+        | "dark"
+        | "blue"
+        | "dark-blue"
+        | "indigo"
+        | "purple"
+        | "pink"
+        | "red"
+        | "brown"
+        | "orange"
+        | "yellow"
+        | "green"
+        | "teal"
+        | "cyan"
+        | "white"
+        | "gray"
+        | "gray-dark";
     size?: "small" | "normal" | "large";
     outlined?: boolean;
     active?: boolean;
