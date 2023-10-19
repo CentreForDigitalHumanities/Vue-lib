@@ -34,36 +34,40 @@
  */
 import { computed } from "vue";
 
+export type BSButtonVariant =
+    | "primary"
+    | "secondary"
+    | "link"
+    | "info"
+    | "success"
+    | "warning"
+    | "danger"
+    | "light"
+    | "dark"
+    | "blue"
+    | "dark-blue"
+    | "indigo"
+    | "purple"
+    | "pink"
+    | "red"
+    | "brown"
+    | "orange"
+    | "yellow"
+    | "green"
+    | "teal"
+    | "cyan"
+    | "white"
+    | "gray"
+    | "gray-dark";
+
+export type BSButtonSize = "small" | "normal" | "large";
+
 interface Props {
     id?: string | null;
     href?: string;
     name?: string;
-    variant?:
-        | "primary"
-        | "secondary"
-        | "link"
-        | "info"
-        | "success"
-        | "warning"
-        | "danger"
-        | "light"
-        | "dark"
-        | "blue"
-        | "dark-blue"
-        | "indigo"
-        | "purple"
-        | "pink"
-        | "red"
-        | "brown"
-        | "orange"
-        | "yellow"
-        | "green"
-        | "teal"
-        | "cyan"
-        | "white"
-        | "gray"
-        | "gray-dark";
-    size?: "small" | "normal" | "large";
+    variant?: BSButtonVariant;
+    size?: BSButtonSize;
     outlined?: boolean;
     active?: boolean;
     disabled?: boolean;
