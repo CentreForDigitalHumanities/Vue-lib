@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { computed } from "vue";
+import { useI18n } from "vue-i18n";
 
 interface Props {
     maxPages: number;
@@ -51,6 +52,8 @@ function changePage(page: number) {
 
     emit("change-page", page);
 }
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -68,7 +71,7 @@ function changePage(page: number) {
                 class="page-link"
                 @click="changePage(currentpage - 1)"
             >
-                Vorige
+                {{ t("previous") }}
             </a>
         </li>
         <li
@@ -94,8 +97,21 @@ function changePage(page: number) {
                 class="page-link"
                 @click="changePage(currentpage + 1)"
             >
-                Volgende
+                {{ t("next") }}
             </a>
         </li>
     </ul>
 </template>
+
+<i18n>
+{
+  "en": {
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "nl": {
+    "next": "Volgende",
+    "previous": "Vorige"
+  }
+}
+</i18n>
