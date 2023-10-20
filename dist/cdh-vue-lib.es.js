@@ -17,19 +17,23 @@ express or implied.
 * See the Licence for the specific language governing
 permissions and limitations under the Licence.
 */
-import { BSButton as r, BSCard as B, BSDropdown as i, BSDropdownMultiSelect as n, BSIcon as p, BSMultiSelect as a, BSPagination as l, BSRadioSelect as u, BSSidebar as d } from "./cdh-vue-lib.components.es.js";
-import { useInputValue as m } from "./cdh-vue-lib.composables.es.js";
+import { BSButton as r, BSCard as B, BSDropdown as p, BSDropdownMultiSelect as n, BSIcon as a, BSMultiSelect as l, BSPagination as u, BSRadioSelect as d, BSSidebar as m, DSCList as s, UUList as c, UUListTypes as U } from "./cdh-vue-lib.components.es.js";
+import { useInputValue as L } from "./cdh-vue-lib.composables.es.js";
 import "vue";
 import "uuid";
+import "vue-i18n";
 export {
   r as BSButton,
   B as BSCard,
-  i as BSDropdown,
+  p as BSDropdown,
   n as BSDropdownMultiSelect,
-  p as BSIcon,
-  a as BSMultiSelect,
-  l as BSPagination,
-  u as BSRadioSelect,
-  d as BSSidebar,
-  m as useInputValue
+  a as BSIcon,
+  l as BSMultiSelect,
+  u as BSPagination,
+  d as BSRadioSelect,
+  m as BSSidebar,
+  s as DSCList,
+  c as UUList,
+  U as UUListTypes,
+  L as useInputValue
 };
