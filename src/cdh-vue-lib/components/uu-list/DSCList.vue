@@ -33,6 +33,7 @@ interface ApiResponse {
     page_size: number;
     pages: number;
     results: never[];
+    ordering?: string;
 }
 
 interface SortOption {
@@ -138,6 +139,8 @@ function loadData() {
             response.json().then((data) => {
                 apiData.value = data as ApiResponse;
                 loading.value = false;
+                if (data.ordering)
+                    sort.value = data.ordering;
                 // Not strictly needed, but it's neater this way
                 controller.value = null;
             });
