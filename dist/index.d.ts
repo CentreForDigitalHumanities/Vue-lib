@@ -702,7 +702,7 @@ declare module "cdh-vue-lib/components/uu-list/types" {
     type FilterValue = string | number | null | string[] | number[];
     type FilterValues = Record<string, FilterValue>;
     interface Data {
-        id: number;
+        id: number | string;
         [Key: string]: any;
     }
     interface SortOption {
