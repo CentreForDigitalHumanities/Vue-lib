@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Data, DataDefinedColumn } from "../../types";
+import { DDCListData, DataDefinedColumn } from "../../types";
 import DDVString from "./Colums/DDVString.vue";
 import DDVDate from "./Colums/DDVDate.vue";
 import DDVButton from "./Colums/DDVButton.vue";
@@ -8,7 +8,7 @@ import DDVHTML from "./Colums/DDVHTML.vue";
 import DDVActions from "./Colums/DDVActions.vue";
 
 interface Props {
-    item: Data;
+    item: DDCListData;
     column: DataDefinedColumn;
 }
 

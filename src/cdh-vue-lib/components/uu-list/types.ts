@@ -14,9 +14,8 @@ interface FilterDefinition {
 type FilterValue = string | number | null | string[] | number[];
 type FilterValues = Record<string, FilterValue>;
 
-interface Data {
-    id: number | string;
-    [Key: string]: any;
+interface Data<IDType> {
+    id: IDType;
 }
 
 interface SortOption {
@@ -24,8 +23,8 @@ interface SortOption {
     label: string;
 }
 
-interface ContainerProps {
-    data?: Data[];
+interface ContainerProps<T extends Data<string> | Data<number>> {
+    data?: T[];
     isLoading: boolean;
     totalData: number;
     currentPage: number;
@@ -48,6 +47,10 @@ type ContainerEmits = {
     (e: "update:page-size", value: number): void;
     (e: "update:filter-values", value: FilterValues): void;
 };
+
+interface DDCListData extends Data<string | number> {
+    [Key: string]: any;
+}
 
 interface _DDC {
     field: string;
@@ -121,6 +124,7 @@ export {
     FilterValue,
     FilterValues,
     Data,
+    DDCListData,
     SortOption,
     ContainerProps,
     ContainerEmits,

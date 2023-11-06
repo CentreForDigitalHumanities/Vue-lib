@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { Data, DDCHTML } from "../../../types";
+import { DDCListData, DDCHTML } from "../../../types";
 
 interface Props {
-    item: Data;
+    item: DDCListData;
     column: DDCHTML;
 }
 
@@ -10,5 +10,5 @@ const props = defineProps<Props>();
 </script>
 
 <template>
-    <span v-html="item[column.field]"> </span>
+    <span v-html="item[column.field]" />
 </template>

@@ -1,10 +1,9 @@
 <script lang="ts" setup>
-import { Data, DDCActions } from "../../../types";
+import { DDCListData, DDCActions } from "../../../types";
 import { computed } from "vue";
-import { BSButton } from "@/cdh-vue-lib";
 
 interface Props {
-    item: Data;
+    item: DDCListData;
     column: DDCActions;
 }
 

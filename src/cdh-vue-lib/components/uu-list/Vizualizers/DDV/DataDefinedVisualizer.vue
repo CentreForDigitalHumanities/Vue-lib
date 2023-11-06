@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { Data, DataDefinedColumn as DDC } from "../../types";
+import { DDCListData, DataDefinedColumn as DDC } from "../../types";
 import DDVRow from "./DDVRow.vue";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 
 interface Props {
-    data?: Data[] | null;
+    data?: DDCListData[] | null;
     columns: DDC[];
     isLoading: boolean;
 }

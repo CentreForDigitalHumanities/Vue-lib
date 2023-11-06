@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { Data, DDCDate } from "../../../types";
+import { DDCListData, DDCDate } from "../../../types";
 import { computed } from "vue";
 
 interface Props {
-    item: Data;
+    item: DDCListData;
     column: DDCDate;
 }
 
@@ -56,7 +56,7 @@ const value = computed(() => {
     ) {
         const formatter = new Intl.DateTimeFormat(
             language,
-            props.column.format,
+            props.column.format
         );
         return formatter.format(date);
     }

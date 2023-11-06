@@ -1,24 +1,31 @@
-<script lang="ts" setup>
-import { computed } from "vue";
-import { ContainerProps, ContainerEmits } from "./types";
-import Default from "./Containers/Default.vue";
-import Sidebar from "./Containers/Sidebar.vue";
-import DebugVisualizer from "@/cdh-vue-lib/components/uu-list/Vizualizers/DebugVisualizer.vue";
-
+<script lang="ts">
 // Make a copy of the container props, mark all of them optional except for
 // those we cannot provide a default for
 // The root type barely has any optionals, to avoid dealing with missing values
 // too much. Instead, we provide sensible defaults in this component, so the
 // actual user of the component does not _have_ to define all
-type NonOptionalField = "totalData" | "currentPage";
-type SelectiveContainerProps = Partial<ContainerProps> &
-    Pick<ContainerProps, NonOptionalField>;
+import { ContainerProps, Data } from "@/cdh-vue-lib/components/uu-list/types";
 
-interface Props extends SelectiveContainerProps {
+type NonOptionalField = "totalData" | "currentPage";
+type SelectiveContainerProps<T extends Data<string> | Data<number>> = Partial<
+    ContainerProps<T>
+> &
+    Pick<ContainerProps<T>, NonOptionalField>;
+
+interface Props<T extends Data<string> | Data<number>>
+    extends SelectiveContainerProps<T> {
     container?: "default" | "sidebar";
 }
+</script>
 
-const props = withDefaults(defineProps<Props>(), {
+<script lang="ts" setup generic="T extends Data<string> | Data<number>">
+import { computed } from "vue";
+import Default from "./Containers/Default.vue";
+import Sidebar from "./Containers/Sidebar.vue";
+import DebugVisualizer from "@/cdh-vue-lib/components/uu-list/Vizualizers/DebugVisualizer.vue";
+import { ContainerEmits } from "@/cdh-vue-lib/components/uu-list/types";
+
+const props = withDefaults(defineProps<Props<T>>(), {
     // Provide defaults for all props the containers expect, but should not be
     // necessary.
     container: "default",
@@ -36,10 +43,10 @@ const emits = defineEmits<ContainerEmits>();
 
 const containerComponent = computed(() => {
     switch (props.container) {
-        case "default":
-            return Default;
         case "sidebar":
             return Sidebar;
+        default:
+            return Default;
     }
 });
 </script>

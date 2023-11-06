@@ -872,7 +872,7 @@ typeof A == "function" && A(te);
 const pt = /* @__PURE__ */ c({
   __name: "DebugVisualizer",
   props: {
-    data: {},
+    data: { default: void 0 },
     isLoading: { type: Boolean, default: !1 }
   },
   setup(i) {
@@ -901,10 +901,10 @@ const pt = /* @__PURE__ */ c({
   setup(i, { emit: t }) {
     const o = i, n = z(() => {
       switch (o.container) {
-        case "default":
-          return it;
         case "sidebar":
           return te;
+        default:
+          return it;
       }
     });
     return (e, l) => (s(), h(J(n.value), {

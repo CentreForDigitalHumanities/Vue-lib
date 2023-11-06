@@ -1,14 +1,14 @@
-<script lang="ts" setup>
+<script lang="ts" setup generic="T extends Data<string> | Data<number>">
 import { computed } from "vue";
 import { BSPagination } from "../../bootstrap";
 import FilterBar from "../Filters/FilterBar.vue";
-import { ContainerEmits, ContainerProps } from "../types";
+import { ContainerEmits, ContainerProps, Data } from "../types";
 import SearchControl from "../Controls/SearchControl.vue";
 import PageSizeControl from "../Controls/PageSizeControl.vue";
 import SortControl from "../Controls/SortControl.vue";
 import SearchResultNum from "@/cdh-vue-lib/components/uu-list/Controls/SearchResultNum.vue";
 
-const props = defineProps<ContainerProps>();
+const props = defineProps<ContainerProps<T>>();
 
 const emits = defineEmits<ContainerEmits>();
 

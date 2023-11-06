@@ -2,11 +2,11 @@
 // I'm gonna be honest with y'all, this component only exists to make the
 // Vue devtools readable. This way, all the column components are neatly grouped
 // by their row.
-import { Data, DataDefinedColumn as DDC } from "../../types";
+import { DDCListData, DataDefinedColumn as DDC } from "../../types";
 import DDVColumn from "./DDVColumn.vue";
 
 interface Props {
-    item: Data;
+    item: DDCListData;
     columns: DDC[];
 }
 

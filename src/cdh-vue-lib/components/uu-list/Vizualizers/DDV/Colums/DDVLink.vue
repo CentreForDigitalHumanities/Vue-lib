@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { Data, DDCLink } from "../../../types";
+import { DDCListData, DDCLink } from "../../../types";
 
 interface Props {
-    item: Data;
+    item: DDCListData;
     column: DDCLink;
 }
 

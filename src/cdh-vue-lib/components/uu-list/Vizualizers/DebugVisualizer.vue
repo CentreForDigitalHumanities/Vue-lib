@@ -2,12 +2,13 @@
 import { Data } from "../types";
 
 interface Props {
-    data?: Data[];
+    data?: Data<string | number>[];
     isLoading: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
     isLoading: false,
+    data: undefined,
 });
 </script>
 
