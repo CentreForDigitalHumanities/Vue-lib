@@ -80,5 +80,12 @@ const containerComponent = computed(() => {
                 <DebugVisualizer :data="data" :is-loading="isLoading" />
             </slot>
         </template>
+        <!-- Pass the filter slots as a new slot -->
+        <template #filters-top="{ data, isLoading }">
+            <slot name="filters-top" :data="data" :is-loading="isLoading" />
+        </template>
+        <template #filters-bottom="{ data, isLoading }">
+            <slot name="filters-bottom" :data="data" :is-loading="isLoading" />
+        </template>
     </component>
 </template>

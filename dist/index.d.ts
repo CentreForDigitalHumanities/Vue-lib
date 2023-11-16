@@ -991,6 +991,14 @@ declare module "cdh-vue-lib/components/uu-list/Containers/Default.vue" {
         expose(exposed: {}): void;
         attrs: any;
         slots: {
+            "filters-top"?(_: {
+                data: T[] | undefined;
+                isLoading: boolean;
+            }): any;
+            "filters-bottom"?(_: {
+                data: T[] | undefined;
+                isLoading: boolean;
+            }): any;
             data?(_: {
                 data: T[] | undefined;
                 isLoading: boolean;
@@ -1002,6 +1010,14 @@ declare module "cdh-vue-lib/components/uu-list/Containers/Default.vue" {
         expose(exposed: {}): void;
         attrs: any;
         slots: {
+            "filters-top"?(_: {
+                data: T[] | undefined;
+                isLoading: boolean;
+            }): any;
+            "filters-bottom"?(_: {
+                data: T[] | undefined;
+                isLoading: boolean;
+            }): any;
             data?(_: {
                 data: T[] | undefined;
                 isLoading: boolean;
@@ -1016,6 +1032,14 @@ declare module "cdh-vue-lib/components/uu-list/Containers/Default.vue" {
             expose(exposed: {}): void;
             attrs: any;
             slots: {
+                "filters-top"?(_: {
+                    data: T[] | undefined;
+                    isLoading: boolean;
+                }): any;
+                "filters-bottom"?(_: {
+                    data: T[] | undefined;
+                    isLoading: boolean;
+                }): any;
                 data?(_: {
                     data: T[] | undefined;
                     isLoading: boolean;
@@ -1033,6 +1057,14 @@ declare module "cdh-vue-lib/components/uu-list/Containers/Sidebar.vue" {
         expose(exposed: {}): void;
         attrs: any;
         slots: {
+            "filters-top"?(_: {
+                data: T[] | undefined;
+                isLoading: boolean;
+            }): any;
+            "filters-bottom"?(_: {
+                data: T[] | undefined;
+                isLoading: boolean;
+            }): any;
             data?(_: {
                 data: T[] | undefined;
                 isLoading: boolean;
@@ -1044,6 +1076,14 @@ declare module "cdh-vue-lib/components/uu-list/Containers/Sidebar.vue" {
         expose(exposed: {}): void;
         attrs: any;
         slots: {
+            "filters-top"?(_: {
+                data: T[] | undefined;
+                isLoading: boolean;
+            }): any;
+            "filters-bottom"?(_: {
+                data: T[] | undefined;
+                isLoading: boolean;
+            }): any;
             data?(_: {
                 data: T[] | undefined;
                 isLoading: boolean;
@@ -1058,6 +1098,14 @@ declare module "cdh-vue-lib/components/uu-list/Containers/Sidebar.vue" {
             expose(exposed: {}): void;
             attrs: any;
             slots: {
+                "filters-top"?(_: {
+                    data: T[] | undefined;
+                    isLoading: boolean;
+                }): any;
+                "filters-bottom"?(_: {
+                    data: T[] | undefined;
+                    isLoading: boolean;
+                }): any;
                 data?(_: {
                     data: T[] | undefined;
                     isLoading: boolean;
@@ -1113,6 +1161,14 @@ declare module "cdh-vue-lib/components/uu-list/UUList.vue" {
                 data: T[] | undefined;
                 isLoading: boolean;
             }): any;
+            "filters-top"?(_: {
+                data: T[] | undefined;
+                isLoading: boolean;
+            }): any;
+            "filters-bottom"?(_: {
+                data: T[] | undefined;
+                isLoading: boolean;
+            }): any;
         };
         emit: ContainerEmits;
     }, "attrs" | "emit" | "slots"> | undefined, __VLS_setup?: Promise<{
@@ -1121,6 +1177,14 @@ declare module "cdh-vue-lib/components/uu-list/UUList.vue" {
         attrs: any;
         slots: {
             data?(_: {
+                data: T[] | undefined;
+                isLoading: boolean;
+            }): any;
+            "filters-top"?(_: {
+                data: T[] | undefined;
+                isLoading: boolean;
+            }): any;
+            "filters-bottom"?(_: {
                 data: T[] | undefined;
                 isLoading: boolean;
             }): any;
@@ -1135,6 +1199,14 @@ declare module "cdh-vue-lib/components/uu-list/UUList.vue" {
             attrs: any;
             slots: {
                 data?(_: {
+                    data: T[] | undefined;
+                    isLoading: boolean;
+                }): any;
+                "filters-top"?(_: {
+                    data: T[] | undefined;
+                    isLoading: boolean;
+                }): any;
+                "filters-bottom"?(_: {
                     data: T[] | undefined;
                     isLoading: boolean;
                 }): any;

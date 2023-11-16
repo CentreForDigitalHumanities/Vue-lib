@@ -25,6 +25,7 @@ const totalPages = computed(() => {
                 :model-value="search"
                 @update:model-value="(value) => $emit('update:search', value)"
             />
+            <slot name="filters-top" :data="data" :is-loading="isLoading" />
             <FilterBar
                 v-if="filters"
                 :filters="filters"
@@ -33,6 +34,7 @@ const totalPages = computed(() => {
                     (val) => $emit('update:filter-values', val)
                 "
             />
+            <slot name="filters-bottom" :data="data" :is-loading="isLoading" />
         </template>
 
         <div>

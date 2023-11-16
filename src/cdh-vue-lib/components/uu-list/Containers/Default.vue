@@ -55,12 +55,18 @@ const totalPages = computed(() => {
                 </div>
             </div>
             <div v-if="filtersEnabled" class="uu-list-filters">
+                <slot name="filters-top" :data="data" :is-loading="isLoading" />
                 <FilterBar
                     :filters="filters"
                     :filter-values="filterValues"
                     @update:filter-values="
                         (val) => $emit('update:filter-values', val)
                     "
+                />
+                <slot
+                    name="filters-bottom"
+                    :data="data"
+                    :is-loading="isLoading"
                 />
             </div>
             <div class="uu-list-content">
