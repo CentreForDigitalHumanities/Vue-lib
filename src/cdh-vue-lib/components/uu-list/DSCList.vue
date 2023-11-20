@@ -139,8 +139,7 @@ function loadData() {
             response.json().then((data) => {
                 apiData.value = data as ApiResponse;
                 loading.value = false;
-                if (data.ordering)
-                    sort.value = data.ordering;
+                if (data.ordering) sort.value = data.ordering;
                 // Not strictly needed, but it's neater this way
                 controller.value = null;
             });
@@ -179,11 +178,13 @@ onMounted(() => {
         @update:filter-values="(value) => (filterValues = value)"
     >
         <template #data="{ data, isLoading }">
-            <DataDefinedTable
-                :data="data"
-                :columns="config.columns"
-                :is-loading="isLoading"
-            />
+            <slot name="data" :data="data" :is-loading="isLoading">
+                <DataDefinedTable
+                    :data="data"
+                    :columns="config.columns"
+                    :is-loading="isLoading"
+                />
+            </slot>
         </template>
     </UUList>
 </template>

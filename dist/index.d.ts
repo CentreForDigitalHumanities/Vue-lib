@@ -1454,7 +1454,7 @@ declare module "cdh-vue-lib/components/uu-list/DSCList.vue" {
         field: string;
         label: string;
     }
-    const _default_29: import("vue").DefineComponent<{
+    const _default_29: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         config: {
             type: import("vue").PropType<Config>;
             required: true;
@@ -1464,7 +1464,17 @@ declare module "cdh-vue-lib/components/uu-list/DSCList.vue" {
             type: import("vue").PropType<Config>;
             required: true;
         };
-    }>>, {}, {}>;
+    }>>, {}, {}>, {
+        data?(_: {
+            data: never[] | undefined;
+            isLoading: boolean;
+        }): any;
+    }>;
     export default _default_29;
+    type __VLS_WithTemplateSlots<T, S> = T & {
+        new (): {
+            $slots: S;
+        };
+    };
 }
 //# sourceMappingURL=index.d.ts.map
