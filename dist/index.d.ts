@@ -347,7 +347,7 @@ declare module "cdh-vue-lib/components/bootstrap/BSMultiSelect.vue" {
         slots: {};
         emit: {
             (e: "update:modelValue", value: T[]): void;
-            (e: "update:model-value", value: T): void;
+            (e: "update:model-value", value: T[]): void;
         };
     }, "attrs" | "emit" | "slots"> | undefined, __VLS_setup?: Promise<{
         props: {
@@ -361,7 +361,7 @@ declare module "cdh-vue-lib/components/bootstrap/BSMultiSelect.vue" {
         slots: {};
         emit: {
             (e: "update:modelValue", value: T[]): void;
-            (e: "update:model-value", value: T): void;
+            (e: "update:model-value", value: T[]): void;
         };
     }>) => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
@@ -378,7 +378,7 @@ declare module "cdh-vue-lib/components/bootstrap/BSMultiSelect.vue" {
             slots: {};
             emit: {
                 (e: "update:modelValue", value: T[]): void;
-                (e: "update:model-value", value: T): void;
+                (e: "update:model-value", value: T[]): void;
             };
         } | undefined;
     };

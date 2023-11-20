@@ -18,7 +18,7 @@ const props = withDefaults(
 const emit = defineEmits<{
     // Twice, because Vue is dumb
     (e: "update:modelValue", value: T[]): void;
-    (e: "update:model-value", value: T): void;
+    (e: "update:model-value", value: T[]): void;
 }>();
 
 function toggleSelected(key: T) {

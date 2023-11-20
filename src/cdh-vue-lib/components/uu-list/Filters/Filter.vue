@@ -22,7 +22,7 @@ const emits = defineEmits<{
             v-if="filter.type === 'checkbox'"
             :options="filter.options ?? []"
             :model-value="(value as number[] | string[]) ?? []"
-            @update:model-value="(val) => emits('update:value', val)"
+            @update:model-value="(val) => emits('update:value', (val as number[] | string[]))"
         />
         <BSRadioSelect
             v-if="filter.type === 'radio'"
