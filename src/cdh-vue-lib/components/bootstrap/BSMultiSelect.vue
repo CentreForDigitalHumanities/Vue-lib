@@ -52,9 +52,11 @@ function toggleSelected(key: T) {
                 :checked="props.modelValue.includes(value)"
                 @click="toggleSelected(value)"
             />
-            <label class="form-check-label" :for="+'_' + uniqueId">{{
-                label
-            }}</label>
+            <label
+                class="form-check-label"
+                :for="'id_' + value + '_' + uniqueId"
+                >{{ label }}</label
+            >
         </div>
     </div>
 </template>
