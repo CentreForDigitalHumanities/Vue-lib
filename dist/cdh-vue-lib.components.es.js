@@ -300,7 +300,7 @@ const Ce = { key: 0 }, Be = { class: "icon me-1" }, jt = /* @__PURE__ */ c({
         }, null, 8, Ve),
         d("label", {
           class: "form-check-label",
-          for: +"_" + e.uniqueId
+          for: "id_" + a + "_" + e.uniqueId
         }, b(u), 9, De)
       ], 2))), 128))
     ]));
