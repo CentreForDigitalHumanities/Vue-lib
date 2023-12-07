@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { BSMultiSelect, BSIcon } from ".";
+
 interface Props {
     label: string;
     options: [string | number, string][];
@@ -24,12 +26,12 @@ const emit = defineEmits<{
                 aria-controls="dropdown-menu4"
             >
                 <span>{{ label }}</span>
-                <Icon icon="angle-down" />
+                <BSIcon icon="angle-down" />
             </button>
         </div>
         <div class="dropdown-menu" role="menu">
             <div class="dropdown-content">
-                <MultiSelect
+                <BSMultiSelect
                     :options="options"
                     :model-value="modelValue"
                     container-classes="dropdown-item"
