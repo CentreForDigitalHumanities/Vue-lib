@@ -202,10 +202,6 @@ declare module "cdh-vue-lib/components/bootstrap/BSIcon.vue" {
             type: import("vue").PropType<string | object | string[] | null>;
             default: null;
         };
-        icon: {
-            type: import("vue").PropType<string | object | string[]>;
-            required: true;
-        };
         inline: {
             type: import("vue").PropType<boolean>;
             default: boolean;
@@ -219,6 +215,10 @@ declare module "cdh-vue-lib/components/bootstrap/BSIcon.vue" {
         flip: {
             type: import("vue").PropType<boolean | "horizontal" | "vertical" | "both">;
             default: boolean;
+        };
+        icon: {
+            type: import("vue").PropType<string | object | string[]>;
+            required: true;
         };
         listItem: {
             type: import("vue").PropType<boolean>;
@@ -264,10 +264,6 @@ declare module "cdh-vue-lib/components/bootstrap/BSIcon.vue" {
             type: import("vue").PropType<string | object | string[] | null>;
             default: null;
         };
-        icon: {
-            type: import("vue").PropType<string | object | string[]>;
-            required: true;
-        };
         inline: {
             type: import("vue").PropType<boolean>;
             default: boolean;
@@ -281,6 +277,10 @@ declare module "cdh-vue-lib/components/bootstrap/BSIcon.vue" {
         flip: {
             type: import("vue").PropType<boolean | "horizontal" | "vertical" | "both">;
             default: boolean;
+        };
+        icon: {
+            type: import("vue").PropType<string | object | string[]>;
+            required: true;
         };
         listItem: {
             type: import("vue").PropType<boolean>;
@@ -329,374 +329,13 @@ declare module "cdh-vue-lib/components/bootstrap/BSIcon.vue" {
         };
     };
 }
-declare module "cdh-vue-lib/components/bootstrap/BSMultiSelect.vue" {
-    const _default_4: <T extends string | number>(__VLS_props: {
-        options: [T, string][];
-        modelValue: T[];
-        containerClasses?: string | undefined;
-        uniqueId?: string | undefined;
-    } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, __VLS_ctx?: Pick<{
-        props: {
-            options: [T, string][];
-            modelValue: T[];
-            containerClasses?: string | undefined;
-            uniqueId?: string | undefined;
-        };
-        expose(exposed: {}): void;
-        attrs: any;
-        slots: {};
-        emit: {
-            (e: "update:modelValue", value: T[]): void;
-            (e: "update:model-value", value: T[]): void;
-        };
-    }, "attrs" | "emit" | "slots"> | undefined, __VLS_setup?: Promise<{
-        props: {
-            options: [T, string][];
-            modelValue: T[];
-            containerClasses?: string | undefined;
-            uniqueId?: string | undefined;
-        };
-        expose(exposed: {}): void;
-        attrs: any;
-        slots: {};
-        emit: {
-            (e: "update:modelValue", value: T[]): void;
-            (e: "update:model-value", value: T[]): void;
-        };
-    }>) => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
-        [key: string]: any;
-    }> & {
-        __ctx?: {
-            props: {
-                options: [T, string][];
-                modelValue: T[];
-                containerClasses?: string | undefined;
-                uniqueId?: string | undefined;
-            };
-            expose(exposed: {}): void;
-            attrs: any;
-            slots: {};
-            emit: {
-                (e: "update:modelValue", value: T[]): void;
-                (e: "update:model-value", value: T[]): void;
-            };
-        } | undefined;
-    };
-    export default _default_4;
-}
-declare module "cdh-vue-lib/components/bootstrap/BSPagination.vue" {
-    const _default_5: import("vue").DefineComponent<{
-        maxPages: {
-            type: import("vue").PropType<number>;
-            required: true;
-        };
-        currentpage: {
-            type: import("vue").PropType<number>;
-            required: true;
-        };
-        showButtons: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-        numOptions: {
-            type: import("vue").PropType<number>;
-            default: number;
-        };
-    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-        "change-page": (value: number) => void;
-    }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-        maxPages: {
-            type: import("vue").PropType<number>;
-            required: true;
-        };
-        currentpage: {
-            type: import("vue").PropType<number>;
-            required: true;
-        };
-        showButtons: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-        numOptions: {
-            type: import("vue").PropType<number>;
-            default: number;
-        };
-    }>> & {
-        "onChange-page"?: ((value: number) => any) | undefined;
-    }, {
-        showButtons: boolean;
-        numOptions: number;
-    }, {}>;
-    export default _default_5;
-}
-declare module "cdh-vue-lib/components/bootstrap/BSRadioSelect.vue" {
-    const _default_6: <T extends string | number>(__VLS_props: {
-        options: [T, string][];
-        modelValue: T;
-        containerClasses?: string | undefined;
-    } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, __VLS_ctx?: Pick<{
-        props: {
-            options: [T, string][];
-            modelValue: T;
-            containerClasses?: string | undefined;
-        };
-        expose(exposed: {}): void;
-        attrs: any;
-        slots: {};
-        emit: {
-            (e: "update:modelValue", value: T): void;
-            (e: "update:model-value", value: T): void;
-        };
-    }, "attrs" | "emit" | "slots"> | undefined, __VLS_setup?: Promise<{
-        props: {
-            options: [T, string][];
-            modelValue: T;
-            containerClasses?: string | undefined;
-        };
-        expose(exposed: {}): void;
-        attrs: any;
-        slots: {};
-        emit: {
-            (e: "update:modelValue", value: T): void;
-            (e: "update:model-value", value: T): void;
-        };
-    }>) => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
-        [key: string]: any;
-    }> & {
-        __ctx?: {
-            props: {
-                options: [T, string][];
-                modelValue: T;
-                containerClasses?: string | undefined;
-            };
-            expose(exposed: {}): void;
-            attrs: any;
-            slots: {};
-            emit: {
-                (e: "update:modelValue", value: T): void;
-                (e: "update:model-value", value: T): void;
-            };
-        } | undefined;
-    };
-    export default _default_6;
-}
-declare module "cdh-vue-lib/components/bootstrap/BSSidebar.vue" {
-    const _default_7: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
-        id: {
-            type: import("vue").PropType<string | null>;
-            default: null;
-        };
-        placement: {
-            type: import("vue").PropType<"right" | "left">;
-            default: string;
-        };
-        mobilePlacement: {
-            type: import("vue").PropType<"top" | "bottom">;
-            default: string;
-        };
-        stickySidebar: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-        mobileStickySidebar: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-        id: {
-            type: import("vue").PropType<string | null>;
-            default: null;
-        };
-        placement: {
-            type: import("vue").PropType<"right" | "left">;
-            default: string;
-        };
-        mobilePlacement: {
-            type: import("vue").PropType<"top" | "bottom">;
-            default: string;
-        };
-        stickySidebar: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-        mobileStickySidebar: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-    }>>, {
-        id: string | null;
-        placement: "right" | "left";
-        mobilePlacement: "top" | "bottom";
-        stickySidebar: boolean;
-        mobileStickySidebar: boolean;
-    }, {}>, {
-        "sidebar-button"?(_: {}): any;
-        sidebar?(_: {}): any;
-        default?(_: {}): any;
-    }>;
-    export default _default_7;
-    type __VLS_WithTemplateSlots<T, S> = T & {
-        new (): {
-            $slots: S;
-        };
-    };
-}
-declare module "cdh-vue-lib/components/bootstrap/index" {
-    import BSButton from "cdh-vue-lib/components/bootstrap/BSButton.vue";
-    import BSCard from "cdh-vue-lib/components/bootstrap/BSCard.vue";
-    import BSDropdown from "cdh-vue-lib/components/bootstrap/BSDropdown.vue";
-    import BSDropdownMultiSelect from "cdh-vue-lib/components/bootstrap/BSDropdownMultiSelect.vue";
-    import BSIcon from "cdh-vue-lib/components/bootstrap/BSIcon.vue";
-    import BSMultiSelect from "cdh-vue-lib/components/bootstrap/BSMultiSelect.vue";
-    import BSPagination from "cdh-vue-lib/components/bootstrap/BSPagination.vue";
-    import BSRadioSelect from "cdh-vue-lib/components/bootstrap/BSRadioSelect.vue";
-    import BSSidebar from "cdh-vue-lib/components/bootstrap/BSSidebar.vue";
-    export { BSButton, BSCard, BSDropdown, BSDropdownMultiSelect, BSIcon, BSMultiSelect, BSPagination, BSRadioSelect, BSSidebar };
-}
-declare module "cdh-vue-lib/components/bootstrap/BSDropdown.vue" {
-    const _default_8: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
-        id: {
-            type: import("vue").PropType<string | null>;
-            default: null;
-        };
-        variant: {
-            type: import("vue").PropType<"primary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark">;
-            default: string;
-        };
-    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-        id: {
-            type: import("vue").PropType<string | null>;
-            default: null;
-        };
-        variant: {
-            type: import("vue").PropType<"primary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark">;
-            default: string;
-        };
-    }>>, {
-        id: string | null;
-        variant: "primary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark";
-    }, {}>, {
-        button?(_: {}): any;
-        default?(_: {}): any;
-    }>;
-    export default _default_8;
-    type __VLS_WithTemplateSlots<T, S> = T & {
-        new (): {
-            $slots: S;
-        };
-    };
-}
-declare module "cdh-vue-lib/components/bootstrap/BSModal.vue" {
-    const _default_9: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
-        id: {
-            type: import("vue").PropType<string | null>;
-            default: null;
-        };
-        size: {
-            type: import("vue").PropType<"small" | "large" | "default" | "extra-large">;
-            default: string;
-        };
-        active: {
-            type: import("vue").PropType<boolean>;
-            required: true;
-        };
-        hasBackground: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-        backgroundClickCloses: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-        showCloseButton: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-        headerColor: {
-            type: import("vue").PropType<string | null>;
-            default: string;
-        };
-        headerBold: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-        centered: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-        shown: () => void;
-        hidden: () => void;
-        "close-clicked": () => void;
-    }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-        id: {
-            type: import("vue").PropType<string | null>;
-            default: null;
-        };
-        size: {
-            type: import("vue").PropType<"small" | "large" | "default" | "extra-large">;
-            default: string;
-        };
-        active: {
-            type: import("vue").PropType<boolean>;
-            required: true;
-        };
-        hasBackground: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-        backgroundClickCloses: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-        showCloseButton: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-        headerColor: {
-            type: import("vue").PropType<string | null>;
-            default: string;
-        };
-        headerBold: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-        centered: {
-            type: import("vue").PropType<boolean>;
-            default: boolean;
-        };
-    }>> & {
-        onHidden?: (() => any) | undefined;
-        onShown?: (() => any) | undefined;
-        "onClose-clicked"?: (() => any) | undefined;
-    }, {
-        id: string | null;
-        size: "small" | "large" | "default" | "extra-large";
-        hasBackground: boolean;
-        backgroundClickCloses: boolean;
-        showCloseButton: boolean;
-        headerColor: string | null;
-        headerBold: boolean;
-        centered: boolean;
-    }, {}>, {
-        title?(_: {}): any;
-        default?(_: {}): any;
-        footer?(_: {}): any;
-    }>;
-    export default _default_9;
-    type __VLS_WithTemplateSlots<T, S> = T & {
-        new (): {
-            $slots: S;
-        };
-    };
-}
 declare module "cdh-vue-lib/components/uu-list/types" {
     import { BSButtonSize, BSButtonVariant } from "cdh-vue-lib/components/bootstrap/BSButton.vue";
     interface FilterDefinition {
         field: string;
         label: string;
         options?: [string | number, string][];
-        type: "radio" | "checkbox" | "date";
+        type: "radio" | "checkbox" | "date" | "select";
         initial?: FilterValue;
     }
     type FilterValue = string | number | null | string[] | number[];
@@ -796,7 +435,7 @@ declare module "cdh-vue-lib/composables" {
 }
 declare module "cdh-vue-lib/components/uu-list/Filters/Filter.vue" {
     import { FilterDefinition, FilterValue } from "cdh-vue-lib/components/uu-list/types";
-    const _default_10: import("vue").DefineComponent<{
+    const _default_4: import("vue").DefineComponent<{
         filter: {
             type: import("vue").PropType<FilterDefinition>;
             required: true;
@@ -817,11 +456,11 @@ declare module "cdh-vue-lib/components/uu-list/Filters/Filter.vue" {
     }>> & {
         "onUpdate:value"?: ((value: FilterValue) => any) | undefined;
     }, {}, {}>;
-    export default _default_10;
+    export default _default_4;
 }
 declare module "cdh-vue-lib/components/uu-list/Filters/FilterBar.vue" {
     import { FilterDefinition, FilterValues } from "cdh-vue-lib/components/uu-list/types";
-    const _default_11: import("vue").DefineComponent<{
+    const _default_5: import("vue").DefineComponent<{
         filters: {
             type: import("vue").PropType<FilterDefinition[]>;
             required: true;
@@ -862,10 +501,10 @@ declare module "cdh-vue-lib/components/uu-list/Filters/FilterBar.vue" {
     }>> & {
         "onUpdate:filter-values"?: ((value: FilterValues) => any) | undefined;
     }, {} | {}, {}>;
-    export default _default_11;
+    export default _default_5;
 }
 declare module "cdh-vue-lib/components/uu-list/Controls/SearchControl.vue" {
-    const _default_12: import("vue").DefineComponent<{
+    const _default_6: import("vue").DefineComponent<{
         modelValue: {
             type: import("vue").PropType<string>;
             required: true;
@@ -882,27 +521,10 @@ declare module "cdh-vue-lib/components/uu-list/Controls/SearchControl.vue" {
         "onUpdate:modelValue"?: ((value: string) => any) | undefined;
         "onUpdate:model-value"?: ((value: string) => any) | undefined;
     }, {}, {}>;
-    export default _default_12;
-}
-declare module "cdh-vue-lib/components/uu-list/index" {
-    import UUList from "cdh-vue-lib/components/uu-list/UUList.vue";
-    import DSCList from "cdh-vue-lib/components/uu-list/DSCList.vue";
-    import * as UUListTypes from "cdh-vue-lib/components/uu-list/types";
-    export { UUList, UUListTypes, DSCList };
-}
-declare module "cdh-vue-lib/components" {
-    export * from "cdh-vue-lib/components/bootstrap/index";
-    export * from "cdh-vue-lib/components/uu-list/index";
-}
-declare module "cdh-vue-lib/index" {
-    export * from "cdh-vue-lib/components";
-    export * from "cdh-vue-lib/composables";
-}
-declare module "cdh-vue-lib" {
-    export * from "cdh-vue-lib/index";
+    export default _default_6;
 }
 declare module "cdh-vue-lib/components/uu-list/Controls/PageSizeControl.vue" {
-    const _default_13: import("vue").DefineComponent<{
+    const _default_7: import("vue").DefineComponent<{
         pageSize: {
             type: import("vue").PropType<number>;
             required: true;
@@ -927,11 +549,11 @@ declare module "cdh-vue-lib/components/uu-list/Controls/PageSizeControl.vue" {
         "onUpdate:page-size"?: ((value: number) => any) | undefined;
         "onUpdate:pageSize"?: ((value: number) => any) | undefined;
     }, {}, {}>;
-    export default _default_13;
+    export default _default_7;
 }
 declare module "cdh-vue-lib/components/uu-list/Controls/SortControl.vue" {
     import { SortOption } from "cdh-vue-lib/components/uu-list/types";
-    const _default_14: import("vue").DefineComponent<{
+    const _default_8: import("vue").DefineComponent<{
         currentSort: {
             type: import("vue").PropType<string>;
             required: true;
@@ -956,10 +578,10 @@ declare module "cdh-vue-lib/components/uu-list/Controls/SortControl.vue" {
         "onUpdate:current-sort"?: ((value: string) => any) | undefined;
         "onUpdate:currentSort"?: ((value: string) => any) | undefined;
     }, {}, {}>;
-    export default _default_14;
+    export default _default_8;
 }
 declare module "cdh-vue-lib/components/uu-list/Controls/SearchResultNum.vue" {
-    const _default_15: import("vue").DefineComponent<{
+    const _default_9: import("vue").DefineComponent<{
         searchQuery: {
             type: import("vue").PropType<string>;
         };
@@ -982,11 +604,11 @@ declare module "cdh-vue-lib/components/uu-list/Controls/SearchResultNum.vue" {
             required: true;
         };
     }>>, {}, {}>;
-    export default _default_15;
+    export default _default_9;
 }
 declare module "cdh-vue-lib/components/uu-list/Containers/Default.vue" {
     import { ContainerEmits, ContainerProps, Data } from "cdh-vue-lib/components/uu-list/types";
-    const _default_16: <T extends Data<string> | Data<number>>(__VLS_props: ContainerProps<T> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, __VLS_ctx?: Pick<{
+    const _default_10: <T extends Data<string> | Data<number>>(__VLS_props: ContainerProps<T> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, __VLS_ctx?: Pick<{
         props: ContainerProps<T>;
         expose(exposed: {}): void;
         attrs: any;
@@ -1048,11 +670,11 @@ declare module "cdh-vue-lib/components/uu-list/Containers/Default.vue" {
             emit: ContainerEmits;
         } | undefined;
     };
-    export default _default_16;
+    export default _default_10;
 }
 declare module "cdh-vue-lib/components/uu-list/Containers/Sidebar.vue" {
     import { ContainerEmits, ContainerProps, Data } from "cdh-vue-lib/components/uu-list/types";
-    const _default_17: <T extends Data<string> | Data<number>>(__VLS_props: ContainerProps<T> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, __VLS_ctx?: Pick<{
+    const _default_11: <T extends Data<string> | Data<number>>(__VLS_props: ContainerProps<T> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, __VLS_ctx?: Pick<{
         props: ContainerProps<T>;
         expose(exposed: {}): void;
         attrs: any;
@@ -1114,11 +736,11 @@ declare module "cdh-vue-lib/components/uu-list/Containers/Sidebar.vue" {
             emit: ContainerEmits;
         } | undefined;
     };
-    export default _default_17;
+    export default _default_11;
 }
 declare module "cdh-vue-lib/components/uu-list/Vizualizers/DebugVisualizer.vue" {
     import { Data } from "cdh-vue-lib/components/uu-list/types";
-    const _default_18: import("vue").DefineComponent<{
+    const _default_12: import("vue").DefineComponent<{
         data: {
             type: import("vue").PropType<Data<string | number>[]>;
             default: undefined;
@@ -1142,7 +764,7 @@ declare module "cdh-vue-lib/components/uu-list/Vizualizers/DebugVisualizer.vue" 
         data: Data<string | number>[];
         isLoading: boolean;
     }, {}>;
-    export default _default_18;
+    export default _default_12;
 }
 declare module "cdh-vue-lib/components/uu-list/UUList.vue" {
     import { ContainerEmits } from "cdh-vue-lib/components/uu-list/types";
@@ -1152,7 +774,7 @@ declare module "cdh-vue-lib/components/uu-list/UUList.vue" {
     interface Props<T extends Data<string> | Data<number>> extends SelectiveContainerProps<T> {
         container?: "default" | "sidebar";
     }
-    const _default_19: <T extends Data<string> | Data<number>>(__VLS_props: Props<T> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, __VLS_ctx?: Pick<{
+    const _default_13: <T extends Data<string> | Data<number>>(__VLS_props: Props<T> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, __VLS_ctx?: Pick<{
         props: Props<T>;
         expose(exposed: {}): void;
         attrs: any;
@@ -1214,17 +836,155 @@ declare module "cdh-vue-lib/components/uu-list/UUList.vue" {
             emit: ContainerEmits;
         } | undefined;
     };
-    export default _default_19;
+    export default _default_13;
 }
 declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVString.vue" {
     import { DDCListData, DDCString } from "cdh-vue-lib/components/uu-list/types";
+    const _default_14: import("vue").DefineComponent<{
+        item: {
+            type: import("vue").PropType<DDCListData>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCString>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        item: {
+            type: import("vue").PropType<DDCListData>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCString>;
+            required: true;
+        };
+    }>>, {}, {}>;
+    export default _default_14;
+}
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVDate.vue" {
+    import { DDCListData, DDCDate } from "cdh-vue-lib/components/uu-list/types";
+    const _default_15: import("vue").DefineComponent<{
+        item: {
+            type: import("vue").PropType<DDCListData>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCDate>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        item: {
+            type: import("vue").PropType<DDCListData>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCDate>;
+            required: true;
+        };
+    }>>, {}, {}>;
+    export default _default_15;
+}
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVButton.vue" {
+    import { DDCListData, DDCButton } from "cdh-vue-lib/components/uu-list/types";
+    const _default_16: import("vue").DefineComponent<{
+        item: {
+            type: import("vue").PropType<DDCListData>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCButton>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        item: {
+            type: import("vue").PropType<DDCListData>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCButton>;
+            required: true;
+        };
+    }>>, {}, {}>;
+    export default _default_16;
+}
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVLink.vue" {
+    import { DDCListData, DDCLink } from "cdh-vue-lib/components/uu-list/types";
+    const _default_17: import("vue").DefineComponent<{
+        item: {
+            type: import("vue").PropType<DDCListData>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCLink>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        item: {
+            type: import("vue").PropType<DDCListData>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCLink>;
+            required: true;
+        };
+    }>>, {}, {}>;
+    export default _default_17;
+}
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVHTML.vue" {
+    import { DDCListData, DDCHTML } from "cdh-vue-lib/components/uu-list/types";
+    const _default_18: import("vue").DefineComponent<{
+        item: {
+            type: import("vue").PropType<DDCListData>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCHTML>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        item: {
+            type: import("vue").PropType<DDCListData>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCHTML>;
+            required: true;
+        };
+    }>>, {}, {}>;
+    export default _default_18;
+}
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVActions.vue" {
+    import { DDCListData, DDCActions } from "cdh-vue-lib/components/uu-list/types";
+    const _default_19: import("vue").DefineComponent<{
+        item: {
+            type: import("vue").PropType<DDCListData>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCActions>;
+            required: true;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        item: {
+            type: import("vue").PropType<DDCListData>;
+            required: true;
+        };
+        column: {
+            type: import("vue").PropType<DDCActions>;
+            required: true;
+        };
+    }>>, {}, {}>;
+    export default _default_19;
+}
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/DDVColumn.vue" {
+    import { DDCListData, DataDefinedColumn } from "cdh-vue-lib/components/uu-list/types";
     const _default_20: import("vue").DefineComponent<{
         item: {
             type: import("vue").PropType<DDCListData>;
             required: true;
         };
         column: {
-            type: import("vue").PropType<DDCString>;
+            type: import("vue").PropType<DataDefinedColumn>;
             required: true;
         };
     }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
@@ -1233,21 +993,21 @@ declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVString.
             required: true;
         };
         column: {
-            type: import("vue").PropType<DDCString>;
+            type: import("vue").PropType<DataDefinedColumn>;
             required: true;
         };
     }>>, {}, {}>;
     export default _default_20;
 }
-declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVDate.vue" {
-    import { DDCListData, DDCDate } from "cdh-vue-lib/components/uu-list/types";
+declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/DDVRow.vue" {
+    import { DDCListData, DataDefinedColumn as DDC } from "cdh-vue-lib/components/uu-list/types";
     const _default_21: import("vue").DefineComponent<{
         item: {
             type: import("vue").PropType<DDCListData>;
             required: true;
         };
-        column: {
-            type: import("vue").PropType<DDCDate>;
+        columns: {
+            type: import("vue").PropType<DDC[]>;
             required: true;
         };
     }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
@@ -1255,154 +1015,16 @@ declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVDate.vu
             type: import("vue").PropType<DDCListData>;
             required: true;
         };
-        column: {
-            type: import("vue").PropType<DDCDate>;
+        columns: {
+            type: import("vue").PropType<DDC[]>;
             required: true;
         };
     }>>, {}, {}>;
     export default _default_21;
 }
-declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVButton.vue" {
-    import { DDCListData, DDCButton } from "cdh-vue-lib/components/uu-list/types";
-    const _default_22: import("vue").DefineComponent<{
-        item: {
-            type: import("vue").PropType<DDCListData>;
-            required: true;
-        };
-        column: {
-            type: import("vue").PropType<DDCButton>;
-            required: true;
-        };
-    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-        item: {
-            type: import("vue").PropType<DDCListData>;
-            required: true;
-        };
-        column: {
-            type: import("vue").PropType<DDCButton>;
-            required: true;
-        };
-    }>>, {}, {}>;
-    export default _default_22;
-}
-declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVLink.vue" {
-    import { DDCListData, DDCLink } from "cdh-vue-lib/components/uu-list/types";
-    const _default_23: import("vue").DefineComponent<{
-        item: {
-            type: import("vue").PropType<DDCListData>;
-            required: true;
-        };
-        column: {
-            type: import("vue").PropType<DDCLink>;
-            required: true;
-        };
-    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-        item: {
-            type: import("vue").PropType<DDCListData>;
-            required: true;
-        };
-        column: {
-            type: import("vue").PropType<DDCLink>;
-            required: true;
-        };
-    }>>, {}, {}>;
-    export default _default_23;
-}
-declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVHTML.vue" {
-    import { DDCListData, DDCHTML } from "cdh-vue-lib/components/uu-list/types";
-    const _default_24: import("vue").DefineComponent<{
-        item: {
-            type: import("vue").PropType<DDCListData>;
-            required: true;
-        };
-        column: {
-            type: import("vue").PropType<DDCHTML>;
-            required: true;
-        };
-    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-        item: {
-            type: import("vue").PropType<DDCListData>;
-            required: true;
-        };
-        column: {
-            type: import("vue").PropType<DDCHTML>;
-            required: true;
-        };
-    }>>, {}, {}>;
-    export default _default_24;
-}
-declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/Colums/DDVActions.vue" {
-    import { DDCListData, DDCActions } from "cdh-vue-lib/components/uu-list/types";
-    const _default_25: import("vue").DefineComponent<{
-        item: {
-            type: import("vue").PropType<DDCListData>;
-            required: true;
-        };
-        column: {
-            type: import("vue").PropType<DDCActions>;
-            required: true;
-        };
-    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-        item: {
-            type: import("vue").PropType<DDCListData>;
-            required: true;
-        };
-        column: {
-            type: import("vue").PropType<DDCActions>;
-            required: true;
-        };
-    }>>, {}, {}>;
-    export default _default_25;
-}
-declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/DDVColumn.vue" {
-    import { DDCListData, DataDefinedColumn } from "cdh-vue-lib/components/uu-list/types";
-    const _default_26: import("vue").DefineComponent<{
-        item: {
-            type: import("vue").PropType<DDCListData>;
-            required: true;
-        };
-        column: {
-            type: import("vue").PropType<DataDefinedColumn>;
-            required: true;
-        };
-    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-        item: {
-            type: import("vue").PropType<DDCListData>;
-            required: true;
-        };
-        column: {
-            type: import("vue").PropType<DataDefinedColumn>;
-            required: true;
-        };
-    }>>, {}, {}>;
-    export default _default_26;
-}
-declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/DDVRow.vue" {
-    import { DDCListData, DataDefinedColumn as DDC } from "cdh-vue-lib/components/uu-list/types";
-    const _default_27: import("vue").DefineComponent<{
-        item: {
-            type: import("vue").PropType<DDCListData>;
-            required: true;
-        };
-        columns: {
-            type: import("vue").PropType<DDC[]>;
-            required: true;
-        };
-    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-        item: {
-            type: import("vue").PropType<DDCListData>;
-            required: true;
-        };
-        columns: {
-            type: import("vue").PropType<DDC[]>;
-            required: true;
-        };
-    }>>, {}, {}>;
-    export default _default_27;
-}
 declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/DataDefinedVisualizer.vue" {
     import { DDCListData, DataDefinedColumn as DDC } from "cdh-vue-lib/components/uu-list/types";
-    const _default_28: import("vue").DefineComponent<{
+    const _default_22: import("vue").DefineComponent<{
         data: {
             type: import("vue").PropType<DDCListData[] | null>;
             default: null;
@@ -1434,7 +1056,7 @@ declare module "cdh-vue-lib/components/uu-list/Vizualizers/DDV/DataDefinedVisual
         data: DDCListData[] | null;
         isLoading: boolean;
     }, {}>;
-    export default _default_28;
+    export default _default_22;
 }
 declare module "cdh-vue-lib/components/uu-list/DSCList.vue" {
     import { DataDefinedColumn, FilterDefinition } from "cdh-vue-lib/components/uu-list/types";
@@ -1454,7 +1076,7 @@ declare module "cdh-vue-lib/components/uu-list/DSCList.vue" {
         field: string;
         label: string;
     }
-    const _default_29: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
+    const _default_23: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         config: {
             type: import("vue").PropType<Config>;
             required: true;
@@ -1470,7 +1092,437 @@ declare module "cdh-vue-lib/components/uu-list/DSCList.vue" {
             isLoading: boolean;
         }): any;
     }>;
+    export default _default_23;
+    type __VLS_WithTemplateSlots<T, S> = T & {
+        new (): {
+            $slots: S;
+        };
+    };
+}
+declare module "cdh-vue-lib/components/uu-list/index" {
+    import UUList from "cdh-vue-lib/components/uu-list/UUList.vue";
+    import DSCList from "cdh-vue-lib/components/uu-list/DSCList.vue";
+    import * as UUListTypes from "cdh-vue-lib/components/uu-list/types";
+    export { UUList, UUListTypes, DSCList };
+}
+declare module "cdh-vue-lib/components" {
+    export * from "cdh-vue-lib/components/bootstrap/index";
+    export * from "cdh-vue-lib/components/uu-list/index";
+}
+declare module "cdh-vue-lib/index" {
+    export * from "cdh-vue-lib/components";
+    export * from "cdh-vue-lib/composables";
+}
+declare module "cdh-vue-lib" {
+    export * from "cdh-vue-lib/index";
+}
+declare module "cdh-vue-lib/components/bootstrap/BSSelect.vue" {
+    const _default_24: <T extends string | number>(__VLS_props: {
+        options: [T, string][];
+        modelValue: T;
+        containerClasses?: string | undefined;
+    } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, __VLS_ctx?: Pick<{
+        props: {
+            options: [T, string][];
+            modelValue: T;
+            containerClasses?: string | undefined;
+        };
+        expose(exposed: {}): void;
+        attrs: any;
+        slots: {};
+        emit: {
+            (e: "update:modelValue", value: T): void;
+            (e: "update:model-value", value: T): void;
+        };
+    }, "attrs" | "emit" | "slots"> | undefined, __VLS_setup?: Promise<{
+        props: {
+            options: [T, string][];
+            modelValue: T;
+            containerClasses?: string | undefined;
+        };
+        expose(exposed: {}): void;
+        attrs: any;
+        slots: {};
+        emit: {
+            (e: "update:modelValue", value: T): void;
+            (e: "update:model-value", value: T): void;
+        };
+    }>) => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
+        [key: string]: any;
+    }> & {
+        __ctx?: {
+            props: {
+                options: [T, string][];
+                modelValue: T;
+                containerClasses?: string | undefined;
+            };
+            expose(exposed: {}): void;
+            attrs: any;
+            slots: {};
+            emit: {
+                (e: "update:modelValue", value: T): void;
+                (e: "update:model-value", value: T): void;
+            };
+        } | undefined;
+    };
+    export default _default_24;
+}
+declare module "cdh-vue-lib/components/bootstrap/BSMultiSelect.vue" {
+    const _default_25: <T extends string | number>(__VLS_props: {
+        options: [T, string][];
+        modelValue: T[];
+        containerClasses?: string | undefined;
+        uniqueId?: string | undefined;
+    } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, __VLS_ctx?: Pick<{
+        props: {
+            options: [T, string][];
+            modelValue: T[];
+            containerClasses?: string | undefined;
+            uniqueId?: string | undefined;
+        };
+        expose(exposed: {}): void;
+        attrs: any;
+        slots: {};
+        emit: {
+            (e: "update:modelValue", value: T[]): void;
+            (e: "update:model-value", value: T[]): void;
+        };
+    }, "attrs" | "emit" | "slots"> | undefined, __VLS_setup?: Promise<{
+        props: {
+            options: [T, string][];
+            modelValue: T[];
+            containerClasses?: string | undefined;
+            uniqueId?: string | undefined;
+        };
+        expose(exposed: {}): void;
+        attrs: any;
+        slots: {};
+        emit: {
+            (e: "update:modelValue", value: T[]): void;
+            (e: "update:model-value", value: T[]): void;
+        };
+    }>) => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
+        [key: string]: any;
+    }> & {
+        __ctx?: {
+            props: {
+                options: [T, string][];
+                modelValue: T[];
+                containerClasses?: string | undefined;
+                uniqueId?: string | undefined;
+            };
+            expose(exposed: {}): void;
+            attrs: any;
+            slots: {};
+            emit: {
+                (e: "update:modelValue", value: T[]): void;
+                (e: "update:model-value", value: T[]): void;
+            };
+        } | undefined;
+    };
+    export default _default_25;
+}
+declare module "cdh-vue-lib/components/bootstrap/BSPagination.vue" {
+    const _default_26: import("vue").DefineComponent<{
+        maxPages: {
+            type: import("vue").PropType<number>;
+            required: true;
+        };
+        currentpage: {
+            type: import("vue").PropType<number>;
+            required: true;
+        };
+        showButtons: {
+            type: import("vue").PropType<boolean>;
+            default: boolean;
+        };
+        numOptions: {
+            type: import("vue").PropType<number>;
+            default: number;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+        "change-page": (value: number) => void;
+    }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        maxPages: {
+            type: import("vue").PropType<number>;
+            required: true;
+        };
+        currentpage: {
+            type: import("vue").PropType<number>;
+            required: true;
+        };
+        showButtons: {
+            type: import("vue").PropType<boolean>;
+            default: boolean;
+        };
+        numOptions: {
+            type: import("vue").PropType<number>;
+            default: number;
+        };
+    }>> & {
+        "onChange-page"?: ((value: number) => any) | undefined;
+    }, {
+        showButtons: boolean;
+        numOptions: number;
+    }, {}>;
+    export default _default_26;
+}
+declare module "cdh-vue-lib/components/bootstrap/BSRadioSelect.vue" {
+    const _default_27: <T extends string | number>(__VLS_props: {
+        options: [T, string][];
+        modelValue: T;
+        containerClasses?: string | undefined;
+    } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, __VLS_ctx?: Pick<{
+        props: {
+            options: [T, string][];
+            modelValue: T;
+            containerClasses?: string | undefined;
+        };
+        expose(exposed: {}): void;
+        attrs: any;
+        slots: {};
+        emit: {
+            (e: "update:modelValue", value: T): void;
+            (e: "update:model-value", value: T): void;
+        };
+    }, "attrs" | "emit" | "slots"> | undefined, __VLS_setup?: Promise<{
+        props: {
+            options: [T, string][];
+            modelValue: T;
+            containerClasses?: string | undefined;
+        };
+        expose(exposed: {}): void;
+        attrs: any;
+        slots: {};
+        emit: {
+            (e: "update:modelValue", value: T): void;
+            (e: "update:model-value", value: T): void;
+        };
+    }>) => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
+        [key: string]: any;
+    }> & {
+        __ctx?: {
+            props: {
+                options: [T, string][];
+                modelValue: T;
+                containerClasses?: string | undefined;
+            };
+            expose(exposed: {}): void;
+            attrs: any;
+            slots: {};
+            emit: {
+                (e: "update:modelValue", value: T): void;
+                (e: "update:model-value", value: T): void;
+            };
+        } | undefined;
+    };
+    export default _default_27;
+}
+declare module "cdh-vue-lib/components/bootstrap/BSSidebar.vue" {
+    const _default_28: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
+        id: {
+            type: import("vue").PropType<string | null>;
+            default: null;
+        };
+        placement: {
+            type: import("vue").PropType<"right" | "left">;
+            default: string;
+        };
+        mobilePlacement: {
+            type: import("vue").PropType<"top" | "bottom">;
+            default: string;
+        };
+        stickySidebar: {
+            type: import("vue").PropType<boolean>;
+            default: boolean;
+        };
+        mobileStickySidebar: {
+            type: import("vue").PropType<boolean>;
+            default: boolean;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        id: {
+            type: import("vue").PropType<string | null>;
+            default: null;
+        };
+        placement: {
+            type: import("vue").PropType<"right" | "left">;
+            default: string;
+        };
+        mobilePlacement: {
+            type: import("vue").PropType<"top" | "bottom">;
+            default: string;
+        };
+        stickySidebar: {
+            type: import("vue").PropType<boolean>;
+            default: boolean;
+        };
+        mobileStickySidebar: {
+            type: import("vue").PropType<boolean>;
+            default: boolean;
+        };
+    }>>, {
+        id: string | null;
+        placement: "right" | "left";
+        mobilePlacement: "top" | "bottom";
+        stickySidebar: boolean;
+        mobileStickySidebar: boolean;
+    }, {}>, {
+        "sidebar-button"?(_: {}): any;
+        sidebar?(_: {}): any;
+        default?(_: {}): any;
+    }>;
+    export default _default_28;
+    type __VLS_WithTemplateSlots<T, S> = T & {
+        new (): {
+            $slots: S;
+        };
+    };
+}
+declare module "cdh-vue-lib/components/bootstrap/index" {
+    import BSButton from "cdh-vue-lib/components/bootstrap/BSButton.vue";
+    import BSCard from "cdh-vue-lib/components/bootstrap/BSCard.vue";
+    import BSDropdown from "cdh-vue-lib/components/bootstrap/BSDropdown.vue";
+    import BSDropdownMultiSelect from "cdh-vue-lib/components/bootstrap/BSDropdownMultiSelect.vue";
+    import BSIcon from "cdh-vue-lib/components/bootstrap/BSIcon.vue";
+    import BSSelect from "cdh-vue-lib/components/bootstrap/BSSelect.vue";
+    import BSMultiSelect from "cdh-vue-lib/components/bootstrap/BSMultiSelect.vue";
+    import BSPagination from "cdh-vue-lib/components/bootstrap/BSPagination.vue";
+    import BSRadioSelect from "cdh-vue-lib/components/bootstrap/BSRadioSelect.vue";
+    import BSSidebar from "cdh-vue-lib/components/bootstrap/BSSidebar.vue";
+    export { BSButton, BSCard, BSDropdown, BSDropdownMultiSelect, BSIcon, BSSelect, BSMultiSelect, BSPagination, BSRadioSelect, BSSidebar, };
+}
+declare module "cdh-vue-lib/components/bootstrap/BSDropdown.vue" {
+    const _default_29: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
+        id: {
+            type: import("vue").PropType<string | null>;
+            default: null;
+        };
+        variant: {
+            type: import("vue").PropType<"primary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark">;
+            default: string;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        id: {
+            type: import("vue").PropType<string | null>;
+            default: null;
+        };
+        variant: {
+            type: import("vue").PropType<"primary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark">;
+            default: string;
+        };
+    }>>, {
+        id: string | null;
+        variant: "primary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark";
+    }, {}>, {
+        button?(_: {}): any;
+        default?(_: {}): any;
+    }>;
     export default _default_29;
+    type __VLS_WithTemplateSlots<T, S> = T & {
+        new (): {
+            $slots: S;
+        };
+    };
+}
+declare module "cdh-vue-lib/components/bootstrap/BSModal.vue" {
+    const _default_30: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
+        id: {
+            type: import("vue").PropType<string | null>;
+            default: null;
+        };
+        size: {
+            type: import("vue").PropType<"small" | "large" | "default" | "extra-large">;
+            default: string;
+        };
+        active: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        hasBackground: {
+            type: import("vue").PropType<boolean>;
+            default: boolean;
+        };
+        backgroundClickCloses: {
+            type: import("vue").PropType<boolean>;
+            default: boolean;
+        };
+        showCloseButton: {
+            type: import("vue").PropType<boolean>;
+            default: boolean;
+        };
+        headerColor: {
+            type: import("vue").PropType<string | null>;
+            default: string;
+        };
+        headerBold: {
+            type: import("vue").PropType<boolean>;
+            default: boolean;
+        };
+        centered: {
+            type: import("vue").PropType<boolean>;
+            default: boolean;
+        };
+    }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+        shown: () => void;
+        hidden: () => void;
+        "close-clicked": () => void;
+    }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+        id: {
+            type: import("vue").PropType<string | null>;
+            default: null;
+        };
+        size: {
+            type: import("vue").PropType<"small" | "large" | "default" | "extra-large">;
+            default: string;
+        };
+        active: {
+            type: import("vue").PropType<boolean>;
+            required: true;
+        };
+        hasBackground: {
+            type: import("vue").PropType<boolean>;
+            default: boolean;
+        };
+        backgroundClickCloses: {
+            type: import("vue").PropType<boolean>;
+            default: boolean;
+        };
+        showCloseButton: {
+            type: import("vue").PropType<boolean>;
+            default: boolean;
+        };
+        headerColor: {
+            type: import("vue").PropType<string | null>;
+            default: string;
+        };
+        headerBold: {
+            type: import("vue").PropType<boolean>;
+            default: boolean;
+        };
+        centered: {
+            type: import("vue").PropType<boolean>;
+            default: boolean;
+        };
+    }>> & {
+        onHidden?: (() => any) | undefined;
+        onShown?: (() => any) | undefined;
+        "onClose-clicked"?: (() => any) | undefined;
+    }, {
+        id: string | null;
+        size: "small" | "large" | "default" | "extra-large";
+        hasBackground: boolean;
+        backgroundClickCloses: boolean;
+        showCloseButton: boolean;
+        headerColor: string | null;
+        headerBold: boolean;
+        centered: boolean;
+    }, {}>, {
+        title?(_: {}): any;
+        default?(_: {}): any;
+        footer?(_: {}): any;
+    }>;
+    export default _default_30;
     type __VLS_WithTemplateSlots<T, S> = T & {
         new (): {
             $slots: S;
