@@ -31,7 +31,7 @@
     "types": "vue-tsc --emitDeclarationOnly"
   },
   "dependencies": {
-    "uu-bootstrap": "git+ssh://git@github.com/DH-IT-Portal-Development/bootstrap-theme.git#1.5.0-alpha.0",
+    "uu-bootstrap": "git+ssh://git@github.com/DH-IT-Portal-Development/bootstrap-theme.git#1.5.0-alpha.1",
     "uuid": "^9.0.0",
     "vue-i18n": "9"
   },
