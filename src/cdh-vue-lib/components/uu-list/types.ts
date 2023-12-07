@@ -7,7 +7,7 @@ interface FilterDefinition {
     field: string;
     label: string;
     options?: [string | number, string][];
-    type: "radio" | "checkbox" | "date";
+    type: "radio" | "checkbox" | "date" | "select";
     initial?: FilterValue;
 }
 

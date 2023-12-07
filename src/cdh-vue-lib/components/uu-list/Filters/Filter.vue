@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { BSMultiSelect, BSRadioSelect } from "../../bootstrap";
+import { BSMultiSelect, BSRadioSelect, BSSelect } from "../../bootstrap";
 import { useInputValue } from "@/cdh-vue-lib/composables";
 import { FilterDefinition, FilterValue } from "../types";
 
@@ -23,6 +23,13 @@ const emits = defineEmits<{
             :options="filter.options ?? []"
             :model-value="(value as number[] | string[]) ?? []"
             @update:model-value="(val) => emits('update:value', (val as number[] | string[]))"
+        />
+        <BSSelect
+            v-if="filter.type === 'select'"
+            :options="filter.options ?? []"
+            :model-value="(value as number | string) ?? ''"
+            class="uu-list-filter-field"
+            @update:model-value="(val) => emits('update:value', val)"
         />
         <BSRadioSelect
             v-if="filter.type === 'radio'"
