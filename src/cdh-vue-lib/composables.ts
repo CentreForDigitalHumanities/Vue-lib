@@ -1,3 +1,4 @@
-import useInputValue from './composables/useInputValue'
+import useInputValue from './composables/useInputValue';
+import { useInputValueAsNumber, useInputValueAsNumberOrNull } from './composables/useInputValueAsNumber';
 
-export {useInputValue}
+export { useInputValue, useInputValueAsNumber, useInputValueAsNumberOrNull };
