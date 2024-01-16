@@ -107,6 +107,8 @@ const buttonClasses = computed(() => {
 
     if (props.active) classes += "active ";
 
+    if (props.disabled) classes += "cursor-not-allowed "
+
     return classes;
 });
 </script>
