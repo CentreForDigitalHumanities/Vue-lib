@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-import { BSMultiSelect, BSIcon } from ".";
+import { BSMultiSelect } from ".";
+import { v4 as uuidv4 } from "uuid";
+import { ref } from "vue";
 
 interface Props {
     label: string;
@@ -15,22 +17,22 @@ const emit = defineEmits<{
         value: string | number | string[] | number[]
     ): void;
 }>();
+
+const id = ref(uuidv4());
 </script>
 
 <template>
     <div class="dropdown dropdown-select is-hoverable">
-        <div class="dropdown-trigger">
-            <button
-                class="button"
-                aria-haspopup="true"
-                aria-controls="dropdown-menu4"
-            >
-                <span>{{ label }}</span>
-                <BSIcon icon="angle-down" />
-            </button>
-        </div>
-        <div class="dropdown-menu" role="menu">
-            <div class="dropdown-content">
+        <Button
+            class="dropdown-toggle"
+            aria-haspopup="true"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+        >
+            <span class="me-2">{{ label }}</span>
+        </Button>
+        <div :id="id" class="dropdown-menu" role="menu">
+            <div class="dropdown-content ps-4">
                 <BSMultiSelect
                     :options="options"
                     :model-value="modelValue"
@@ -47,13 +49,6 @@ const emit = defineEmits<{
 .dropdown.dropdown-select {
     .dropdown-menu {
         padding-top: 0; // Small UI fix
-    }
-
-    .dropdown-item {
-        &:hover {
-            background: $primary;
-            color: color-contrast($primary);
-        }
     }
 
     label {
