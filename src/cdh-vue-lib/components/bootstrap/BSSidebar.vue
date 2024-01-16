@@ -53,8 +53,8 @@ const placementClasses = computed(() => {
                 <slot name="sidebar" />
             </div>
         </aside>
-        <div class="uu-sidebar-content">
+        <section class="uu-sidebar-content">
             <slot />
-        </div>
+        </section>
     </div>
 </template>
