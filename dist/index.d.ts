@@ -1145,11 +1145,13 @@ declare module "cdh-vue-lib/components/bootstrap/BSSelect.vue" {
         options: [T, string][];
         modelValue: T;
         containerClasses?: string | undefined;
+        placeholder?: string | undefined;
     } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, __VLS_ctx?: Pick<{
         props: {
             options: [T, string][];
             modelValue: T;
             containerClasses?: string | undefined;
+            placeholder?: string | undefined;
         };
         expose(exposed: {}): void;
         attrs: any;
@@ -1163,6 +1165,7 @@ declare module "cdh-vue-lib/components/bootstrap/BSSelect.vue" {
             options: [T, string][];
             modelValue: T;
             containerClasses?: string | undefined;
+            placeholder?: string | undefined;
         };
         expose(exposed: {}): void;
         attrs: any;
@@ -1179,6 +1182,7 @@ declare module "cdh-vue-lib/components/bootstrap/BSSelect.vue" {
                 options: [T, string][];
                 modelValue: T;
                 containerClasses?: string | undefined;
+                placeholder?: string | undefined;
             };
             expose(exposed: {}): void;
             attrs: any;
