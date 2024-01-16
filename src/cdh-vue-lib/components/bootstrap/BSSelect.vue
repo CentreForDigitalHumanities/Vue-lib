@@ -6,9 +6,11 @@ const props = withDefaults(
         options: [T, string][];
         modelValue: T;
         containerClasses?: string;
+        placeholder?: string;
     }>(),
     {
         containerClasses: "",
+        placeholder: undefined,
     }
 );
 
@@ -38,6 +40,9 @@ function updateValue(value: string) {
             :value="modelValue"
             @change="updateValue(useInputValue($event))"
         >
+            <option v-if="placeholder" disabled :value="''">
+                {{ placeholder }}
+            </option>
             <option
                 v-for="[value, label] in options"
                 :key="value"
