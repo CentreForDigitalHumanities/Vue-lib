@@ -17,9 +17,17 @@ express or implied.
 * See the Licence for the specific language governing
 permissions and limitations under the Licence.
 */
-function t(e) {
-  return e.target.value;
+import { u as s } from "./useInputValue-e686f6e9.js";
+function r(e) {
+  const u = n(e);
+  return u === null ? 0 : u;
+}
+function n(e) {
+  const u = e.target.valueAsNumber;
+  return isNaN(u) ? null : u;
 }
 export {
-  t as useInputValue
+  s as useInputValue,
+  r as useInputValueAsNumber,
+  n as useInputValueAsNumberOrNull
 };
