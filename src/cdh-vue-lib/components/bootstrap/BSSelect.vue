@@ -1,5 +1,5 @@
-<script lang="ts" setup generic="T extends string | number">
-import { useInputValue } from "@/cdh-vue-lib";
+<script lang="ts" setup generic="T extends string | number | null">
+import { useInputValue } from "@/cdh-vue-lib/composables";
 
 const props = withDefaults(
     defineProps<{
@@ -45,7 +45,7 @@ function updateValue(value: string) {
             </option>
             <option
                 v-for="[value, label] in options"
-                :key="value"
+                :key="value ?? 'null'"
                 :value="value"
             >
                 {{ label }}
