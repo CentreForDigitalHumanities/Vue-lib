@@ -11,7 +11,7 @@
   "module": "./dist/cdh-vue-lib.es.js",
   "exports": {
     ".": {
-      "import": "./dist/cdh-vue-lib.es.js"
+      "import": ["./dist/cdh-vue-lib.es.js", "./dist/index.d.ts"]
     },
     "./components": {
       "import": "./dist/cdh-vue-lib.components.es.js"
