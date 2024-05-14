@@ -1,5 +1,5 @@
 declare module "cdh-vue-lib/components/bootstrap/BSButton.vue" {
-    export type BSButtonVariant = "primary" | "secondary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark" | "blue" | "dark-blue" | "indigo" | "purple" | "pink" | "red" | "brown" | "orange" | "yellow" | "green" | "teal" | "cyan" | "white" | "gray" | "gray-dark";
+    export type BSButtonVariant = "primary" | "secondary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark" | "blue" | "cream" | "dark-blue" | "indigo" | "purple" | "pink" | "red" | "brown" | "orange" | "yellow" | "green" | "teal" | "cyan" | "white" | "gray" | "gray-dark";
     export type BSButtonSize = "small" | "normal" | "large";
     const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         id: {
@@ -964,6 +964,23 @@ declare module "cdh-vue-lib/components/uu-list/Controls/SearchControl.vue" {
     }, {}, {}>;
     export default _default_13;
 }
+declare module "cdh-vue-lib/components/uu-list/index" {
+    import UUList from "cdh-vue-lib/components/uu-list/UUList.vue";
+    import DSCList from "cdh-vue-lib/components/uu-list/DSCList.vue";
+    import * as UUListTypes from "cdh-vue-lib/components/uu-list/types";
+    export { UUList, UUListTypes, DSCList };
+}
+declare module "cdh-vue-lib/components" {
+    export * from "cdh-vue-lib/components/bootstrap/index";
+    export * from "cdh-vue-lib/components/uu-list/index";
+}
+declare module "cdh-vue-lib/index" {
+    export * from "cdh-vue-lib/components";
+    export * from "cdh-vue-lib/composables";
+}
+declare module "cdh-vue-lib" {
+    export * from "cdh-vue-lib/index";
+}
 declare module "cdh-vue-lib/components/uu-list/Controls/PageSizeControl.vue" {
     const _default_14: import("vue").DefineComponent<{
         pageSize: {
@@ -1539,26 +1556,5 @@ declare module "cdh-vue-lib/components/uu-list/DSCList.vue" {
             $slots: S;
         };
     };
-}
-declare module "cdh-vue-lib/components/uu-list/index" {
-    import UUList from "cdh-vue-lib/components/uu-list/UUList.vue";
-    import DSCList from "cdh-vue-lib/components/uu-list/DSCList.vue";
-    import * as UUListTypes from "cdh-vue-lib/components/uu-list/types";
-    export { UUList, UUListTypes, DSCList };
-}
-declare module "cdh-vue-lib/components" {
-    export * from "cdh-vue-lib/components/bootstrap/index";
-    export * from "cdh-vue-lib/components/uu-list/index";
-}
-declare module "cdh-vue-lib/index" {
-    export * from "cdh-vue-lib/components";
-    export * from "cdh-vue-lib/composables";
-}
-declare module "cdh-vue-lib" {
-    export * from "cdh-vue-lib/index";
-}
-declare module "cdh-vue-lib/components/bootstrap/Test.vue" {
-    const _default_31: import("vue").DefineComponent<{}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}, {}>;
-    export default _default_31;
 }
 //# sourceMappingURL=index.d.ts.map

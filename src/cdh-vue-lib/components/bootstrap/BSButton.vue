@@ -45,6 +45,7 @@ export type BSButtonVariant =
     | "light"
     | "dark"
     | "blue"
+    | "cream"
     | "dark-blue"
     | "indigo"
     | "purple"
@@ -107,7 +108,7 @@ const buttonClasses = computed(() => {
 
     if (props.active) classes += "active ";
 
-    if (props.disabled) classes += "cursor-not-allowed "
+    if (props.disabled) classes += "cursor-not-allowed ";
 
     return classes;
 });
