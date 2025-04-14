@@ -1574,9 +1574,9 @@ util-deprecate@^1.0.2:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
 
-"uu-bootstrap@git+ssh://git@github.com/DH-IT-Portal-Development/bootstrap-theme.git#1.5.0-alpha.1":
+"uu-bootstrap@git+ssh://git@github.com/UtrechtUniversity/UU-Bootstrap.git#1.5.0-alpha.1":
   version "1.5.0-alpha.1"
-  resolved "git+ssh://git@github.com/DH-IT-Portal-Development/bootstrap-theme.git#0d3d52fc6abdfbefa802368b728f556916be53fb"
+  resolved "git+ssh://git@github.com/UtrechtUniversity/UU-Bootstrap.git#0d3d52fc6abdfbefa802368b728f556916be53fb"
   dependencies:
     bootstrap "5.3.1"
 

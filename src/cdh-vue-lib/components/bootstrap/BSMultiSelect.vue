@@ -10,7 +10,7 @@ const props = withDefaults(
     }>(),
     {
         containerClasses: "",
-        uniqueId: UUIDv4().toString(),
+        uniqueId: () => UUIDv4().toString(),
     }
 );
 
