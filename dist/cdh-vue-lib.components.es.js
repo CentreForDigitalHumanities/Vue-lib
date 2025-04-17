@@ -304,7 +304,7 @@ const Be = { key: 0 }, Ce = { class: "icon me-1" }, Gt = /* @__PURE__ */ m({
     options: {},
     modelValue: {},
     containerClasses: { default: "" },
-    uniqueId: { default: N().toString() }
+    uniqueId: { default: () => N().toString() }
   },
   emits: ["update:modelValue", "update:model-value"],
   setup(i, { emit: o }) {
