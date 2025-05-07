@@ -2,11 +2,12 @@
 import { computed } from "vue";
 import { BSPagination } from "../../bootstrap";
 import FilterBar from "../Filters/FilterBar.vue";
-import { ContainerEmits, ContainerProps, Data } from "../types";
+import { ContainerEmits, ContainerProps, Data, FilterProps } from "../types";
 import SearchControl from "../Controls/SearchControl.vue";
 import PageSizeControl from "../Controls/PageSizeControl.vue";
 import SortControl from "../Controls/SortControl.vue";
 import SearchResultNum from "@/cdh-vue-lib/components/uu-list/Controls/SearchResultNum.vue";
+import { container2FilterProps } from "../utils";
 
 const props = defineProps<ContainerProps<T>>();
 
@@ -14,6 +15,10 @@ const emits = defineEmits<ContainerEmits>();
 
 const totalPages = computed(() => {
     return Math.ceil(props.totalData / props.pageSize);
+});
+
+const filterProps = computed<FilterProps | null>(() => {
+    return container2FilterProps(props);
 });
 </script>
 
@@ -54,11 +59,10 @@ const totalPages = computed(() => {
                     />
                 </div>
             </div>
-            <div v-if="filtersEnabled" class="uu-list-filters">
+            <div v-if="filtersEnabled && filterProps" class="uu-list-filters">
                 <slot name="filters-top" :data="data" :is-loading="isLoading" />
                 <FilterBar
-                    :filters="filters"
-                    :filter-values="filterValues"
+                    :filter-props="filterProps"
                     @update:filter-values="
                         (val) => $emit('update:filter-values', val)
                     "

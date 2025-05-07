@@ -40,6 +40,11 @@ interface ContainerProps<T extends Data<string> | Data<number>> {
     filterValues?: FilterValues;
 }
 
+export interface FilterProps {
+    filters: FilterDefinition[];
+    filterValues: FilterValues;
+};
+
 type ContainerEmits = {
     (e: "update:current-page", value: number): void;
     (e: "update:search", value: string): void;

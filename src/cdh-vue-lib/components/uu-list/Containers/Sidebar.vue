@@ -2,11 +2,12 @@
 import { computed } from "vue";
 import { BSPagination, BSSidebar } from "../../bootstrap";
 import FilterBar from "../Filters/FilterBar.vue";
-import { ContainerEmits, ContainerProps, Data } from "../types";
+import { ContainerEmits, ContainerProps, Data, FilterProps } from "../types";
 import SearchControl from "../Controls/SearchControl.vue";
 import PageSizeControl from "../Controls/PageSizeControl.vue";
 import SortControl from "../Controls/SortControl.vue";
 import SearchResultNum from "@/cdh-vue-lib/components/uu-list/Controls/SearchResultNum.vue";
+import { container2FilterProps } from "../utils";
 
 const props = defineProps<ContainerProps<T>>();
 
@@ -14,6 +15,10 @@ const emits = defineEmits<ContainerEmits>();
 
 const totalPages = computed(() => {
     return Math.ceil(props.totalData / props.pageSize);
+});
+
+const filterProps = computed<FilterProps | null>(() => {
+    return container2FilterProps(props);
 });
 </script>
 
@@ -27,9 +32,8 @@ const totalPages = computed(() => {
             />
             <slot name="filters-top" :data="data" :is-loading="isLoading" />
             <FilterBar
-                v-if="filters"
-                :filters="filters"
-                :filter-values="filterValues"
+                v-if="filterProps"
+                :filter-props="filterProps"
                 @update:filter-values="
                     (val) => $emit('update:filter-values', val)
                 "
