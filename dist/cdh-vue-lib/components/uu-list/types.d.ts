@@ -43,7 +43,7 @@ type ContainerEmits = {
     (e: "update:filter-values", value: FilterValues): void;
 };
 interface DDCListData extends Data<string | number> {
-    [Key: string]: any;
+    [key: string]: any;
 }
 interface _DDC {
     field: string;
