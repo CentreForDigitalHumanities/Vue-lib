@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useInputValue } from "../../../composables";
-import { SortOption } from "../types";
+import type { SortOption } from "../types";
 
 interface Props {
     currentSort: string;

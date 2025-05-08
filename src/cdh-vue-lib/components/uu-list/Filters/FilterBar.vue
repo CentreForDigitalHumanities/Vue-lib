@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed } from "vue";
-import { FilterValues, FilterValue, FilterProps } from "../types";
+import type { FilterValues, FilterValue, FilterProps } from "../types";
 import Filter from "./Filter.vue";
 
 interface Props {

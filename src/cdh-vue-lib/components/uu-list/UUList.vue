@@ -4,7 +4,7 @@
 // The root type barely has any optionals, to avoid dealing with missing values
 // too much. Instead, we provide sensible defaults in this component, so the
 // actual user of the component does not _have_ to define all
-import { ContainerProps, Data } from "@/cdh-vue-lib/components/uu-list/types";
+import type { ContainerProps, Data } from "@/cdh-vue-lib/components/uu-list/types";
 
 type NonOptionalField = "totalData" | "currentPage";
 type SelectiveContainerProps<T extends Data<string> | Data<number>> = Partial<
@@ -23,7 +23,7 @@ import { computed } from "vue";
 import Default from "./Containers/Default.vue";
 import Sidebar from "./Containers/Sidebar.vue";
 import DebugVisualizer from "@/cdh-vue-lib/components/uu-list/Vizualizers/DebugVisualizer.vue";
-import { ContainerEmits } from "@/cdh-vue-lib/components/uu-list/types";
+import type { ContainerEmits } from "@/cdh-vue-lib/components/uu-list/types";
 
 const props = withDefaults(defineProps<Props<T>>(), {
     // Provide defaults for all props the containers expect, but should not be

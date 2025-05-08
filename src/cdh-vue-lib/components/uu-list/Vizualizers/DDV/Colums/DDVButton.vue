@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { BSButton } from "@/cdh-vue-lib/components/bootstrap";
-import { DDCListData, DDCButton } from "../../../types";
+import type { DDCListData, DDCButton } from "../../../types";
 
 interface Props {
     item: DDCListData;

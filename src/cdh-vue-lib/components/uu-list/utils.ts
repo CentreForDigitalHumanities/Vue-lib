@@ -1,4 +1,4 @@
-import { ContainerProps, Data, FilterProps } from "./types";
+import type { ContainerProps, Data, FilterProps } from "./types";
 
 /**
  * Transforms container properties into filter properties, but only if both `filters` and `filterValues` are present.

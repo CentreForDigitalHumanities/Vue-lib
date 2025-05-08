@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { DDCListData, DataDefinedColumn as DDC } from "../../types";
+import type { DDCListData, DataDefinedColumn as DDC } from "../../types";
 import DDVRow from "./DDVRow.vue";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";

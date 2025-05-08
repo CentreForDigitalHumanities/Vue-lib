@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Data } from "../types";
+import type { Data } from "../types";
 
 interface Props {
     data?: Data<string | number>[];

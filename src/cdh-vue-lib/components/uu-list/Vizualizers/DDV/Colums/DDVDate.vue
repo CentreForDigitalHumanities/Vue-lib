@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { DDCListData, DDCDate } from "../../../types";
+import type { DDCListData, DDCDate } from "../../../types";
 import { computed } from "vue";
 
 interface Props {

@@ -1,4 +1,4 @@
-import {
+import type {
     BSButtonSize,
     BSButtonVariant,
 } from "@/cdh-vue-lib/components/bootstrap/BSButton.vue";
@@ -54,7 +54,7 @@ type ContainerEmits = {
 };
 
 interface DDCListData extends Data<string | number> {
-    [Key: string]: any;
+    [key: string]: any;
 }
 
 interface _DDC {
@@ -124,7 +124,7 @@ type DataDefinedColumn =
     | DDCButton
     | DDCDate;
 
-export {
+export type {
     FilterDefinition,
     FilterValue,
     FilterValues,

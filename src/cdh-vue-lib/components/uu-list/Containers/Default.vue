@@ -2,7 +2,7 @@
 import { computed } from "vue";
 import { BSPagination } from "../../bootstrap";
 import FilterBar from "../Filters/FilterBar.vue";
-import { ContainerEmits, ContainerProps, Data, FilterProps } from "../types";
+import type { ContainerEmits, ContainerProps, Data, FilterProps } from "../types";
 import SearchControl from "../Controls/SearchControl.vue";
 import PageSizeControl from "../Controls/PageSizeControl.vue";
 import SortControl from "../Controls/SortControl.vue";

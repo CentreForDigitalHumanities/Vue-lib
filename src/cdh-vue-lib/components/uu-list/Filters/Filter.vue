@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { BSMultiSelect, BSRadioSelect, BSSelect } from "../../bootstrap";
 import { useInputValue } from "@/cdh-vue-lib/composables";
-import { FilterDefinition, FilterValue } from "../types";
+import type { FilterDefinition, FilterValue } from "../types";
 
 interface Props {
     filter: FilterDefinition;

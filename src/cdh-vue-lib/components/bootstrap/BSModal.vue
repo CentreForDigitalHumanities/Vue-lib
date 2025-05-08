@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { v4 as UUIDv4 } from "uuid";
-import { ref, Ref, watch, computed, onMounted, onUnmounted } from "vue";
+import { ref, type Ref, watch, computed, onMounted, onUnmounted } from "vue";
 import { Modal as BsModal } from "bootstrap";
 
 interface Props {
