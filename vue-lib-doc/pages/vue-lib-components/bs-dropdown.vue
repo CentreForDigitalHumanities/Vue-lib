@@ -84,7 +84,7 @@ const dropdownVariants = [
                         <a class="dropdown-item" href="#">Another action</a>
                     </li>
                     <li>
-                        <hr class="dropdown-divider" >
+                        <hr class="dropdown-divider" />
                     </li>
                     <li>
                         <a class="dropdown-item" href="#"

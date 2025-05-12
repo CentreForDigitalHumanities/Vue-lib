@@ -2,7 +2,6 @@
 import { v4 as UUIDv4 } from "uuid";
 import { BSButton } from "@/cdh-vue-lib/components/bootstrap";
 import { computed } from "vue";
-import "@bootstrap/dist/js/bootstrap.bundle.min.js";
 
 interface Props {
     id?: string | null;
