@@ -1,35 +1,27 @@
 <script lang="ts" setup>
-/**
- * Displays a given FontAwesome 6 icon in an icon container
- *
- * Usage:
- * <Icon icon='x' />
- * <Icon icon='x'>Optional text</Icon>
- *
- * Without optional text this will display as an icon.
- * With it, it will wrap the icon container into an icon-text container
- *
- * Props:
- * see the font-awesome-icon component docs, most props are inherited from there.
- * Extra props:
- * inline - whether to display the icon in a span or div. Optional, defaults to false
- * classes - any additional CSS classes one wants. Optional
- */
 import { computed } from "vue";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
+// The type warnings for the optional string props are the lesser of two evils.
+// These props here should be added to withDefaults() with a value ofundefined,
+// but the generated type for the prop is then `undefined`.
+// This is most likely a bug in the compiler.
+// Related: https://github.com/vuejs/core/issues/13236
 interface Props {
     inline?: boolean;
-    // From font-awesome-icon
     border?: boolean;
     fixedWidth?: boolean;
-    flip?: boolean | "horizontal" | "vertical" | "both";
     icon: object | Array<string> | string;
-    mask?: object | Array<string> | string | null;
     listItem?: boolean;
-    pull?: "right" | "left" | null;
     pulse?: boolean;
-    rotation?: 90 | 180 | 270 | "90" | "180" | "270" | null;
     swapOpacity?: boolean;
+    spin?: boolean;
+    symbol?: boolean | string;
+    inverse?: boolean;
+    flip?: "horizontal" | "vertical" | "both";
+    mask?: object | Array<string> | string;
+    pull?: "right" | "left";
+    rotation?: 90 | 180 | 270 | "90" | "180" | "270";
     size?:
         | "lg"
         | "xs"
@@ -43,25 +35,14 @@ interface Props {
         | "7x"
         | "8x"
         | "9x"
-        | "10x"
-        | null;
-    spin?: boolean;
-    transform?: object | string | null;
-    symbol?: boolean | string;
-    title?: string | null;
-    inverse?: boolean;
+        | "10x";
+    title?: string;
+    transform?: object | string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
     inline: false,
-    size: null,
-    flip: false,
-    mask: null,
-    pull: null,
-    rotation: null,
-    transform: null,
     symbol: false,
-    title: null,
 });
 
 const element = computed(() => {
@@ -75,7 +56,7 @@ const element = computed(() => {
     <component :is="element">
         <span v-if="$slots.default">
             <span class="icon me-1">
-                <font-awesome-icon
+                <FontAwesomeIcon
                     :border="border"
                     :fixed-width="fixedWidth"
                     :flip="flip"
@@ -96,7 +77,7 @@ const element = computed(() => {
             </span>
             <span><slot /></span>
         </span>
-        <font-awesome-icon
+        <FontAwesomeIcon
             v-else
             :border="border"
             :fixed-width="fixedWidth"
