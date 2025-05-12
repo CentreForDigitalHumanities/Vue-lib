@@ -104,7 +104,7 @@ function handlePageChangeCustomOptions(newPage: number) {
                         Current Page: {{ currentPageBasic }}
                     </p>
                 </div>
-                <pre v-pre class="bg-light p-2 rounded wrap-break">
+                <pre v-pre class="code-example">
 <code>&lt;script lang="ts" setup&gt;
 import { ref } from "vue";
 import { BSPagination } from "cdh-vue-lib";
@@ -144,7 +144,7 @@ function handlePageChange(newPage: number) {
                         Current Page: {{ currentPageNoButtons }}
                     </p>
                 </div>
-                <pre v-pre class="bg-light p-2 rounded wrap-break">
+                <pre v-pre class="code-example">
 <code>&lt;script lang="ts" setup&gt;
 import { ref } from "vue";
 import { BSPagination } from "cdh-vue-lib";
@@ -186,7 +186,7 @@ function handlePageChange(newPage: number) {
                         Current Page: {{ currentPageCustomOptions }}
                     </p>
                 </div>
-                <pre v-pre class="bg-light p-2 rounded wrap-break">
+                <pre v-pre class="code-example">
 <code>&lt;script lang="ts" setup&gt;
 import { ref } from "vue";
 import { BSPagination } from "cdh-vue-lib";

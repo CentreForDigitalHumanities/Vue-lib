@@ -124,7 +124,7 @@ const preselectedNumbers = ref<number[]>([101, 103]);
                         <span v-else>None</span>
                     </p>
                 </div>
-                <pre class="bg-light p-2 rounded wrap-break">
+                <pre class="code-example">
 <code>&lt;script setup lang="ts"&gt;
 import { ref } from "vue";
 import { BSDropdownMultiSelect } from "cdh-vue-lib";
@@ -166,7 +166,7 @@ const selectedStringOptions = ref&lt;string[]&gt;([]);
                         <span v-else>None</span>
                     </p>
                 </div>
-                <pre class="bg-light p-2 rounded wrap-break">
+                <pre class="code-example">
 <code>&lt;script setup lang="ts"&gt;
 import { ref } from "vue";
 import { BSDropdownMultiSelect } from "cdh-vue-lib";
@@ -211,7 +211,7 @@ const selectedNumberOptions = ref&lt;number[]&gt;([]);
                         <span v-else>None</span>
                     </p>
                 </div>
-                <pre class="bg-light p-2 rounded wrap-break">
+                <pre class="code-example">
 <code>&lt;script setup lang="ts"&gt;
 import { ref } from "vue";
 import { BSDropdownMultiSelect } from "cdh-vue-lib";
@@ -255,7 +255,7 @@ const preselectedStrings = ref&lt;string[]&gt;(['s1']); // Initial pre-selected 
                         <span v-else>None</span>
                     </p>
                 </div>
-                <pre class="bg-light p-2 rounded wrap-break">
+                <pre class="code-example">
 <code>&lt;script setup lang="ts"&gt;
 import { ref } from "vue";
 import { BSDropdownMultiSelect } from "cdh-vue-lib";

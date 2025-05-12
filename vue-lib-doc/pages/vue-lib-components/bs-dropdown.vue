@@ -93,7 +93,7 @@ const dropdownVariants = [
                     </li>
                 </BSDropdown>
             </div>
-            <pre class="bg-light p-2 rounded wrap-break">
+            <pre class="code-example">
 <code>&lt;BSDropdown variant="secondary"&gt;
     &lt;template #button&gt;Dropdown Button&lt;/template&gt;
     &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
@@ -118,7 +118,7 @@ const dropdownVariants = [
                     </li>
                 </BSDropdown>
             </div>
-            <pre class="bg-light p-2 rounded wrap-break">
+            <pre class="code-example">
 <code>&lt;BSDropdown variant="link"&gt;
     &lt;template #button&gt;Link Dropdown&lt;/template&gt;
     &lt;li&gt;&lt;button class="dropdown-item" type="button"&gt;Button Action&lt;/button&gt;&lt;/li&gt;
@@ -137,7 +137,7 @@ const dropdownVariants = [
                     </li>
                 </BSDropdown>
             </div>
-            <pre class="bg-light p-2 rounded wrap-break">
+            <pre class="code-example">
 <code>&lt;BSDropdown id="myCustomDropdown" variant="success"&gt;
     &lt;template #button&gt;Custom ID Dropdown&lt;/template&gt;
     &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Item 1&lt;/a&gt;&lt;/li&gt;

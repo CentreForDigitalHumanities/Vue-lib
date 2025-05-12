@@ -9,7 +9,10 @@ body {
     max-width: 960px;
 }
 
-.wrap-break {
+.code-example {
     white-space: pre-wrap;
     word-break: break-word;
+    padding: .5rem;
+    border-radius: var(--bs-border-radius);
+    background-color: rgba(var(--bs-light-rgb), 1);
 }

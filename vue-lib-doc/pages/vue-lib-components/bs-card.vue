@@ -137,7 +137,7 @@ function actionButtonClick() {
                             src="https://placehold.co/200x100"
                             alt="Placeholder Image"
                             class="img-fluid card-img-top"
-                        >
+                        />
                     </template>
                     <p>
                         This card demonstrates the usage of many slots

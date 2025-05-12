@@ -1,23 +1,17 @@
 <script lang="ts" setup generic="T extends string | number">
-const props = withDefaults(defineProps<{
-    options: [T, string][];
-    modelValue: T;
-    containerClasses?: string;
-}>(), {
-    containerClasses: "",
-});
+const props = withDefaults(
+    defineProps<{
+        options: [T, string][];
+        modelValue: T;
+        containerClasses?: string;
+    }>(),
+    {
+        containerClasses: "",
+    },
+);
 
-// eslint-disable-next-line func-call-spacing
 const emits = defineEmits<{
-  // Twice, because Vue is dumb
-    (
-        e: "update:modelValue",
-        value: T
-    ): void;
-    (
-        e: "update:model-value",
-        value: T
-    ): void;
+    (e: "update:model-value", value: T): void;
 }>();
 </script>
 
