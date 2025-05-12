@@ -1,24 +1,24 @@
 declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
-    id: {
-        type: import("vue").PropType<string | null>;
-        default: null;
-    };
     variant: {
         type: import("vue").PropType<"primary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark">;
         default: string;
+    };
+    id: {
+        type: import("vue").PropType<string | null>;
+        default: null;
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    id: {
-        type: import("vue").PropType<string | null>;
-        default: null;
-    };
     variant: {
         type: import("vue").PropType<"primary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark">;
         default: string;
     };
+    id: {
+        type: import("vue").PropType<string | null>;
+        default: null;
+    };
 }>>, {
-    id: string | null;
     variant: "primary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark";
+    id: string | null;
 }, {}>, {
     button?(_: {}): any;
     default?(_: {}): any;

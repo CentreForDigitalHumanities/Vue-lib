@@ -4,16 +4,13 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         default: boolean;
     };
     size: {
-        type: import("vue").PropType<"lg" | "xs" | "sm" | "1x" | "2x" | "3x" | "4x" | "5x" | "6x" | "7x" | "8x" | "9x" | "10x" | null>;
-        default: null;
+        type: import("vue").PropType<"lg" | "xs" | "sm" | "1x" | "2x" | "3x" | "4x" | "5x" | "6x" | "7x" | "8x" | "9x" | "10x">;
     };
     title: {
-        type: import("vue").PropType<string | null>;
-        default: null;
+        type: import("vue").PropType<string>;
     };
     mask: {
-        type: import("vue").PropType<string | object | string[] | null>;
-        default: null;
+        type: import("vue").PropType<string | object | string[]>;
     };
     inline: {
         type: import("vue").PropType<boolean>;
@@ -26,8 +23,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         type: import("vue").PropType<boolean>;
     };
     flip: {
-        type: import("vue").PropType<boolean | "horizontal" | "vertical" | "both">;
-        default: boolean;
+        type: import("vue").PropType<"horizontal" | "vertical" | "both">;
     };
     icon: {
         type: import("vue").PropType<string | object | string[]>;
@@ -37,15 +33,13 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         type: import("vue").PropType<boolean>;
     };
     pull: {
-        type: import("vue").PropType<"right" | "left" | null>;
-        default: null;
+        type: import("vue").PropType<"right" | "left">;
     };
     pulse: {
         type: import("vue").PropType<boolean>;
     };
     rotation: {
-        type: import("vue").PropType<90 | 180 | 270 | "90" | "180" | "270" | null>;
-        default: null;
+        type: import("vue").PropType<90 | 180 | 270 | "90" | "180" | "270">;
     };
     swapOpacity: {
         type: import("vue").PropType<boolean>;
@@ -54,8 +48,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         type: import("vue").PropType<boolean>;
     };
     transform: {
-        type: import("vue").PropType<string | object | null>;
-        default: null;
+        type: import("vue").PropType<string | object>;
     };
     inverse: {
         type: import("vue").PropType<boolean>;
@@ -66,16 +59,13 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         default: boolean;
     };
     size: {
-        type: import("vue").PropType<"lg" | "xs" | "sm" | "1x" | "2x" | "3x" | "4x" | "5x" | "6x" | "7x" | "8x" | "9x" | "10x" | null>;
-        default: null;
+        type: import("vue").PropType<"lg" | "xs" | "sm" | "1x" | "2x" | "3x" | "4x" | "5x" | "6x" | "7x" | "8x" | "9x" | "10x">;
     };
     title: {
-        type: import("vue").PropType<string | null>;
-        default: null;
+        type: import("vue").PropType<string>;
     };
     mask: {
-        type: import("vue").PropType<string | object | string[] | null>;
-        default: null;
+        type: import("vue").PropType<string | object | string[]>;
     };
     inline: {
         type: import("vue").PropType<boolean>;
@@ -88,8 +78,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         type: import("vue").PropType<boolean>;
     };
     flip: {
-        type: import("vue").PropType<boolean | "horizontal" | "vertical" | "both">;
-        default: boolean;
+        type: import("vue").PropType<"horizontal" | "vertical" | "both">;
     };
     icon: {
         type: import("vue").PropType<string | object | string[]>;
@@ -99,15 +88,13 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         type: import("vue").PropType<boolean>;
     };
     pull: {
-        type: import("vue").PropType<"right" | "left" | null>;
-        default: null;
+        type: import("vue").PropType<"right" | "left">;
     };
     pulse: {
         type: import("vue").PropType<boolean>;
     };
     rotation: {
-        type: import("vue").PropType<90 | 180 | 270 | "90" | "180" | "270" | null>;
-        default: null;
+        type: import("vue").PropType<90 | 180 | 270 | "90" | "180" | "270">;
     };
     swapOpacity: {
         type: import("vue").PropType<boolean>;
@@ -116,22 +103,14 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         type: import("vue").PropType<boolean>;
     };
     transform: {
-        type: import("vue").PropType<string | object | null>;
-        default: null;
+        type: import("vue").PropType<string | object>;
     };
     inverse: {
         type: import("vue").PropType<boolean>;
     };
 }>>, {
     symbol: string | boolean;
-    size: "lg" | "xs" | "sm" | "1x" | "2x" | "3x" | "4x" | "5x" | "6x" | "7x" | "8x" | "9x" | "10x" | null;
-    title: string | null;
-    mask: string | object | string[] | null;
     inline: boolean;
-    flip: boolean | "horizontal" | "vertical" | "both";
-    pull: "right" | "left" | null;
-    rotation: 90 | 180 | 270 | "90" | "180" | "270" | null;
-    transform: string | object | null;
 }, {}>, {
     default?(_: {}): any;
 }>;

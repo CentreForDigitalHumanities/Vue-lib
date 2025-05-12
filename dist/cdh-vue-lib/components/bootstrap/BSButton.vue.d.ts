@@ -1,17 +1,15 @@
 export type BSButtonVariant = "primary" | "secondary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark" | "blue" | "cream" | "dark-blue" | "indigo" | "purple" | "pink" | "red" | "brown" | "orange" | "yellow" | "green" | "teal" | "cyan" | "white" | "gray" | "gray-dark";
 export type BSButtonSize = "small" | "normal" | "large";
 declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
-    id: {
-        type: import("vue").PropType<string | null>;
-        default: null;
-    };
     href: {
         type: import("vue").PropType<string>;
-        default: undefined;
+        required: true;
+        default: string;
     };
     name: {
         type: import("vue").PropType<string>;
-        default: undefined;
+        required: true;
+        default: string;
     };
     variant: {
         type: import("vue").PropType<BSButtonVariant>;
@@ -50,17 +48,15 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         default: string;
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    id: {
-        type: import("vue").PropType<string | null>;
-        default: null;
-    };
     href: {
         type: import("vue").PropType<string>;
-        default: undefined;
+        required: true;
+        default: string;
     };
     name: {
         type: import("vue").PropType<string>;
-        default: undefined;
+        required: true;
+        default: string;
     };
     variant: {
         type: import("vue").PropType<BSButtonVariant>;
@@ -99,7 +95,6 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         default: string;
     };
 }>>, {
-    id: string | null;
     href: string;
     name: string;
     variant: BSButtonVariant;

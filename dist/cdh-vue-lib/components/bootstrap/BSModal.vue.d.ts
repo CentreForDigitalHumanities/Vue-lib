@@ -1,8 +1,4 @@
 declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
-    id: {
-        type: import("vue").PropType<string | null>;
-        default: null;
-    };
     size: {
         type: import("vue").PropType<"small" | "large" | "default" | "extra-large">;
         default: string;
@@ -10,6 +6,10 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     active: {
         type: import("vue").PropType<boolean>;
         required: true;
+    };
+    id: {
+        type: import("vue").PropType<string | null>;
+        default: null;
     };
     hasBackground: {
         type: import("vue").PropType<boolean>;
@@ -40,10 +40,6 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     hidden: () => void;
     "close-clicked": () => void;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    id: {
-        type: import("vue").PropType<string | null>;
-        default: null;
-    };
     size: {
         type: import("vue").PropType<"small" | "large" | "default" | "extra-large">;
         default: string;
@@ -51,6 +47,10 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     active: {
         type: import("vue").PropType<boolean>;
         required: true;
+    };
+    id: {
+        type: import("vue").PropType<string | null>;
+        default: null;
     };
     hasBackground: {
         type: import("vue").PropType<boolean>;
@@ -81,8 +81,8 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     onShown?: (() => any) | undefined;
     "onClose-clicked"?: (() => any) | undefined;
 }, {
-    id: string | null;
     size: "small" | "large" | "default" | "extra-large";
+    id: string | null;
     hasBackground: boolean;
     backgroundClickCloses: boolean;
     showCloseButton: boolean;
