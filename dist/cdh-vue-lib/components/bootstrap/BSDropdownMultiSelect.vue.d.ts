@@ -1,33 +1,41 @@
-declare const _default: import("vue").DefineComponent<{
-    label: {
-        type: import("vue").PropType<string>;
-        required: true;
+declare const _default: <T extends string | number>(__VLS_props: {
+    label: string;
+    options: [T, string][];
+    modelValue: T[];
+} & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, __VLS_ctx?: Pick<{
+    props: {
+        label: string;
+        options: [T, string][];
+        modelValue: T[];
     };
-    options: {
-        type: import("vue").PropType<[string | number, string][]>;
-        required: true;
+    expose(exposed: {}): void;
+    attrs: any;
+    slots: {};
+    emit: (e: "update:modelValue", value: T | T[]) => void;
+}, "attrs" | "emit" | "slots"> | undefined, __VLS_setup?: Promise<{
+    props: {
+        label: string;
+        options: [T, string][];
+        modelValue: T[];
     };
-    modelValue: {
-        type: import("vue").PropType<string[] | number[]>;
-        required: true;
-    };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    "update:modelValue": (value: string | number | string[] | number[]) => void;
-}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    label: {
-        type: import("vue").PropType<string>;
-        required: true;
-    };
-    options: {
-        type: import("vue").PropType<[string | number, string][]>;
-        required: true;
-    };
-    modelValue: {
-        type: import("vue").PropType<string[] | number[]>;
-        required: true;
-    };
-}>> & {
-    "onUpdate:modelValue"?: ((value: string | number | string[] | number[]) => any) | undefined;
-}, {}, {}>;
+    expose(exposed: {}): void;
+    attrs: any;
+    slots: {};
+    emit: (e: "update:modelValue", value: T | T[]) => void;
+}>) => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
+    [key: string]: any;
+}> & {
+    __ctx?: {
+        props: {
+            label: string;
+            options: [T, string][];
+            modelValue: T[];
+        };
+        expose(exposed: {}): void;
+        attrs: any;
+        slots: {};
+        emit: (e: "update:modelValue", value: T | T[]) => void;
+    } | undefined;
+};
 export default _default;
 //# sourceMappingURL=BSDropdownMultiSelect.vue.d.ts.map

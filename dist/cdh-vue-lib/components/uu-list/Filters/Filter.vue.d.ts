@@ -1,5 +1,5 @@
 import type { FilterDefinition, FilterValue } from "../types";
-declare const _default: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<import("vue").ExtractPropTypes<{
     filter: {
         type: import("vue").PropType<FilterDefinition>;
         required: true;
@@ -7,9 +7,9 @@ declare const _default: import("vue").DefineComponent<{
     value: {
         type: import("vue").PropType<FilterValue>;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     "update:value": (value: FilterValue) => void;
-}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
     filter: {
         type: import("vue").PropType<FilterDefinition>;
         required: true;
@@ -17,8 +17,8 @@ declare const _default: import("vue").DefineComponent<{
     value: {
         type: import("vue").PropType<FilterValue>;
     };
-}>> & {
+}>> & Readonly<{
     "onUpdate:value"?: ((value: FilterValue) => any) | undefined;
-}, {}, {}>;
+}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>;
 export default _default;
 //# sourceMappingURL=Filter.vue.d.ts.map

@@ -1,15 +1,15 @@
 export type BSButtonVariant = "primary" | "secondary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark" | "blue" | "cream" | "dark-blue" | "indigo" | "purple" | "pink" | "red" | "brown" | "orange" | "yellow" | "green" | "teal" | "cyan" | "white" | "gray" | "gray-dark";
 export type BSButtonSize = "small" | "normal" | "large";
-declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
+declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<import("vue").ExtractPropTypes<{
+    input: {
+        type: import("vue").PropType<"reset" | "submit" | "button">;
+        default: string;
+    };
     href: {
         type: import("vue").PropType<string>;
-        required: true;
-        default: string;
     };
     name: {
         type: import("vue").PropType<string>;
-        required: true;
-        default: string;
     };
     variant: {
         type: import("vue").PropType<BSButtonVariant>;
@@ -35,28 +35,23 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         type: import("vue").PropType<boolean>;
         default: boolean;
     };
-    input: {
-        type: import("vue").PropType<"submit" | "reset" | "button">;
-        default: string;
-    };
     newTab: {
         type: import("vue").PropType<boolean>;
         default: boolean;
     };
     cssClasses: {
         type: import("vue").PropType<string>;
+    };
+}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
+    input: {
+        type: import("vue").PropType<"reset" | "submit" | "button">;
         default: string;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     href: {
         type: import("vue").PropType<string>;
-        required: true;
-        default: string;
     };
     name: {
         type: import("vue").PropType<string>;
-        required: true;
-        default: string;
     };
     variant: {
         type: import("vue").PropType<BSButtonVariant>;
@@ -82,31 +77,23 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         type: import("vue").PropType<boolean>;
         default: boolean;
     };
-    input: {
-        type: import("vue").PropType<"submit" | "reset" | "button">;
-        default: string;
-    };
     newTab: {
         type: import("vue").PropType<boolean>;
         default: boolean;
     };
     cssClasses: {
         type: import("vue").PropType<string>;
-        default: string;
     };
-}>>, {
-    href: string;
-    name: string;
+}>> & Readonly<{}>, {
+    input: "reset" | "submit" | "button";
     variant: BSButtonVariant;
     size: BSButtonSize;
     outlined: boolean;
     active: boolean;
     disabled: boolean;
     loading: boolean;
-    input: "submit" | "reset" | "button";
     newTab: boolean;
-    cssClasses: string;
-}, {}>, {
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>, {
     default?(_: {}): any;
 }>;
 export default _default;

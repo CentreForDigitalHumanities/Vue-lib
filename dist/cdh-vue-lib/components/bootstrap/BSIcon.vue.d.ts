@@ -1,4 +1,4 @@
-declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
+declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<import("vue").ExtractPropTypes<{
     symbol: {
         type: import("vue").PropType<string | boolean>;
         default: boolean;
@@ -22,9 +22,6 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     fixedWidth: {
         type: import("vue").PropType<boolean>;
     };
-    flip: {
-        type: import("vue").PropType<"horizontal" | "vertical" | "both">;
-    };
     icon: {
         type: import("vue").PropType<string | object | string[]>;
         required: true;
@@ -32,14 +29,8 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     listItem: {
         type: import("vue").PropType<boolean>;
     };
-    pull: {
-        type: import("vue").PropType<"right" | "left">;
-    };
     pulse: {
         type: import("vue").PropType<boolean>;
-    };
-    rotation: {
-        type: import("vue").PropType<90 | 180 | 270 | "90" | "180" | "270">;
     };
     swapOpacity: {
         type: import("vue").PropType<boolean>;
@@ -47,13 +38,22 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     spin: {
         type: import("vue").PropType<boolean>;
     };
-    transform: {
-        type: import("vue").PropType<string | object>;
-    };
     inverse: {
         type: import("vue").PropType<boolean>;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    flip: {
+        type: import("vue").PropType<"horizontal" | "vertical" | "both">;
+    };
+    pull: {
+        type: import("vue").PropType<"right" | "left">;
+    };
+    rotation: {
+        type: import("vue").PropType<90 | 180 | 270 | "90" | "180" | "270">;
+    };
+    transform: {
+        type: import("vue").PropType<string | object>;
+    };
+}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
     symbol: {
         type: import("vue").PropType<string | boolean>;
         default: boolean;
@@ -77,9 +77,6 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     fixedWidth: {
         type: import("vue").PropType<boolean>;
     };
-    flip: {
-        type: import("vue").PropType<"horizontal" | "vertical" | "both">;
-    };
     icon: {
         type: import("vue").PropType<string | object | string[]>;
         required: true;
@@ -87,14 +84,8 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     listItem: {
         type: import("vue").PropType<boolean>;
     };
-    pull: {
-        type: import("vue").PropType<"right" | "left">;
-    };
     pulse: {
         type: import("vue").PropType<boolean>;
-    };
-    rotation: {
-        type: import("vue").PropType<90 | 180 | 270 | "90" | "180" | "270">;
     };
     swapOpacity: {
         type: import("vue").PropType<boolean>;
@@ -102,16 +93,25 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     spin: {
         type: import("vue").PropType<boolean>;
     };
-    transform: {
-        type: import("vue").PropType<string | object>;
-    };
     inverse: {
         type: import("vue").PropType<boolean>;
     };
-}>>, {
+    flip: {
+        type: import("vue").PropType<"horizontal" | "vertical" | "both">;
+    };
+    pull: {
+        type: import("vue").PropType<"right" | "left">;
+    };
+    rotation: {
+        type: import("vue").PropType<90 | 180 | 270 | "90" | "180" | "270">;
+    };
+    transform: {
+        type: import("vue").PropType<string | object>;
+    };
+}>> & Readonly<{}>, {
     symbol: string | boolean;
     inline: boolean;
-}, {}>, {
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>, {
     default?(_: {}): any;
 }>;
 export default _default;

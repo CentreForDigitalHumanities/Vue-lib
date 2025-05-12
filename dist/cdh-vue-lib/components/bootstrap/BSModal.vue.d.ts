@@ -1,4 +1,4 @@
-declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
+declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<import("vue").ExtractPropTypes<{
     size: {
         type: import("vue").PropType<"small" | "large" | "default" | "extra-large">;
         default: string;
@@ -35,11 +35,11 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         type: import("vue").PropType<boolean>;
         default: boolean;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     shown: () => void;
     hidden: () => void;
     "close-clicked": () => void;
-}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
     size: {
         type: import("vue").PropType<"small" | "large" | "default" | "extra-large">;
         default: string;
@@ -76,11 +76,11 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         type: import("vue").PropType<boolean>;
         default: boolean;
     };
-}>> & {
+}>> & Readonly<{
     onHidden?: (() => any) | undefined;
     onShown?: (() => any) | undefined;
     "onClose-clicked"?: (() => any) | undefined;
-}, {
+}>, {
     size: "small" | "large" | "default" | "extra-large";
     id: string | null;
     hasBackground: boolean;
@@ -89,7 +89,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     headerColor: string | null;
     headerBold: boolean;
     centered: boolean;
-}, {}>, {
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>, {
     title?(_: {}): any;
     default?(_: {}): any;
     footer?(_: {}): any;

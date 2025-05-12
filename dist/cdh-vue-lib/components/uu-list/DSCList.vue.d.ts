@@ -15,17 +15,17 @@ interface SortOption {
     field: string;
     label: string;
 }
-declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
+declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<import("vue").ExtractPropTypes<{
     config: {
         type: import("vue").PropType<Config>;
         required: true;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
     config: {
         type: import("vue").PropType<Config>;
         required: true;
     };
-}>>, {}, {}>, {
+}>> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>, {
     data?(_: {
         data: never[] | undefined;
         isLoading: boolean;

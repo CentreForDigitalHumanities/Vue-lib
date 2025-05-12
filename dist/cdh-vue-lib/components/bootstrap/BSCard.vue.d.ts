@@ -1,16 +1,16 @@
-declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
+declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<import("vue").ExtractPropTypes<{
     headerClasses: {
         type: import("vue").PropType<string>;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     "header-icon-clicked": () => void;
-}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
     headerClasses: {
         type: import("vue").PropType<string>;
     };
-}>> & {
+}>> & Readonly<{
     "onHeader-icon-clicked"?: (() => any) | undefined;
-}, {}, {}>, {
+}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>, {
     header?(_: {}): any;
     title?(_: {}): any;
     header_icon?(_: {}): any;

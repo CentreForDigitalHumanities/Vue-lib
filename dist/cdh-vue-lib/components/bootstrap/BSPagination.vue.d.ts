@@ -1,4 +1,4 @@
-declare const _default: import("vue").DefineComponent<{
+declare const _default: import("vue").DefineComponent<import("vue").ExtractPropTypes<{
     maxPages: {
         type: import("vue").PropType<number>;
         required: true;
@@ -15,9 +15,9 @@ declare const _default: import("vue").DefineComponent<{
         type: import("vue").PropType<number>;
         default: number;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     "change-page": (value: number) => void;
-}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
     maxPages: {
         type: import("vue").PropType<number>;
         required: true;
@@ -34,11 +34,11 @@ declare const _default: import("vue").DefineComponent<{
         type: import("vue").PropType<number>;
         default: number;
     };
-}>> & {
+}>> & Readonly<{
     "onChange-page"?: ((value: number) => any) | undefined;
-}, {
+}>, {
     showButtons: boolean;
     numOptions: number;
-}, {}>;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>;
 export default _default;
 //# sourceMappingURL=BSPagination.vue.d.ts.map

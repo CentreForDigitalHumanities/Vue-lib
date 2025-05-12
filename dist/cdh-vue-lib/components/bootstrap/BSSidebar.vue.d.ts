@@ -1,4 +1,4 @@
-declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
+declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<import("vue").ExtractPropTypes<{
     id: {
         type: import("vue").PropType<string | null>;
         default: null;
@@ -19,7 +19,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         type: import("vue").PropType<boolean>;
         default: boolean;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
     id: {
         type: import("vue").PropType<string | null>;
         default: null;
@@ -40,13 +40,13 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         type: import("vue").PropType<boolean>;
         default: boolean;
     };
-}>>, {
+}>> & Readonly<{}>, {
     id: string | null;
     placement: "right" | "left";
     mobilePlacement: "top" | "bottom";
     stickySidebar: boolean;
     mobileStickySidebar: boolean;
-}, {}>, {
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>, {
     "sidebar-button"?(_: {}): any;
     sidebar?(_: {}): any;
     default?(_: {}): any;
