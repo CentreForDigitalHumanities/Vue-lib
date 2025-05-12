@@ -2,7 +2,7 @@
 import { computed } from "vue";
 import { BSPagination } from "../../bootstrap";
 import FilterBar from "../Filters/FilterBar.vue";
-import type { ContainerEmits, ContainerProps, Data, FilterProps } from "../types";
+import type { ContainerEmits, ContainerProps, Data, FilterProps, FilterValues } from "../types";
 import SearchControl from "../Controls/SearchControl.vue";
 import PageSizeControl from "../Controls/PageSizeControl.vue";
 import SortControl from "../Controls/SortControl.vue";
@@ -10,7 +10,6 @@ import SearchResultNum from "@/cdh-vue-lib/components/uu-list/Controls/SearchRes
 import { container2FilterProps } from "../utils";
 
 const props = defineProps<ContainerProps<T>>();
-
 const emits = defineEmits<ContainerEmits>();
 
 const totalPages = computed(() => {
@@ -64,7 +63,7 @@ const filterProps = computed<FilterProps | null>(() => {
                 <FilterBar
                     :filter-props="filterProps"
                     @update:filter-values="
-                        (val) => $emit('update:filter-values', val)
+                        (val: FilterValues) => $emit('update:filter-values', val)
                     "
                 />
                 <slot
@@ -82,7 +81,7 @@ const filterProps = computed<FilterProps | null>(() => {
                         :max-pages="totalPages"
                         :currentpage="currentPage"
                         @change-page="
-                            (val) => $emit('update:current-page', val)
+                            (val: number) => $emit('update:current-page', val)
                         "
                     />
                 </div>
