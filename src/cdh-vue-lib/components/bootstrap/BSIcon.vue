@@ -99,4 +99,3 @@ const element = computed(() => {
     </component>
 </template>
 
-<style scoped></style>
