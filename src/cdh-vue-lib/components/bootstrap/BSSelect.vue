@@ -1,5 +1,5 @@
 <script lang="ts" setup generic="T extends string | number | null">
-import { useInputValue } from "@/cdh-vue-lib/composables";
+import useInputValue from "../../composables/useInputValue";
 
 const props = withDefaults(
     defineProps<{

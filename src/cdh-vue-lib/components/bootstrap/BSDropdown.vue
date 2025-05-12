@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { v4 as UUIDv4 } from "uuid";
-import { BSButton } from "@/cdh-vue-lib/components/bootstrap";
+import { BSButton } from "../../components/bootstrap";
 import { computed } from "vue";
 
 interface Props {
