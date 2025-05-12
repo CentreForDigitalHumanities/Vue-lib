@@ -172,11 +172,9 @@ const buttonVariants = [
 
             <section class="my-3">
                 <h4 class="h5">As a Link</h4>
-                <!-- @vue-ignore because of a type error resulting from incorrect transpilation. -->
                 <BSButton href="#" variant="info" class="me-2"
                     >Link Button</BSButton
                 >
-                <!-- @vue-ignore because of a type error resulting from incorrect transpilation. -->
                 <BSButton href="#" variant="success" new-tab class="me-2"
                     >Link Button (New Tab)</BSButton
                 >
