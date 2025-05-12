@@ -1,0 +1,14 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "@fortawesome/fontawesome-svg-core/styles.css";
+
+body {
+    padding-top: 1rem; /* Add some padding to the top */
+}
+.container {
+    max-width: 960px;
+}
+
+.wrap-break {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
