@@ -11,28 +11,25 @@ const props = withDefaults(
     {
         containerClasses: "",
         uniqueId: () => UUIDv4().toString(),
-    }
+    },
 );
 
-// eslint-disable-next-line func-call-spacing
 const emit = defineEmits<{
-    // Twice, because Vue is dumb
-    (e: "update:modelValue", value: T[]): void;
     (e: "update:model-value", value: T[]): void;
 }>();
 
-function toggleSelected(key: T) {
-    const curVal: boolean = props.modelValue.includes(key);
+function toggleSelected(clickedItem: T) {
+    const isSelected = props.modelValue.includes(clickedItem);
+    const newSelected = [...props.modelValue];
+    const indexOfClicked = newSelected.indexOf(clickedItem);
 
-    let copy = [...props.modelValue];
-
-    if (!curVal) copy.push(key);
-    else {
-        const index = copy.indexOf(key);
-        if (index > -1) copy.splice(index, 1); // 2nd parameter means remove one item only
+    if (!isSelected) {
+        newSelected.push(clickedItem);
+    } else if (indexOfClicked > -1) {
+        newSelected.splice(indexOfClicked, 1);
     }
 
-    emit("update:modelValue", copy);
+    emit("update:model-value", newSelected);
 }
 </script>
 
