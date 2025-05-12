@@ -30,9 +30,14 @@ export type BSButtonVariant =
 
 export type BSButtonSize = "small" | "normal" | "large";
 
+// The type warnings for the optional string props are the lesser of two evils.
+// These props here should be added to withDefaults() with a value ofundefined,
+// but the generated type for the prop is then `undefined`.
+// This is most likely a bug in the compiler.
+// Related: https://github.com/vuejs/core/issues/13236
 interface Props {
-    href: string;
-    name: string;
+    href?: string;
+    name?: string;
     variant?: BSButtonVariant;
     size?: BSButtonSize;
     outlined?: boolean;
@@ -45,10 +50,6 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-    // Setting 'undefined' here would be more correct, but that leads to
-    // an incorrect typing of this prop as 'undefined'.
-    href: "",
-    name: "",
     variant: "dark",
     size: "normal",
     outlined: false,
@@ -57,7 +58,6 @@ const props = withDefaults(defineProps<Props>(), {
     loading: false,
     input: "button",
     newTab: false,
-    cssClasses: "",
 });
 
 const buttonClasses = computed(() => {
