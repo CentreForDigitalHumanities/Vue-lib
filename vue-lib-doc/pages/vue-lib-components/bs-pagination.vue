@@ -124,7 +124,8 @@ function handlePageChange(newPage: number) {
         @change-page="handlePageChange"
     /&gt;
     &lt;p&gt;Current Page: {{ currentPage }}&lt;/p&gt;
-&lt;/template&gt;</code></pre>
+&lt;/template&gt;</code>
+                </pre>
             </section>
 
             <section class="my-3">
