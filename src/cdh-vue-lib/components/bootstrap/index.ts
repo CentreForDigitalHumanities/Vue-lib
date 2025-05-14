@@ -3,7 +3,7 @@ import BSCard from "./BSCard.vue";
 import BSDropdown from "./BSDropdown.vue";
 import BSDropdownMultiSelect from "./BSDropdownMultiSelect.vue";
 import BSIcon from "./BSIcon.vue";
-// import BSModal from "./BSModal.vue";
+import BSModal from "./BSModal.vue";
 import BSSelect from "./BSSelect.vue";
 import BSMultiSelect from "./BSMultiSelect.vue";
 import BSPagination from "./BSPagination.vue";
@@ -17,6 +17,7 @@ export {
     BSDropdownMultiSelect,
     BSIcon,
     BSSelect,
+    BSModal,
     BSMultiSelect,
     BSPagination,
     BSRadioSelect,
