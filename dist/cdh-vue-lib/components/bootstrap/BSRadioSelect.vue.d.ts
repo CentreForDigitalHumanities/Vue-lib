@@ -11,10 +11,7 @@ declare const _default: <T extends string | number>(__VLS_props: {
     expose(exposed: {}): void;
     attrs: any;
     slots: {};
-    emit: {
-        (e: "update:modelValue", value: T): void;
-        (e: "update:model-value", value: T): void;
-    };
+    emit: (e: "update:model-value", value: T) => void;
 }, "attrs" | "emit" | "slots"> | undefined, __VLS_setup?: Promise<{
     props: {
         options: [T, string][];
@@ -24,10 +21,7 @@ declare const _default: <T extends string | number>(__VLS_props: {
     expose(exposed: {}): void;
     attrs: any;
     slots: {};
-    emit: {
-        (e: "update:modelValue", value: T): void;
-        (e: "update:model-value", value: T): void;
-    };
+    emit: (e: "update:model-value", value: T) => void;
 }>) => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
     [key: string]: any;
 }> & {
@@ -40,10 +34,7 @@ declare const _default: <T extends string | number>(__VLS_props: {
         expose(exposed: {}): void;
         attrs: any;
         slots: {};
-        emit: {
-            (e: "update:modelValue", value: T): void;
-            (e: "update:model-value", value: T): void;
-        };
+        emit: (e: "update:model-value", value: T) => void;
     } | undefined;
 };
 export default _default;
