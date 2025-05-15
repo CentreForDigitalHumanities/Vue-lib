@@ -3,5 +3,5 @@
  * @param e
  */
 export default function useInputValue(e: Event) {
-  return (e.target as HTMLInputElement).value
+    return (e.target as HTMLInputElement).value;
 }
