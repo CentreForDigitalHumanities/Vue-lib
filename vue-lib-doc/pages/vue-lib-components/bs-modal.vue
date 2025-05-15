@@ -6,22 +6,22 @@ const isModalActive = ref(false);
 const isSecondModalActive = ref(false);
 
 function showModal(): void {
-    console.log('Showing modal.');
+    console.log("Showing modal.");
     isModalActive.value = true;
 }
 
 function hideModal(): void {
-    console.log('Hiding modal.');
+    console.log("Hiding modal.");
     isModalActive.value = false;
 }
 
 function showSecondModal(): void {
-    console.log('Showing modal.');
+    console.log("Showing modal.");
     isSecondModalActive.value = true;
 }
 
 function hideSecondModal(): void {
-    console.log('Hiding modal.');
+    console.log("Hiding modal.");
     isSecondModalActive.value = false;
 }
 
@@ -234,12 +234,10 @@ function handleModalHidden(): void {
             </section>
 
             <section class="my-3">
-                <h4 class="mt-4">
-                    Customized Modal
-                </h4>
+                <h4 class="h5">Customized Modal</h4>
                 <p>
-                    This modal is larger, centered in the middle of the screen, and cannot be closed by
-                    clicking the backdrop.
+                    This modal is larger, centered in the middle of the screen,
+                    and cannot be closed by clicking the backdrop.
                 </p>
                 <button class="btn btn-info" @click="showSecondModal">
                     Open Customized Modal
@@ -260,7 +258,10 @@ function handleModalHidden(): void {
                     </p>
                     <p>The header has a 'success' background.</p>
                     <template #footer>
-                        <button class="btn btn-warning" @click="hideSecondModal">
+                        <button
+                            class="btn btn-warning"
+                            @click="hideSecondModal"
+                        >
                             Dismiss
                         </button>
                     </template>
