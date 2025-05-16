@@ -1,5 +1,5 @@
 <script lang="ts" setup generic="T extends string | number">
-import { v4 as UUIDv4 } from "uuid";
+import useGeneratedId from "@/cdh-vue-lib/composables/useGeneratedId";
 
 const props = withDefaults(
     defineProps<{
@@ -10,7 +10,7 @@ const props = withDefaults(
     }>(),
     {
         containerClasses: "",
-        uniqueId: () => UUIDv4().toString(),
+        uniqueId: () => useGeneratedId(),
     },
 );
 

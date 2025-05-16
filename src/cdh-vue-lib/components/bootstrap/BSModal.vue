@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { v4 as UUIDv4 } from "uuid";
 import { ref, type Ref, watch, computed, onMounted, onUnmounted } from "vue";
 import { Modal as BsModal } from "bootstrap";
 
@@ -31,51 +30,49 @@ const emit = defineEmits<{
     (e: "close-clicked"): void;
 }>();
 
-const elementId = computed<string>(() => {
-    return props.id ?? `id_${UUIDv4().toString()}`;
-});
-
 const modalClasses = computed<string>(() => {
-    let classes = "";
+    const classes: string[] = [];
 
     if (props.centered) {
-        classes += "modal-dialog-centered ";
+        classes.push("modal-dialog-centered");
     }
 
     switch (props.size) {
         case "small":
-            classes += "modal-sm modal-fullscreen-sm-down";
+            classes.push("modal-sm modal-fullscreen-sm-down");
             break;
         case "large":
-            classes += "modal-lg modal-fullscreen-lg-down";
+            classes.push("modal-lg modal-fullscreen-lg-down");
             break;
         case "extra-large":
-            classes += "modal-xl modal-fullscreen-xl-down";
+            classes.push("modal-xl modal-fullscreen-xl-down");
             break;
         default:
-            classes += " modal-fullscreen-md-down";
+            classes.push("modal-fullscreen-md-down");
             break;
     }
 
-    return classes;
+    return classes.join(" ");
 });
 
 const headerClasses = computed<string>(() => {
-    let classes = "";
+    const classes: string[] = [];
 
     if (props.headerColor) {
-        classes += `text-bg-${props.headerColor} `;
+        classes.push(`text-bg-${props.headerColor}`);
     }
 
     if (props.headerBold) {
-        classes += "fw-bold ";
+        classes.push("fw-bold");
     }
 
-    return classes;
+    return classes.join(" ");
 });
 
 let bsModal: Ref<BsModal> | undefined;
-let modalElement: Ref<HTMLElement | null> | undefined;
+
+// With Vue 3.5 we will be able to use useTemplateRef instead.
+const modalElement = ref<HTMLDivElement | null>(null);
 
 function switchBsModal(show: boolean): void {
     if (show) {
@@ -86,7 +83,6 @@ function switchBsModal(show: boolean): void {
 }
 
 onMounted(() => {
-    modalElement = ref(document.getElementById(elementId.value));
     // Should not happen.
     if (!modalElement.value) {
         return;
@@ -126,7 +122,7 @@ watch(
 
 <template>
     <Teleport to="body">
-        <div :id="elementId" class="modal fade" tabindex="-1">
+        <div ref="modalElement" class="modal fade" tabindex="-1">
             <div
                 class="modal-dialog modal-dialog-scrollable"
                 :class="modalClasses"

@@ -1,8 +1,8 @@
 <script lang="ts" generic="T extends string | number" setup>
 import { BSMultiSelect } from ".";
-import { v4 as uuidv4 } from "uuid";
 import { ref } from "vue";
 import BSButton from "./BSButton.vue";
+import useGeneratedId from "@/cdh-vue-lib/composables/useGeneratedId";
 
 // Don't use interfaces for Props / Emits here, as they somehow generate errors
 // in this generic component.
@@ -16,7 +16,7 @@ const emit = defineEmits<{
     (e: "update:modelValue", value: T | T[]): void
 }>();
 
-const id = ref(uuidv4());
+const id = ref(useGeneratedId());
 </script>
 
 <template>

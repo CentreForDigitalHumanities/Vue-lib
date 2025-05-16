@@ -61,30 +61,33 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const buttonClasses = computed(() => {
-    let classes = "btn ";
+    const classes = ["btn"];
 
     if (props.size === "large") {
-        classes += "btn-lg ";
+        classes.push("btn-lg");
     } else if (props.size === "small") {
-        classes += "btn-sm ";
+        classes.push("btn-sm");
     }
 
     if (props.outlined) {
-        classes += "btn-outline-";
+        classes.push(`btn-outline-${props.variant}`);
     } else {
-        classes += "btn-";
+        classes.push(`btn-${props.variant}`);
     }
-    classes += `${props.variant} `;
 
     if (props.active) {
-        classes += "active ";
+        classes.push("active");
     }
 
     if (props.disabled) {
-        classes += "cursor-not-allowed ";
+        classes.push("cursor-not-allowed");
     }
 
-    return (classes += ` ${props.cssClasses}`);
+    if (props.cssClasses) {
+        classes.push(props.cssClasses);
+    }
+
+    return classes.join(" ");
 });
 </script>
 

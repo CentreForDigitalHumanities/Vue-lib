@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { v4 as UUIDv4 } from "uuid";
+import useGeneratedId from "@/cdh-vue-lib/composables/useGeneratedId";
 import { BSButton } from "../../components/bootstrap";
 import { computed } from "vue";
 
@@ -21,19 +21,15 @@ const props = withDefaults(defineProps<Props>(), {
     variant: "primary",
 });
 
-const elId = computed(() => {
-    if (props.id) {
-        return props.id;
-    }
-
-    return "id_" + UUIDv4().toString();
+const elementId = computed(() => {
+    return props.id ?? useGeneratedId();
 });
 </script>
 
 <template>
     <div class="dropdown">
         <BSButton
-            :id="elId"
+            :id="elementId"
             :variant="variant"
             class="dropdown-toggle"
             data-bs-toggle="dropdown"
@@ -41,7 +37,7 @@ const elId = computed(() => {
         >
             <slot name="button" />
         </BSButton>
-        <ul class="dropdown-menu" :aria-labelledby="elId">
+        <ul class="dropdown-menu" :aria-labelledby="elementId">
             <slot />
         </ul>
     </div>

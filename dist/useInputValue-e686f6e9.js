@@ -17,9 +17,9 @@ express or implied.
 * See the Licence for the specific language governing
 permissions and limitations under the Licence.
 */
-function t(e) {
-  return console.log("Event", e), e.target.value;
+function e(u) {
+  return u.target.value;
 }
 export {
-  t as u
+  e as u
 };

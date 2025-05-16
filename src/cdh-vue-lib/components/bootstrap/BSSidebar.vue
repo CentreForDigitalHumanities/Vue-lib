@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { v4 as UUIDv4 } from "uuid";
+import useGeneratedId from "@/cdh-vue-lib/composables/useGeneratedId";
 import { computed } from "vue";
 
 interface Props {
@@ -17,23 +17,27 @@ const props = withDefaults(defineProps<Props>(), {
     mobileStickySidebar: false,
 });
 
-const elId = computed(() => {
-    if (props.id !== null) return props.id;
-
-    // Identifiers should start with a letter, but UUIDs aren't guaranteed to do that...
-    return "id_" + UUIDv4().toString().replace(/-/g, "");
+const elementId = computed(() => {
+    return props.id ?? useGeneratedId();
 });
 
 const placementClasses = computed(() => {
-    let classes = "";
+    const classes: string[] = [];
 
-    if (props.placement === "right") classes += "uu-sidebar-right ";
-    if (props.mobilePlacement === "bottom")
-        classes += "uu-sidebar-mobile-bottom ";
-    if (props.stickySidebar) classes += "uu-sidebar-sticky ";
-    if (props.mobileStickySidebar) classes += "uu-sidebar-mobile-sticky ";
+    if (props.placement === "right") {
+        classes.push("uu-sidebar-right");
+    }
+    if (props.mobilePlacement === "bottom") {
+        classes.push("uu-sidebar-mobile-bottom");
+    }
+    if (props.stickySidebar) {
+        classes.push("uu-sidebar-sticky");
+    }
+    if (props.mobileStickySidebar) {
+        classes.push("uu-sidebar-mobile-sticky");
+    }
 
-    return classes;
+    return classes.join(" ");
 });
 </script>
 
@@ -44,12 +48,12 @@ const placementClasses = computed(() => {
                 class="uu-sidebar-toggle"
                 type="button"
                 data-bs-toggle="collapse"
-                :data-bs-target="'#' + elId"
+                :data-bs-target="'#' + elementId"
                 aria-expanded="false"
             >
                 <slot name="sidebar-button" />
             </button>
-            <div :id="elId" class="uu-sidebar-collapse collapse">
+            <div :id="elementId" class="uu-sidebar-collapse collapse">
                 <slot name="sidebar" />
             </div>
         </aside>

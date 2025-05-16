@@ -17,18 +17,18 @@ express or implied.
 * See the Licence for the specific language governing
 permissions and limitations under the Licence.
 */
-import { defineComponent as g, computed as y, openBlock as l, createElementBlock as i, normalizeClass as z, createElementVNode as m, renderSlot as v, createCommentVNode as h, createVNode as C, unref as b, withCtx as P, ref as V, toDisplayString as k, createBlock as $, resolveDynamicComponent as Y, onMounted as x, onUnmounted as ue, watch as ee, Teleport as de, Fragment as U, renderList as D, createTextVNode as te, createStaticVNode as pe } from "vue";
-import { v4 as N } from "uuid";
+import { defineComponent as f, computed as _, openBlock as a, createElementBlock as u, normalizeClass as z, createElementVNode as c, renderSlot as h, createCommentVNode as g, createVNode as C, unref as v, withCtx as L, ref as V, toDisplayString as k, createBlock as $, resolveDynamicComponent as Y, onMounted as x, onUnmounted as ue, watch as ee, Teleport as de, Fragment as U, renderList as D, createTextVNode as te, createStaticVNode as pe } from "vue";
+import { v4 as ce } from "uuid";
 import { FontAwesomeIcon as Q } from "@fortawesome/vue-fontawesome";
-import { Modal as ce } from "bootstrap";
-import { useI18n as T } from "vue-i18n";
-import { u as M } from "./useInputValue-637a42e1.js";
-const me = ["href", "target"], fe = { class: "btn-text" }, ge = ["type", "name", "disabled"], he = { class: "btn-text" }, ve = {
+import { Modal as me } from "bootstrap";
+import { useI18n as j } from "vue-i18n";
+import { u as N } from "./useInputValue-e686f6e9.js";
+const fe = ["href", "target"], ge = { class: "btn-text" }, he = ["type", "name", "disabled"], ve = { class: "btn-text" }, be = {
   key: 0,
   class: "spinner-border spinner-border-sm ms-2",
   role: "status",
   "aria-hidden": "true"
-}, q = /* @__PURE__ */ g({
+}, q = /* @__PURE__ */ f({
   __name: "BSButton",
   props: {
     href: {},
@@ -43,120 +43,124 @@ const me = ["href", "target"], fe = { class: "btn-text" }, ge = ["type", "name",
     newTab: { type: Boolean, default: !1 },
     cssClasses: {}
   },
-  setup(d) {
-    const t = d, o = y(() => {
-      let e = "btn ";
-      return t.size === "large" ? e += "btn-lg " : t.size === "small" && (e += "btn-sm "), t.outlined ? e += "btn-outline-" : e += "btn-", e += `${t.variant} `, t.active && (e += "active "), t.disabled && (e += "cursor-not-allowed "), e += ` ${t.cssClasses}`;
+  setup(p) {
+    const t = p, o = _(() => {
+      const e = ["btn"];
+      return t.size === "large" ? e.push("btn-lg") : t.size === "small" && e.push("btn-sm"), t.outlined ? e.push(`btn-outline-${t.variant}`) : e.push(`btn-${t.variant}`), t.active && e.push("active"), t.disabled && e.push("cursor-not-allowed"), t.cssClasses && e.push(t.cssClasses), e.join(" ");
     });
-    return (e, s) => e.href ? (l(), i("a", {
+    return (e, n) => e.href ? (a(), u("a", {
       key: 0,
       href: e.href,
       class: z(o.value),
       target: e.newTab ? "_blank" : "_self"
     }, [
-      m("span", fe, [
-        v(e.$slots, "default")
+      c("span", ge, [
+        h(e.$slots, "default")
       ])
-    ], 10, me)) : (l(), i("button", {
+    ], 10, fe)) : (a(), u("button", {
       key: 1,
       type: e.input,
       class: z(o.value),
       name: e.name,
       disabled: e.disabled
     }, [
-      m("span", he, [
-        v(e.$slots, "default")
+      c("span", ve, [
+        h(e.$slots, "default")
       ]),
-      e.loading ? (l(), i("span", ve)) : h("", !0)
-    ], 10, ge));
+      e.loading ? (a(), u("span", be)) : g("", !0)
+    ], 10, he));
   }
-}), be = { class: "card" }, ye = { class: "d-flex" }, _e = {
+}), ye = { class: "card" }, _e = { class: "d-flex" }, $e = {
   key: 0,
   class: "me-auto"
-}, $e = {
+}, ke = {
   key: 2,
   class: "card-image-top"
-}, ke = { class: "card-body" }, Se = {
+}, Se = { class: "card-body" }, ze = {
   key: 3,
   class: "card-footer"
-}, ze = /* @__PURE__ */ g({
+}, we = /* @__PURE__ */ f({
   __name: "BSCard",
   props: {
     headerClasses: {}
   },
   emits: ["header-icon-clicked"],
-  setup(d, { emit: t }) {
-    const o = d, e = y(() => o.headerClasses ? `card-header fw-bold ${o.headerClasses}` : "card-header fw-bold");
-    return (s, r) => (l(), i("div", be, [
-      s.$slots.header ? (l(), i("div", {
+  setup(p, { emit: t }) {
+    const o = p, e = _(() => o.headerClasses ? `card-header fw-bold ${o.headerClasses}` : "card-header fw-bold");
+    return (n, l) => (a(), u("div", ye, [
+      n.$slots.header ? (a(), u("div", {
         key: 0,
         class: z(e.value)
       }, [
-        v(s.$slots, "header", {}, void 0, !0)
-      ], 2)) : s.$slots.title || s.$slots.header_icon ? (l(), i("div", {
+        h(n.$slots, "header", {}, void 0, !0)
+      ], 2)) : n.$slots.title || n.$slots.header_icon ? (a(), u("div", {
         key: 1,
         class: z(e.value)
       }, [
-        m("div", ye, [
-          s.$slots.title ? (l(), i("div", _e, [
-            v(s.$slots, "title", {}, void 0, !0)
-          ])) : h("", !0),
-          s.$slots.header_icon ? (l(), i("div", {
+        c("div", _e, [
+          n.$slots.title ? (a(), u("div", $e, [
+            h(n.$slots, "title", {}, void 0, !0)
+          ])) : g("", !0),
+          n.$slots.header_icon ? (a(), u("div", {
             key: 1,
             class: "ms-auto card-header-icon",
-            onClick: r[0] || (r[0] = (n) => s.$emit("header-icon-clicked"))
+            onClick: l[0] || (l[0] = (s) => n.$emit("header-icon-clicked"))
           }, [
-            v(s.$slots, "header_icon", {}, void 0, !0)
-          ])) : h("", !0)
+            h(n.$slots, "header_icon", {}, void 0, !0)
+          ])) : g("", !0)
         ])
-      ], 2)) : h("", !0),
-      s.$slots.image ? (l(), i("div", $e, [
-        v(s.$slots, "image", {}, void 0, !0)
-      ])) : h("", !0),
-      m("div", ke, [
-        v(s.$slots, "default", {}, void 0, !0)
+      ], 2)) : g("", !0),
+      n.$slots.image ? (a(), u("div", ke, [
+        h(n.$slots, "image", {}, void 0, !0)
+      ])) : g("", !0),
+      c("div", Se, [
+        h(n.$slots, "default", {}, void 0, !0)
       ]),
-      s.$slots.footer ? (l(), i("div", Se, [
-        v(s.$slots, "footer", {}, void 0, !0)
-      ])) : h("", !0)
+      n.$slots.footer ? (a(), u("div", ze, [
+        h(n.$slots, "footer", {}, void 0, !0)
+      ])) : g("", !0)
     ]));
   }
 });
-const we = (d, t) => {
-  const o = d.__vccOpts || d;
-  for (const [e, s] of t)
-    o[e] = s;
+const Ce = (p, t) => {
+  const o = p.__vccOpts || p;
+  for (const [e, n] of t)
+    o[e] = n;
   return o;
-}, xt = /* @__PURE__ */ we(ze, [["__scopeId", "data-v-c52e17e8"]]), Ce = { class: "dropdown" }, Be = ["aria-labelledby"], eo = /* @__PURE__ */ g({
+}, xt = /* @__PURE__ */ Ce(we, [["__scopeId", "data-v-c52e17e8"]]);
+function M() {
+  return "id_" + ce().toString().replace(/-/g, "");
+}
+const Be = { class: "dropdown" }, Ve = ["aria-labelledby"], eo = /* @__PURE__ */ f({
   __name: "BSDropdown",
   props: {
     id: { default: "" },
     variant: { default: "primary" }
   },
-  setup(d) {
-    const t = d, o = y(() => t.id ? t.id : "id_" + N().toString());
-    return (e, s) => (l(), i("div", Ce, [
-      C(b(q), {
+  setup(p) {
+    const t = p, o = _(() => t.id ?? M());
+    return (e, n) => (a(), u("div", Be, [
+      C(v(q), {
         id: o.value,
         variant: e.variant,
         class: "dropdown-toggle",
         "data-bs-toggle": "dropdown",
         "aria-expanded": "false"
       }, {
-        default: P(() => [
-          v(e.$slots, "button")
+        default: L(() => [
+          h(e.$slots, "button")
         ]),
         _: 3
       }, 8, ["id", "variant"]),
-      m("ul", {
+      c("ul", {
         class: "dropdown-menu",
         "aria-labelledby": o.value
       }, [
-        v(e.$slots, "default")
-      ], 8, Be)
+        h(e.$slots, "default")
+      ], 8, Ve)
     ]));
   }
-}), Ve = { class: "dropdown dropdown-select is-hoverable" }, Ue = { class: "me-2" }, De = ["id"], Le = { class: "dropdown-content ps-4" }, to = /* @__PURE__ */ g({
+}), Ue = { class: "dropdown dropdown-select is-hoverable" }, De = { class: "me-2" }, Le = ["id"], Pe = { class: "dropdown-content ps-4" }, to = /* @__PURE__ */ f({
   __name: "BSDropdownMultiSelect",
   props: {
     label: {},
@@ -164,38 +168,38 @@ const we = (d, t) => {
     modelValue: {}
   },
   emits: ["update:modelValue"],
-  setup(d, { emit: t }) {
-    const o = V(N());
-    return (e, s) => (l(), i("div", Ve, [
+  setup(p, { emit: t }) {
+    const o = V(M());
+    return (e, n) => (a(), u("div", Ue, [
       C(q, {
         class: "dropdown-toggle",
         "aria-haspopup": "true",
         "data-bs-toggle": "dropdown",
         "aria-expanded": "false"
       }, {
-        default: P(() => [
-          m("span", Ue, k(e.label), 1)
+        default: L(() => [
+          c("span", De, k(e.label), 1)
         ]),
         _: 1
       }),
-      m("div", {
+      c("div", {
         id: o.value,
         class: "dropdown-menu",
         role: "menu"
       }, [
-        m("div", Le, [
-          C(b(oe), {
+        c("div", Pe, [
+          C(v(oe), {
             options: e.options,
             "model-value": e.modelValue,
             "container-classes": "dropdown-item",
-            "onUpdate:modelValue": s[0] || (s[0] = (r) => e.$emit("update:modelValue", r))
+            "onUpdate:modelValue": n[0] || (n[0] = (l) => e.$emit("update:modelValue", l))
           }, null, 8, ["options", "model-value"])
         ])
-      ], 8, De)
+      ], 8, Le)
     ]));
   }
 });
-const Pe = { key: 0 }, Ee = { class: "icon me-1" }, oo = /* @__PURE__ */ g({
+const Ee = { key: 0 }, Oe = { class: "icon me-1" }, oo = /* @__PURE__ */ f({
   __name: "BSIcon",
   props: {
     inline: { type: Boolean, default: !1 },
@@ -216,13 +220,13 @@ const Pe = { key: 0 }, Ee = { class: "icon me-1" }, oo = /* @__PURE__ */ g({
     title: {},
     transform: {}
   },
-  setup(d) {
-    const t = d, o = y(() => t.inline ? "span" : "div");
-    return (e, s) => (l(), $(Y(o.value), null, {
-      default: P(() => [
-        e.$slots.default ? (l(), i("span", Pe, [
-          m("span", Ee, [
-            C(b(Q), {
+  setup(p) {
+    const t = p, o = _(() => t.inline ? "span" : "div");
+    return (e, n) => (a(), $(Y(o.value), null, {
+      default: L(() => [
+        e.$slots.default ? (a(), u("span", Ee, [
+          c("span", Oe, [
+            C(v(Q), {
               border: e.border,
               "fixed-width": e.fixedWidth,
               flip: e.flip,
@@ -241,10 +245,10 @@ const Pe = { key: 0 }, Ee = { class: "icon me-1" }, oo = /* @__PURE__ */ g({
               inverse: e.inverse
             }, null, 8, ["border", "fixed-width", "flip", "icon", "mask", "list-item", "pull", "pulse", "rotation", "swap-opacity", "size", "spin", "transform", "symbol", "title", "inverse"])
           ]),
-          m("span", null, [
-            v(e.$slots, "default")
+          c("span", null, [
+            h(e.$slots, "default")
           ])
-        ])) : (l(), $(b(Q), {
+        ])) : (a(), $(v(Q), {
           key: 1,
           border: e.border,
           "fixed-width": e.fixedWidth,
@@ -267,19 +271,19 @@ const Pe = { key: 0 }, Ee = { class: "icon me-1" }, oo = /* @__PURE__ */ g({
       _: 3
     }));
   }
-}), Oe = ["id"], Ie = { class: "modal-content" }, Ne = {
+}), Ie = { class: "modal-content" }, Ne = {
   key: 0,
   class: "modal-title mw-100"
-}, Me = {
+}, je = {
   key: 1,
   type: "button",
   class: "btn-close",
   "data-bs-dismiss": "modal",
   "aria-label": "Close"
-}, Te = { class: "modal-body" }, je = {
+}, Me = { class: "modal-body" }, Te = {
   key: 1,
   class: "modal-footer justify-content-start"
-}, no = /* @__PURE__ */ g({
+}, so = /* @__PURE__ */ f({
   __name: "BSModal",
   props: {
     id: { default: null },
@@ -293,88 +297,90 @@ const Pe = { key: 0 }, Ee = { class: "icon me-1" }, oo = /* @__PURE__ */ g({
     centered: { type: Boolean, default: !1 }
   },
   emits: ["shown", "hidden", "close-clicked"],
-  setup(d, { emit: t }) {
-    const o = d, e = t, s = y(() => o.id ?? `id_${N().toString()}`), r = y(() => {
-      let c = "";
-      switch (o.centered && (c += "modal-dialog-centered "), o.size) {
+  setup(p, { emit: t }) {
+    const o = p, e = t, n = _(() => {
+      const i = [];
+      switch (o.centered && i.push("modal-dialog-centered"), o.size) {
         case "small":
-          c += "modal-sm modal-fullscreen-sm-down";
+          i.push("modal-sm modal-fullscreen-sm-down");
           break;
         case "large":
-          c += "modal-lg modal-fullscreen-lg-down";
+          i.push("modal-lg modal-fullscreen-lg-down");
           break;
         case "extra-large":
-          c += "modal-xl modal-fullscreen-xl-down";
+          i.push("modal-xl modal-fullscreen-xl-down");
           break;
         default:
-          c += " modal-fullscreen-md-down";
+          i.push("modal-fullscreen-md-down");
           break;
       }
-      return c;
-    }), n = y(() => {
-      let c = "";
-      return o.headerColor && (c += `text-bg-${o.headerColor} `), o.headerBold && (c += "fw-bold "), c;
+      return i.join(" ");
+    }), l = _(() => {
+      const i = [];
+      return o.headerColor && i.push(`text-bg-${o.headerColor}`), o.headerBold && i.push("fw-bold"), i.join(" ");
     });
-    let a, u;
-    function p(c) {
-      var E, L;
-      c ? (E = a == null ? void 0 : a.value) == null || E.show() : (L = a == null ? void 0 : a.value) == null || L.hide();
+    let s;
+    const r = V(null);
+    function d(i) {
+      var b, P;
+      i ? (b = s == null ? void 0 : s.value) == null || b.show() : (P = s == null ? void 0 : s.value) == null || P.hide();
     }
     return x(() => {
-      if (u = V(document.getElementById(s.value)), !u.value)
+      if (!r.value)
         return;
-      let c = o.hasBackground;
-      c && !o.backgroundClickCloses && (c = "static"), a = V(
-        new ce(u.value, {
-          backdrop: c
+      let i = o.hasBackground;
+      i && !o.backgroundClickCloses && (i = "static"), s = V(
+        new me(r.value, {
+          backdrop: i
         })
-      ), u.value.addEventListener(
+      ), r.value.addEventListener(
         "hidden.bs.modal",
         () => e("hidden")
-      ), u.value.addEventListener("shown.bs.modal", () => e("shown")), p(o.active);
+      ), r.value.addEventListener("shown.bs.modal", () => e("shown")), d(o.active);
     }), ue(() => {
-      var c;
-      (c = a == null ? void 0 : a.value) == null || c.dispose();
+      var i;
+      (i = s == null ? void 0 : s.value) == null || i.dispose();
     }), ee(
       () => o.active,
-      (c) => {
-        p(c);
+      (i) => {
+        d(i);
       }
-    ), (c, E) => (l(), $(de, { to: "body" }, [
-      m("div", {
-        id: s.value,
+    ), (i, b) => (a(), $(de, { to: "body" }, [
+      c("div", {
+        ref_key: "modalElement",
+        ref: r,
         class: "modal fade",
         tabindex: "-1"
       }, [
-        m("div", {
-          class: z(["modal-dialog modal-dialog-scrollable", r.value])
+        c("div", {
+          class: z(["modal-dialog modal-dialog-scrollable", n.value])
         }, [
-          m("div", Ie, [
-            c.$slots.title || c.showCloseButton ? (l(), i("div", {
+          c("div", Ie, [
+            i.$slots.title || i.showCloseButton ? (a(), u("div", {
               key: 0,
-              class: z(["modal-header", n.value])
+              class: z(["modal-header", l.value])
             }, [
-              c.$slots.title ? (l(), i("p", Ne, [
-                v(c.$slots, "title")
-              ])) : h("", !0),
-              c.showCloseButton ? (l(), i("button", Me)) : h("", !0)
-            ], 2)) : h("", !0),
-            m("div", Te, [
-              v(c.$slots, "default")
+              i.$slots.title ? (a(), u("p", Ne, [
+                h(i.$slots, "title")
+              ])) : g("", !0),
+              i.showCloseButton ? (a(), u("button", je)) : g("", !0)
+            ], 2)) : g("", !0),
+            c("div", Me, [
+              h(i.$slots, "default")
             ]),
-            c.$slots.footer ? (l(), i("div", je, [
-              v(c.$slots, "footer")
-            ])) : h("", !0)
+            i.$slots.footer ? (a(), u("div", Te, [
+              h(i.$slots, "footer")
+            ])) : g("", !0)
           ])
         ], 2)
-      ], 8, Oe)
+      ], 512)
     ]));
   }
-}), qe = ["value"], Fe = {
+}), qe = ["value"], Re = {
   key: 0,
   disabled: "",
   value: ""
-}, Re = ["value"], j = "___NULL_VALUE___", Ae = /* @__PURE__ */ g({
+}, Fe = ["value"], T = "___NULL_VALUE___", Ae = /* @__PURE__ */ f({
   __name: "BSSelect",
   props: {
     options: {},
@@ -383,64 +389,61 @@ const Pe = { key: 0 }, Ee = { class: "icon me-1" }, oo = /* @__PURE__ */ g({
     placeholder: { default: void 0 }
   },
   emits: ["update:model-value"],
-  setup(d, { emit: t }) {
-    const o = d, e = t, s = y(() => o.modelValue === null ? j : o.modelValue), r = y(() => {
-      const a = o.options.map((u) => {
-        const [p, c] = u;
-        return [p === null ? j : p, c];
-      });
-      return console.log("Mapped options:", a), a;
-    });
-    function n(a) {
-      const u = o.options.find((p) => a === j ? p[0] === null : String(p[0]) === a);
-      u && (console.log("Found option pair:", u), e("update:model-value", u[0]));
+  setup(p, { emit: t }) {
+    const o = p, e = t, n = _(() => o.modelValue === null ? T : o.modelValue), l = _(() => o.options.map((r) => {
+      const [d, i] = r;
+      return [d === null ? T : d, i];
+    }));
+    function s(r) {
+      const d = o.options.find((i) => r === T ? i[0] === null : String(i[0]) === r);
+      d && e("update:model-value", d[0]);
     }
-    return (a, u) => (l(), i("div", null, [
-      m("select", {
-        class: z(["form-select", a.containerClasses]),
-        value: s.value,
-        onChange: u[0] || (u[0] = (p) => n(b(M)(p)))
+    return (r, d) => (a(), u("div", null, [
+      c("select", {
+        class: z(["form-select", r.containerClasses]),
+        value: n.value,
+        onChange: d[0] || (d[0] = (i) => s(v(N)(i)))
       }, [
-        a.placeholder ? (l(), i("option", Fe, k(a.placeholder), 1)) : h("", !0),
-        (l(!0), i(U, null, D(r.value, ([p, c]) => (l(), i("option", {
-          key: p,
-          value: p
-        }, k(c), 9, Re))), 128))
+        r.placeholder ? (a(), u("option", Re, k(r.placeholder), 1)) : g("", !0),
+        (a(!0), u(U, null, D(l.value, ([i, b]) => (a(), u("option", {
+          key: i,
+          value: i
+        }, k(b), 9, Fe))), 128))
       ], 42, qe)
     ]));
   }
-}), Ze = ["id", "value", "checked", "onClick"], Ge = ["for"], oe = /* @__PURE__ */ g({
+}), Ge = ["id", "value", "checked", "onClick"], Ze = ["for"], oe = /* @__PURE__ */ f({
   __name: "BSMultiSelect",
   props: {
     options: {},
     modelValue: {},
     containerClasses: { default: "" },
-    uniqueId: { default: () => N().toString() }
+    uniqueId: { default: () => M() }
   },
   emits: ["update:model-value"],
-  setup(d, { emit: t }) {
-    const o = d, e = t;
-    function s(r) {
-      const n = o.modelValue.includes(r), a = [...o.modelValue], u = a.indexOf(r);
-      n ? u > -1 && a.splice(u, 1) : a.push(r), e("update:model-value", a);
+  setup(p, { emit: t }) {
+    const o = p, e = t;
+    function n(l) {
+      const s = o.modelValue.includes(l), r = [...o.modelValue], d = r.indexOf(l);
+      s ? d > -1 && r.splice(d, 1) : r.push(l), e("update:model-value", r);
     }
-    return (r, n) => (l(), i("div", null, [
-      (l(!0), i(U, null, D(r.options, ([a, u]) => (l(), i("div", {
-        key: a,
-        class: z(["form-check", r.containerClasses])
+    return (l, s) => (a(), u("div", null, [
+      (a(!0), u(U, null, D(l.options, ([r, d]) => (a(), u("div", {
+        key: r,
+        class: z(["form-check", l.containerClasses])
       }, [
-        m("input", {
-          id: "id_" + a + "_" + r.uniqueId,
+        c("input", {
+          id: "id_" + r + "_" + l.uniqueId,
           type: "checkbox",
           class: "form-check-input",
-          value: a,
-          checked: o.modelValue.includes(a),
-          onClick: (p) => s(a)
-        }, null, 8, Ze),
-        m("label", {
+          value: r,
+          checked: o.modelValue.includes(r),
+          onClick: (i) => n(r)
+        }, null, 8, Ge),
+        c("label", {
           class: "form-check-label",
-          for: "id_" + a + "_" + r.uniqueId
-        }, k(u), 9, Ge)
+          for: "id_" + r + "_" + l.uniqueId
+        }, k(d), 9, Ze)
       ], 2))), 128))
     ]));
   }
@@ -451,7 +454,7 @@ const Pe = { key: 0 }, Ee = { class: "icon me-1" }, oo = /* @__PURE__ */ g({
 }, He = ["onClick"], We = {
   key: 1,
   class: "page-link"
-}, F = /* @__PURE__ */ g({
+}, R = /* @__PURE__ */ f({
   __name: "BSPagination",
   props: {
     maxPages: {},
@@ -460,64 +463,64 @@ const Pe = { key: 0 }, Ee = { class: "icon me-1" }, oo = /* @__PURE__ */ g({
     numOptions: { default: 2 }
   },
   emits: ["change-page"],
-  setup(d, { emit: t }) {
-    const o = d;
-    function e(u, p, c) {
-      return Math.min(Math.max(u, p), c);
+  setup(p, { emit: t }) {
+    const o = p;
+    function e(d, i, b) {
+      return Math.min(Math.max(d, i), b);
     }
-    const s = y(() => {
-      const u = o.numOptions, p = o.currentpage - u, c = o.currentpage + u, E = Array.from({ length: o.maxPages }, (w, O) => O + 1).filter(
-        (w) => w === 1 || w === o.maxPages || w >= p && w <= c
-      ), L = [];
-      return E.forEach((w, O) => {
+    const n = _(() => {
+      const d = o.numOptions, i = o.currentpage - d, b = o.currentpage + d, P = Array.from({ length: o.maxPages }, (w, O) => O + 1).filter(
+        (w) => w === 1 || w === o.maxPages || w >= i && w <= b
+      ), E = [];
+      return P.forEach((w, O) => {
         if (O === 0) {
-          L.push(w);
+          E.push(w);
           return;
         }
-        w - E[O - 1] > 1 && L.push("ellipsis"), L.push(w);
-      }), L;
-    }), r = t;
-    function n(u) {
-      u !== "ellipsis" && (u = e(u, 1, o.maxPages), r("change-page", u));
+        w - P[O - 1] > 1 && E.push("ellipsis"), E.push(w);
+      }), E;
+    }), l = t;
+    function s(d) {
+      d !== "ellipsis" && (d = e(d, 1, o.maxPages), l("change-page", d));
     }
-    const { t: a } = T();
-    return (u, p) => (l(), i("ul", Qe, [
-      m("li", {
-        class: z(["page-item page-button", u.currentpage === 1 ? "disabled" : ""])
+    const { t: r } = j();
+    return (d, i) => (a(), u("ul", Qe, [
+      c("li", {
+        class: z(["page-item page-button", d.currentpage === 1 ? "disabled" : ""])
       }, [
-        u.showButtons ? (l(), i("a", {
+        d.showButtons ? (a(), u("a", {
           key: 0,
           class: "page-link",
-          onClick: p[0] || (p[0] = (c) => n(u.currentpage - 1))
-        }, k(b(a)("previous")), 1)) : h("", !0)
+          onClick: i[0] || (i[0] = (b) => s(d.currentpage - 1))
+        }, k(v(r)("previous")), 1)) : g("", !0)
       ], 2),
-      (l(!0), i(U, null, D(s.value, (c) => (l(), i("li", {
-        key: c,
+      (a(!0), u(U, null, D(n.value, (b) => (a(), u("li", {
+        key: b,
         class: z([
           "page-item",
-          (c === "ellipsis" ? "disabled page-ellipsis " : "") + (c === u.currentpage ? "active" : "")
+          (b === "ellipsis" ? "disabled page-ellipsis " : "") + (b === d.currentpage ? "active" : "")
         ])
       }, [
-        c !== -42 ? (l(), i("a", {
+        b !== -42 ? (a(), u("a", {
           key: 0,
           class: "page-link",
-          onClick: (E) => n(c)
-        }, k(c), 9, He)) : (l(), i("span", We, "…"))
+          onClick: (P) => s(b)
+        }, k(b), 9, He)) : (a(), u("span", We, "…"))
       ], 2))), 128)),
-      m("li", {
-        class: z(["page-item page-button", u.currentpage >= u.maxPages ? "disabled" : ""])
+      c("li", {
+        class: z(["page-item page-button", d.currentpage >= d.maxPages ? "disabled" : ""])
       }, [
-        u.showButtons ? (l(), i("a", {
+        d.showButtons ? (a(), u("a", {
           key: 0,
           class: "page-link",
-          onClick: p[1] || (p[1] = (c) => n(u.currentpage + 1))
-        }, k(b(a)("next")), 1)) : h("", !0)
+          onClick: i[1] || (i[1] = (b) => s(d.currentpage + 1))
+        }, k(v(r)("next")), 1)) : g("", !0)
       ], 2)
     ]));
   }
 });
-function H(d) {
-  const t = d;
+function H(p) {
+  const t = p;
   t.__i18n = t.__i18n || [], t.__i18n.push({
     locale: "",
     resource: {
@@ -544,8 +547,8 @@ function H(d) {
     }
   });
 }
-typeof H == "function" && H(F);
-const Je = ["id", "value", "checked", "onClick"], Ke = ["for"], Xe = /* @__PURE__ */ g({
+typeof H == "function" && H(R);
+const Je = ["id", "value", "checked", "onClick"], Ke = ["for"], Xe = /* @__PURE__ */ f({
   __name: "BSRadioSelect",
   props: {
     options: {},
@@ -553,29 +556,29 @@ const Je = ["id", "value", "checked", "onClick"], Ke = ["for"], Xe = /* @__PURE_
     containerClasses: { default: "" }
   },
   emits: ["update:model-value"],
-  setup(d, { emit: t }) {
+  setup(p, { emit: t }) {
     const o = t;
-    return (e, s) => (l(), i("div", null, [
-      (l(!0), i(U, null, D(e.options, ([r, n]) => (l(), i("div", {
-        key: r,
+    return (e, n) => (a(), u("div", null, [
+      (a(!0), u(U, null, D(e.options, ([l, s]) => (a(), u("div", {
+        key: l,
         class: z(["form-check", e.containerClasses])
       }, [
-        m("input", {
-          id: "id_" + r,
+        c("input", {
+          id: "id_" + l,
           type: "radio",
           class: "form-check-input",
-          value: r,
-          checked: e.modelValue == r,
-          onClick: (a) => o("update:model-value", r)
+          value: l,
+          checked: e.modelValue == l,
+          onClick: (r) => o("update:model-value", l)
         }, null, 8, Je),
-        m("label", {
+        c("label", {
           class: "form-check-label",
-          for: "id_" + r
-        }, k(n), 9, Ke)
+          for: "id_" + l
+        }, k(s), 9, Ke)
       ], 2))), 128))
     ]));
   }
-}), Ye = { class: "uu-sidebar" }, xe = ["data-bs-target"], et = ["id"], tt = { class: "uu-sidebar-content" }, ot = /* @__PURE__ */ g({
+}), Ye = { class: "uu-sidebar" }, xe = ["data-bs-target"], et = ["id"], tt = { class: "uu-sidebar-content" }, ot = /* @__PURE__ */ f({
   __name: "BSSidebar",
   props: {
     id: { default: null },
@@ -584,131 +587,131 @@ const Je = ["id", "value", "checked", "onClick"], Ke = ["for"], Xe = /* @__PURE_
     stickySidebar: { type: Boolean, default: !1 },
     mobileStickySidebar: { type: Boolean, default: !1 }
   },
-  setup(d) {
-    const t = d, o = y(() => t.id !== null ? t.id : "id_" + N().toString().replace(/-/g, "")), e = y(() => {
-      let s = "";
-      return t.placement === "right" && (s += "uu-sidebar-right "), t.mobilePlacement === "bottom" && (s += "uu-sidebar-mobile-bottom "), t.stickySidebar && (s += "uu-sidebar-sticky "), t.mobileStickySidebar && (s += "uu-sidebar-mobile-sticky "), s;
+  setup(p) {
+    const t = p, o = _(() => t.id ?? M()), e = _(() => {
+      const n = [];
+      return t.placement === "right" && n.push("uu-sidebar-right"), t.mobilePlacement === "bottom" && n.push("uu-sidebar-mobile-bottom"), t.stickySidebar && n.push("uu-sidebar-sticky"), t.mobileStickySidebar && n.push("uu-sidebar-mobile-sticky"), n.join(" ");
     });
-    return (s, r) => (l(), i("div", {
+    return (n, l) => (a(), u("div", {
       class: z(["uu-sidebar-container", e.value])
     }, [
-      m("aside", Ye, [
-        m("button", {
+      c("aside", Ye, [
+        c("button", {
           class: "uu-sidebar-toggle",
           type: "button",
           "data-bs-toggle": "collapse",
           "data-bs-target": "#" + o.value,
           "aria-expanded": "false"
         }, [
-          v(s.$slots, "sidebar-button")
+          h(n.$slots, "sidebar-button")
         ], 8, xe),
-        m("div", {
+        c("div", {
           id: o.value,
           class: "uu-sidebar-collapse collapse"
         }, [
-          v(s.$slots, "sidebar")
+          h(n.$slots, "sidebar")
         ], 8, et)
       ]),
-      m("section", tt, [
-        v(s.$slots, "default")
+      c("section", tt, [
+        h(n.$slots, "default")
       ])
     ], 2));
   }
-}), nt = { class: "uu-list-filter" }, st = { class: "uu-list-filter-label" }, at = {
+}), st = { class: "uu-list-filter" }, nt = { class: "uu-list-filter-label" }, at = {
   key: 3,
   class: "uu-list-filter-field"
-}, lt = ["value"], rt = /* @__PURE__ */ g({
+}, lt = ["value"], rt = /* @__PURE__ */ f({
   __name: "Filter",
   props: {
     filter: {},
     value: {}
   },
   emits: ["update:value"],
-  setup(d, { emit: t }) {
+  setup(p, { emit: t }) {
     const o = t;
-    return (e, s) => (l(), i("div", nt, [
-      m("div", st, k(e.filter.label), 1),
-      e.filter.type === "checkbox" ? (l(), $(b(oe), {
+    return (e, n) => (a(), u("div", st, [
+      c("div", nt, k(e.filter.label), 1),
+      e.filter.type === "checkbox" ? (a(), $(v(oe), {
         key: 0,
         options: e.filter.options ?? [],
         "model-value": e.value ?? [],
-        "onUpdate:modelValue": s[0] || (s[0] = (r) => o("update:value", r))
-      }, null, 8, ["options", "model-value"])) : h("", !0),
-      e.filter.type === "select" ? (l(), $(b(Ae), {
+        "onUpdate:modelValue": n[0] || (n[0] = (l) => o("update:value", l))
+      }, null, 8, ["options", "model-value"])) : g("", !0),
+      e.filter.type === "select" ? (a(), $(v(Ae), {
         key: 1,
         options: e.filter.options ?? [],
         "model-value": e.value ?? "",
         class: "uu-list-filter-field",
-        "onUpdate:modelValue": s[1] || (s[1] = (r) => o("update:value", r))
-      }, null, 8, ["options", "model-value"])) : h("", !0),
-      e.filter.type === "radio" ? (l(), $(b(Xe), {
+        "onUpdate:modelValue": n[1] || (n[1] = (l) => o("update:value", l))
+      }, null, 8, ["options", "model-value"])) : g("", !0),
+      e.filter.type === "radio" ? (a(), $(v(Xe), {
         key: 2,
         options: e.filter.options ?? [],
         "model-value": e.value ?? "",
-        "onUpdate:modelValue": s[2] || (s[2] = (r) => o("update:value", r))
-      }, null, 8, ["options", "model-value"])) : h("", !0),
-      e.filter.type === "date" ? (l(), i("div", at, [
-        m("input", {
+        "onUpdate:modelValue": n[2] || (n[2] = (l) => o("update:value", l))
+      }, null, 8, ["options", "model-value"])) : g("", !0),
+      e.filter.type === "date" ? (a(), u("div", at, [
+        c("input", {
           type: "date",
           value: e.value,
           class: "form-control",
-          onInput: s[3] || (s[3] = (r) => o("update:value", b(M)(r)))
+          onInput: n[3] || (n[3] = (l) => o("update:value", v(N)(l)))
         }, null, 40, lt)
-      ])) : h("", !0)
+      ])) : g("", !0)
     ]));
   }
-}), ne = /* @__PURE__ */ g({
+}), se = /* @__PURE__ */ f({
   __name: "FilterBar",
   props: {
     filterProps: {}
   },
   emits: ["update:filter-values"],
-  setup(d, { emit: t }) {
-    const o = d, e = y(() => o.filterProps.filters), s = y(() => o.filterProps.filterValues), r = t;
-    function n(a, u) {
-      let p = { ...s.value };
-      p[a] = u, r("update:filter-values", p);
+  setup(p, { emit: t }) {
+    const o = p, e = _(() => o.filterProps.filters), n = _(() => o.filterProps.filterValues), l = t;
+    function s(r, d) {
+      let i = { ...n.value };
+      i[r] = d, l("update:filter-values", i);
     }
-    return (a, u) => (l(!0), i(U, null, D(e.value, (p) => (l(), $(rt, {
-      key: p.field,
-      filter: p,
-      value: s.value[p.field],
-      "onUpdate:value": (c) => n(p.field, c)
+    return (r, d) => (a(!0), u(U, null, D(e.value, (i) => (a(), $(rt, {
+      key: i.field,
+      filter: i,
+      value: n.value[i.field],
+      "onUpdate:value": (b) => s(i.field, b)
     }, null, 8, ["filter", "value", "onUpdate:value"]))), 128));
   }
-}), it = { class: "search" }, ut = ["value", "placeholder"], R = /* @__PURE__ */ g({
+}), it = { class: "search" }, ut = ["value", "placeholder"], F = /* @__PURE__ */ f({
   __name: "SearchControl",
   props: {
     modelValue: {}
   },
   emits: ["update:modelValue", "update:model-value"],
-  setup(d, { emit: t }) {
-    function o(a, u = 500) {
-      let p;
-      return (...c) => {
-        clearTimeout(p), p = setTimeout(() => {
-          a.apply(this, c);
-        }, u);
+  setup(p, { emit: t }) {
+    function o(r, d = 500) {
+      let i;
+      return (...b) => {
+        clearTimeout(i), i = setTimeout(() => {
+          r.apply(this, b);
+        }, d);
       };
     }
     const e = t;
-    function s(a) {
-      e("update:modelValue", a);
+    function n(r) {
+      e("update:modelValue", r);
     }
-    const r = o((a) => s(a)), { t: n } = T();
-    return (a, u) => (l(), i("div", it, [
-      m("input", {
+    const l = o((r) => n(r)), { t: s } = j();
+    return (r, d) => (a(), u("div", it, [
+      c("input", {
         id: "search",
         class: "form-control",
-        value: a.modelValue,
-        placeholder: b(n)("placeholder"),
-        onInput: u[0] || (u[0] = (p) => b(r)(b(M)(p)))
+        value: r.modelValue,
+        placeholder: v(s)("placeholder"),
+        onInput: d[0] || (d[0] = (i) => v(l)(v(N)(i)))
       }, null, 40, ut)
     ]));
   }
 });
-function W(d) {
-  const t = d;
+function W(p) {
+  const t = p;
   t.__i18n = t.__i18n || [], t.__i18n.push({
     locale: "",
     resource: {
@@ -727,104 +730,104 @@ function W(d) {
     }
   });
 }
-typeof W == "function" && W(R);
-const dt = ["value"], pt = ["value"], se = /* @__PURE__ */ g({
+typeof W == "function" && W(F);
+const dt = ["value"], pt = ["value"], ne = /* @__PURE__ */ f({
   __name: "PageSizeControl",
   props: {
     pageSize: {},
     pageSizeOptions: {}
   },
   emits: ["update:pageSize", "update:page-size"],
-  setup(d, { emit: t }) {
-    const o = d, e = t;
-    function s(r) {
-      if (typeof r == "string")
+  setup(p, { emit: t }) {
+    const o = p, e = t;
+    function n(l) {
+      if (typeof l == "string")
         try {
-          r = Number(r);
+          l = Number(l);
         } catch {
-          r = o.pageSizeOptions[0] ?? 10;
+          l = o.pageSizeOptions[0] ?? 10;
         }
-      e("update:pageSize", r);
+      e("update:pageSize", l);
     }
-    return (r, n) => (l(), i("select", {
-      value: r.pageSize,
+    return (l, s) => (a(), u("select", {
+      value: l.pageSize,
       class: "form-select",
-      onChange: n[0] || (n[0] = (a) => s(b(M)(a)))
+      onChange: s[0] || (s[0] = (r) => n(v(N)(r)))
     }, [
-      (l(!0), i(U, null, D(r.pageSizeOptions, (a) => (l(), i("option", {
-        key: a,
-        value: a
-      }, k(a), 9, pt))), 128))
+      (a(!0), u(U, null, D(l.pageSizeOptions, (r) => (a(), u("option", {
+        key: r,
+        value: r
+      }, k(r), 9, pt))), 128))
     ], 40, dt));
   }
-}), ct = ["value"], mt = ["value"], ae = /* @__PURE__ */ g({
+}), ct = ["value"], mt = ["value"], ae = /* @__PURE__ */ f({
   __name: "SortControl",
   props: {
     currentSort: {},
     sortOptions: {}
   },
   emits: ["update:current-sort", "update:currentSort"],
-  setup(d, { emit: t }) {
-    return (o, e) => (l(), i("select", {
+  setup(p, { emit: t }) {
+    return (o, e) => (a(), u("select", {
       value: o.currentSort,
       class: "form-select",
-      onChange: e[0] || (e[0] = (s) => o.$emit("update:current-sort", b(M)(s).trim()))
+      onChange: e[0] || (e[0] = (n) => o.$emit("update:current-sort", v(N)(n).trim()))
     }, [
-      (l(!0), i(U, null, D(o.sortOptions, ({ field: s, label: r }) => (l(), i("option", {
-        key: s,
-        value: s
-      }, k(r), 9, mt))), 128))
+      (a(!0), u(U, null, D(o.sortOptions, ({ field: n, label: l }) => (a(), u("option", {
+        key: n,
+        value: n
+      }, k(l), 9, mt))), 128))
     ], 40, ct));
   }
-}), ft = { key: 0 }, A = /* @__PURE__ */ g({
+}), ft = { key: 0 }, A = /* @__PURE__ */ f({
   __name: "SearchResultNum",
   props: {
     searchQuery: {},
     pageNum: {},
     totalNum: {}
   },
-  setup(d) {
-    const { t } = T();
-    return (o, e) => (l(), i("div", null, [
-      o.searchQuery ? (l(), i("span", ft, k(b(t)("search", { query: o.searchQuery })), 1)) : h("", !0),
-      te(" " + k(b(t)("showing", {
+  setup(p) {
+    const { t } = j();
+    return (o, e) => (a(), u("div", null, [
+      o.searchQuery ? (a(), u("span", ft, k(v(t)("search", { query: o.searchQuery })), 1)) : g("", !0),
+      te(" " + k(v(t)("showing", {
         pageNum: o.pageNum,
         totalNum: Intl.NumberFormat().format(o.totalNum)
       })), 1)
     ]));
   }
 });
-function J(d) {
-  const t = d;
+function J(p) {
+  const t = p;
   t.__i18n = t.__i18n || [], t.__i18n.push({
     locale: "",
     resource: {
       en: {
         search: (o) => {
-          const { normalize: e, interpolate: s, named: r } = o;
-          return e(["Search result: ", s(r("query")), ","]);
+          const { normalize: e, interpolate: n, named: l } = o;
+          return e(["Search result: ", n(l("query")), ","]);
         },
         showing: (o) => {
-          const { normalize: e, interpolate: s, named: r } = o;
-          return e(["showing ", s(r("pageNum")), " of ", s(r("totalNum")), " results"]);
+          const { normalize: e, interpolate: n, named: l } = o;
+          return e(["showing ", n(l("pageNum")), " of ", n(l("totalNum")), " results"]);
         }
       },
       nl: {
         search: (o) => {
-          const { normalize: e, interpolate: s, named: r } = o;
-          return e(["Zoekresultaat: ", s(r("query")), ","]);
+          const { normalize: e, interpolate: n, named: l } = o;
+          return e(["Zoekresultaat: ", n(l("query")), ","]);
         },
         showing: (o) => {
-          const { normalize: e, interpolate: s, named: r } = o;
-          return e([s(r("pageNum")), " van ", s(r("totalNum")), " getoond"]);
+          const { normalize: e, interpolate: n, named: l } = o;
+          return e([n(l("pageNum")), " van ", n(l("totalNum")), " getoond"]);
         }
       }
     }
   });
 }
 typeof J == "function" && J(A);
-function le(d) {
-  const { filters: t, filterValues: o } = d;
+function le(p) {
+  const { filters: t, filterValues: o } = p;
   return !t || !o ? null : { filters: t, filterValues: o };
 }
 const gt = { class: "uu-container" }, ht = { class: "uu-list" }, vt = { class: "uu-list-controls" }, bt = {
@@ -833,7 +836,7 @@ const gt = { class: "uu-container" }, ht = { class: "uu-list" }, vt = { class: "
 }, yt = { class: "uu-list-page-size-control" }, _t = {
   key: 0,
   class: "uu-list-filters"
-}, $t = { class: "uu-list-content" }, kt = /* @__PURE__ */ g({
+}, $t = { class: "uu-list-content" }, kt = /* @__PURE__ */ f({
   __name: "Default",
   props: {
     data: {},
@@ -852,66 +855,66 @@ const gt = { class: "uu-container" }, ht = { class: "uu-list" }, vt = { class: "
     filterValues: {}
   },
   emits: ["update:current-page", "update:search", "update:current-sort", "update:page-size", "update:filter-values"],
-  setup(d, { emit: t }) {
-    const o = d, e = t, s = y(() => Math.ceil(o.totalData / o.pageSize)), r = y(() => le(o));
-    return (n, a) => {
-      var u;
-      return l(), i("div", gt, [
-        m("div", ht, [
-          m("div", vt, [
-            n.searchEnabled ? (l(), $(R, {
+  setup(p, { emit: t }) {
+    const o = p, e = t, n = _(() => Math.ceil(o.totalData / o.pageSize)), l = _(() => le(o));
+    return (s, r) => {
+      var d;
+      return a(), u("div", gt, [
+        c("div", ht, [
+          c("div", vt, [
+            s.searchEnabled ? (a(), $(F, {
               key: 0,
-              "model-value": n.search,
+              "model-value": s.search,
               class: "uu-list-search-control",
-              "onUpdate:modelValue": a[0] || (a[0] = (p) => n.$emit("update:search", p))
-            }, null, 8, ["model-value"])) : h("", !0),
+              "onUpdate:modelValue": r[0] || (r[0] = (i) => s.$emit("update:search", i))
+            }, null, 8, ["model-value"])) : g("", !0),
             C(A, {
-              "search-query": n.search,
-              "page-num": ((u = n.data) == null ? void 0 : u.length) ?? 0,
-              "total-num": n.totalData,
+              "search-query": s.search,
+              "page-num": ((d = s.data) == null ? void 0 : d.length) ?? 0,
+              "total-num": s.totalData,
               class: "uu-list-search-text-control"
             }, null, 8, ["search-query", "page-num", "total-num"]),
-            n.sortEnabled ? (l(), i("div", bt, [
+            s.sortEnabled ? (a(), u("div", bt, [
               C(ae, {
-                "current-sort": n.currentSort,
-                "sort-options": n.sortOptions,
-                "onUpdate:currentSort": a[1] || (a[1] = (p) => e("update:current-sort", p))
+                "current-sort": s.currentSort,
+                "sort-options": s.sortOptions,
+                "onUpdate:currentSort": r[1] || (r[1] = (i) => e("update:current-sort", i))
               }, null, 8, ["current-sort", "sort-options"])
-            ])) : h("", !0),
-            m("div", yt, [
-              C(se, {
-                "page-size-options": n.pageSizeOptions,
-                "page-size": n.pageSize,
-                "onUpdate:pageSize": a[2] || (a[2] = (p) => e("update:page-size", p))
+            ])) : g("", !0),
+            c("div", yt, [
+              C(ne, {
+                "page-size-options": s.pageSizeOptions,
+                "page-size": s.pageSize,
+                "onUpdate:pageSize": r[2] || (r[2] = (i) => e("update:page-size", i))
               }, null, 8, ["page-size-options", "page-size"])
             ])
           ]),
-          n.filtersEnabled && r.value ? (l(), i("div", _t, [
-            v(n.$slots, "filters-top", {
-              data: n.data,
-              isLoading: n.isLoading
+          s.filtersEnabled && l.value ? (a(), u("div", _t, [
+            h(s.$slots, "filters-top", {
+              data: s.data,
+              isLoading: s.isLoading
             }),
-            C(ne, {
-              "filter-props": r.value,
-              "onUpdate:filterValues": a[3] || (a[3] = (p) => n.$emit("update:filter-values", p))
+            C(se, {
+              "filter-props": l.value,
+              "onUpdate:filterValues": r[3] || (r[3] = (i) => s.$emit("update:filter-values", i))
             }, null, 8, ["filter-props"]),
-            v(n.$slots, "filters-bottom", {
-              data: n.data,
-              isLoading: n.isLoading
+            h(s.$slots, "filters-bottom", {
+              data: s.data,
+              isLoading: s.isLoading
             })
-          ])) : h("", !0),
-          m("div", $t, [
-            v(n.$slots, "data", {
-              data: n.data,
-              isLoading: n.isLoading
+          ])) : g("", !0),
+          c("div", $t, [
+            h(s.$slots, "data", {
+              data: s.data,
+              isLoading: s.isLoading
             }),
-            m("div", null, [
-              n.data ? (l(), $(b(F), {
+            c("div", null, [
+              s.data ? (a(), $(v(R), {
                 key: 0,
-                "max-pages": s.value,
-                currentpage: n.currentPage,
-                onChangePage: a[4] || (a[4] = (p) => n.$emit("update:current-page", p))
-              }, null, 8, ["max-pages", "currentpage"])) : h("", !0)
+                "max-pages": n.value,
+                currentpage: s.currentPage,
+                onChangePage: r[4] || (r[4] = (i) => s.$emit("update:current-page", i))
+              }, null, 8, ["max-pages", "currentpage"])) : g("", !0)
             ])
           ])
         ])
@@ -921,7 +924,7 @@ const gt = { class: "uu-container" }, ht = { class: "uu-list" }, vt = { class: "
 }), St = { class: "w-100 d-flex align-items-center gap-3 uu-list-controls" }, zt = {
   key: 0,
   class: "ms-auto"
-}, re = /* @__PURE__ */ g({
+}, re = /* @__PURE__ */ f({
   __name: "Sidebar",
   props: {
     data: {},
@@ -940,65 +943,65 @@ const gt = { class: "uu-container" }, ht = { class: "uu-list" }, vt = { class: "
     filterValues: {}
   },
   emits: ["update:current-page", "update:search", "update:current-sort", "update:page-size", "update:filter-values"],
-  setup(d, { emit: t }) {
-    const o = d, e = t, s = y(() => Math.ceil(o.totalData / o.pageSize)), r = y(() => le(o));
-    return (n, a) => (l(), $(b(ot), { class: "uu-list-sidebar" }, {
-      sidebar: P(() => [
-        n.searchEnabled ? (l(), $(R, {
+  setup(p, { emit: t }) {
+    const o = p, e = t, n = _(() => Math.ceil(o.totalData / o.pageSize)), l = _(() => le(o));
+    return (s, r) => (a(), $(v(ot), { class: "uu-list-sidebar" }, {
+      sidebar: L(() => [
+        s.searchEnabled ? (a(), $(F, {
           key: 0,
-          "model-value": n.search,
-          "onUpdate:modelValue": a[0] || (a[0] = (u) => n.$emit("update:search", u))
-        }, null, 8, ["model-value"])) : h("", !0),
-        v(n.$slots, "filters-top", {
-          data: n.data,
-          isLoading: n.isLoading
+          "model-value": s.search,
+          "onUpdate:modelValue": r[0] || (r[0] = (d) => s.$emit("update:search", d))
+        }, null, 8, ["model-value"])) : g("", !0),
+        h(s.$slots, "filters-top", {
+          data: s.data,
+          isLoading: s.isLoading
         }),
-        r.value ? (l(), $(ne, {
+        l.value ? (a(), $(se, {
           key: 1,
-          "filter-props": r.value,
-          "onUpdate:filterValues": a[1] || (a[1] = (u) => n.$emit("update:filter-values", u))
-        }, null, 8, ["filter-props"])) : h("", !0),
-        v(n.$slots, "filters-bottom", {
-          data: n.data,
-          isLoading: n.isLoading
+          "filter-props": l.value,
+          "onUpdate:filterValues": r[1] || (r[1] = (d) => s.$emit("update:filter-values", d))
+        }, null, 8, ["filter-props"])) : g("", !0),
+        h(s.$slots, "filters-bottom", {
+          data: s.data,
+          isLoading: s.isLoading
         })
       ]),
-      default: P(() => {
-        var u;
+      default: L(() => {
+        var d;
         return [
-          m("div", null, [
-            m("div", St, [
+          c("div", null, [
+            c("div", St, [
               C(A, {
-                "search-query": n.search,
-                "page-num": ((u = n.data) == null ? void 0 : u.length) ?? 0,
-                "total-num": n.totalData
+                "search-query": s.search,
+                "page-num": ((d = s.data) == null ? void 0 : d.length) ?? 0,
+                "total-num": s.totalData
               }, null, 8, ["search-query", "page-num", "total-num"]),
-              n.sortEnabled ? (l(), i("div", zt, [
+              s.sortEnabled ? (a(), u("div", zt, [
                 C(ae, {
-                  "current-sort": n.currentSort,
-                  "sort-options": n.sortOptions,
-                  "onUpdate:currentSort": a[2] || (a[2] = (p) => e("update:current-sort", p))
+                  "current-sort": s.currentSort,
+                  "sort-options": s.sortOptions,
+                  "onUpdate:currentSort": r[2] || (r[2] = (i) => e("update:current-sort", i))
                 }, null, 8, ["current-sort", "sort-options"])
-              ])) : h("", !0),
-              m("div", null, [
-                C(se, {
-                  "page-size-options": n.pageSizeOptions,
-                  "page-size": n.pageSize,
-                  "onUpdate:pageSize": a[3] || (a[3] = (p) => e("update:page-size", p))
+              ])) : g("", !0),
+              c("div", null, [
+                C(ne, {
+                  "page-size-options": s.pageSizeOptions,
+                  "page-size": s.pageSize,
+                  "onUpdate:pageSize": r[3] || (r[3] = (i) => e("update:page-size", i))
                 }, null, 8, ["page-size-options", "page-size"])
               ])
             ]),
-            v(n.$slots, "data", {
-              data: n.data,
-              isLoading: n.isLoading
+            h(s.$slots, "data", {
+              data: s.data,
+              isLoading: s.isLoading
             }),
-            m("div", null, [
-              n.data ? (l(), $(b(F), {
+            c("div", null, [
+              s.data ? (a(), $(v(R), {
                 key: 0,
-                "max-pages": s.value,
-                currentpage: n.currentPage,
-                onChangePage: a[4] || (a[4] = (p) => n.$emit("update:current-page", p))
-              }, null, 8, ["max-pages", "currentpage"])) : h("", !0)
+                "max-pages": n.value,
+                currentpage: s.currentPage,
+                onChangePage: r[4] || (r[4] = (i) => s.$emit("update:current-page", i))
+              }, null, 8, ["max-pages", "currentpage"])) : g("", !0)
             ])
           ])
         ];
@@ -1007,8 +1010,8 @@ const gt = { class: "uu-container" }, ht = { class: "uu-list" }, vt = { class: "
     }));
   }
 });
-function K(d) {
-  const t = d;
+function K(p) {
+  const t = p;
   t.__i18n = t.__i18n || [], t.__i18n.push({
     locale: "",
     resource: {
@@ -1036,16 +1039,16 @@ function K(d) {
   });
 }
 typeof K == "function" && K(re);
-const wt = /* @__PURE__ */ g({
+const wt = /* @__PURE__ */ f({
   __name: "DebugVisualizer",
   props: {
     data: { default: void 0 },
     isLoading: { type: Boolean, default: !1 }
   },
-  setup(d) {
-    return (t, o) => (l(), i("pre", null, k(t.data), 1));
+  setup(p) {
+    return (t, o) => (a(), u("pre", null, k(t.data), 1));
   }
-}), Ct = /* @__PURE__ */ g({
+}), Ct = /* @__PURE__ */ f({
   __name: "UUList",
   props: {
     container: { default: "default" },
@@ -1065,8 +1068,8 @@ const wt = /* @__PURE__ */ g({
     filterValues: {}
   },
   emits: ["update:current-page", "update:search", "update:current-sort", "update:page-size", "update:filter-values"],
-  setup(d, { emit: t }) {
-    const o = d, e = t, s = y(() => {
+  setup(p, { emit: t }) {
+    const o = p, e = t, n = _(() => {
       switch (o.container) {
         case "sidebar":
           return re;
@@ -1074,232 +1077,232 @@ const wt = /* @__PURE__ */ g({
           return kt;
       }
     });
-    return (r, n) => (l(), $(Y(s.value), {
-      "is-loading": r.isLoading,
-      data: r.data,
-      "total-data": r.totalData,
-      "search-enabled": r.searchEnabled,
-      search: r.search,
-      "sort-enabled": r.sortEnabled,
-      "current-sort": r.currentSort,
-      "current-page": r.currentPage,
-      "page-size-options": r.pageSizeOptions,
-      "sort-options": r.sortOptions,
-      "page-size": r.pageSize,
-      "filters-enabled": r.filtersEnabled,
-      filters: r.filters,
-      "filter-values": r.filterValues,
-      "onUpdate:search": n[0] || (n[0] = (a) => e("update:search", a)),
-      "onUpdate:currentSort": n[1] || (n[1] = (a) => e("update:current-sort", a)),
-      "onUpdate:pageSize": n[2] || (n[2] = (a) => e("update:page-size", a)),
-      "onUpdate:currentPage": n[3] || (n[3] = (a) => e("update:current-page", a)),
-      "onUpdate:filterValues": n[4] || (n[4] = (a) => e("update:filter-values", a))
+    return (l, s) => (a(), $(Y(n.value), {
+      "is-loading": l.isLoading,
+      data: l.data,
+      "total-data": l.totalData,
+      "search-enabled": l.searchEnabled,
+      search: l.search,
+      "sort-enabled": l.sortEnabled,
+      "current-sort": l.currentSort,
+      "current-page": l.currentPage,
+      "page-size-options": l.pageSizeOptions,
+      "sort-options": l.sortOptions,
+      "page-size": l.pageSize,
+      "filters-enabled": l.filtersEnabled,
+      filters: l.filters,
+      "filter-values": l.filterValues,
+      "onUpdate:search": s[0] || (s[0] = (r) => e("update:search", r)),
+      "onUpdate:currentSort": s[1] || (s[1] = (r) => e("update:current-sort", r)),
+      "onUpdate:pageSize": s[2] || (s[2] = (r) => e("update:page-size", r)),
+      "onUpdate:currentPage": s[3] || (s[3] = (r) => e("update:current-page", r)),
+      "onUpdate:filterValues": s[4] || (s[4] = (r) => e("update:filter-values", r))
     }, {
-      data: P(({ data: a, isLoading: u }) => [
-        v(r.$slots, "data", {
-          data: a,
-          isLoading: u
+      data: L(({ data: r, isLoading: d }) => [
+        h(l.$slots, "data", {
+          data: r,
+          isLoading: d
         }, () => [
           C(wt, {
-            data: a,
-            "is-loading": u
+            data: r,
+            "is-loading": d
           }, null, 8, ["data", "is-loading"])
         ])
       ]),
-      "filters-top": P(({ data: a, isLoading: u }) => [
-        v(r.$slots, "filters-top", {
-          data: a,
-          isLoading: u
+      "filters-top": L(({ data: r, isLoading: d }) => [
+        h(l.$slots, "filters-top", {
+          data: r,
+          isLoading: d
         })
       ]),
-      "filters-bottom": P(({ data: a, isLoading: u }) => [
-        v(r.$slots, "filters-bottom", {
-          data: a,
-          isLoading: u
+      "filters-bottom": L(({ data: r, isLoading: d }) => [
+        h(l.$slots, "filters-bottom", {
+          data: r,
+          isLoading: d
         })
       ]),
       _: 3
     }, 40, ["is-loading", "data", "total-data", "search-enabled", "search", "sort-enabled", "current-sort", "current-page", "page-size-options", "sort-options", "page-size", "filters-enabled", "filters", "filter-values"]));
   }
-}), Bt = /* @__PURE__ */ g({
+}), Bt = /* @__PURE__ */ f({
   __name: "DDVString",
   props: {
     item: {},
     column: {}
   },
-  setup(d) {
-    return (t, o) => (l(), i("span", {
+  setup(p) {
+    return (t, o) => (a(), u("span", {
       class: z(t.column.classes)
     }, k(t.item[t.column.field]), 3));
   }
-}), Vt = /* @__PURE__ */ g({
+}), Vt = /* @__PURE__ */ f({
   __name: "DDVDate",
   props: {
     item: {},
     column: {}
   },
-  setup(d) {
-    const t = d, o = y(() => {
+  setup(p) {
+    const t = p, o = _(() => {
       let e = null;
       try {
         e = new Date(t.item[t.column.field]);
-      } catch (n) {
-        return console.error(n), "";
+      } catch (s) {
+        return console.error(s), "";
       }
-      let s;
-      if (t.column.language !== void 0 && t.column.language !== null && (s = t.column.language), typeof t.column.format == "string") {
-        let n = null;
+      let n;
+      if (t.column.language !== void 0 && t.column.language !== null && (n = t.column.language), typeof t.column.format == "string") {
+        let s = null;
         switch (t.column.format) {
           case "date":
-            n = {
+            s = {
               dateStyle: "medium"
             };
             break;
           case "time":
-            n = {
+            s = {
               timeStyle: "short"
             };
             break;
           case "datetime":
-            n = {
+            s = {
               dateStyle: "medium",
               timeStyle: "short"
             };
             break;
         }
-        return new Intl.DateTimeFormat(s, n).format(e);
+        return new Intl.DateTimeFormat(n, s).format(e);
       }
       return typeof t.column.format == "object" && t.column.format !== null ? new Intl.DateTimeFormat(
-        s,
+        n,
         t.column.format
-      ).format(e) : new Intl.DateTimeFormat(s).format(e);
+      ).format(e) : new Intl.DateTimeFormat(n).format(e);
     });
-    return (e, s) => (l(), i("span", {
+    return (e, n) => (a(), u("span", {
       class: z(e.column.classes)
     }, k(o.value), 3));
   }
-}), Ut = { key: 0 }, Dt = /* @__PURE__ */ g({
+}), Ut = { key: 0 }, Dt = /* @__PURE__ */ f({
   __name: "DDVButton",
   props: {
     item: {},
     column: {}
   },
-  setup(d) {
-    return (t, o) => t.item[t.column.field] ? (l(), i("span", Ut, [
-      C(b(q), {
+  setup(p) {
+    return (t, o) => t.item[t.column.field] ? (a(), u("span", Ut, [
+      C(v(q), {
         href: t.item[t.column.field].link,
         "css-classes": t.item[t.column.field].classes,
         "new-tab": t.item[t.column.field].new_tab,
         size: t.column.size,
         variant: t.column.variant
       }, {
-        default: P(() => [
+        default: L(() => [
           te(k(t.item[t.column.field].text), 1)
         ]),
         _: 1
       }, 8, ["href", "css-classes", "new-tab", "size", "variant"])
-    ])) : h("", !0);
+    ])) : g("", !0);
   }
-}), Lt = { key: 0 }, Pt = ["href", "target"], Et = /* @__PURE__ */ g({
+}), Lt = { key: 0 }, Pt = ["href", "target"], Et = /* @__PURE__ */ f({
   __name: "DDVLink",
   props: {
     item: {},
     column: {}
   },
-  setup(d) {
-    return (t, o) => t.item[t.column.field] ? (l(), i("span", Lt, [
-      m("a", {
+  setup(p) {
+    return (t, o) => t.item[t.column.field] ? (a(), u("span", Lt, [
+      c("a", {
         href: t.item[t.column.field].link,
         class: z(t.column.classes),
         target: t.item[t.column.field].new_tab ? "_blank" : "_self"
       }, k(t.item[t.column.field].text), 11, Pt)
-    ])) : h("", !0);
+    ])) : g("", !0);
   }
-}), Ot = ["innerHTML"], It = /* @__PURE__ */ g({
+}), Ot = ["innerHTML"], It = /* @__PURE__ */ f({
   __name: "DDVHTML",
   props: {
     item: {},
     column: {}
   },
-  setup(d) {
-    return (t, o) => (l(), i("span", {
+  setup(p) {
+    return (t, o) => (a(), u("span", {
       innerHTML: t.item[t.column.field]
     }, null, 8, Ot));
   }
 }), Nt = {
   key: 0,
   class: "dropdown"
-}, Mt = { class: "dropdown-menu" }, Tt = {
+}, jt = { class: "dropdown-menu" }, Mt = {
   key: 0,
   class: "dropdown-divider"
-}, jt = ["href", "target"], qt = /* @__PURE__ */ g({
+}, Tt = ["href", "target"], qt = /* @__PURE__ */ f({
   __name: "DDVActions",
   props: {
     item: {},
     column: {}
   },
-  setup(d) {
-    const t = d, o = y(() => t.item[t.column.field].entries());
-    return (e, s) => o.value ? (l(), i("div", Nt, [
-      s[0] || (s[0] = pe('<button class="btn p-1" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="line-height:1rem;"><svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 13.75C12.9665 13.75 13.75 12.9665 13.75 12C13.75 11.0335 12.9665 10.25 12 10.25C11.0335 10.25 10.25 11.0335 10.25 12C10.25 12.9665 11.0335 13.75 12 13.75Z" fill="#000000"></path><path d="M19 13.75C19.9665 13.75 20.75 12.9665 20.75 12C20.75 11.0335 19.9665 10.25 19 10.25C18.0335 10.25 17.25 11.0335 17.25 12C17.25 12.9665 18.0335 13.75 19 13.75Z" fill="#000000"></path><path d="M5 13.75C5.9665 13.75 6.75 12.9665 6.75 12C6.75 11.0335 5.9665 10.25 5 10.25C4.0335 10.25 3.25 11.0335 3.25 12C3.25 12.9665 4.0335 13.75 5 13.75Z" fill="#000000"></path></svg></button>', 1)),
-      m("ul", Mt, [
-        (l(!0), i(U, null, D(o.value, ([r, n]) => (l(), i("li", { key: r }, [
-          n.divider ? (l(), i("hr", Tt)) : (l(), i("a", {
+  setup(p) {
+    const t = p, o = _(() => t.item[t.column.field].entries());
+    return (e, n) => o.value ? (a(), u("div", Nt, [
+      n[0] || (n[0] = pe('<button class="btn p-1" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="line-height:1rem;"><svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 13.75C12.9665 13.75 13.75 12.9665 13.75 12C13.75 11.0335 12.9665 10.25 12 10.25C11.0335 10.25 10.25 11.0335 10.25 12C10.25 12.9665 11.0335 13.75 12 13.75Z" fill="#000000"></path><path d="M19 13.75C19.9665 13.75 20.75 12.9665 20.75 12C20.75 11.0335 19.9665 10.25 19 10.25C18.0335 10.25 17.25 11.0335 17.25 12C17.25 12.9665 18.0335 13.75 19 13.75Z" fill="#000000"></path><path d="M5 13.75C5.9665 13.75 6.75 12.9665 6.75 12C6.75 11.0335 5.9665 10.25 5 10.25C4.0335 10.25 3.25 11.0335 3.25 12C3.25 12.9665 4.0335 13.75 5 13.75Z" fill="#000000"></path></svg></button>', 1)),
+      c("ul", jt, [
+        (a(!0), u(U, null, D(o.value, ([l, s]) => (a(), u("li", { key: l }, [
+          s.divider ? (a(), u("hr", Mt)) : (a(), u("a", {
             key: 1,
-            href: n.link,
-            class: z(["dropdown-item", n.classes ?? ""]),
-            target: n.new_tab ? "_blank" : "_self"
-          }, k(n.text), 11, jt))
+            href: s.link,
+            class: z(["dropdown-item", s.classes ?? ""]),
+            target: s.new_tab ? "_blank" : "_self"
+          }, k(s.text), 11, Tt))
         ]))), 128))
       ])
-    ])) : h("", !0);
+    ])) : g("", !0);
   }
-}), Ft = /* @__PURE__ */ g({
+}), Rt = /* @__PURE__ */ f({
   __name: "DDVColumn",
   props: {
     item: {},
     column: {}
   },
-  setup(d) {
-    return (t, o) => t.column.type == "string" ? (l(), $(Bt, {
+  setup(p) {
+    return (t, o) => t.column.type == "string" ? (a(), $(Bt, {
       key: 0,
       item: t.item,
       column: t.column
-    }, null, 8, ["item", "column"])) : t.column.type == "date" ? (l(), $(Vt, {
+    }, null, 8, ["item", "column"])) : t.column.type == "date" ? (a(), $(Vt, {
       key: 1,
       item: t.item,
       column: t.column
-    }, null, 8, ["item", "column"])) : t.column.type == "button" ? (l(), $(Dt, {
+    }, null, 8, ["item", "column"])) : t.column.type == "button" ? (a(), $(Dt, {
       key: 2,
       item: t.item,
       column: t.column
-    }, null, 8, ["item", "column"])) : t.column.type == "link" ? (l(), $(Et, {
+    }, null, 8, ["item", "column"])) : t.column.type == "link" ? (a(), $(Et, {
       key: 3,
       item: t.item,
       column: t.column
-    }, null, 8, ["item", "column"])) : t.column.type == "html" ? (l(), $(It, {
+    }, null, 8, ["item", "column"])) : t.column.type == "html" ? (a(), $(It, {
       key: 4,
       item: t.item,
       column: t.column
-    }, null, 8, ["item", "column"])) : t.column.type == "actions" ? (l(), $(qt, {
+    }, null, 8, ["item", "column"])) : t.column.type == "actions" ? (a(), $(qt, {
       key: 5,
       item: t.item,
       column: t.column
-    }, null, 8, ["item", "column"])) : h("", !0);
+    }, null, 8, ["item", "column"])) : g("", !0);
   }
-}), Rt = /* @__PURE__ */ g({
+}), Ft = /* @__PURE__ */ f({
   __name: "DDVRow",
   props: {
     item: {},
     columns: {}
   },
-  setup(d) {
-    return (t, o) => (l(), i("tr", null, [
-      (l(!0), i(U, null, D(t.columns, (e) => (l(), i("td", {
+  setup(p) {
+    return (t, o) => (a(), u("tr", null, [
+      (a(!0), u(U, null, D(t.columns, (e) => (a(), u("td", {
         key: e.field,
         class: "align-middle"
       }, [
-        C(Ft, {
+        C(Rt, {
           column: e,
           item: t.item
         }, null, 8, ["column", "item"])
@@ -1309,44 +1312,44 @@ const wt = /* @__PURE__ */ g({
 }), At = {
   key: 0,
   class: "alert alert-info w-100"
-}, Zt = { key: 0 }, Gt = { key: 1 }, Qt = ["colspan"], ie = /* @__PURE__ */ g({
+}, Gt = { key: 0 }, Zt = { key: 1 }, Qt = ["colspan"], ie = /* @__PURE__ */ f({
   __name: "DataDefinedVisualizer",
   props: {
     data: { default: null },
     columns: {},
     isLoading: { type: Boolean, default: !1 }
   },
-  setup(d) {
-    const t = d, o = y(() => t.data === null || t.data === void 0 || t.data.length === 0), { t: e } = T();
-    return (s, r) => s.isLoading && o.value ? (l(), i("div", At, k(b(e)("loading")), 1)) : (l(), i("table", {
+  setup(p) {
+    const t = p, o = _(() => t.data === null || t.data === void 0 || t.data.length === 0), { t: e } = j();
+    return (n, l) => n.isLoading && o.value ? (a(), u("div", At, k(v(e)("loading")), 1)) : (a(), u("table", {
       key: 1,
-      class: z(["table", s.isLoading ? "loading" : ""])
+      class: z(["table", n.isLoading ? "loading" : ""])
     }, [
-      m("thead", null, [
-        m("tr", null, [
-          (l(!0), i(U, null, D(s.columns, (n) => (l(), i("th", {
-            key: n.field
-          }, k(n.label), 1))), 128))
+      c("thead", null, [
+        c("tr", null, [
+          (a(!0), u(U, null, D(n.columns, (s) => (a(), u("th", {
+            key: s.field
+          }, k(s.label), 1))), 128))
         ])
       ]),
-      o.value ? (l(), i("tbody", Gt, [
-        m("tr", null, [
-          m("td", {
-            colspan: s.columns.length
-          }, k(b(e)("no_data")), 9, Qt)
+      o.value ? (a(), u("tbody", Zt, [
+        c("tr", null, [
+          c("td", {
+            colspan: n.columns.length
+          }, k(v(e)("no_data")), 9, Qt)
         ])
-      ])) : (l(), i("tbody", Zt, [
-        (l(!0), i(U, null, D(s.data, (n) => (l(), $(Rt, {
-          key: n.id,
-          item: n,
-          columns: s.columns
+      ])) : (a(), u("tbody", Gt, [
+        (a(!0), u(U, null, D(n.data, (s) => (a(), $(Ft, {
+          key: s.id,
+          item: s,
+          columns: n.columns
         }, null, 8, ["item", "columns"]))), 128))
       ]))
     ], 2));
   }
 });
-function X(d) {
-  const t = d;
+function X(p) {
+  const t = p;
   t.__i18n = t.__i18n || [], t.__i18n.push({
     locale: "",
     resource: {
@@ -1374,100 +1377,100 @@ function X(d) {
   });
 }
 typeof X == "function" && X(ie);
-const so = /* @__PURE__ */ g({
+const no = /* @__PURE__ */ f({
   __name: "DSCList",
   props: {
     config: {}
   },
-  setup(d) {
-    const t = d, o = V(t.config.pageSize), e = V(1), s = V(""), r = V("id"), n = V(!0);
-    function a() {
-      var _;
-      let f = {};
-      return (_ = t.config.filters) == null || _.forEach((S) => {
+  setup(p) {
+    const t = p, o = V(t.config.pageSize), e = V(1), n = V(""), l = V("id"), s = V(!0);
+    function r() {
+      var y;
+      let m = {};
+      return (y = t.config.filters) == null || y.forEach((S) => {
         var I;
         if (S.initial) {
-          f[S.field] = S.initial;
+          m[S.field] = S.initial;
           return;
         }
         switch (S.type) {
           case "date":
-            f[S.field] = null;
+            m[S.field] = null;
             break;
           case "checkbox":
-            f[S.field] = [];
+            m[S.field] = [];
             break;
           case "radio":
-            ((I = S.options) == null ? void 0 : I.length) != 0 && S.options && (f[S.field] = S.options[0][0]);
+            ((I = S.options) == null ? void 0 : I.length) != 0 && S.options && (m[S.field] = S.options[0][0]);
             break;
         }
-      }), f;
+      }), m;
     }
-    const u = V(a());
-    let p = V(null);
-    const c = y(() => {
-      let f = [];
-      f.push("page_size=" + encodeURIComponent(o.value));
-      for (const [_, S] of Object.entries(u.value))
+    const d = V(r());
+    let i = V(null);
+    const b = _(() => {
+      let m = [];
+      m.push("page_size=" + encodeURIComponent(o.value));
+      for (const [y, S] of Object.entries(d.value))
         S != null && (typeof S == "object" ? S.forEach(
-          (I) => f.push(_ + "=" + encodeURIComponent(I))
-        ) : f.push(_ + "=" + encodeURIComponent(S)));
-      return s.value && f.push("search=" + encodeURIComponent(s.value)), f.push("ordering=" + encodeURIComponent(r.value)), e.value = 1, f;
-    }), E = y(() => {
-      let f = c.value, _ = "page=" + encodeURIComponent(e.value);
-      return f.length !== 0 && (_ = "&" + _), "?" + f.join("&") + _;
-    }), L = y(() => {
-      let f = new URL(window.location.protocol + "//" + window.location.host);
-      return f.pathname = t.config.dataUri, f.search = E.value, console.log(f.toString()), f.toString();
+          (I) => m.push(y + "=" + encodeURIComponent(I))
+        ) : m.push(y + "=" + encodeURIComponent(S)));
+      return n.value && m.push("search=" + encodeURIComponent(n.value)), m.push("ordering=" + encodeURIComponent(l.value)), e.value = 1, m;
+    }), P = _(() => {
+      let m = b.value, y = "page=" + encodeURIComponent(e.value);
+      return m.length !== 0 && (y = "&" + y), "?" + m.join("&") + y;
+    }), E = _(() => {
+      let m = new URL(window.location.protocol + "//" + window.location.host);
+      return m.pathname = t.config.dataUri, m.search = P.value, console.log(m.toString()), m.toString();
     });
-    ee(L, () => {
+    ee(E, () => {
       O();
     });
     const w = V(null);
     function O() {
-      w.value && w.value.abort(), w.value = new AbortController(), n.value = !0, fetch(L.value, { signal: w.value.signal }).then((f) => {
-        f.json().then((_) => {
-          p.value = _, n.value = !1, _.ordering && (r.value = _.ordering), w.value = null;
+      w.value && w.value.abort(), w.value = new AbortController(), s.value = !0, fetch(E.value, { signal: w.value.signal }).then((m) => {
+        m.json().then((y) => {
+          i.value = y, s.value = !1, y.ordering && (l.value = y.ordering), w.value = null;
         });
-      }).catch((f) => {
-        console.log(f);
+      }).catch((m) => {
+        console.log(m);
       });
     }
     return x(() => {
       O();
-    }), (f, _) => {
-      var S, I, Z;
-      return l(), $(Ct, {
-        "is-loading": n.value,
-        data: ((S = b(p)) == null ? void 0 : S.results) ?? void 0,
-        "total-data": ((I = b(p)) == null ? void 0 : I.count) ?? 0,
-        "search-enabled": f.config.searchEnabled,
-        search: s.value,
-        "sort-enabled": f.config.sortEnabled,
-        "current-sort": r.value,
-        "page-size-options": f.config.pageSizeOptions,
-        "sort-options": f.config.sortOptions ?? [],
-        "page-size": ((Z = b(p)) == null ? void 0 : Z.page_size) ?? 10,
+    }), (m, y) => {
+      var S, I, G;
+      return a(), $(Ct, {
+        "is-loading": s.value,
+        data: ((S = v(i)) == null ? void 0 : S.results) ?? void 0,
+        "total-data": ((I = v(i)) == null ? void 0 : I.count) ?? 0,
+        "search-enabled": m.config.searchEnabled,
+        search: n.value,
+        "sort-enabled": m.config.sortEnabled,
+        "current-sort": l.value,
+        "page-size-options": m.config.pageSizeOptions,
+        "sort-options": m.config.sortOptions ?? [],
+        "page-size": ((G = v(i)) == null ? void 0 : G.page_size) ?? 10,
         "current-page": e.value,
-        "filters-enabled": f.config.filtersEnabled,
-        filters: f.config.filters ?? [],
-        "filter-values": u.value,
-        container: f.config.container,
-        "onUpdate:search": _[0] || (_[0] = (B) => s.value = B),
-        "onUpdate:currentSort": _[1] || (_[1] = (B) => r.value = B),
-        "onUpdate:pageSize": _[2] || (_[2] = (B) => o.value = B),
-        "onUpdate:currentPage": _[3] || (_[3] = (B) => e.value = B),
-        "onUpdate:filterValues": _[4] || (_[4] = (B) => u.value = B)
+        "filters-enabled": m.config.filtersEnabled,
+        filters: m.config.filters ?? [],
+        "filter-values": d.value,
+        container: m.config.container,
+        "onUpdate:search": y[0] || (y[0] = (B) => n.value = B),
+        "onUpdate:currentSort": y[1] || (y[1] = (B) => l.value = B),
+        "onUpdate:pageSize": y[2] || (y[2] = (B) => o.value = B),
+        "onUpdate:currentPage": y[3] || (y[3] = (B) => e.value = B),
+        "onUpdate:filterValues": y[4] || (y[4] = (B) => d.value = B)
       }, {
-        data: P(({ data: B, isLoading: G }) => [
-          v(f.$slots, "data", {
+        data: L(({ data: B, isLoading: Z }) => [
+          h(m.$slots, "data", {
             data: B,
-            isLoading: G
+            isLoading: Z
           }, () => [
             C(ie, {
               data: B,
-              columns: f.config.columns,
-              "is-loading": G
+              columns: m.config.columns,
+              "is-loading": Z
             }, null, 8, ["data", "columns", "is-loading"])
           ])
         ]),
@@ -1484,13 +1487,13 @@ export {
   eo as BSDropdown,
   to as BSDropdownMultiSelect,
   oo as BSIcon,
-  no as BSModal,
+  so as BSModal,
   oe as BSMultiSelect,
-  F as BSPagination,
+  R as BSPagination,
   Xe as BSRadioSelect,
   Ae as BSSelect,
   ot as BSSidebar,
-  so as DSCList,
+  no as DSCList,
   Ct as UUList,
   ao as UUListTypes
 };
