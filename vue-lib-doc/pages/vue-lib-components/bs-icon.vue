@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BSIcon } from "../../../dist/cdh-vue-lib.es";
+import { BSIcon } from "cdh-vue-lib";
 import {
     faCoffee,
     faSpinner,

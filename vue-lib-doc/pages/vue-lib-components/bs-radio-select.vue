@@ -1,19 +1,20 @@
 <script lang="ts" setup>
-import { BSRadioSelect } from "../../../dist/cdh-vue-lib.es";
+import { BSRadioSelect, type BSSelectOption } from "cdh-vue-lib";
 import { ref } from "vue";
 
-const radioOptions1 = ref([
+const radioOptions1 = ref<BSSelectOption<string>[]>([
     ["apples", "Apples"],
     ["bananas", "Bananas"],
     ["watermelons", "Watermelons"],
 ]);
 
-const radioOptions2 = ref([
+const radioOptions2 = ref<BSSelectOption<number>[]>([
     [0, "Opel"],
     [1, "Ford"],
     [2, "Mercedes"],
 ]);
-const selectedOption = ref("option1");
+const selectedOption1 = ref("apples");
+const selectedOption2 = ref(0);
 </script>
 <template>
     <div class="container py-4">
@@ -67,10 +68,10 @@ const selectedOption = ref("option1");
             <section class="my-3">
                 <h4 class="h5">Basic use, string values</h4>
                 <BSRadioSelect
-                    v-model="selectedOption"
+                    v-model="selectedOption1"
                     :options="radioOptions1"
                 />
-                <p class="mt-3">Selected: {{ selectedOption }}</p>
+                <p class="mt-3">Selected: {{ selectedOption1 }}</p>
                 <pre class="code-example">
 <code>&lt;script setup lang="ts"&gt;
 import { ref } from "vue";
@@ -80,7 +81,7 @@ const radioOptions = ref([
     ["bananas", "Bananas"],
     ["watermelons", "Watermelons"],
 ]);
-const selectedOption = ref("option1");
+const selectedOption = ref("apples");
 &lt;/script&gt;
                     &lt;BSRadioSelect
     v-model="selectedOption"
@@ -93,11 +94,11 @@ const selectedOption = ref("option1");
             <section class="my-3">
                 <h4 class="h5">Numeric values, custom container classes</h4>
                 <BSRadioSelect
-                    v-model="selectedOption"
+                    v-model="selectedOption2"
                     :options="radioOptions2"
                     container-classes="mb-4"
                 />
-                <p class="mt-3">Selected: {{ selectedOption }}</p>
+                <p class="mt-3">Selected: {{ selectedOption2 }}</p>
                 <pre class="code-example">
 <code>&lt;script setup lang="ts"&gt;
 import { ref } from "vue";
@@ -107,7 +108,7 @@ const radioOptions = ref([
     [1, "Ford"],
     [2, "Mercedes"],
 ]);
-const selectedOption = ref("option1");
+const selectedOption = ref(0);
 &lt;/script&gt;
 
 &lt;BSRadioSelect

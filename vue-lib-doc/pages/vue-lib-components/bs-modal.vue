@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BSModal } from "../../../dist/cdh-vue-lib.es";
+import { BSModal } from "cdh-vue-lib";
 import { ref } from "vue";
 
 const isModalActive = ref(false);

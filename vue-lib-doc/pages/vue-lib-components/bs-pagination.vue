@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from "vue";
-import { BSPagination } from "../../../dist/cdh-vue-lib.es";
+import { BSPagination } from "cdh-vue-lib";
 
 const currentPageBasic = ref(3);
 const totalPagesBasic = ref(10);

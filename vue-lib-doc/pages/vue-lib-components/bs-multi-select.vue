@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { BSMultiSelect } from "../../../dist/cdh-vue-lib.es";
+import { BSMultiSelect, type BSSelectOption } from "cdh-vue-lib";
 import { ref } from "vue";
 
-const multiSelectOptions = ref([
+const multiSelectOptions = ref<BSSelectOption<string>[]>([
     ["option1", "Option 1"],
     ["option2", "Option 2"],
     ["option3", "Option 3"],

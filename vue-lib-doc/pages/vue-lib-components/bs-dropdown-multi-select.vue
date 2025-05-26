@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { BSDropdownMultiSelect } from "../../../dist/cdh-vue-lib.es";
+import { BSDropdownMultiSelect } from "cdh-vue-lib";
 
-// Sample data for demonstrations
 const stringOptions = ref<[string, string][]>([
     ["apple", "Apple"],
     ["banana", "Banana"],

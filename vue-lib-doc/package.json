@@ -17,7 +17,7 @@
         "@fortawesome/vue-fontawesome": "^3.0.8",
         "@nuxt/eslint": "1.3.0",
         "bootstrap": "5.3.1",
-        "cdh-vue-lib": "file: ..",
+        "cdh-vue-lib": "file:..",
         "eslint": "^9.0.0",
         "nuxt": "^3.17.2",
         "vue": "3.3.13",

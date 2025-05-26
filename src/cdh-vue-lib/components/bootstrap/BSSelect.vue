@@ -2,7 +2,7 @@
 import { computed } from "vue";
 import useInputValue from "../../composables/useInputValue";
 
-type BSSelectOption<T> = [T, string];
+export type BSSelectOption<T> = [T, string];
 
 const props = withDefaults(
     defineProps<{

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { BSSelect } from "../../../dist/cdh-vue-lib.es";
+import { BSSelect, type BSSelectOption } from "cdh-vue-lib";
 import { ref } from "vue";
 
-const selectOptions = ref([
+const selectOptions = ref<BSSelectOption<string | number | null>[]>([
     [null, "Empty"],
     ["option1", "Option 1"],
     ["option2", "Option 2 (Value is string)"],
@@ -10,7 +10,7 @@ const selectOptions = ref([
 ]);
 const selectedValue = ref<string | number | null>(null);
 
-const selectOptionsNumbers = ref([
+const selectOptionsNumbers = ref<BSSelectOption<number>[]>([
     [10, "Ten"],
     [20, "Twenty"],
     [30, "Thirty"],

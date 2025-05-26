@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BSDropdown } from "../../../dist/cdh-vue-lib.components.es";
+import { BSDropdown } from "cdh-vue-lib";
 
 const dropdownVariants = [
     "primary",

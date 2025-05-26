@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { faCog, faStar } from "@fortawesome/free-solid-svg-icons";
-import { BSButton, BSCard, BSIcon } from "../../../dist/cdh-vue-lib.es";
+import { BSButton, BSCard, BSIcon } from "cdh-vue-lib";
 
 function handleHeaderIconClick() {
     alert("Header icon clicked!");

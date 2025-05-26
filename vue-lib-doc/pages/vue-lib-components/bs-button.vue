@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BSButton } from "../../../dist/cdh-vue-lib.es";
+import { BSButton } from "cdh-vue-lib";
 
 const buttonVariants = [
     "primary",
