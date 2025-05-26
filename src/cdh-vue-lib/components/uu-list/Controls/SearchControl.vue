@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useInputValue } from "@/cdh-vue-lib/composables";
 import { useI18n } from "vue-i18n";
 
@@ -7,18 +6,18 @@ interface Props {
     modelValue: string;
 }
 
-// So this method is a pain to type correctly, so I'm not
-// @ts-ignore
-function debounce(func, timeout = 500) {
-    // @ts-ignore
-    let timer;
-    // @ts-ignore
-    return (...args) => {
-        // @ts-ignore
+function debounce<A extends unknown[]>(
+    func: (...args: A) => void,
+    timeout: number = 500,
+): (...args: A) => void {
+    // In browser environments, setTimeout is the same as window.setTimeout,
+    // which returns a number.
+    let timer: number | undefined;
+
+    return (...args: A): void => {
         clearTimeout(timer);
-        timer = setTimeout(() => {
-            // @ts-ignore
-            func.apply(this, args);
+        timer = window.setTimeout(() => {
+            func(...args);
         }, timeout);
     };
 }
