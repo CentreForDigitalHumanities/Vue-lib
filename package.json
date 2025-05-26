@@ -34,12 +34,15 @@
         "types": "vue-tsc --emitDeclarationOnly"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.7.2",
+        "@fortawesome/free-solid-svg-icons": "^6.7.2",
+        "@fortawesome/vue-fontawesome": "^3.0.8",
         "uu-bootstrap": "git+ssh://git@github.com/UtrechtUniversity/UU-Bootstrap.git#1.5.0-alpha.1",
         "uuid": "^9.0.0",
         "vue-i18n": "9"
     },
     "peerDependencies": {
-        "vue": "^3.2.47"
+        "vue": "^3.3.13"
     },
     "devDependencies": {
         "@babel/types": "^7.22.5",
