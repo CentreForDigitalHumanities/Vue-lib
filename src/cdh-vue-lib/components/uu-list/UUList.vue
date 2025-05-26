@@ -22,7 +22,7 @@ interface Props<T extends Data<string> | Data<number>>
 import { computed } from "vue";
 import Default from "./Containers/Default.vue";
 import Sidebar from "./Containers/Sidebar.vue";
-import DebugVisualizer from "@/cdh-vue-lib/components/uu-list/Vizualizers/DebugVisualizer.vue";
+import DebugVisualizer from "@/cdh-vue-lib/components/uu-list/Visualizers/DebugVisualizer.vue";
 import type { ContainerEmits } from "@/cdh-vue-lib/components/uu-list/types";
 
 const props = withDefaults(defineProps<Props<T>>(), {

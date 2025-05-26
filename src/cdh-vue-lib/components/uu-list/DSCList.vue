@@ -7,7 +7,7 @@
 import { ref, computed, onMounted, watch } from "vue";
 import type { DataDefinedColumn, FilterDefinition, FilterValues } from "./types";
 import UUList from "./UUList.vue";
-import DataDefinedTable from "./Vizualizers/DDV/DataDefinedVisualizer.vue";
+import DataDefinedTable from "./Visualizers/DDV/DataDefinedVisualizer.vue";
 
 interface Config {
     dataUri: string;
