@@ -1,11 +1,12 @@
+export type BSSelectOption<T> = [T, string];
 declare const _default: <T extends string | number | null>(__VLS_props: {
-    options: [T, string][];
+    options: BSSelectOption<T>[];
     modelValue: T;
     containerClasses?: string | undefined;
     placeholder?: string | undefined;
 } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, __VLS_ctx?: Pick<{
     props: {
-        options: [T, string][];
+        options: BSSelectOption<T>[];
         modelValue: T;
         containerClasses?: string | undefined;
         placeholder?: string | undefined;
@@ -16,7 +17,7 @@ declare const _default: <T extends string | number | null>(__VLS_props: {
     emit: (e: "update:model-value", value: T) => void;
 }, "attrs" | "emit" | "slots"> | undefined, __VLS_setup?: Promise<{
     props: {
-        options: [T, string][];
+        options: BSSelectOption<T>[];
         modelValue: T;
         containerClasses?: string | undefined;
         placeholder?: string | undefined;
@@ -30,7 +31,7 @@ declare const _default: <T extends string | number | null>(__VLS_props: {
 }> & {
     __ctx?: {
         props: {
-            options: [T, string][];
+            options: BSSelectOption<T>[];
             modelValue: T;
             containerClasses?: string | undefined;
             placeholder?: string | undefined;
