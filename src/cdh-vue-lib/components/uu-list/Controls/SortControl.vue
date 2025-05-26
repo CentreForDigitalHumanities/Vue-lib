@@ -11,7 +11,6 @@ const props = defineProps<Props>();
 
 const emits = defineEmits<{
     (e: "update:current-sort", value: string): void;
-    (e: "update:currentSort", value: string): void;
 }>();
 </script>
 

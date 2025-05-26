@@ -1,9 +1,9 @@
 <script lang="ts">
 // Make a copy of the container props, mark all of them optional except for
-// those we cannot provide a default for
+// those we cannot provide a default for.
 // The root type barely has any optionals, to avoid dealing with missing values
 // too much. Instead, we provide sensible defaults in this component, so the
-// actual user of the component does not _have_ to define all
+// actual user of the component does not _have_ to define all.
 import type { ContainerProps, Data } from "@/cdh-vue-lib/components/uu-list/types";
 
 type NonOptionalField = "totalData" | "currentPage";
@@ -42,12 +42,7 @@ const props = withDefaults(defineProps<Props<T>>(), {
 const emits = defineEmits<ContainerEmits>();
 
 const containerComponent = computed(() => {
-    switch (props.container) {
-        case "sidebar":
-            return Sidebar;
-        default:
-            return Default;
-    }
+    return props.container === "sidebar" ? Sidebar : Default;
 });
 </script>
 

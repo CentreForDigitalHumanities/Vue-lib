@@ -9,20 +9,18 @@ interface Props {
 const props = defineProps<Props>();
 
 const emits = defineEmits<{
-    (e: "update:pageSize", value: number): void;
     (e: "update:page-size", value: number): void;
 }>();
 
 function updatePageSize(val: string | number) {
     if (typeof val === "string") {
         try {
-            val = Number(val);
+            val = parseInt(val);
         } catch (e) {
             val = props.pageSizeOptions[0] ?? 10;
         }
     }
-    // Typecast because TS cannot figure out that we cast any string to a number
-    emits("update:pageSize", val as number);
+    emits("update:page-size", val);
 }
 </script>
 

@@ -28,7 +28,7 @@ const filterProps = computed<FilterProps | null>(() => {
             <SearchControl
                 v-if="searchEnabled"
                 :model-value="search"
-                @update:model-value="(value) => $emit('update:search', value)"
+                @update:model-value="(value: string) => $emit('update:search', value)"
             />
             <slot name="filters-top" :data="data" :is-loading="isLoading" />
             <FilterBar
@@ -53,7 +53,7 @@ const filterProps = computed<FilterProps | null>(() => {
                         :current-sort="currentSort"
                         :sort-options="sortOptions"
                         @update:current-sort="
-                            (value) => emits('update:current-sort', value)
+                            (value: string) => emits('update:current-sort', value)
                         "
                     />
                 </div>
@@ -62,7 +62,7 @@ const filterProps = computed<FilterProps | null>(() => {
                         :page-size-options="pageSizeOptions"
                         :page-size="pageSize"
                         @update:page-size="
-                            (value) => emits('update:page-size', value)
+                            (value: number) => emits('update:page-size', value)
                         "
                     />
                 </div>

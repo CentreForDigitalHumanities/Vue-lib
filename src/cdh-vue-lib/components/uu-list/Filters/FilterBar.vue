@@ -16,7 +16,7 @@ const emits = defineEmits<{
     (e: "update:filter-values", value: FilterValues): void;
 }>();
 
-function updateValue(field: string, value: FilterValue) {
+function updateValue(field: string, value: FilterValue): void {
     let copy = { ...filterValues.value };
     copy[field] = value;
     emits("update:filter-values", copy);
