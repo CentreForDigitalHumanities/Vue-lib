@@ -1,6 +1,5 @@
-@import "bootstrap/dist/css/bootstrap.min.css";
 @import "@fortawesome/fontawesome-svg-core/styles.css";
-@import "uu-bootstrap/scss/configuration";
+@import "uu-bootstrap/scss/bootstrap";
 
 body {
     padding-top: 1rem; /* Add some padding to the top */
@@ -12,7 +11,7 @@ body {
 .code-example {
     white-space: pre-wrap;
     word-break: break-word;
-    padding: .5rem;
+    padding: 0.5rem;
     border-radius: var(--bs-border-radius);
     background-color: rgba(var(--bs-light-rgb), 1);
 }
