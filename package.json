@@ -13,7 +13,7 @@
         ".": {
             "import": [
                 "./dist/cdh-vue-lib.es.js",
-                "./dist/index.d.ts"
+                "./dist/cdh-vue-lib.d.ts"
             ]
         },
         "./components": {
@@ -27,7 +27,7 @@
             "require": "./dist/style.css"
         }
     },
-    "types": "./dist/index.d.ts",
+    "types": "./dist/cdh-vue-lib.d.ts",
     "scripts": {
         "dev": "vite build --watch & yarn types --watch --preserveWatchOutput",
         "build": "vite build && yarn types",
