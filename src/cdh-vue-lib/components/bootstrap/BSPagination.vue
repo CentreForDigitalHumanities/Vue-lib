@@ -30,7 +30,6 @@ const items = computed<(number | 'ellipsis')[]>(() => {
             (pageNum >= rangeStart && pageNum <= rangeEnd)
         );
 
-    // Add ellipsis in between non-consecutive page numbers.
     const paginationItems: (number | 'ellipsis')[] = [];
     essentialPageNumbers.forEach((pageNum, index) => {
         if (index === 0) {
