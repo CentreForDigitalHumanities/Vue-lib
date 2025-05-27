@@ -14,4 +14,8 @@ body {
     padding: 0.5rem;
     border-radius: var(--bs-border-radius);
     background-color: rgba(var(--bs-light-rgb), 1);
+
+    code {
+        background-color: inherit;
+    }
 }

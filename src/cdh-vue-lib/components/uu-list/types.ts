@@ -43,7 +43,7 @@ interface ContainerProps<T extends Data<string> | Data<number>> {
 export interface FilterProps {
     filters: FilterDefinition[];
     filterValues: FilterValues;
-};
+}
 
 type ContainerEmits = {
     (e: "update:current-page", value: number): void;
