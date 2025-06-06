@@ -36,6 +36,7 @@ export type BSButtonSize = "small" | "normal" | "large";
 // This is most likely a bug in the compiler.
 // Related: https://github.com/vuejs/core/issues/13236
 interface Props {
+    id?: string;
     href?: string;
     name?: string;
     variant?: BSButtonVariant;
@@ -94,6 +95,7 @@ const buttonClasses = computed(() => {
 <template>
     <a
         v-if="href"
+        :id="id"
         :href="href"
         :class="buttonClasses"
         :target="newTab ? '_blank' : '_self'"
@@ -102,6 +104,7 @@ const buttonClasses = computed(() => {
     </a>
     <button
         v-else
+        :id="id"
         :type="input"
         :class="buttonClasses"
         :name="name"

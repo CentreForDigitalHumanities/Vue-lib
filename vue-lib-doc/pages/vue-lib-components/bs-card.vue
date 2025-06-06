@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { faCog, faStar } from "@fortawesome/free-solid-svg-icons";
 import { BSButton, BSCard, BSIcon } from "cdh-vue-lib";
+import type { EmitDefinition } from "~/components/EmitTable.vue";
+import PropTable, { type PropDefinition } from "~/components/PropTable.vue";
+import type { SlotDefinition } from "~/components/SlotTable.vue";
 
 function handleHeaderIconClick() {
     alert("Header icon clicked!");
@@ -9,6 +12,54 @@ function handleHeaderIconClick() {
 function actionButtonClick() {
     alert("Action button clicked!");
 }
+
+const propsData: PropDefinition[] = [
+    {
+        id: "header-classes",
+        type: "String",
+        required: "No",
+        description:
+            "Additional CSS classes to apply to the card header element.",
+    },
+];
+
+const emitData: EmitDefinition[] = [
+    {
+        eventName: "header-icon-clicked",
+        description:
+            "Emitted when the content in the header_icon slot is clicked.",
+    },
+];
+
+const slotData: SlotDefinition[] = [
+    {
+        slotName: "header",
+        description:
+            "Custom content for the card header. Overrides title and header_icon slots if used.",
+    },
+    {
+        slotName: "title",
+        description: "Content for the card header title.",
+    },
+    {
+        slotName: "header_icon",
+        description:
+            "Content for the card header icon, typically aligned to the right. Clicking this slot emits the header-icon-clicked event.",
+    },
+    {
+        slotName: "image",
+        description:
+            "Image to be displayed at the top of the card, below the header.",
+    },
+    {
+        slotName: "default",
+        description: "Main content of the card body.",
+    },
+    {
+        slotName: "footer",
+        description: "Content for the card footer.",
+    },
+];
 </script>
 
 <template>
@@ -20,56 +71,24 @@ function actionButtonClick() {
             <p>
                 The <code>BSCard</code> component is a versatile container for
                 displaying content in a card format, commonly used in UIs to
-                group related information. It supports various sections, for
-                which see below.
+                group related information. It supports various slots, for which
+                see below.
             </p>
         </section>
 
         <section class="my-4">
             <h3 class="h4">Props</h3>
-            <ul>
-                <li>
-                    <code>header-classes</code> (String, optional): Additional
-                    CSS classes to apply to the card header element.
-                </li>
-            </ul>
+            <PropTable :props-data="propsData" />
         </section>
 
         <section class="my-4">
             <h3 class="h4">Slots</h3>
-            <ul>
-                <li>
-                    <code>header</code>: For custom content in the card header.
-                    Overrides <code>title</code> and <code>header_icon</code> if
-                    used.
-                </li>
-                <li>
-                    <code>title</code>: For the title text in the card header.
-                </li>
-                <li>
-                    <code>header_icon</code>: For an icon or element in the
-                    header, typically aligned to the right. Clicking this slot
-                    triggers the <code>header-icon-clicked</code> event.
-                </li>
-                <li>
-                    <code>image</code>: For an image to be displayed at the top
-                    of the card, below the header.
-                </li>
-                <li>
-                    <code>default</code>: For the main content of the card body.
-                </li>
-                <li><code>footer</code>: For content in the card footer.</li>
-            </ul>
+            <SlotTable :slots-data="slotData" />
         </section>
 
         <section class="my-4">
             <h3 class="h4">Emits</h3>
-            <ul>
-                <li>
-                    <code>header-icon-clicked</code>: Emitted when the content
-                    in the <code>header_icon</code> slot is clicked.
-                </li>
-            </ul>
+            <EmitTable :emits-data="emitData" />
         </section>
 
         <section class="my-4">

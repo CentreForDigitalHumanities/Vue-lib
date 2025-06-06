@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { BSButton } from "cdh-vue-lib";
+import PropTable, { type PropDefinition } from "@/components/PropTable.vue";
 
 const buttonVariants = [
     "primary",
@@ -28,6 +29,94 @@ const buttonVariants = [
     "gray",
     "gray-dark",
 ];
+
+const propsData: PropDefinition[] = [
+    {
+        id: "id",
+        type: "String",
+        required: "No, if href is set",
+        description: "ID for the button.",
+    },
+    {
+        id: "href",
+        type: "String",
+        required: "No, if name is set",
+        description:
+            "If provided, renders a code tag with this as the value for the href attribute. Either href or name must be set.",
+    },
+    {
+        id: "name",
+        type: "String",
+        required: false,
+        description:
+            "If provided, renders a button tag with this name. Either href or name must be set.",
+    },
+    {
+        id: "variant",
+        type: "String",
+        required: false,
+        defaultValue: '"dark"',
+        description:
+            'Button color variant (e.g., "primary", "secondary", "success").',
+    },
+    {
+        id: "size",
+        type: "String",
+        required: false,
+        defaultValue: '"normal"',
+        description: 'Button size ("small", "normal", "large").',
+    },
+    {
+        id: "outlined",
+        type: "Boolean",
+        required: false,
+        defaultValue: "false",
+        description: "Whether the button should be an outline button.",
+    },
+    {
+        id: "active",
+        type: "Boolean",
+        required: false,
+        defaultValue: "false",
+        description: "Sets the active state.",
+    },
+    {
+        id: "disabled",
+        type: "Boolean",
+        required: false,
+        defaultValue: "false",
+        description: "Disables the button.",
+    },
+    {
+        id: "loading",
+        type: "Boolean",
+        required: false,
+        defaultValue: "false",
+        description: "Shows a loading spinner.",
+    },
+    {
+        id: "input",
+        type: "String",
+        required: false,
+        defaultValue: '"button"',
+        description:
+            'Type attribute for the button element ("button", "submit", "reset").',
+    },
+    {
+        id: "new-tab",
+        type: "Boolean",
+        required: false,
+        defaultValue: "false",
+        description:
+            "If <code>href</code> is used, opens the link in a new tab.",
+    },
+    {
+        id: "css-classes",
+        type: "String",
+        required: false,
+        description: "Additional CSS classes.",
+    },
+];
 </script>
 
 <template>
@@ -51,55 +140,7 @@ const buttonVariants = [
 
         <section class="my-4">
             <h3 class="h4">Props</h3>
-            <ul>
-                <li><code>id</code> (String, optional): ID for the button.</li>
-                <li>
-                    <code>href</code> (String, optional): If provided, renders
-                    an <code>&lt;a&gt;</code> tag.
-                </li>
-                <li>
-                    <code>name</code> (String, optional): If provided, renders a
-                    <code>&lt;button&gt;</code> tag with this name.
-                </li>
-                <li>
-                    <code>variant</code> (String, optional, default: "dark"):
-                    Button color variant (e.g., "primary", "secondary",
-                    "success").
-                </li>
-                <li>
-                    <code>size</code> (String, optional, default: "normal"):
-                    Button size ("small", "normal", "large").
-                </li>
-                <li>
-                    <code>outlined</code> (Boolean, optional, default: false):
-                    Whether the button should be an outline button.
-                </li>
-                <li>
-                    <code>active</code> (Boolean, optional, default: false):
-                    Sets the active state.
-                </li>
-                <li>
-                    <code>disabled</code> (Boolean, optional, default: false):
-                    Disables the button.
-                </li>
-                <li>
-                    <code>loading</code> (Boolean, optional, default: false):
-                    Shows a loading spinner.
-                </li>
-                <li>
-                    <code>input</code> (String, optional, default: "button"):
-                    Type attribute for the button element ("button", "submit",
-                    "reset").
-                </li>
-                <li>
-                    <code>new-tab</code> (Boolean, optional, default: false): If
-                    <code>href</code> is used, opens the link in a new tab.
-                </li>
-                <li>
-                    <code>css-classes</code> (String, optional): Additional CSS
-                    classes.
-                </li>
-            </ul>
+            <PropTable :props-data="propsData" />
         </section>
 
         <section class="my-4">
