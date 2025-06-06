@@ -56,7 +56,15 @@ export default defineConfig({
             },
         },
         rollupOptions: {
-            external: ["vue", "uuid", "vue-i18n"],
+            external: [
+                "vue",
+                "uuid",
+                "vue-i18n",
+                "bootstrap",
+                "@fortawesome/fontawesome-svg-core",
+                "@fortawesome/free-solid-svg-icons",
+                "@fortawesome/vue-fontawesome",
+            ],
             output: {
                 globals: {
                     vue: "Vue",
