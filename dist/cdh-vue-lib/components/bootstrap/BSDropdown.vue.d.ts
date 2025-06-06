@@ -1,24 +1,24 @@
 declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<import("vue").ExtractPropTypes<{
-    variant: {
-        type: import("vue").PropType<"primary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark">;
-        default: string;
-    };
     id: {
         type: import("vue").PropType<string | null>;
+        default: string;
+    };
+    variant: {
+        type: import("vue").PropType<"link" | "dark" | "primary" | "info" | "success" | "warning" | "danger" | "light">;
         default: string;
     };
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
-    variant: {
-        type: import("vue").PropType<"primary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark">;
-        default: string;
-    };
     id: {
         type: import("vue").PropType<string | null>;
         default: string;
     };
+    variant: {
+        type: import("vue").PropType<"link" | "dark" | "primary" | "info" | "success" | "warning" | "danger" | "light">;
+        default: string;
+    };
 }>> & Readonly<{}>, {
-    variant: "primary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark";
     id: string | null;
+    variant: "link" | "dark" | "primary" | "info" | "success" | "warning" | "danger" | "light";
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>, {
     button?(_: {}): any;
     default?(_: {}): any;
