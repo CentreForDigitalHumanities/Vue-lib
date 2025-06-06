@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { BSButton } from "cdh-vue-lib";
 import PropTable, { type PropDefinition } from "@/components/PropTable.vue";
 
@@ -32,27 +32,27 @@ const buttonVariants = [
 
 const propsData: PropDefinition[] = [
     {
-        id: "id",
+        name: "id",
         type: "String",
         required: "No, if href is set",
         description: "ID for the button.",
     },
     {
-        id: "href",
+        name: "href",
         type: "String",
         required: "No, if name is set",
         description:
             "If provided, renders a code tag with this as the value for the href attribute. Either href or name must be set.",
     },
     {
-        id: "name",
+        name: "name",
         type: "String",
         required: false,
         description:
             "If provided, renders a button tag with this name. Either href or name must be set.",
     },
     {
-        id: "variant",
+        name: "variant",
         type: "String",
         required: false,
         defaultValue: '"dark"',
@@ -60,42 +60,42 @@ const propsData: PropDefinition[] = [
             'Button color variant (e.g., "primary", "secondary", "success").',
     },
     {
-        id: "size",
+        name: "size",
         type: "String",
         required: false,
         defaultValue: '"normal"',
         description: 'Button size ("small", "normal", "large").',
     },
     {
-        id: "outlined",
+        name: "outlined",
         type: "Boolean",
         required: false,
         defaultValue: "false",
         description: "Whether the button should be an outline button.",
     },
     {
-        id: "active",
+        name: "active",
         type: "Boolean",
         required: false,
         defaultValue: "false",
         description: "Sets the active state.",
     },
     {
-        id: "disabled",
+        name: "disabled",
         type: "Boolean",
         required: false,
         defaultValue: "false",
         description: "Disables the button.",
     },
     {
-        id: "loading",
+        name: "loading",
         type: "Boolean",
         required: false,
         defaultValue: "false",
         description: "Shows a loading spinner.",
     },
     {
-        id: "input",
+        name: "input",
         type: "String",
         required: false,
         defaultValue: '"button"',
@@ -103,7 +103,7 @@ const propsData: PropDefinition[] = [
             'Type attribute for the button element ("button", "submit", "reset").',
     },
     {
-        id: "new-tab",
+        name: "new-tab",
         type: "Boolean",
         required: false,
         defaultValue: "false",
@@ -111,7 +111,7 @@ const propsData: PropDefinition[] = [
             "If <code>href</code> is used, opens the link in a new tab.",
     },
     {
-        id: "css-classes",
+        name: "css-classes",
         type: "String",
         required: false,
         description: "Additional CSS classes.",
@@ -140,7 +140,7 @@ const propsData: PropDefinition[] = [
 
         <section class="my-4">
             <h3 class="h4">Props</h3>
-            <PropTable :props-data="propsData" />
+            <PropTable :prop-defs="propsData" />
         </section>
 
         <section class="my-4">

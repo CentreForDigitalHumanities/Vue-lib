@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 export interface PropDefinition {
-    id: string;
+    name: string;
     type: string;
     required: boolean | string;
     defaultValue?: string;
@@ -8,7 +8,7 @@ export interface PropDefinition {
 }
 
 defineProps<{
-    propsData: PropDefinition[];
+    propDefs: PropDefinition[];
 }>();
 
 function isBoolean(value: unknown): value is boolean {
@@ -21,7 +21,7 @@ function isBoolean(value: unknown): value is boolean {
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Prop</th>
+                    <th>Name</th>
                     <th>Type</th>
                     <th>Required</th>
                     <th>Default</th>
@@ -29,9 +29,9 @@ function isBoolean(value: unknown): value is boolean {
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="prop in propsData" :key="prop.id">
+                <tr v-for="prop in propDefs" :key="prop.name">
                     <td>
-                        <code>{{ prop.id }}</code>
+                        <code>{{ prop.name }}</code>
                     </td>
                     <td>{{ prop.type }}</td>
                     <td>

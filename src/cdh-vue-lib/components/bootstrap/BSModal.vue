@@ -27,7 +27,6 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits<{
     (e: "shown"): void;
     (e: "hidden"): void;
-    (e: "close-clicked"): void;
 }>();
 
 const modalClasses = computed<string>(() => {

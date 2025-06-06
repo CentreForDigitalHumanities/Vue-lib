@@ -1,6 +1,8 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { ref } from "vue";
 import { BSDropdownMultiSelect } from "cdh-vue-lib";
+import PropTable, { type PropDefinition } from "~/components/PropTable.vue";
+import EmitTable, { type EmitDefinition } from "~/components/EmitTable.vue";
 
 const stringOptions = ref<[string, string][]>([
     ["apple", "Apple"],
@@ -32,6 +34,37 @@ const optionsForPreselectionNumbers = ref<[number, string][]>([
     [103, "Another Number Option"],
 ]);
 const preselectedNumbers = ref<number[]>([101, 103]);
+
+const propDefinitions: PropDefinition[] = [
+    {
+        name: "label",
+        type: "String",
+        required: true,
+        description: "The text displayed on the dropdown toggle button.",
+    },
+    {
+        name: "options",
+        type: "[value, displayText][]",
+        required: true,
+        description:
+            "An array of tuples to populate the multi-select list. Each tuple must be in the format [value, displayText], where value can be a string or a number, and displayText is the string shown to the user for that option.",
+    },
+    {
+        name: "modelValue",
+        type: "string[] | number[]",
+        required: true,
+        description:
+            "The v-model for the component. It holds an array of the currently selected option values. This must be an array of strings (string[]) or an array of numbers (number[]), consistent with the type of values provided in the options prop.",
+    },
+];
+
+const emitDefinitions: EmitDefinition[] = [
+    {
+        eventName: "update:modelValue",
+        description:
+            "Emitted when the selection changes within the component. The value payload is the new array of selected option values (either string[] or number[]).",
+    },
+];
 </script>
 
 <template>
@@ -41,73 +74,26 @@ const preselectedNumbers = ref<number[]>([101, 103]);
         <section class="my-4">
             <h3 class="h4">Overview</h3>
             <p>
-                The <code>BSDropdownMultiSelect</code> component provides a
-                user-friendly way to select multiple items from a list presented
-                within a Bootstrap-styled dropdown. It combines the visual style
-                of a dropdown button with an internal multi-select checklist.
+                The <code>BSDropdownMultiSelect</code> component allows you to
+                select multiple items from a dropdown list.
             </p>
         </section>
 
         <section class="my-4">
             <h3 class="h4">Props</h3>
-            <ul>
-                <li>
-                    <code>label</code> (String, required): The text displayed on
-                    the dropdown toggle button.
-                </li>
-                <li>
-                    <code>options</code> (Array, required): An array of tuples
-                    to populate the multi-select list. Each tuple must be in the
-                    format <code>[value, displayText]</code>, where
-                    <code>value</code> can be a string or a number, and
-                    <code>displayText</code> is the string shown to the user for
-                    that option. <br />Example:
-                    <code
-                        >[['opt1', 'Option 1 Text'], [2, 'Option 2 Text']]</code
-                    >
-                </li>
-                <li>
-                    <code>modelValue</code> (Array, required): The v-model for
-                    the component. It holds an array of the currently selected
-                    option values. This must be an array of strings
-                    (<code>string[]</code>) or an array of numbers
-                    (<code>number[]</code>), consistent with the type of values
-                    provided in the <code>options</code> prop. <br />Example:
-                    <code>['opt1']</code> or <code>[2]</code>
-                </li>
-            </ul>
+            <PropTable :prop-defs="propDefinitions" />
         </section>
 
         <section class="my-4">
             <h3 class="h4">Emits</h3>
-            <ul>
-                <li>
-                    <code>update:modelValue</code> (value: Array): Emitted when
-                    the selection changes within the component. The
-                    <code>value</code> payload is the new array of selected
-                    option values (either <code>string[]</code> or
-                    <code>number[]</code>).
-                </li>
-            </ul>
-        </section>
-
-        <section class="my-4">
-            <h3 class="h4">Slots</h3>
-            <p>
-                The <code>BSDropdownMultiSelect</code> component does not
-                provide direct slots for customizing the content of the dropdown
-                menu itself, as it internally manages the rendering of the
-                multi-select options using the
-                <code>BSMultiSelect</code> component. The text on the dropdown
-                toggle button is controlled via the <code>label</code> prop.
-            </p>
+            <EmitTable :emit-defs="emitDefinitions" />
         </section>
 
         <section class="my-4">
             <h3 class="h4">Demonstration</h3>
 
             <section class="my-3">
-                <h4 class="h5">Basic Usage with String Options</h4>
+                <h4 class="h5">Basic usage with string options</h4>
                 <p>Demonstrates binding to an array of strings.</p>
                 <div class="mb-3 p-3 border rounded">
                     <BSDropdownMultiSelect
@@ -124,7 +110,7 @@ const preselectedNumbers = ref<number[]>([101, 103]);
                     </p>
                 </div>
                 <pre class="code-example">
-<code>&lt;script setup lang="ts"&gt;
+<code>&lt;script lang="ts" setup&gt;
 import { ref } from "vue";
 import { BSDropdownMultiSelect } from "cdh-vue-lib";
 
@@ -144,12 +130,11 @@ const selectedStringOptions = ref&lt;string[]&gt;([]);
         label="Select Fruits"
         :options="stringOptions"
     /&gt;
-    &lt;p&gt;Selected: {{ selectedStringOptions.join(', ') || 'None' }}&lt;/p&gt;
 &lt;/template&gt;</code></pre>
             </section>
 
             <section class="my-3">
-                <h4 class="h5">Usage with Number Options</h4>
+                <h4 class="h5">Usage with number options</h4>
                 <p>Demonstrates binding to an array of numbers.</p>
                 <div class="mb-3 p-3 border rounded">
                     <BSDropdownMultiSelect
@@ -166,7 +151,7 @@ const selectedStringOptions = ref&lt;string[]&gt;([]);
                     </p>
                 </div>
                 <pre class="code-example">
-<code>&lt;script setup lang="ts"&gt;
+<code>&lt;script lang="ts" setup&gt;
 import { ref } from "vue";
 import { BSDropdownMultiSelect } from "cdh-vue-lib";
 
@@ -185,12 +170,11 @@ const selectedNumberOptions = ref&lt;number[]&gt;([]);
         label="Select Numbers"
         :options="numberOptions"
     /&gt;
-    &lt;p&gt;Selected: {{ selectedNumberOptions.join(', ') || 'None' }}&lt;/p&gt;
 &lt;/template&gt;</code></pre>
             </section>
 
             <section class="my-3">
-                <h4 class="h5">With Pre-selected String Values</h4>
+                <h4 class="h5">Pre-selected string values</h4>
                 <p>
                     Shows how the component behaves when
                     <code>modelValue</code> is initialized with some string
@@ -211,7 +195,7 @@ const selectedNumberOptions = ref&lt;number[]&gt;([]);
                     </p>
                 </div>
                 <pre class="code-example">
-<code>&lt;script setup lang="ts"&gt;
+<code>&lt;script lang="ts" setup&gt;
 import { ref } from "vue";
 import { BSDropdownMultiSelect } from "cdh-vue-lib";
 
@@ -229,51 +213,6 @@ const preselectedStrings = ref&lt;string[]&gt;(['s1']); // Initial pre-selected 
         label="Pre-selected Strings"
         :options="optionsForPreselectionStrings"
     /&gt;
-    &lt;p&gt;Current Selection: {{ preselectedStrings.join(', ') || 'None' }}&lt;/p&gt;
-&lt;/template&gt;</code></pre>
-            </section>
-
-            <section class="my-3">
-                <h4 class="h5">With Pre-selected Number Values</h4>
-                <p>
-                    Shows how the component behaves when
-                    <code>modelValue</code> is initialized with some number
-                    values.
-                </p>
-                <div class="mb-3 p-3 border rounded">
-                    <BSDropdownMultiSelect
-                        v-model="preselectedNumbers"
-                        label="Pre-selected Numbers"
-                        :options="optionsForPreselectionNumbers"
-                    />
-                    <p class="mt-2 mb-0">
-                        Current Selection:
-                        <span v-if="preselectedNumbers.length">{{
-                            preselectedNumbers.join(", ")
-                        }}</span>
-                        <span v-else>None</span>
-                    </p>
-                </div>
-                <pre class="code-example">
-<code>&lt;script setup lang="ts"&gt;
-import { ref } from "vue";
-import { BSDropdownMultiSelect } from "cdh-vue-lib";
-
-const optionsForPreselectionNumbers = ref&lt;[number, string][]&gt;([
-    [101, "Pre-selected Number 101"],
-    [102, "Pre-selected Number 102"],
-    [103, "Another Number Option"],
-]);
-const preselectedNumbers = ref&lt;number[]&gt;([101, 103]); // Initial pre-selected values
-&lt;/script&gt;
-
-&lt;template&gt;
-    &lt;BSDropdownMultiSelect
-        v-model="preselectedNumbers"
-        label="Pre-selected Numbers"
-        :options="optionsForPreselectionNumbers"
-    /&gt;
-    &lt;p&gt;Current Selection: {{ preselectedNumbers.join(', ') || 'None' }}&lt;/p&gt;
 &lt;/template&gt;</code></pre>
             </section>
         </section>

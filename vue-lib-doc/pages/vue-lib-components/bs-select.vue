@@ -159,7 +159,7 @@ const selectedValue = ref&lt;string | number | null&gt;(null);
             </section>
 
             <pre v-pre class="code-example">
-<code>&lt;script setup lang="ts"&gt;
+<code>&lt;script lang="ts" setup&gt;
 import { BSSelect } from "cdh-vue-lib";
 import { ref } from "vue";
 

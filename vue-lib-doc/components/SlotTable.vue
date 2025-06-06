@@ -5,7 +5,7 @@ export interface SlotDefinition {
 }
 
 defineProps<{
-    slotsData: SlotDefinition[];
+    slotDefs: SlotDefinition[];
 }>();
 </script>
 
@@ -14,12 +14,12 @@ defineProps<{
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Slot name</th>
+                    <th>Name</th>
                     <th>Description</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="slotItem in slotsData" :key="slotItem.slotName">
+                <tr v-for="slotItem in slotDefs" :key="slotItem.slotName">
                     <td>
                         <code>{{ slotItem.slotName }}</code>
                     </td>

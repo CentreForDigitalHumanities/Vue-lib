@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { BSSidebar, BSIcon } from "cdh-vue-lib";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 </script>
@@ -185,7 +185,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
                 </div>
                 <div class="mt-5 p-3 border bg-light">
                     <h5>Code Example (Left Sidebar):</h5>
-                    <pre><code class="language-html">&lt;script setup lang="ts"&gt;
+                    <pre><code class="language-html">&lt;script lang="ts" setup&gt;
         import { BSSidebar, BSIcon } from "your-component-library"; // Adjust import path
         import { faBars } from "@fortawesome/free-solid-svg-icons";
         &lt;/script&gt;

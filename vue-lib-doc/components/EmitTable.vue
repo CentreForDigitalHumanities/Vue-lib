@@ -6,7 +6,7 @@ export interface EmitDefinition {
 }
 
 defineProps<{
-    emitsData: EmitDefinition[];
+    emitDefs: EmitDefinition[];
 }>();
 </script>
 
@@ -21,7 +21,7 @@ defineProps<{
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="emitItem in emitsData" :key="emitItem.eventName">
+                <tr v-for="emitItem in emitDefs" :key="emitItem.eventName">
                     <td>
                         <code>{{ emitItem.eventName }}</code>
                     </td>

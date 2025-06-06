@@ -1,9 +1,9 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { faCog, faStar } from "@fortawesome/free-solid-svg-icons";
 import { BSButton, BSCard, BSIcon } from "cdh-vue-lib";
-import type { EmitDefinition } from "~/components/EmitTable.vue";
+import EmitTable, { type EmitDefinition } from "~/components/EmitTable.vue";
 import PropTable, { type PropDefinition } from "~/components/PropTable.vue";
-import type { SlotDefinition } from "~/components/SlotTable.vue";
+import SlotTable, { type SlotDefinition } from "~/components/SlotTable.vue";
 
 function handleHeaderIconClick() {
     alert("Header icon clicked!");
@@ -13,9 +13,9 @@ function actionButtonClick() {
     alert("Action button clicked!");
 }
 
-const propsData: PropDefinition[] = [
+const propDefinitions: PropDefinition[] = [
     {
-        id: "header-classes",
+        name: "header-classes",
         type: "String",
         required: "No",
         description:
@@ -23,7 +23,7 @@ const propsData: PropDefinition[] = [
     },
 ];
 
-const emitData: EmitDefinition[] = [
+const emitDefinitions: EmitDefinition[] = [
     {
         eventName: "header-icon-clicked",
         description:
@@ -31,7 +31,7 @@ const emitData: EmitDefinition[] = [
     },
 ];
 
-const slotData: SlotDefinition[] = [
+const slotDefinitions: SlotDefinition[] = [
     {
         slotName: "header",
         description:
@@ -69,26 +69,24 @@ const slotData: SlotDefinition[] = [
         <section class="my-4">
             <h3 class="h4">Overview</h3>
             <p>
-                The <code>BSCard</code> component is a versatile container for
-                displaying content in a card format, commonly used in UIs to
-                group related information. It supports various slots, for which
-                see below.
+                The <code>BSCard</code> component displays related content in a
+                card format. It supports various slots, for which see below.
             </p>
         </section>
 
         <section class="my-4">
             <h3 class="h4">Props</h3>
-            <PropTable :props-data="propsData" />
+            <PropTable :prop-defs="propDefinitions" />
         </section>
 
         <section class="my-4">
             <h3 class="h4">Slots</h3>
-            <SlotTable :slots-data="slotData" />
+            <SlotTable :slot-defs="slotDefinitions" />
         </section>
 
         <section class="my-4">
             <h3 class="h4">Emits</h3>
-            <EmitTable :emits-data="emitData" />
+            <EmitTable :emit-defs="emitDefinitions" />
         </section>
 
         <section class="my-4">

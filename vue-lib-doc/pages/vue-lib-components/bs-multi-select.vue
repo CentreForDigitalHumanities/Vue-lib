@@ -79,7 +79,7 @@ const selectedOptions = ref(["option1", "option3"]);
     :options="multiSelectOptions"
 /&gt;
 
-&lt;script setup lang="ts"&gt;
+&lt;script lang="ts" setup&gt;
 import { ref } from "vue";
 
 const multiSelectOptions = ref([

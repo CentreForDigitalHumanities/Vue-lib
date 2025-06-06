@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { BSIcon } from "cdh-vue-lib";
 import {
     faCoffee,
@@ -7,6 +7,8 @@ import {
     faCircle,
     faSquare,
 } from "@fortawesome/free-solid-svg-icons";
+import PropTable, { type PropDefinition } from "~/components/PropTable.vue";
+import SlotTable, { type SlotDefinition } from "~/components/SlotTable.vue";
 
 const iconSizes = [
     "lg",
@@ -22,6 +24,47 @@ const iconSizes = [
     "8x",
     "9x",
     "10x",
+];
+
+const propDefinitions: PropDefinition[] = [
+    {
+        name: "icon",
+        type: "Object | Array | String",
+        required: true,
+        description:
+            "The FontAwesome icon definition. Can be an object, array, or string.",
+    },
+    {
+        name: "inline",
+        type: "Boolean",
+        required: false,
+        defaultValue: "false",
+        description:
+            "If true, renders the icon within a <span> tag; otherwise, uses a <div>.",
+    },
+    {
+        name: "size",
+        type: "String",
+        required: false,
+        defaultValue: "1x",
+        description: `Specifies the icon size. Available options: ${iconSizes.join(
+            ", ",
+        )}.`,
+    },
+    {
+        name: "title",
+        type: "String",
+        required: false,
+        description: "A title for the icon, used for accessibility.",
+    },
+];
+
+const slotDefinitions: SlotDefinition[] = [
+    {
+        slotName: "default",
+        description:
+            "Optional text to display alongside the icon. If provided, the icon and text are wrapped in a container.",
+    },
 ];
 </script>
 
@@ -42,76 +85,29 @@ const iconSizes = [
 
         <section class="my-4">
             <h3 class="h4">Props</h3>
-            <p>
-                The component accepts most props from the
-                <code>FontAwesomeIcon</code> component. Refer to the
-                <a
-                    href="https://docs.fontawesome.com/web/use-with/vue/style"
-                    target="_blank"
-                    >FontAwesome documentation</a
-                >
-                for a complete list.
-            </p>
-            <ul>
-                <li>
-                    <code>icon</code> (Object | Array | String, required): The
-                    FontAwesome icon definition.
-                </li>
-                <li>
-                    <code>inline</code> (Boolean, optional, default:
-                    <code>false</code>): If true, renders the icon within a
-                    <code>&lt;span&gt;</code> tag; otherwise, uses a
-                    <code>&lt;div&gt;</code>.
-                </li>
-                <li>
-                    <code>size</code> (String, optional): Specifies the icon
-                    size. Available options:
-                    <span v-for="size of iconSizes" :key="size">
-                        <code> {{ size }}</code>
-                        <span v-if="size !== iconSizes[iconSizes.length - 1]"
-                            >,
-                        </span> </span
-                    >.
-                </li>
-                <li>
-                    <code>title</code> (String, optional): A title for the icon,
-                    often used for accessibility.
-                </li>
-                <li>
-                    Other <code>FontAwesomeIcon</code> props like
-                    <code>border</code>, <code>fixedWidth</code>,
-                    <code>flip</code>, <code>spin</code>, <code>pulse</code>,
-                    etc., are also supported.
-                </li>
-            </ul>
+            <PropTable :prop-defs="propDefinitions" />
         </section>
 
         <section class="my-4">
             <h3 class="h4">Slots</h3>
-            <ul>
-                <li>
-                    <code>default</code>: Optional text to display alongside the
-                    icon. If provided, the icon and text are wrapped in a
-                    container.
-                </li>
-            </ul>
+            <SlotTable :slot-defs="slotDefinitions" />
         </section>
 
         <section class="my-4">
             <h3 class="h4">Demonstration</h3>
 
             <section class="my-3">
-                <h4 class="h5">Basic Icon</h4>
+                <h4 class="h5">Basic icon</h4>
                 <BSIcon :icon="faCoffee" />
             </section>
 
             <section class="my-3">
-                <h4 class="h5">Icon with Text</h4>
+                <h4 class="h5">Icon with text</h4>
                 <BSIcon :icon="faUser">User Profile</BSIcon>
             </section>
 
             <section class="my-3">
-                <h4 class="h5">Inline Icon</h4>
+                <h4 class="h5">Inline icon</h4>
                 <p>
                     This is an
                     <BSIcon :icon="faCoffee" inline />
@@ -120,7 +116,7 @@ const iconSizes = [
             </section>
 
             <section class="my-3">
-                <h4 class="h5">Sized Icons</h4>
+                <h4 class="h5">Sized icons</h4>
                 <BSIcon :icon="faCoffee" size="xs" class="me-2" />
                 <BSIcon :icon="faCoffee" size="sm" class="me-2" />
                 <BSIcon :icon="faCoffee" size="lg" class="me-2" />
@@ -129,29 +125,29 @@ const iconSizes = [
             </section>
 
             <section class="my-3">
-                <h4 class="h5">Animated Icons</h4>
+                <h4 class="h5">Animated icons</h4>
                 <BSIcon :icon="faSpinner" spin class="me-2" />
                 <BSIcon :icon="faSpinner" pulse class="me-2" />
             </section>
 
             <section class="my-3">
-                <h4 class="h5">Icon with Title (Tooltip)</h4>
+                <h4 class="h5">Icon with title (tooltip)</h4>
                 <BSIcon :icon="faCoffee" title="Coffee Time!" />
             </section>
 
             <section class="my-3">
-                <h4 class="h5">Fixed Width Icon</h4>
+                <h4 class="h5">Fixed width icon</h4>
                 <div><BSIcon :icon="faUser" fixed-width /> User</div>
                 <div><BSIcon :icon="faCoffee" fixed-width /> Coffee</div>
             </section>
 
             <section class="my-3">
-                <h4 class="h5">Bordered Icon</h4>
+                <h4 class="h5">Bordered con</h4>
                 <BSIcon :icon="faCoffee" border />
             </section>
 
             <section class="my-3">
-                <h4 class="h5">Pulled Icon</h4>
+                <h4 class="h5">Pulled icon</h4>
                 <BSIcon :icon="faCoffee" pull="left" class="me-2" />
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 <BSIcon :icon="faUser" pull="right" class="ms-2" />
@@ -160,7 +156,7 @@ const iconSizes = [
             </section>
 
             <section class="my-3">
-                <h4 class="h5">Flipped Icons</h4>
+                <h4 class="h5">Flipped icons</h4>
                 <BSIcon
                     :icon="faCoffee"
                     flip="horizontal"
@@ -182,7 +178,7 @@ const iconSizes = [
             </section>
 
             <section class="my-3">
-                <h4 class="h5">Transformed Icons</h4>
+                <h4 class="h5">Transformed icons</h4>
                 <BSIcon
                     :icon="faCoffee"
                     transform="shrink-6 left-4"
@@ -204,7 +200,7 @@ const iconSizes = [
             </section>
 
             <section class="my-3">
-                <h4 class="h5">Masked Icons</h4>
+                <h4 class="h5">Masked icons</h4>
                 <p>
                     Using <code>faCircle</code> as a mask for
                     <code>faSquare</code> (effectively making a square hole in a

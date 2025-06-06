@@ -73,7 +73,7 @@ const selectedOption2 = ref(0);
                 />
                 <p class="mt-3">Selected: {{ selectedOption1 }}</p>
                 <pre class="code-example">
-<code>&lt;script setup lang="ts"&gt;
+<code>&lt;script lang="ts" setup&gt;
 import { ref } from "vue";
 
 const radioOptions = ref([
@@ -100,7 +100,7 @@ const selectedOption = ref("apples");
                 />
                 <p class="mt-3">Selected: {{ selectedOption2 }}</p>
                 <pre class="code-example">
-<code>&lt;script setup lang="ts"&gt;
+<code>&lt;script lang="ts" setup&gt;
 import { ref } from "vue";
 
 const radioOptions = ref([
