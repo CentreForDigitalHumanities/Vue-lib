@@ -2,59 +2,11 @@
 import { UUList } from "cdh-vue-lib";
 import type { UUListTypes } from "cdh-vue-lib";
 import { ref, watch } from "vue";
+import { fetchData, pokemons, type Pokemon } from "~/shared/mockData";
 
-interface MyDataType extends UUListTypes.Data<number> {
-    // id is inherited from Data<number>
-    name: string;
-    category: string;
-    value: number;
-    date: string;
-}
+const sampleData = ref<Pokemon[]>(pokemons);
 
-const sampleData = ref<MyDataType[]>([
-    { id: 1, name: "Apple", category: "Fruit", value: 10, date: "2023-01-15" },
-    {
-        id: 2,
-        name: "Broccoli",
-        category: "Vegetable",
-        value: 20,
-        date: "2023-01-20",
-    },
-    {
-        id: 3,
-        name: "Chicken",
-        category: "Meat",
-        value: 150,
-        date: "2023-02-01",
-    },
-    { id: 4, name: "Date", category: "Fruit", value: 5, date: "2023-02-10" },
-    {
-        id: 5,
-        name: "Eggplant",
-        category: "Vegetable",
-        value: 25,
-        date: "2023-02-15",
-    },
-    { id: 6, name: "Salmon", category: "Fish", value: 200, date: "2023-03-01" },
-    {
-        id: 7,
-        name: "Beef",
-        category: "Meat",
-        value: 300,
-        date: "2023-03-05",
-    },
-    { id: 8, name: "Orange", category: "Fruit", value: 15, date: "2023-03-10" },
-    {
-        id: 9,
-        name: "Carrot",
-        category: "Vegetable",
-        value: 10,
-        date: "2023-03-15",
-    },
-    { id: 10, name: "Tuna", category: "Fish", value: 250, date: "2023-04-01" },
-]);
-
-const shownData = ref<MyDataType[]>(sampleData.value.slice(0, 5));
+const shownData = ref<Pokemon[]>(sampleData.value.slice(0, 5));
 const totalItems = ref<number>(sampleData.value.length);
 
 const currentPage = ref(1);
@@ -67,40 +19,38 @@ const isLoading = ref(false);
 
 const sortOptions = ref<UUListTypes.SortOption[]>([
     { field: "name", label: "Name (Asc)" },
-    { field: "category", label: "Category (Asc)" },
-    { field: "value", label: "Value (Asc)" },
+    { field: "type", label: "Type (Asc)" },
+    { field: "height", label: "Height (Asc)" },
 ]);
 
 const filters = ref<UUListTypes.FilterDefinition[]>([
     {
-        field: "category",
-        label: "Category",
+        field: "type",
+        label: "Type",
         type: "checkbox",
         options: [
-            ["Fruit", "Fruit"],
-            ["Vegetable", "Vegetable"],
-            ["Meat", "Meat"],
-            ["Fish", "Fish"],
+            ["Grass", "Grass"],
+            ["Poison", "Poison"],
+            ["Fire", "Fire"],
+            ["Water", "Water"],
+            ["Electric", "Electric"],
+            ["Normal", "Normal"],
+            ["Flying", "Flying"],
         ],
         initial: null,
     },
     {
-        field: "value",
-        label: "Value",
+        field: "height",
+        label: "Height",
         type: "radio",
         options: [
-            [10, "10"],
-            [20, "20"],
-            [50, "50"],
-            [100, "100"],
+            [3, "3"],
+            [4, "4"],
+            [5, "5"],
+            [6, "6"],
+            [7, "7"]
         ],
-        initial: 10,
-    },
-    {
-        field: "date",
-        label: "Date",
-        type: "date",
-        initial: null,
+        initial: 3,
     },
 ]);
 
@@ -113,75 +63,21 @@ watch(
         shownData.value = [];
         isLoading.value = true;
         loadingTimer.value = window.setTimeout(() => {
-            fetchData();
+            const results = fetchData({
+                currentPage: currentPage.value,
+                pageSize: pageSize.value,
+                search: search.value,
+                sortString: currentSort.value,
+                filters: filterValues.value,
+                data: sampleData.value,
+            });
+            totalItems.value = results.totalItems;
+            shownData.value = results.shownData;
             isLoading.value = false;
         }, 1000);
     },
     { deep: true },
 );
-
-function fetchData(): void {
-    const searched = searchData(sampleData.value);
-    const filtered = filterData(searched);
-
-    totalItems.value = filtered.length;
-
-    const sorted = sortData(filtered);
-    const paginated = paginateData(sorted);
-
-    shownData.value = paginated;
-}
-
-function searchData(data: MyDataType[]): MyDataType[] {
-    if (!search.value) {
-        return data;
-    }
-    const lowerSearch = search.value.toLowerCase();
-    return data.filter((item) => item.name.toLowerCase().includes(lowerSearch));
-}
-
-function filterData(data: MyDataType[]): MyDataType[] {
-    return data.filter((item) => {
-        return Object.entries(filterValues.value).every(([field, value]) => {
-            if (!value) {
-                return true;
-            }
-            if (Array.isArray(value)) {
-                const itemValue = item[field as keyof MyDataType];
-                if (value.length === 0) {
-                    return true;
-                }
-                if (typeof itemValue === "string") {
-                    return (value as string[]).includes(itemValue);
-                } else if (typeof itemValue === "number") {
-                    return (value as number[]).includes(itemValue);
-                }
-            } else {
-                return item[field as keyof MyDataType] === value;
-            }
-        });
-    });
-}
-
-function sortData(data: MyDataType[]): MyDataType[] {
-    const [field, order] = currentSort.value.split("_") as [
-        keyof MyDataType,
-        "asc" | "desc",
-    ];
-    return data.sort((a, b) => {
-        if (order === "asc") {
-            return a[field] < b[field] ? 1 : -1;
-        } else {
-            return a[field] > b[field] ? 1 : -1;
-        }
-    });
-}
-
-function paginateData(data: MyDataType[]): MyDataType[] {
-    const start = (currentPage.value - 1) * pageSize.value;
-    const end = start + pageSize.value;
-    return data.slice(start, end);
-}
 </script>
 
 <template>
@@ -477,29 +373,31 @@ function paginateData(data: MyDataType[]): MyDataType[] {
                             <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Name</th>
-                                        <th>Category</th>
-                                        <th>Value</th>
-                                        <th>Date</th>
+                                        <th>Types</th>
+                                        <th>Height</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="item in data" :key="item.id">
-                                        <td>{{ item.name }}</td>
-                                        <td>{{ item.category }}</td>
-                                        <td>{{ item.value }}</td>
-                                        <td>{{ item.date }}</td>
-                                    </tr>
                                     <tr v-if="isLoading">
                                         <td colspan="4" class="text-center">
                                             Loading...
                                         </td>
                                     </tr>
-                                    <tr v-if="!isLoading && data?.length === 0">
+                                    <tr v-else-if="!isLoading && data?.length === 0">
                                         <td colspan="4" class="text-center">
                                             No results found.
                                         </td>
                                     </tr>
+                                    <template v-else>
+                                        <tr v-for="item in data" :key="item.id">
+                                            <td>{{ item.id }}</td>
+                                            <td>{{ item.name }}</td>
+                                            <td>{{ item.type.join(', ') }}</td>
+                                            <td>{{ item.height }}</td>
+                                        </tr>
+                                    </template>
                                 </tbody>
                             </table>
                         </template>
