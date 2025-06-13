@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import type { DDCListData, DataDefinedColumn } from "../../types";
-import DDVString from "./Colums/DDVString.vue";
-import DDVDate from "./Colums/DDVDate.vue";
-import DDVButton from "./Colums/DDVButton.vue";
-import DDVLink from "./Colums/DDVLink.vue";
-import DDVHTML from "./Colums/DDVHTML.vue";
-import DDVActions from "./Colums/DDVActions.vue";
+import DDVString from "./Columns/DDVString.vue";
+import DDVDate from "./Columns/DDVDate.vue";
+import DDVButton from "./Columns/DDVButton.vue";
+import DDVLink from "./Columns/DDVLink.vue";
+import DDVHTML from "./Columns/DDVHTML.vue";
+import DDVActions from "./Columns/DDVActions.vue";
 
 interface Props {
     item: DDCListData;
