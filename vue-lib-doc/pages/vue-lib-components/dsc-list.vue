@@ -1,23 +1,11 @@
 <script lang="ts" setup>
-import { DSCList } from "cdh-vue-lib";
-import type { UUListTypes } from "cdh-vue-lib";
+import { DSCList, type UUListTypes } from "cdh-vue-lib";
 import { ref } from "vue";
+import PropTable, { type PropDefinition } from "~/components/PropTable.vue";
+import SlotTable, { type SlotDefinition } from "~/components/SlotTable.vue";
 import type { Pokemon } from "~/shared/mockData";
 
-interface MyDSCListConfig {
-    dataUri: string;
-    sortEnabled: boolean;
-    sortOptions?: UUListTypes.SortOption[];
-    filtersEnabled: boolean;
-    filters?: UUListTypes.FilterDefinition[];
-    pageSize: number;
-    pageSizeOptions: number[];
-    searchEnabled: boolean;
-    columns: UUListTypes.DataDefinedColumn[];
-    container?: "default" | "sidebar";
-}
-
-const sampleConfig = ref<MyDSCListConfig>({
+const sampleConfig = ref<UUListTypes.DSCListConfig>({
     dataUri: "/api/mockData",
     sortEnabled: true,
     sortOptions: [
@@ -55,6 +43,92 @@ const sampleConfig = ref<MyDSCListConfig>({
     ],
     container: "default",
 });
+
+const propDefinitions: PropDefinition[] = [
+    {
+        name: "dataUri",
+        type: "string",
+        required: true,
+        description:
+            "The URL of the API endpoint from which DSCList will fetch data.",
+    },
+    {
+        name: "columns",
+        type: "UUListTypes.DataDefinedColumn[]",
+        required: true,
+        description:
+            "An array defining the columns for the default DataDefinedTable visualizer. Each object in the array typically specifies field (data property), label (column header), and type (data type for rendering, e.g., 'string', 'date').",
+    },
+    {
+        name: "sortEnabled",
+        type: "boolean",
+        required: true,
+        description: "Enables or disables sorting functionality.",
+    },
+    {
+        name: "sortOptions",
+        type: "UUListTypes.SortOption[]",
+        required: false,
+        description:
+            "An array of objects (of type { field: string; label: string; }) defining the available sort criteria if sortEnabled is true.",
+    },
+    {
+        name: "filtersEnabled",
+        type: "boolean",
+        required: true,
+        description: "Enables or disables filtering.",
+    },
+    {
+        name: "filters",
+        type: "UUListTypes.FilterDefinition[]",
+        required: false,
+        description:
+            "An array of FilterDefinition objects to configure the available filters.",
+    },
+    {
+        name: "searchEnabled",
+        type: "boolean",
+        required: true,
+        description: "Enables or disables the global search input.",
+    },
+    {
+        name: "pageSize",
+        type: "number",
+        required: true,
+        description: "The initial number of items to display per page.",
+    },
+    {
+        name: "pageSizeOptions",
+        type: "number[]",
+        required: true,
+        description:
+            "An array of numbers allowing the user to choose different page sizes.",
+    },
+    {
+        name: "container",
+        type: '"default" | "sidebar"',
+        required: false,
+        description: "Specifies the overall layout container.",
+    },
+];
+
+const slotDefinitions: SlotDefinition[] = [
+    {
+        slotName: "data",
+        description:
+            "The primary slot for customizing how the list items are rendered. If you provide content for this slot, it will override the default DataDefinedTable visualizer.",
+    },
+    {
+        slotName: "filters-top",
+        description:
+            "Allows you to inject custom content above the filter controls area.",
+    },
+    {
+        slotName: "filters-bottom",
+        description:
+            "Allows you to inject custom content below the filter controls area.",
+    },
+];
 </script>
 
 <template>
@@ -77,112 +151,10 @@ const sampleConfig = ref<MyDSCListConfig>({
             <p>
                 The <code>config</code> prop is a reactive object that defines
                 all aspects of the <code>DSCList</code> component's behavior and
-                appearance.
+                appearance. The available properties for this object are as
+                follows:
             </p>
-
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Property</th>
-                            <th>Type</th>
-                            <th>Required?</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>dataUri</code></td>
-                            <td><code>string</code></td>
-                            <td>Yes</td>
-                            <td>
-                                The URL of the API endpoint from which
-                                <code>DSCList</code> will fetch data.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>columns</code></td>
-                            <td>
-                                <code>UUListTypes.DataDefinedColumn[]</code>
-                            </td>
-                            <td>Yes</td>
-                            <td>
-                                An array defining the columns for the default
-                                <code>DataDefinedTable</code> visualizer. Each
-                                object in the array typically specifies
-                                <code>field</code> (data property),
-                                <code>label</code> (column header), and
-                                <code>type</code> (data type for rendering,
-                                e.g., 'string', 'date').
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>sortEnabled</code></td>
-                            <td><code>boolean</code></td>
-                            <td>Yes</td>
-                            <td>Enables or disables sorting functionality.</td>
-                        </tr>
-                        <tr>
-                            <td><code>sortOptions</code></td>
-                            <td><code>UUListTypes.SortOption[]</code></td>
-                            <td>No</td>
-                            <td>
-                                An array of objects (e.g.,
-                                <code>{ field: string, label: string }</code>)
-                                defining the available sort criteria if
-                                <code>sortEnabled</code> is true.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>filtersEnabled</code></td>
-                            <td><code>boolean</code></td>
-                            <td>Yes</td>
-                            <td>Enables or disables filtering.</td>
-                        </tr>
-                        <tr>
-                            <td><code>filters</code></td>
-                            <td><code>UUListTypes.FilterDefinition[]</code></td>
-                            <td>No</td>
-                            <td>
-                                An array of
-                                <code>FilterDefinition</code> objects to
-                                configure the available filters.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>searchEnabled</code></td>
-                            <td><code>boolean</code></td>
-                            <td>Yes</td>
-                            <td>
-                                Enables or disables the global search input.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>pageSize</code></td>
-                            <td><code>number</code></td>
-                            <td>Yes</td>
-                            <td>
-                                The initial number of items to display per page.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>pageSizeOptions</code></td>
-                            <td><code>number[]</code></td>
-                            <td>Yes</td>
-                            <td>
-                                An array of numbers allowing the user to choose
-                                different page sizes.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>container</code></td>
-                            <td><code>"default" | "sidebar"</code></td>
-                            <td>No</td>
-                            <td>Specifies the overall layout container.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <PropTable :prop-defs="propDefinitions" />
         </section>
 
         <section class="mb-4">
@@ -192,81 +164,137 @@ const sampleConfig = ref<MyDSCListConfig>({
                 <code>UUList</code>, allowing for customization of its
                 presentation:
             </p>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <code>#data</code>: This is the primary slot for customizing
-                    how the list items are rendered. If you provide content for
-                    this slot, it will override the default
-                    <code>DataDefinedTable</code> visualizer.
-                </li>
-                <li class="list-group-item">
-                    <code>#filters-top</code>: Allows you to inject custom
-                    content above the filter controls area.
-                </li>
-                <li class="list-group-item">
-                    <code>#filters-bottom</code>: Allows you to inject custom
-                    content below the filter controls area.
-                </li>
-            </ul>
+            <SlotTable :slot-defs="slotDefinitions" />
         </section>
 
         <section class="mb-4">
             <h2 class="mb-3">Basic example</h2>
-            <p>
-                To use <code>DSCList</code>, you provide a configuration object
-                to its <code>config</code> prop. This object dictates the data
-                source (API endpoint), available interactions (sorting,
-                filtering, search), display settings (page size, columns), and
-                overall layout.
-            </p>
-            <div class="card">
-                <div class="card-body">
-                    <DSCList :config="sampleConfig">
-                        <template
-                            #data="{
-                                data,
-                                isLoading,
-                            }: {
-                                data: Pokemon[];
-                                isLoading: boolean;
-                            }"
-                        >
-                            <table class="table table-hover">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Types</th>
-                                        <th>Height</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-if="isLoading">
-                                        <td colspan="4" class="text-center">
-                                            Loading...
-                                        </td>
-                                    </tr>
-                                    <tr v-else-if="data && data.length === 0">
-                                        <td colspan="4" class="text-center">
-                                            No items found.
-                                        </td>
-                                    </tr>
-                                    <template v-else>
-                                        <tr v-for="item in data" :key="item.id">
-                                            <td>{{ item.id }}</td>
-                                            <td>{{ item.name }}</td>
-                                            <td>{{ item.type.join(", ") }}</td>
-                                            <td>
-                                                {{ item.height.toString() }}
-                                            </td>
-                                        </tr>
-                                    </template>
-                                </tbody>
-                            </table>
-                        </template>
-                    </DSCList>
-                </div>
-            </div>
+
+            <DSCList :config="sampleConfig">
+                <template
+                    #data="{
+                        data,
+                        isLoading,
+                    }: {
+                        data: Pokemon[];
+                        isLoading: boolean;
+                    }"
+                >
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Types</th>
+                                <th>Height</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-if="isLoading">
+                                <td colspan="4" class="text-center">
+                                    Loading...
+                                </td>
+                            </tr>
+                            <tr v-else-if="data && data.length === 0">
+                                <td colspan="4" class="text-center">
+                                    No items found.
+                                </td>
+                            </tr>
+                            <template v-else>
+                                <tr v-for="item in data" :key="item.id">
+                                    <td>{{ item.id }}</td>
+                                    <td>{{ item.name }}</td>
+                                    <td>{{ item.type.join(", ") }}</td>
+                                    <td>
+                                        {{ item.height.toString() }}
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </template>
+            </DSCList>
+<pre class="code-example"><code>&lt;script lang="ts" setup&gt;
+const sampleConfig: DSCListConfig = ref({
+    dataUri: "/api/mockData",
+    sortEnabled: true,
+    sortOptions: [
+        { field: "id", label: "ID" },
+        { field: "name", label: "Name" },
+        { field: "type", label: "Type" },
+        { field: "height", label: "Height" },
+    ],
+    filtersEnabled: true,
+    filters: [
+        {
+            field: "type",
+            label: "Type",
+            type: "checkbox",
+            options: [
+                ["Grass", "Grass"],
+                ["Poison", "Poison"],
+                ["Fire", "Fire"],
+                ["Water", "Water"],
+                ["Electric", "Electric"],
+                ["Normal", "Normal"],
+                ["Flying", "Flying"],
+            ],
+            initial: [],
+        },
+    ],
+    pageSize: 5,
+    pageSizeOptions: [3, 5, 10],
+    searchEnabled: true,
+    columns: [
+        { field: "id", label: "ID", type: "string" },
+        { field: "name", label: "Name", type: "string" },
+        { field: "type", label: "Types", type: "string" },
+        { field: "height", label: "Height", type: "string" },
+    ],
+    container: "default",
+});
+&lt;/script&gt;
+
+&lt;template&gt;
+    &lt;DSCList :config="sampleConfig"&gt;
+        &lt;template
+            #data="{data, isLoading}: { data: Pokemon[]; isLoading: boolean; }"
+        &gt;
+            &lt;table class="table table-hover"&gt;
+                &lt;thead class="table-light"&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;ID&lt;/th&gt;
+                        &lt;th&gt;Name&lt;/th&gt;
+                        &lt;th&gt;Types&lt;/th&gt;
+                        &lt;th&gt;Height&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    &lt;tr v-if="isLoading"&gt;
+                        &lt;td colspan="4" class="text-center"&gt;
+                            Loading...
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr v-else-if="data && data.length === 0"&gt;
+                        &lt;td colspan="4" class="text-center"&gt;
+                            No items found.
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;template v-else&gt;
+                        &lt;tr v-for="item in data" :key="item.id"&gt;
+                            &lt;td&gt;&lbrace;&lbrace; item.id &rbrace;&rbrace;&lt;/td&gt;
+                            &lt;td&gt;&lbrace;&lbrace; item.name &rbrace;&rbrace;&lt;/td&gt;
+                            &lt;td&gt;&lbrace;&lbrace; item.type.join(", ") &rbrace;&rbrace;&lt;/td&gt;
+                            &lt;td&gt;
+                                &lbrace;&lbrace; item.height.toString() &rbrace;&rbrace;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/template&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/template&gt;
+    &lt;/DSCList&gt;
+&lt;/template&gt;</code></pre>
         </section>
     </div>
 </template>

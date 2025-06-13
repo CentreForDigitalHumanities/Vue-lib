@@ -2,6 +2,8 @@
 import { UUList } from "cdh-vue-lib";
 import type { UUListTypes } from "cdh-vue-lib";
 import { ref, watch } from "vue";
+import EmitTable, { type EmitDefinition } from "~/components/EmitTable.vue";
+import PropTable, { type PropDefinition } from "~/components/PropTable.vue";
 import { fetchData, pokemons, type Pokemon } from "~/shared/mockData";
 
 const sampleData = ref<Pokemon[]>(pokemons);
@@ -48,7 +50,7 @@ const filters = ref<UUListTypes.FilterDefinition[]>([
             [4, "4"],
             [5, "5"],
             [6, "6"],
-            [7, "7"]
+            [7, "7"],
         ],
         initial: 3,
     },
@@ -78,6 +80,149 @@ watch(
     },
     { deep: true },
 );
+
+const propDefinitions: PropDefinition[] = [
+    {
+        name: "container",
+        type: '"default" | "sidebar"',
+        required: false,
+        defaultValue: '"default"',
+        description:
+            "Specifies the layout container to use. Can be 'default' or 'sidebar'.",
+    },
+    {
+        name: "data",
+        type: "T[] (where T extends Data<string | number>)",
+        required: true,
+        defaultValue: "[]",
+        description:
+            "The array of data items to display. Each item must have an 'id' property.",
+    },
+    {
+        name: "totalData",
+        type: "number",
+        required: true,
+        description: "Total number of items available for pagination.",
+    },
+    {
+        name: "currentPage",
+        type: "number",
+        required: true,
+        description: "Current active page number.",
+    },
+    {
+        name: "pageSize",
+        type: "number",
+        required: true,
+        description: "Number of items to display per page.",
+    },
+    {
+        name: "isLoading",
+        type: "boolean",
+        required: false,
+        defaultValue: "false",
+        description: "Indicates if data is currently being loaded.",
+    },
+    {
+        name: "searchEnabled",
+        type: "boolean",
+        required: false,
+        defaultValue: "false",
+        description: "Enables the search input functionality.",
+    },
+    {
+        name: "search",
+        type: "string",
+        required: false,
+        defaultValue: '""',
+        description: "Current search query.",
+    },
+    {
+        name: "sortEnabled",
+        type: "boolean",
+        required: false,
+        defaultValue: "false",
+        description: "Enables the sorting functionality.",
+    },
+    {
+        name: "currentSort",
+        type: "string",
+        required: false,
+        defaultValue: '""',
+        description:
+            "Current sort criteria (e.g., 'fieldName_asc' or 'fieldName_desc').",
+    },
+    {
+        name: "sortOptions",
+        type: "SortOption[]",
+        required: false,
+        defaultValue: "[]",
+        description:
+            "Array of available sort options. Each option should be an object with two properties: 'field' and 'label'.",
+    },
+    {
+        name: "pageSizeOptions",
+        type: "number[]",
+        required: false,
+        defaultValue: "[10, 25, 50]",
+        description:
+            "Array of available page size options for pagination.",
+    },
+    {
+        name: "filtersEnabled",
+        type: "boolean",
+        required: false,
+        defaultValue: "false",
+        description: "Enables the filtering functionality.",
+    },
+    {
+        name: "filters",
+        type: "FilterDefinition[]",
+        required: false,
+        defaultValue: "undefined",
+        description:
+            "Array of filter definitions. Each filter should have a 'field', 'label', and 'type'.",
+    },
+    {
+        name: "filterValues",
+        type:
+            'FilterValues (Record<string, string | number | null | string[] | number[]>)',
+        required: false,
+        defaultValue: "undefined",
+        description:
+            "Current filter values. Used with v-model for two-way binding.",
+    },
+];
+
+const emitDefinitions: EmitDefinition[] = [
+    {
+        eventName: "update:currentPage",
+        payload: "number",
+        description: "Emitted when the current page changes.",
+    },
+    {
+        eventName: "update:search",
+        payload: "string",
+        description: "Emitted when the search query changes.",
+    },
+    {
+        eventName: "update:currentSort",
+        payload: "string",
+        description: "Emitted when the sort criteria changes.",
+    },
+    {
+        eventName: "update:pageSize",
+        payload: "number",
+        description: "Emitted when the page size changes.",
+    },
+    {
+        eventName: "update:filter-values",
+        payload:
+            'FilterValues',
+        description:
+            "Emitted when filter values change.",
+    },
+];
 </script>
 
 <template>
@@ -114,170 +259,7 @@ watch(
 
         <section class="my-4">
             <h3 class="h4">Props</h3>
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Prop</th>
-                            <th>Type</th>
-                            <th>Default</th>
-                            <th>Required</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>container</code></td>
-                            <td><code>"default" | "sidebar"</code></td>
-                            <td><code>"default"</code></td>
-                            <td>No</td>
-                            <td>Specifies the layout container to use.</td>
-                        </tr>
-                        <tr>
-                            <td><code>data</code></td>
-                            <td>
-                                <code>T[]</code> (where
-                                <code
-                                    >T extends Data&lt;string | number&gt;</code
-                                >)
-                            </td>
-                            <td><code>undefined</code></td>
-                            <td>No</td>
-                            <td>
-                                Array of data items to display. Each item must
-                                have an <code>id</code>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>totalData</code></td>
-                            <td><code>number</code></td>
-                            <td>-</td>
-                            <td>Yes</td>
-                            <td>
-                                Total number of items available (for
-                                pagination).
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>currentPage</code></td>
-                            <td><code>number</code></td>
-                            <td>-</td>
-                            <td>Yes</td>
-                            <td>
-                                Current active page number. Supports
-                                <code>v-model:currentPage</code>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>isLoading</code></td>
-                            <td><code>boolean</code></td>
-                            <td><code>false</code></td>
-                            <td>No</td>
-                            <td>
-                                Indicates if data is currently being loaded.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>searchEnabled</code></td>
-                            <td><code>boolean</code></td>
-                            <td><code>false</code></td>
-                            <td>No</td>
-                            <td>Enables the search input functionality.</td>
-                        </tr>
-                        <tr>
-                            <td><code>search</code></td>
-                            <td><code>string</code></td>
-                            <td><code>""</code></td>
-                            <td>No</td>
-                            <td>
-                                Current search query. Supports
-                                <code>v-model:search</code>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>sortEnabled</code></td>
-                            <td><code>boolean</code></td>
-                            <td><code>false</code></td>
-                            <td>No</td>
-                            <td>Enables the sorting functionality.</td>
-                        </tr>
-                        <tr>
-                            <td><code>currentSort</code></td>
-                            <td><code>string</code></td>
-                            <td><code>""</code></td>
-                            <td>No</td>
-                            <td>
-                                Current sort criteria (e.g., "fieldName_asc" or
-                                "fieldName_desc"). Supports
-                                <code>v-model:currentSort</code>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>sortOptions</code></td>
-                            <td><code>SortOption[]</code></td>
-                            <td><code>[]</code></td>
-                            <td>No</td>
-                            <td>
-                                Array of available sort options.
-                                <code
-                                    >SortOption: { field: string; label: string;
-                                    }</code
-                                >.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>pageSize</code></td>
-                            <td><code>number</code></td>
-                            <td><code>10</code></td>
-                            <td>No</td>
-                            <td>
-                                Number of items per page. Supports
-                                <code>v-model:pageSize</code>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>pageSizeOptions</code></td>
-                            <td><code>number[]</code></td>
-                            <td><code>[10, 25, 50]</code></td>
-                            <td>No</td>
-                            <td>Array of available page size options.</td>
-                        </tr>
-                        <tr>
-                            <td><code>filtersEnabled</code></td>
-                            <td><code>boolean</code></td>
-                            <td><code>false</code></td>
-                            <td>No</td>
-                            <td>Enables the filtering functionality.</td>
-                        </tr>
-                        <tr>
-                            <td><code>filters</code></td>
-                            <td><code>FilterDefinition[]</code></td>
-                            <td><code>undefined</code></td>
-                            <td>No</td>
-                            <td>
-                                Array of filter definitions. See
-                                <code>FilterDefinition</code> type for
-                                structure.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>filterValues</code></td>
-                            <td><code>FilterValues</code></td>
-                            <td><code>undefined</code></td>
-                            <td>No</td>
-                            <td>
-                                Current filter values. Supports
-                                <code>v-model:filterValues</code>.
-                                <code
-                                    >FilterValues: Record&lt;string, string |
-                                    number | null | string[] |
-                                    number[]&gt;</code
-                                >.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <PropTable :prop-defs="propDefinitions" />
             <p>
                 Type definitions like <code>Data</code>,
                 <code>SortOption</code>, <code>FilterDefinition</code>, and
@@ -288,59 +270,7 @@ watch(
 
         <section class="my-4">
             <h3 class="h4">Events</h3>
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Event</th>
-                            <th>Payload Type</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>update:currentPage</code></td>
-                            <td><code>number</code></td>
-                            <td>
-                                Emitted when the current page changes. Used with
-                                <code>v-model:currentPage</code>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>update:search</code></td>
-                            <td><code>string</code></td>
-                            <td>
-                                Emitted when the search query changes. Used with
-                                <code>v-model:search</code>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>update:currentSort</code></td>
-                            <td><code>string</code></td>
-                            <td>
-                                Emitted when the sort criteria changes. Used
-                                with <code>v-model:currentSort</code>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>update:pageSize</code></td>
-                            <td><code>number</code></td>
-                            <td>
-                                Emitted when the page size changes. Used with
-                                <code>v-model:pageSize</code>.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>update:filter-values</code></td>
-                            <td><code>FilterValues</code></td>
-                            <td>
-                                Emitted when filter values change. Used with
-                                <code>v-model:filterValues</code>.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <EmitTable :emit-defs="emitDefinitions" />
         </section>
 
         <section class="my-4">
@@ -385,7 +315,11 @@ watch(
                                             Loading...
                                         </td>
                                     </tr>
-                                    <tr v-else-if="!isLoading && data?.length === 0">
+                                    <tr
+                                        v-else-if="
+                                            !isLoading && data?.length === 0
+                                        "
+                                    >
                                         <td colspan="4" class="text-center">
                                             No results found.
                                         </td>
@@ -394,7 +328,7 @@ watch(
                                         <tr v-for="item in data" :key="item.id">
                                             <td>{{ item.id }}</td>
                                             <td>{{ item.name }}</td>
-                                            <td>{{ item.type.join(', ') }}</td>
+                                            <td>{{ item.type.join(", ") }}</td>
                                             <td>{{ item.height }}</td>
                                         </tr>
                                     </template>
@@ -537,9 +471,7 @@ function fetchData(): void {
             &lt;/tbody&gt;
         &lt;/table&gt;
     &lt;/template&gt;
-&lt;/UUList&gt;
-</code>
-            </pre>
+&lt;/UUList&gt;</code></pre>
         </section>
     </div>
 </template>

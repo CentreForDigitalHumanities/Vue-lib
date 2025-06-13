@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { BSMultiSelect, type BSSelectOption } from "cdh-vue-lib";
 import { ref } from "vue";
+import PropTable, { type PropDefinition } from "~/components/PropTable.vue";
+import EmitTable, { type EmitDefinition } from "~/components/EmitTable.vue";
 
 const multiSelectOptions = ref<BSSelectOption<string>[]>([
     ["option1", "Option 1"],
@@ -9,6 +11,47 @@ const multiSelectOptions = ref<BSSelectOption<string>[]>([
     ["option4", "Option 4"],
 ]);
 const selectedOptions = ref(["option1", "option3"]);
+
+const propDefinitions: PropDefinition[] = [
+    {
+        name: "options",
+        type: "Array",
+        required: true,
+        description:
+            "An array of tuples, where each tuple contains the value and label for a checkbox option.",
+    },
+    {
+        name: "modelValue",
+        type: "Array",
+        required: true,
+        description:
+            "An array of currently selected values. These should correspond to the values provided in the options prop.",
+    },
+    {
+        name: "containerClasses",
+        type: "String",
+        required: false,
+        description:
+            "Additional CSS classes to apply to each checkbox's container div.",
+    },
+    {
+        name: "uniqueId",
+        type: "String",
+        required: false,
+        defaultValue: "(a generated UUID)",
+        description:
+            "A unique identifier to be appended to the generated IDs of the input elements.",
+    },
+];
+
+const emitDefinitions: EmitDefinition[] = [
+    {
+        eventName: "update:model-value",
+        payload: "string[] | number[]",
+        description:
+            "Emitted when an option is selected or deselected. The payload is an array of the currently selected values.",
+    },
+];
 </script>
 <template>
     <div class="container py-4">
@@ -25,41 +68,12 @@ const selectedOptions = ref(["option1", "option3"]);
 
         <section class="my-4">
             <h3 class="h4">Props</h3>
-            <ul>
-                <li>
-                    <code>options</code> (Array, required): An array of tuples,
-                    where each tuple contains the value (String | Number) and
-                    the label (String) for a checkbox option. E.g.,
-                    <code>[['value1', 'Label 1'], ['value2', 'Label 2']]</code>.
-                </li>
-                <li>
-                    <code>modelValue</code> (Array, required): An array of
-                    currently selected values. These should correspond to the
-                    values provided in the <code>options</code> prop.
-                </li>
-                <li>
-                    <code>containerClasses</code> (String, optional, default:
-                    <code>""</code>): Additional CSS classes to apply to each
-                    checkbox's container div.
-                </li>
-                <li>
-                    <code>uniqueId</code> (String, optional, default: a
-                    generated UUID): A unique identifier to be appended to the
-                    generated IDs of the input elements. This is useful if you
-                    have multiple instances of the component on the same page.
-                </li>
-            </ul>
+            <PropTable :prop-defs="propDefinitions" />
         </section>
 
         <section class="my-4">
             <h3 class="h4">Emits</h3>
-            <ul>
-                <li>
-                    <code>update:model-value</code> (value: Array): Emitted when
-                    an option is selected or deselected. The payload is an array
-                    of the currently selected values.
-                </li>
-            </ul>
+            <EmitTable :emit-defs="emitDefinitions" />
         </section>
 
         <section class="my-4">
@@ -74,12 +88,7 @@ const selectedOptions = ref(["option1", "option3"]);
                         Selected: {{ selectedOptions.join(", ") }}
                     </p>
                     <pre class="code-example">
-<code>&lt;BSMultiSelect
-    v-model="selectedOptions"
-    :options="multiSelectOptions"
-/&gt;
-
-&lt;script lang="ts" setup&gt;
+<code>&lt;script lang="ts" setup&gt;
 import { ref } from "vue";
 
 const multiSelectOptions = ref([
@@ -89,8 +98,14 @@ const multiSelectOptions = ref([
     ["option4", "Option 4"],
 ]);
 const selectedOptions = ref(["option1", "option3"]);
-&lt;/script&gt;</code>
-                                    </pre>
+&lt;/script&gt;
+
+&lt;template&gt;
+    &lt;BSMultiSelect
+        v-model="selectedOptions"
+        :options="multiSelectOptions"
+    /&gt;
+&lt;/template&gt;</code></pre>
                 </section>
         </section>
     </div>

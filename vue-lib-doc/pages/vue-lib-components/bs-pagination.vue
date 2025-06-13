@@ -1,24 +1,69 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { BSPagination } from "cdh-vue-lib";
+import PropTable, { type PropDefinition } from "~/components/PropTable.vue";
+import EmitTable, { type EmitDefinition } from "~/components/EmitTable.vue";
 
 const currentPageBasic = ref(3);
 const totalPagesBasic = ref(10);
+
 function handlePageChangeBasic(newPage: number) {
     currentPageBasic.value = newPage;
 }
 
 const currentPageNoButtons = ref(2);
 const totalPagesNoButtons = ref(5);
+
 function handlePageChangeNoButtons(newPage: number) {
     currentPageNoButtons.value = newPage;
 }
 
 const currentPageCustomOptions = ref(5);
 const totalPagesCustomOptions = ref(15);
+
 function handlePageChangeCustomOptions(newPage: number) {
     currentPageCustomOptions.value = newPage;
 }
+
+const propDefinitions: PropDefinition[] = [
+    {
+        name: "maxPages",
+        type: "number",
+        required: true,
+        description: "The total number of pages available.",
+    },
+    {
+        name: "currentpage",
+        type: "number",
+        required: true,
+        description: "The currently active page number.",
+    },
+    {
+        name: "showButtons",
+        type: "boolean",
+        required: false,
+        defaultValue: "true",
+        description:
+            "Whether to display the 'Previous' and 'Next' navigation buttons.",
+    },
+    {
+        name: "numOptions",
+        type: "number",
+        required: false,
+        defaultValue: "2",
+        description:
+            "The number of page links to show on each side of the current page before truncating with an ellipsis.",
+    },
+];
+
+const emitDefinitions: EmitDefinition[] = [
+    {
+        eventName: "change-page",
+        payload: "number",
+        description:
+            "Emitted when a page number, previous button, or next button is clicked. The payload is the new page number.",
+    },
+];
 </script>
 
 <template>
@@ -38,57 +83,17 @@ function handlePageChangeCustomOptions(newPage: number) {
 
         <section class="my-4">
             <h3 class="h4">Props</h3>
-            <ul>
-                <li>
-                    <strong>maxPages</strong>: <code>number</code> (required)
-                    <p>The total number of pages available.</p>
-                </li>
-                <li>
-                    <strong>currentpage</strong>: <code>number</code> (required)
-                    <p>The currently active page number.</p>
-                </li>
-                <li>
-                    <strong>showButtons</strong>:
-                    <code>boolean</code> (optional, default: <code>true</code>)
-                    <p>
-                        Whether to display the "Previous" and "Next" navigation
-                        buttons.
-                    </p>
-                </li>
-                <li>
-                    <strong>numOptions</strong>: <code>number</code> (optional,
-                    default: <code>2</code>)
-                    <p>
-                        The number of page links to show on each side of the
-                        current page before truncating with an ellipsis.
-                    </p>
-                </li>
-            </ul>
+            <PropTable :prop-defs="propDefinitions" />
         </section>
 
         <section class="my-4">
             <h3 class="h4">Emits</h3>
-            <ul>
-                <li>
-                    <strong>change-page</strong>:
-                    <code>(value: number) => void</code>
-                    <p>
-                        Emitted when a page number, previous button, or next
-                        button is clicked. The payload is the new page number.
-                    </p>
-                </li>
-            </ul>
-        </section>
-
-        <section class="my-4">
-            <h3 class="h4">Slots</h3>
-            <p>The BSPagination component does not have any slots.</p>
+            <EmitTable :emit-defs="emitDefinitions" />
         </section>
 
         <section class="my-4">
             <h3 class="h4">Demonstration</h3>
-
-            <section class="my-3">
+            <section class="my-4">
                 <h4 class="h5">Basic Usage</h4>
                 <p>
                     A standard pagination control with 10 total pages, currently
@@ -128,7 +133,7 @@ function handlePageChange(newPage: number) {
                 </pre>
             </section>
 
-            <section class="my-3">
+            <section class="my-4">
                 <h4 class="h5">Without Previous/Next Buttons</h4>
                 <p>
                     Demonstrates the pagination control with
@@ -169,7 +174,7 @@ function handlePageChange(newPage: number) {
 &lt;/template&gt;</code></pre>
             </section>
 
-            <section class="my-3">
+            <section class="my-4">
                 <h4 class="h5">Custom Number of Page Options</h4>
                 <p>
                     Demonstrates the pagination control with

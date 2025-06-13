@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { BSRadioSelect, type BSSelectOption } from "cdh-vue-lib";
 import { ref } from "vue";
+import EmitTable, { type EmitDefinition } from "~/components/EmitTable.vue";
+import PropTable, { type PropDefinition } from "~/components/PropTable.vue";
 
 const radioOptions1 = ref<BSSelectOption<string>[]>([
     ["apples", "Apples"],
@@ -15,6 +17,34 @@ const radioOptions2 = ref<BSSelectOption<number>[]>([
 ]);
 const selectedOption1 = ref("apples");
 const selectedOption2 = ref(0);
+
+const propDefinitions: PropDefinition[] = [{
+    name: "options",
+    type: "BSSelectOption[]",
+    required: true,
+    description:
+        "An array of BSSelectOptions, where each option is a tuple containing the value (string | number) and the label (string) for a radio option.",
+}, {
+    name: "modelValue",
+    type: "string | number",
+    required: true,
+    description:
+        "The currently selected value. This should be one of the values provided in the options prop.",
+}, {
+    name: "containerClasses",
+    type: "string",
+    required: false,
+    defaultValue: '""',
+    description:
+        "Additional CSS classes to apply to each radio button's container div.",
+    }];
+
+const emitDefinitions: EmitDefinition[] = [{
+    eventName: "update:modelValue",
+    payload: "string | number",
+    description:
+        "Emitted when a radio option is selected. The payload is the value of the selected option.",
+}];
 </script>
 <template>
     <div class="container py-4">
@@ -31,41 +61,18 @@ const selectedOption2 = ref(0);
 
         <section class="my-4">
             <h3 class="h4">Props</h3>
-            <ul>
-                <li>
-                    <code>options</code> (Array, required): An array of tuples,
-                    where each tuple contains the value (String | Number) and
-                    the label (String) for a radio option. E.g.,
-                    <code>[['value1', 'Label 1'], ['value2', 'Label 2']]</code>.
-                </li>
-                <li>
-                    <code>modelValue</code> (String | Number, required): The
-                    currently selected value. This should be one of the values
-                    provided in the <code>options</code> prop.
-                </li>
-                <li>
-                    <code>containerClasses</code> (String, optional, default:
-                    <code>""</code>): Additional CSS classes to apply to each
-                    radio button's container div.
-                </li>
-            </ul>
+            <PropTable :prop-defs="propDefinitions" />
         </section>
 
         <section class="my-4">
             <h3 class="h4">Emits</h3>
-            <ul>
-                <li>
-                    <code>update:modelValue</code> (value: String | Number):
-                    Emitted when a radio option is selected. The payload is the
-                    value of the selected option.
-                </li>
-            </ul>
+            <EmitTable :emit-defs="emitDefinitions" />
         </section>
 
         <section class="my-4">
             <h3 class="h4">Demonstration</h3>
 
-            <section class="my-3">
+            <section class="my-4">
                 <h4 class="h5">Basic use, string values</h4>
                 <BSRadioSelect
                     v-model="selectedOption1"
@@ -83,15 +90,16 @@ const radioOptions = ref([
 ]);
 const selectedOption = ref("apples");
 &lt;/script&gt;
-                    &lt;BSRadioSelect
-    v-model="selectedOption"
-    :options="radioOptions"
-/&gt;
-</code>
-                </pre>
+
+&lt;template&gt;
+    &lt;BSRadioSelect
+        v-model="selectedOption"
+        :options="radioOptions"
+    /&gt;
+&lt;/template&gt;</code></pre>
             </section>
 
-            <section class="my-3">
+            <section class="my-4">
                 <h4 class="h5">Numeric values, custom container classes</h4>
                 <BSRadioSelect
                     v-model="selectedOption2"
@@ -111,13 +119,13 @@ const radioOptions = ref([
 const selectedOption = ref(0);
 &lt;/script&gt;
 
-&lt;BSRadioSelect
-    v-model="selectedOption"
-    :options="radioOptions"
-    container-classes="mb-4"
-/&gt;
-</code>
-                </pre>
+&lt;template&gt;
+    &lt;BSRadioSelect
+        v-model="selectedOption"
+        :options="radioOptions"
+        container-classes="mb-4"
+    /&gt;
+&lt;/template&gt;</code></pre>
             </section>
         </section>
     </div>

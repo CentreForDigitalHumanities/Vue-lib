@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { BSSelect, type BSSelectOption } from "cdh-vue-lib";
 import { ref } from "vue";
+import PropTable, { type PropDefinition } from "~/components/PropTable.vue";
+import EmitTable, { type EmitDefinition } from "~/components/EmitTable.vue";
 
 const selectOptions = ref<BSSelectOption<string | number | null>[]>([
     [null, "Empty"],
@@ -16,6 +18,48 @@ const selectOptionsNumbers = ref<BSSelectOption<number>[]>([
     [30, "Thirty"],
 ]);
 const selectedNumber = ref(10);
+
+const propDefinitions: PropDefinition[] = [
+    {
+        name: "options",
+        type: "[string | number | null, string][]",
+        required: true,
+        description:
+            "An array of tuples, where each tuple contains the value and label for an option.",
+    },
+    {
+        name: "modelValue",
+        type: "string | number | null",
+        required: true,
+        description:
+            "The currently selected value of the select input. This should match one of the values in the options array.",
+    },
+    {
+        name: "containerClasses",
+        type: "string",
+        required: false,
+        defaultValue: '""',
+        description:
+            "Additional CSS classes to apply to the <select> element.",
+    },
+    {
+        name: "placeholder",
+        type: "string",
+        required: false,
+        defaultValue: "undefined",
+        description:
+            "If provided, an initial disabled option with this text will be shown. The value of this placeholder option is an empty string ''",
+    },
+];
+
+const emitDefinitions: EmitDefinition[] = [
+    {
+        eventName: "update:modelValue",
+        payload: "string | number | null",
+        description:
+            "Emitted when an option is selected. The payload is the value of the chosen option.",
+    },
+];
 </script>
 
 <template>
@@ -33,53 +77,19 @@ const selectedNumber = ref(10);
 
         <section class="my-4">
             <h3 class="h4">Props</h3>
-            <ul>
-                <li>
-                    <code>options</code> (Array, required): An array of tuples.
-                    Each tuple represents an option and should be in the format
-                    <code>[value, label]</code>, where <code>value</code> can be
-                    a String, Number, or <code>null</code>, and
-                    <code>label</code> is a String displayed to the user.
-                </li>
-                <li>
-                    <code>modelValue</code> (String | Number | null, required):
-                    The currently selected value of the select input. This
-                    should match one of the <code>value</code>s in the
-                    <code>options</code> array.
-                </li>
-                <li>
-                    <code>containerClasses</code> (String, optional, default:
-                    <code>""</code>): Additional CSS classes to apply to the
-                    <code>&lt;select&gt;</code> element.
-                </li>
-                <li>
-                    <code>placeholder</code> (String, optional, default:
-                    <code>undefined</code>): If provided, an initial disabled
-                    option with this text will be shown. The value of this
-                    placeholder option is an empty string <code>''</code>.
-                </li>
-            </ul>
+            <PropTable :prop-defs="propDefinitions" />
         </section>
 
         <section class="my-4">
             <h3 class="h4">Emits</h3>
-            <ul>
-                <li>
-                    <code>update:modelValue</code> (value: String | Number |
-                    null): Emitted when an option is selected. The payload is
-                    the value of the chosen option. The type of the emitted
-                    value (String or Number) will match the type of the original
-                    option value.
-                </li>
-            </ul>
+            <EmitTable :emit-defs="emitDefinitions" />
         </section>
 
         <section class="my-4">
             <h3 class="h4">Demonstration</h3>
 
             <section class="my-3">
-                <h4 class="h5">Basic Select with Mixed Value Types</h4>
-
+                <h4 class="h5">Basic Select</h4>
                 <p>
                     This example demonstrates a select input with options of mixed
                     types.
@@ -138,8 +148,7 @@ const selectedValue = ref&lt;string | number | null&gt;(null);
         v-model="selectedValue"
         :options="selectOptions"
     /&gt;
-&lt;/template&gt;</code>
-                </pre>
+&lt;/template&gt;</code></pre>
             </section>
 
             <section class="my-3">
@@ -179,8 +188,7 @@ const selectedValue = ref(10);
     placeholder="Please choose one..."
     container-classes="p-4"
   /&gt;
-&lt;/template&gt;</code>
-            </pre>
+&lt;/template&gt;</code></pre>
         </section>
     </div>
 </template>

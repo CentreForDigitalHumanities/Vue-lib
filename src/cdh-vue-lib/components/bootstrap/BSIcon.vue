@@ -46,8 +46,7 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const element = computed(() => {
-    if (props.inline) return "span";
-    return "div";
+    return props.inline ? "span" : "div";
 });
 </script>
 

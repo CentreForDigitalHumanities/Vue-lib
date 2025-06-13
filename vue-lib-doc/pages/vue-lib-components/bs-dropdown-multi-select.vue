@@ -28,13 +28,6 @@ const optionsForPreselectionStrings = ref<[string, string][]>([
 ]);
 const preselectedStrings = ref<string[]>(["s1"]);
 
-const optionsForPreselectionNumbers = ref<[number, string][]>([
-    [101, "Pre-selected Number 101"],
-    [102, "Pre-selected Number 102"],
-    [103, "Another Number Option"],
-]);
-const preselectedNumbers = ref<number[]>([101, 103]);
-
 const propDefinitions: PropDefinition[] = [
     {
         name: "label",
