@@ -124,6 +124,19 @@ type DataDefinedColumn =
     | DDCButton
     | DDCDate;
 
+interface DSCListConfig {
+    dataUri: string;
+    sortEnabled: boolean;
+    sortOptions?: SortOption[];
+    filtersEnabled: boolean;
+    filters?: FilterDefinition[];
+    pageSize: number;
+    pageSizeOptions: number[];
+    searchEnabled: boolean;
+    columns: DataDefinedColumn[];
+    container?: "default" | "sidebar";
+}
+
 export type {
     FilterDefinition,
     FilterValue,
@@ -140,4 +153,5 @@ export type {
     DDCDate,
     DDCLink,
     DDCButton,
+    DSCListConfig,
 };

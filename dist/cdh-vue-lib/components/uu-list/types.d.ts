@@ -92,5 +92,17 @@ interface DDCButton extends _DDC {
     size: BSButtonSize | undefined;
 }
 type DataDefinedColumn = DDCHTML | DDCActions | DDCString | DDCLink | DDCButton | DDCDate;
-export type { FilterDefinition, FilterValue, FilterValues, Data, DDCListData, SortOption, ContainerProps, ContainerEmits, DataDefinedColumn, DDCHTML, DDCActions, DDCString, DDCDate, DDCLink, DDCButton, };
+interface DSCListConfig {
+    dataUri: string;
+    sortEnabled: boolean;
+    sortOptions?: SortOption[];
+    filtersEnabled: boolean;
+    filters?: FilterDefinition[];
+    pageSize: number;
+    pageSizeOptions: number[];
+    searchEnabled: boolean;
+    columns: DataDefinedColumn[];
+    container?: "default" | "sidebar";
+}
+export type { FilterDefinition, FilterValue, FilterValues, Data, DDCListData, SortOption, ContainerProps, ContainerEmits, DataDefinedColumn, DDCHTML, DDCActions, DDCString, DDCDate, DDCLink, DDCButton, DSCListConfig, };
 //# sourceMappingURL=types.d.ts.map

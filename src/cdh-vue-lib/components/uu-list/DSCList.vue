@@ -6,28 +6,14 @@
  */
 import { ref, computed, onMounted, watch } from "vue";
 import type {
-    DataDefinedColumn,
-    FilterDefinition,
+    DSCListConfig,
     FilterValues,
 } from "./types";
 import UUList from "./UUList.vue";
 import DataDefinedTable from "./Visualizers/DDV/DataDefinedVisualizer.vue";
 
-interface Config {
-    dataUri: string;
-    sortEnabled: boolean;
-    sortOptions?: SortOption[];
-    filtersEnabled: boolean;
-    filters?: FilterDefinition[];
-    pageSize: number;
-    pageSizeOptions: number[];
-    searchEnabled: boolean;
-    columns: DataDefinedColumn[];
-    container?: "default" | "sidebar";
-}
-
 interface Props {
-    config: Config;
+    config: DSCListConfig;
 }
 
 const props = defineProps<Props>();
@@ -38,11 +24,6 @@ interface ApiResponse {
     pages: number;
     results: never[];
     ordering?: string;
-}
-
-interface SortOption {
-    field: string;
-    label: string;
 }
 
 // eslint-disable-next-line vue/no-setup-props-destructure

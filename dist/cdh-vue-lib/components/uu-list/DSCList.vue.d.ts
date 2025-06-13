@@ -1,28 +1,12 @@
-import type { DataDefinedColumn, FilterDefinition } from "./types";
-interface Config {
-    dataUri: string;
-    sortEnabled: boolean;
-    sortOptions?: SortOption[];
-    filtersEnabled: boolean;
-    filters?: FilterDefinition[];
-    pageSize: number;
-    pageSizeOptions: number[];
-    searchEnabled: boolean;
-    columns: DataDefinedColumn[];
-    container?: "default" | "sidebar";
-}
-interface SortOption {
-    field: string;
-    label: string;
-}
+import type { DSCListConfig } from "./types";
 declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<import("vue").ExtractPropTypes<{
     config: {
-        type: import("vue").PropType<Config>;
+        type: import("vue").PropType<DSCListConfig>;
         required: true;
     };
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
     config: {
-        type: import("vue").PropType<Config>;
+        type: import("vue").PropType<DSCListConfig>;
         required: true;
     };
 }>> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>, {
