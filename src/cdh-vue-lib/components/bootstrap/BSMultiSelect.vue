@@ -42,7 +42,7 @@ function toggleSelected(clickedItem: T) {
             :class="containerClasses"
         >
             <input
-                :id="'id_' + value + '_' + uniqueId"
+                :id="uniqueId"
                 type="checkbox"
                 class="form-check-input"
                 :value="value"
@@ -51,7 +51,7 @@ function toggleSelected(clickedItem: T) {
             />
             <label
                 class="form-check-label"
-                :for="'id_' + value + '_' + uniqueId"
+                :for="uniqueId"
                 >{{ label }}</label
             >
         </div>

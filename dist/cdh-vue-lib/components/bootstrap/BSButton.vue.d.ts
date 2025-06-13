@@ -5,6 +5,9 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<im
         type: import("vue").PropType<"reset" | "submit" | "button">;
         default: string;
     };
+    id: {
+        type: import("vue").PropType<string>;
+    };
     href: {
         type: import("vue").PropType<string>;
     };
@@ -46,6 +49,9 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<im
     input: {
         type: import("vue").PropType<"reset" | "submit" | "button">;
         default: string;
+    };
+    id: {
+        type: import("vue").PropType<string>;
     };
     href: {
         type: import("vue").PropType<string>;

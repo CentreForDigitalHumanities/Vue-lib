@@ -1,4 +1,8 @@
 declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<import("vue").ExtractPropTypes<{
+    id: {
+        type: import("vue").PropType<string | null>;
+        default: null;
+    };
     size: {
         type: import("vue").PropType<"small" | "large" | "default" | "extra-large">;
         default: string;
@@ -6,10 +10,6 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<im
     active: {
         type: import("vue").PropType<boolean>;
         required: true;
-    };
-    id: {
-        type: import("vue").PropType<string | null>;
-        default: null;
     };
     hasBackground: {
         type: import("vue").PropType<boolean>;
@@ -38,8 +38,11 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<im
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     shown: () => void;
     hidden: () => void;
-    "close-clicked": () => void;
 }, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
+    id: {
+        type: import("vue").PropType<string | null>;
+        default: null;
+    };
     size: {
         type: import("vue").PropType<"small" | "large" | "default" | "extra-large">;
         default: string;
@@ -47,10 +50,6 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<im
     active: {
         type: import("vue").PropType<boolean>;
         required: true;
-    };
-    id: {
-        type: import("vue").PropType<string | null>;
-        default: null;
     };
     hasBackground: {
         type: import("vue").PropType<boolean>;
@@ -79,10 +78,9 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<im
 }>> & Readonly<{
     onHidden?: (() => any) | undefined;
     onShown?: (() => any) | undefined;
-    "onClose-clicked"?: (() => any) | undefined;
 }>, {
-    size: "small" | "large" | "default" | "extra-large";
     id: string | null;
+    size: "small" | "large" | "default" | "extra-large";
     hasBackground: boolean;
     backgroundClickCloses: boolean;
     showCloseButton: boolean;
