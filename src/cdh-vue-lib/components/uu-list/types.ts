@@ -40,7 +40,7 @@ interface ContainerProps<T extends Data<string> | Data<number>> {
     filterValues?: FilterValues;
 }
 
-export interface FilterProps {
+interface FilterProps {
     filters: FilterDefinition[];
     filterValues: FilterValues;
 }
@@ -139,6 +139,7 @@ interface DSCListConfig {
 
 export type {
     FilterDefinition,
+    FilterProps,
     FilterValue,
     FilterValues,
     Data,
