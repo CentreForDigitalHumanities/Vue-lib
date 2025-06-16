@@ -12,15 +12,16 @@ const emits = defineEmits<{
     (e: "update:page-size", value: number): void;
 }>();
 
-function updatePageSize(val: string | number) {
-    if (typeof val === "string") {
-        try {
-            val = parseInt(val);
-        } catch (e) {
-            val = props.pageSizeOptions[0] ?? 10;
+function updatePageSize(value: string | number) {
+    if (typeof value === "string") {
+        const parsedValue = parseInt(value);
+        if (isNaN(parsedValue)) {
+            value = props.pageSizeOptions[0] ?? 10;
+        } else {
+            value = parsedValue;
         }
     }
-    emits("update:page-size", val);
+    emits("update:page-size", value);
 }
 </script>
 
