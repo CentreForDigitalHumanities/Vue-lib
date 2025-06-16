@@ -17,8 +17,9 @@ const props = withDefaults(defineProps<Props>(), {
     mobileStickySidebar: false,
 });
 
+const generatedId = useGeneratedId();
 const elementId = computed(() => {
-    return props.id ?? useGeneratedId();
+    return props.id ?? generatedId;
 });
 
 const placementClasses = computed(() => {
