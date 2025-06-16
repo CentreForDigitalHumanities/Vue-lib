@@ -31,7 +31,7 @@ interface ContainerProps<T extends Data<string> | Data<number>> {
     filters?: FilterDefinition[];
     filterValues?: FilterValues;
 }
-export interface FilterProps {
+interface FilterProps {
     filters: FilterDefinition[];
     filterValues: FilterValues;
 }
@@ -104,5 +104,5 @@ interface DSCListConfig {
     columns: DataDefinedColumn[];
     container?: "default" | "sidebar";
 }
-export type { FilterDefinition, FilterValue, FilterValues, Data, DDCListData, SortOption, ContainerProps, ContainerEmits, DataDefinedColumn, DDCHTML, DDCActions, DDCString, DDCDate, DDCLink, DDCButton, DSCListConfig, };
+export type { FilterDefinition, FilterProps, FilterValue, FilterValues, Data, DDCListData, SortOption, ContainerProps, ContainerEmits, DataDefinedColumn, DDCHTML, DDCActions, DDCString, DDCDate, DDCLink, DDCButton, DSCListConfig, };
 //# sourceMappingURL=types.d.ts.map

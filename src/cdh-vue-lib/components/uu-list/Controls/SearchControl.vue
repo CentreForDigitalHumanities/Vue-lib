@@ -10,13 +10,11 @@ function debounce<A extends unknown[]>(
     func: (...args: A) => void,
     timeout: number = 500,
 ): (...args: A) => void {
-    // In browser environments, setTimeout is the same as window.setTimeout,
-    // which returns a number.
-    let timer: number | undefined;
+    let timer: ReturnType<typeof setTimeout> | undefined;
 
     return (...args: A): void => {
         clearTimeout(timer);
-        timer = window.setTimeout(() => {
+        timer = setTimeout(() => {
             func(...args);
         }, timeout);
     };

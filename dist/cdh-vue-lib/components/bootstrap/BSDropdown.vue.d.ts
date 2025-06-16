@@ -1,7 +1,7 @@
 declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<import("vue").ExtractPropTypes<{
     id: {
         type: import("vue").PropType<string | null>;
-        default: string;
+        default: null;
     };
     variant: {
         type: import("vue").PropType<"primary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark">;
@@ -10,7 +10,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<im
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
     id: {
         type: import("vue").PropType<string | null>;
-        default: string;
+        default: null;
     };
     variant: {
         type: import("vue").PropType<"primary" | "link" | "info" | "success" | "warning" | "danger" | "light" | "dark">;
