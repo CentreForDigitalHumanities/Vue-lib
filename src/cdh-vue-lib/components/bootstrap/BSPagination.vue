@@ -17,37 +17,43 @@ function clamp(val: number, min: number, max: number) {
     return Math.min(Math.max(val, min), max);
 }
 
-const items = computed(() => {
-    const delta = props.numOptions;
-    const left = props.currentpage - delta;
-    const right = props.currentpage + delta + 1;
-    const range = [];
-    const rangeWithDots = [];
-    let l;
+const items = computed<(number | 'ellipsis')[]>(() => {
+    const visiblePagesAroundCurrent = props.numOptions;
+    const rangeStart = props.currentpage - visiblePagesAroundCurrent;
+    const rangeEnd = props.currentpage + visiblePagesAroundCurrent;
 
-    for (let i = 1; i <= props.maxPages; i++) {
-        if (i === 1 || i === props.maxPages || (i >= left && i < right))
-            range.push(i);
-    }
+    // Create an array with first and last page numbers and pages within range.
+    const essentialPageNumbers = Array.from({ length: props.maxPages }, (_, index) => index + 1)
+        .filter(pageNum =>
+            pageNum === 1 ||
+            pageNum === props.maxPages ||
+            (pageNum >= rangeStart && pageNum <= rangeEnd)
+        );
 
-    for (const i of range) {
-        if (l) {
-            if (i - l === 2) rangeWithDots.push(l + 1);
-            else if (i - l !== 1) rangeWithDots.push(-42);
+    const paginationItems: (number | 'ellipsis')[] = [];
+    essentialPageNumbers.forEach((pageNum, index) => {
+        if (index === 0) {
+            paginationItems.push(pageNum);
+            return;
         }
-        rangeWithDots.push(i);
-        l = i;
-    }
+        // Add ellipsis if the pages are not consecutive.
+        if (pageNum - essentialPageNumbers[index - 1] > 1) {
+            paginationItems.push('ellipsis');
+        }
+        paginationItems.push(pageNum);
+    });
 
-    return rangeWithDots;
+    return paginationItems;
 });
 
-// eslint-disable-next-line func-call-spacing
 const emit = defineEmits<{
     (e: "change-page", value: number): void;
 }>();
 
-function changePage(page: number) {
+function changePage(page: number | 'ellipsis') {
+    if (page === 'ellipsis') {
+        return;
+    }
     page = clamp(page, 1, props.maxPages);
 
     emit("change-page", page);
@@ -79,7 +85,7 @@ const { t } = useI18n();
             :key="item"
             class="page-item"
             :class="
-                (item === -42 ? 'disabled page-ellipsis ' : '') +
+                (item === 'ellipsis' ? 'disabled page-ellipsis ' : '') +
                 (item === currentpage ? 'active' : '')
             "
         >

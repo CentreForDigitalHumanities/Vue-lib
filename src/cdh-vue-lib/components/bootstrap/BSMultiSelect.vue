@@ -1,5 +1,5 @@
 <script lang="ts" setup generic="T extends string | number">
-import { v4 as UUIDv4 } from "uuid";
+import useGeneratedId from "@/cdh-vue-lib/composables/useGeneratedId";
 
 const props = withDefaults(
     defineProps<{
@@ -10,29 +10,26 @@ const props = withDefaults(
     }>(),
     {
         containerClasses: "",
-        uniqueId: () => UUIDv4().toString(),
-    }
+        uniqueId: () => useGeneratedId(),
+    },
 );
 
-// eslint-disable-next-line func-call-spacing
 const emit = defineEmits<{
-    // Twice, because Vue is dumb
-    (e: "update:modelValue", value: T[]): void;
     (e: "update:model-value", value: T[]): void;
 }>();
 
-function toggleSelected(key: T) {
-    const curVal: boolean = props.modelValue.includes(key);
+function toggleSelected(clickedItem: T) {
+    const isSelected = props.modelValue.includes(clickedItem);
+    const newSelected = [...props.modelValue];
+    const indexOfClicked = newSelected.indexOf(clickedItem);
 
-    let copy = [...props.modelValue];
-
-    if (!curVal) copy.push(key);
-    else {
-        const index = copy.indexOf(key);
-        if (index > -1) copy.splice(index, 1); // 2nd parameter means remove one item only
+    if (!isSelected) {
+        newSelected.push(clickedItem);
+    } else if (indexOfClicked > -1) {
+        newSelected.splice(indexOfClicked, 1);
     }
 
-    emit("update:modelValue", copy);
+    emit("update:model-value", newSelected);
 }
 </script>
 
@@ -45,7 +42,7 @@ function toggleSelected(key: T) {
             :class="containerClasses"
         >
             <input
-                :id="'id_' + value + '_' + uniqueId"
+                :id="`${uniqueId}-${value}`"
                 type="checkbox"
                 class="form-check-input"
                 :value="value"
@@ -54,7 +51,7 @@ function toggleSelected(key: T) {
             />
             <label
                 class="form-check-label"
-                :for="'id_' + value + '_' + uniqueId"
+                :for="`${uniqueId}-${value}`"
                 >{{ label }}</label
             >
         </div>

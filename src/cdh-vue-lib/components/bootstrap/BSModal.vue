@@ -1,6 +1,5 @@
-<script setup lang="ts">
-import { v4 as UUIDv4 } from "uuid";
-import { ref, Ref, watch, computed, onMounted, onUnmounted } from "vue";
+<script lang="ts" setup>
+import { ref, type Ref, watch, computed, onMounted, onUnmounted } from "vue";
 import { Modal as BsModal } from "bootstrap";
 
 interface Props {
@@ -25,82 +24,85 @@ const props = withDefaults(defineProps<Props>(), {
     centered: false,
 });
 
-// eslint-disable-next-line func-call-spacing
 const emit = defineEmits<{
     (e: "shown"): void;
     (e: "hidden"): void;
-    (e: "close-clicked"): void;
 }>();
 
-const elId = computed(() => {
-    if (props.id !== null) return props.id;
+const modalClasses = computed<string>(() => {
+    const classes: string[] = [];
 
-    return "id_" + UUIDv4().toString();
-});
-
-const modalClasses = computed(() => {
-    let cls = "";
-
-    if (props.centered) cls += "modal-dialog-centered ";
+    if (props.centered) {
+        classes.push("modal-dialog-centered");
+    }
 
     switch (props.size) {
         case "small":
-            cls += "modal-sm modal-fullscreen-sm-down";
+            classes.push("modal-sm modal-fullscreen-sm-down");
             break;
         case "large":
-            cls += "modal-lg modal-fullscreen-lg-down";
+            classes.push("modal-lg modal-fullscreen-lg-down");
             break;
         case "extra-large":
-            cls += "modal-xl modal-fullscreen-xl-down";
+            classes.push("modal-xl modal-fullscreen-xl-down");
             break;
         default:
-            cls += " modal-fullscreen-md-down";
+            classes.push("modal-fullscreen-md-down");
             break;
     }
 
-    return cls;
+    return classes.join(" ");
 });
 
-const headerClasses = computed(() => {
-    let cls = "";
+const headerClasses = computed<string>(() => {
+    const classes: string[] = [];
 
-    if (typeof props.headerColor !== "undefined" && props.headerColor !== null)
-        cls += `text-bg-${props.headerColor} `;
+    if (props.headerColor) {
+        classes.push(`text-bg-${props.headerColor}`);
+    }
 
-    if (props.headerBold) cls += "fw-bold ";
+    if (props.headerBold) {
+        classes.push("fw-bold");
+    }
 
-    return cls;
+    return classes.join(" ");
 });
 
 let bsModal: Ref<BsModal> | undefined;
-let modalEl: Ref<HTMLElement | null> | undefined;
 
-function switchBsModal(show: boolean) {
-    if (show) bsModal?.value?.show();
-    else bsModal?.value?.hide();
+// With Vue 3.5 we will be able to use useTemplateRef instead.
+const modalElement = ref<HTMLDivElement | null>(null);
+
+function switchBsModal(show: boolean): void {
+    if (show) {
+        bsModal?.value?.show();
+    } else {
+        bsModal?.value?.hide();
+    }
 }
 
 onMounted(() => {
-    modalEl = ref(document.getElementById(elId.value));
-    // Should not happen, but makes the compiler happy
-    if (
-        typeof modalEl === "undefined" ||
-        typeof modalEl.value === "undefined" ||
-        modalEl.value === null
-    )
+    // Should not happen.
+    if (!modalElement.value) {
         return;
+    }
 
     let backdrop: boolean | "static" = props.hasBackground;
-    if (backdrop && !props.backgroundClickCloses) backdrop = "static";
+
+    if (backdrop && !props.backgroundClickCloses) {
+        backdrop = "static";
+    }
 
     bsModal = ref(
-        new BsModal(modalEl.value, {
+        new BsModal(modalElement.value, {
             backdrop,
-        })
+        }),
     );
 
-    modalEl.value?.addEventListener("hidden.bs.modal", () => emit("hidden"));
-    modalEl.value?.addEventListener("shown.bs.modal", () => emit("shown"));
+    modalElement.value.addEventListener("hidden.bs.modal", () =>
+        emit("hidden"),
+    );
+    modalElement.value.addEventListener("shown.bs.modal", () => emit("shown"));
 
     switchBsModal(props.active);
 });
@@ -113,13 +115,13 @@ watch(
     () => props.active,
     (newValue) => {
         switchBsModal(newValue);
-    }
+    },
 );
 </script>
 
 <template>
     <Teleport to="body">
-        <div :id="elId" class="modal fade" tabindex="-1">
+        <div ref="modalElement" class="modal fade" tabindex="-1">
             <div
                 class="modal-dialog modal-dialog-scrollable"
                 :class="modalClasses"
@@ -157,5 +159,3 @@ watch(
         </div>
     </Teleport>
 </template>
-
-<style scoped></style>

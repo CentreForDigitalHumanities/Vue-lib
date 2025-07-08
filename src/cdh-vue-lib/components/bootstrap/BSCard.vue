@@ -1,18 +1,17 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed } from "vue";
 
 const props = defineProps<{
     headerClasses?: string;
 }>();
 
-// eslint-disable-next-line func-call-spacing
 const emits = defineEmits<{
     (e: "header-icon-clicked"): void;
 }>();
 
 const headerClass = computed(() => {
-    if (typeof props.headerClasses !== "undefined")
-        return "card-header fw-bold " + props.headerClasses;
+    if (props.headerClasses)
+        return `card-header fw-bold ${props.headerClasses}`;
 
     return "card-header fw-bold";
 });

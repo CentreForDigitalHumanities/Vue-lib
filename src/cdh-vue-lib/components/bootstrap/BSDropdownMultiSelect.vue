@@ -1,36 +1,34 @@
-<script lang="ts" setup>
+<script lang="ts" generic="T extends string | number" setup>
 import { BSMultiSelect } from ".";
-import { v4 as uuidv4 } from "uuid";
 import { ref } from "vue";
+import BSButton from "./BSButton.vue";
+import useGeneratedId from "@/cdh-vue-lib/composables/useGeneratedId";
 
-interface Props {
+// Don't use interfaces for Props / Emits here, as they somehow generate errors
+// in this generic component.
+const props = withDefaults(defineProps<{
     label: string;
-    options: [string | number, string][];
-    modelValue: string[] | number[];
-}
-const props = withDefaults(defineProps<Props>(), {});
+    options: [T, string][];
+    modelValue: T[];
+}>(), {});
 
-// eslint-disable-next-line func-call-spacing
 const emit = defineEmits<{
-    (
-        e: "update:modelValue",
-        value: string | number | string[] | number[]
-    ): void;
+    (e: "update:modelValue", value: T | T[]): void
 }>();
 
-const id = ref(uuidv4());
+const id = ref(useGeneratedId());
 </script>
 
 <template>
     <div class="dropdown dropdown-select is-hoverable">
-        <Button
+        <BSButton
             class="dropdown-toggle"
             aria-haspopup="true"
             data-bs-toggle="dropdown"
             aria-expanded="false"
         >
             <span class="me-2">{{ label }}</span>
-        </Button>
+        </BSButton>
         <div :id="id" class="dropdown-menu" role="menu">
             <div class="dropdown-content ps-4">
                 <BSMultiSelect
@@ -45,7 +43,6 @@ const id = ref(uuidv4());
 </template>
 
 <style lang="scss">
-@import "node_modules/uu-bootstrap/scss/configuration";
 .dropdown.dropdown-select {
     .dropdown-menu {
         padding-top: 0; // Small UI fix

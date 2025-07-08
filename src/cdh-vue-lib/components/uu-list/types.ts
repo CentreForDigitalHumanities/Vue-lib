@@ -1,4 +1,4 @@
-import {
+import type {
     BSButtonSize,
     BSButtonVariant,
 } from "@/cdh-vue-lib/components/bootstrap/BSButton.vue";
@@ -40,6 +40,11 @@ interface ContainerProps<T extends Data<string> | Data<number>> {
     filterValues?: FilterValues;
 }
 
+interface FilterProps {
+    filters: FilterDefinition[];
+    filterValues: FilterValues;
+}
+
 type ContainerEmits = {
     (e: "update:current-page", value: number): void;
     (e: "update:search", value: string): void;
@@ -49,7 +54,7 @@ type ContainerEmits = {
 };
 
 interface DDCListData extends Data<string | number> {
-    [Key: string]: any;
+    [key: string]: any;
 }
 
 interface _DDC {
@@ -119,8 +124,22 @@ type DataDefinedColumn =
     | DDCButton
     | DDCDate;
 
-export {
+interface DSCListConfig {
+    dataUri: string;
+    sortEnabled: boolean;
+    sortOptions?: SortOption[];
+    filtersEnabled: boolean;
+    filters?: FilterDefinition[];
+    pageSize: number;
+    pageSizeOptions: number[];
+    searchEnabled: boolean;
+    columns: DataDefinedColumn[];
+    container?: "default" | "sidebar";
+}
+
+export type {
     FilterDefinition,
+    FilterProps,
     FilterValue,
     FilterValues,
     Data,
@@ -135,4 +154,5 @@ export {
     DDCDate,
     DDCLink,
     DDCButton,
+    DSCListConfig,
 };

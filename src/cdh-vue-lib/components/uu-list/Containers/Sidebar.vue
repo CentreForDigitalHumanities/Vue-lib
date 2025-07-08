@@ -2,11 +2,12 @@
 import { computed } from "vue";
 import { BSPagination, BSSidebar } from "../../bootstrap";
 import FilterBar from "../Filters/FilterBar.vue";
-import { ContainerEmits, ContainerProps, Data } from "../types";
+import type { ContainerEmits, ContainerProps, Data, FilterProps, FilterValues } from "../types";
 import SearchControl from "../Controls/SearchControl.vue";
 import PageSizeControl from "../Controls/PageSizeControl.vue";
 import SortControl from "../Controls/SortControl.vue";
 import SearchResultNum from "@/cdh-vue-lib/components/uu-list/Controls/SearchResultNum.vue";
+import { container2FilterProps } from "../utils";
 
 const props = defineProps<ContainerProps<T>>();
 
@@ -14,6 +15,10 @@ const emits = defineEmits<ContainerEmits>();
 
 const totalPages = computed(() => {
     return Math.ceil(props.totalData / props.pageSize);
+});
+
+const filterProps = computed<FilterProps | null>(() => {
+    return container2FilterProps(props);
 });
 </script>
 
@@ -23,15 +28,14 @@ const totalPages = computed(() => {
             <SearchControl
                 v-if="searchEnabled"
                 :model-value="search"
-                @update:model-value="(value) => $emit('update:search', value)"
+                @update:model-value="(value: string) => $emit('update:search', value)"
             />
             <slot name="filters-top" :data="data" :is-loading="isLoading" />
             <FilterBar
-                v-if="filters"
-                :filters="filters"
-                :filter-values="filterValues"
+                v-if="filterProps"
+                :filter-props="filterProps"
                 @update:filter-values="
-                    (val) => $emit('update:filter-values', val)
+                    (val: FilterValues) => $emit('update:filter-values', val)
                 "
             />
             <slot name="filters-bottom" :data="data" :is-loading="isLoading" />
@@ -49,7 +53,7 @@ const totalPages = computed(() => {
                         :current-sort="currentSort"
                         :sort-options="sortOptions"
                         @update:current-sort="
-                            (value) => emits('update:current-sort', value)
+                            (value: string) => emits('update:current-sort', value)
                         "
                     />
                 </div>
@@ -58,7 +62,7 @@ const totalPages = computed(() => {
                         :page-size-options="pageSizeOptions"
                         :page-size="pageSize"
                         @update:page-size="
-                            (value) => emits('update:page-size', value)
+                            (value: number) => emits('update:page-size', value)
                         "
                     />
                 </div>
@@ -70,7 +74,7 @@ const totalPages = computed(() => {
                     v-if="data"
                     :max-pages="totalPages"
                     :currentpage="currentPage"
-                    @change-page="(val) => $emit('update:current-page', val)"
+                    @change-page="(val: number) => $emit('update:current-page', val)"
                 />
             </div>
         </div>

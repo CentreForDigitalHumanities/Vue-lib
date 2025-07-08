@@ -2,18 +2,22 @@
 import { computed } from "vue";
 import { BSPagination } from "../../bootstrap";
 import FilterBar from "../Filters/FilterBar.vue";
-import { ContainerEmits, ContainerProps, Data } from "../types";
+import type { ContainerEmits, ContainerProps, Data, FilterProps, FilterValues } from "../types";
 import SearchControl from "../Controls/SearchControl.vue";
 import PageSizeControl from "../Controls/PageSizeControl.vue";
 import SortControl from "../Controls/SortControl.vue";
 import SearchResultNum from "@/cdh-vue-lib/components/uu-list/Controls/SearchResultNum.vue";
+import { container2FilterProps } from "../utils";
 
 const props = defineProps<ContainerProps<T>>();
-
 const emits = defineEmits<ContainerEmits>();
 
 const totalPages = computed(() => {
     return Math.ceil(props.totalData / props.pageSize);
+});
+
+const filterProps = computed<FilterProps | null>(() => {
+    return container2FilterProps(props);
 });
 </script>
 
@@ -26,7 +30,7 @@ const totalPages = computed(() => {
                     :model-value="search"
                     class="uu-list-search-control"
                     @update:model-value="
-                        (value) => $emit('update:search', value)
+                        (value: string) => $emit('update:search', value)
                     "
                 />
                 <SearchResultNum
@@ -40,7 +44,7 @@ const totalPages = computed(() => {
                         :current-sort="currentSort"
                         :sort-options="sortOptions"
                         @update:current-sort="
-                            (value) => emits('update:current-sort', value)
+                            (value: string) => emits('update:current-sort', value)
                         "
                     />
                 </div>
@@ -49,18 +53,17 @@ const totalPages = computed(() => {
                         :page-size-options="pageSizeOptions"
                         :page-size="pageSize"
                         @update:page-size="
-                            (value) => emits('update:page-size', value)
+                            (value: number) => emits('update:page-size', value)
                         "
                     />
                 </div>
             </div>
-            <div v-if="filtersEnabled" class="uu-list-filters">
+            <div v-if="filtersEnabled && filterProps" class="uu-list-filters">
                 <slot name="filters-top" :data="data" :is-loading="isLoading" />
                 <FilterBar
-                    :filters="filters"
-                    :filter-values="filterValues"
+                    :filter-props="filterProps"
                     @update:filter-values="
-                        (val) => $emit('update:filter-values', val)
+                        (val: FilterValues) => $emit('update:filter-values', val)
                     "
                 />
                 <slot
@@ -78,7 +81,7 @@ const totalPages = computed(() => {
                         :max-pages="totalPages"
                         :currentpage="currentPage"
                         @change-page="
-                            (val) => $emit('update:current-page', val)
+                            (val: number) => $emit('update:current-page', val)
                         "
                     />
                 </div>

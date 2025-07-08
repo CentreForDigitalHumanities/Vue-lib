@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useInputValue } from "../../../composables";
-import { SortOption } from "../types";
+import type { SortOption } from "../types";
 
 interface Props {
     currentSort: string;
@@ -11,7 +11,6 @@ const props = defineProps<Props>();
 
 const emits = defineEmits<{
     (e: "update:current-sort", value: string): void;
-    (e: "update:currentSort", value: string): void;
 }>();
 </script>
 

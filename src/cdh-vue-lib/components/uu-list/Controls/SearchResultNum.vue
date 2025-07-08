@@ -26,8 +26,6 @@ const { t } = useI18n();
     </div>
 </template>
 
-<style scoped></style>
-
 <i18n>
 {
   "en": {
