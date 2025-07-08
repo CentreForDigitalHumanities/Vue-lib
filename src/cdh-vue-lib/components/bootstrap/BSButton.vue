@@ -76,6 +76,10 @@ const buttonClasses = computed(() => {
         classes.push(`btn-${props.variant}`);
     }
 
+    if (props.loading) {
+        classes.push("btn-loading");
+    }
+
     if (props.active) {
         classes.push("active");
     }

@@ -108,7 +108,7 @@ const propsData: PropDefinition[] = [
         required: false,
         defaultValue: "false",
         description:
-            "If <code>href</code> is used, opens the link in a new tab.",
+            "If href is used, opens the link in a new tab.",
     },
     {
         name: "css-classes",

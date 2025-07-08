@@ -7,6 +7,7 @@ interface Props {
     id?: string | null;
     variant?:
         | "primary"
+        | "secondary"
         | "link"
         | "info"
         | "success"
