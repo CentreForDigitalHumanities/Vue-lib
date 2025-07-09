@@ -115,12 +115,6 @@ const buttonClasses = computed(() => {
         :disabled="disabled"
     >
         <span class="btn-text"><slot /></span>
-        <span
-            v-if="loading"
-            class="spinner-border spinner-border-sm ms-2"
-            role="status"
-            aria-hidden="true"
-        />
     </button>
 </template>
 
