@@ -1,4 +1,4 @@
-import BSButton from "./BSButton.vue";
+import BSButton, { type BSButtonSize, type BSButtonVariant } from "./BSButton.vue";
 import BSCard from "./BSCard.vue";
 import BSDropdown from "./BSDropdown.vue";
 import BSDropdownMultiSelect from "./BSDropdownMultiSelect.vue";
@@ -12,6 +12,8 @@ import BSSidebar from "./BSSidebar.vue";
 
 export {
     type BSSelectOption,
+    type BSButtonVariant,
+    type BSButtonSize,
     BSButton,
     BSCard,
     BSDropdown,
