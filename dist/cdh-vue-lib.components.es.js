@@ -1046,6 +1046,7 @@ const St = /* @__PURE__ */ f({
 }), wt = /* @__PURE__ */ f({
   __name: "UUList",
   props: {
+    container: { default: "default" },
     data: {},
     isLoading: { type: Boolean, default: !1 },
     totalData: {},
@@ -1059,8 +1060,7 @@ const St = /* @__PURE__ */ f({
     pageSizeOptions: { default: () => [10, 25, 50] },
     filtersEnabled: { type: Boolean, default: !1 },
     filters: {},
-    filterValues: {},
-    container: { default: "default" }
+    filterValues: {}
   },
   emits: ["update:current-page", "update:search", "update:current-sort", "update:page-size", "update:filter-values"],
   setup(p, { emit: t }) {
