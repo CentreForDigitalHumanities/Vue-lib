@@ -165,8 +165,7 @@ const propDefinitions: PropDefinition[] = [
         type: "number[]",
         required: false,
         defaultValue: "[10, 25, 50]",
-        description:
-            "Array of available page size options for pagination.",
+        description: "Array of available page size options for pagination.",
     },
     {
         name: "filtersEnabled",
@@ -185,8 +184,7 @@ const propDefinitions: PropDefinition[] = [
     },
     {
         name: "filterValues",
-        type:
-            'FilterValues (Record<string, string | number | null | string[] | number[]>)',
+        type: "FilterValues (Record<string, string | number | null | string[] | number[]>)",
         required: false,
         defaultValue: "undefined",
         description:
@@ -217,10 +215,8 @@ const emitDefinitions: EmitDefinition[] = [
     },
     {
         eventName: "update:filter-values",
-        payload:
-            'FilterValues',
-        description:
-            "Emitted when filter values change.",
+        payload: "FilterValues",
+        description: "Emitted when filter values change.",
     },
 ];
 </script>
@@ -253,6 +249,18 @@ const emitDefinitions: EmitDefinition[] = [
                     The component relies on parent-managed data operations. It
                     emits events for changes (e.g., page, sort, search, filter),
                     and expects the parent to provide updated data.
+                </li>
+                <li>
+                    Due to a currently unresolved bug, the `data` prop on this
+                    component's slots is not typed properly. For now, use
+                    <a
+                        href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        type assertions</a
+                    >
+                    to help the TypeScript compiler.
                 </li>
             </ul>
         </section>
@@ -299,7 +307,9 @@ const emitDefinitions: EmitDefinition[] = [
                         :is-loading="isLoading"
                         :page-size-options="[3, 5, 10]"
                     >
-                        <template #data="{ data }">
+                        <template
+                            #data="{ data }: { data: Pokemon[] | undefined }"
+                        >
                             <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
@@ -441,7 +451,7 @@ function fetchData(): void {
     :is-loading="isLoading"
     :page-size-options="[3, 5, 10]"
 &gt;
-    &lt;template #data="{ data }"&gt;
+    &lt;template #data="{ data }: { data: Pokemon[] | undefined }"&gt;
         &lt;table class="table table-hover table-striped"&gt;
             &lt;thead&gt;
                 &lt;tr&gt;
