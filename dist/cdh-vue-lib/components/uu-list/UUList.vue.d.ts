@@ -1,12 +1,11 @@
 import type { ContainerEmits } from "@/cdh-vue-lib/components/uu-list/types";
 import type { ContainerProps, Data } from "@/cdh-vue-lib/components/uu-list/types";
-type NonOptionalField = "totalData" | "currentPage";
-type SelectiveContainerProps<T extends Data<string> | Data<number>> = Partial<ContainerProps<T>> & Pick<ContainerProps<T>, NonOptionalField>;
-interface Props<T extends Data<string> | Data<number>> extends SelectiveContainerProps<T> {
-    container?: "default" | "sidebar";
-}
-declare const _default: <T extends Data<string> | Data<number>>(__VLS_props: Props<T> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, __VLS_ctx?: Pick<{
-    props: Props<T>;
+declare const _default: <T extends Data<string> | Data<number>>(__VLS_props: Partial<ContainerProps<T>> & Pick<ContainerProps<T>, "totalData" | "currentPage"> & {
+    container?: "default" | "sidebar" | undefined;
+} & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, __VLS_ctx?: Pick<{
+    props: Partial<ContainerProps<T>> & Pick<ContainerProps<T>, "totalData" | "currentPage"> & {
+        container?: "default" | "sidebar" | undefined;
+    };
     expose(exposed: {}): void;
     attrs: any;
     slots: {
@@ -25,7 +24,9 @@ declare const _default: <T extends Data<string> | Data<number>>(__VLS_props: Pro
     };
     emit: ContainerEmits;
 }, "attrs" | "emit" | "slots"> | undefined, __VLS_setup?: Promise<{
-    props: Props<T>;
+    props: Partial<ContainerProps<T>> & Pick<ContainerProps<T>, "totalData" | "currentPage"> & {
+        container?: "default" | "sidebar" | undefined;
+    };
     expose(exposed: {}): void;
     attrs: any;
     slots: {
@@ -47,7 +48,9 @@ declare const _default: <T extends Data<string> | Data<number>>(__VLS_props: Pro
     [key: string]: any;
 }> & {
     __ctx?: {
-        props: Props<T>;
+        props: Partial<ContainerProps<T>> & Pick<ContainerProps<T>, "totalData" | "currentPage"> & {
+            container?: "default" | "sidebar" | undefined;
+        };
         expose(exposed: {}): void;
         attrs: any;
         slots: {
