@@ -15,14 +15,6 @@ export default defineNuxtConfig({
             ],
         },
     },
-    vite: {
-        build: {
-            minify: false,
-            rollupOptions: {
-                "external": ["graphql"],
-            },
-        },
-    }
     // Enabling SSR breaks Bootstrap JS, which expects document.
     ssr: false,
     compatibilityDate: "2024-11-01",

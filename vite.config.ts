@@ -57,6 +57,8 @@ export default defineConfig({
         },
         rollupOptions: {
             external: [
+                "graphql",
+                "rxjs",
                 "vue",
                 "uuid",
                 "vue-i18n",
