@@ -17,30 +17,32 @@ express or implied.
 * See the Licence for the specific language governing
 permissions and limitations under the Licence.
 */
-import { BSButton as p, BSCard as l, BSDropdown as B, BSDropdownMultiSelect as a, BSIcon as m, BSModal as s, BSMultiSelect as n, BSPagination as d, BSRadioSelect as c, BSSelect as I, BSSidebar as U, DSCList as b, UUList as f, UUListTypes as x } from "./cdh-vue-lib.components.es.js";
-import { u as L } from "./useInputValue-e686f6e9.js";
-import { useInputValueAsNumber as N, useInputValueAsNumberOrNull as V } from "./cdh-vue-lib.composables.es.js";
+import { BSButton as l, BSCard as B, BSDropdown as a, BSDropdownMultiSelect as m, BSIcon as s, BSModal as n, BSMultiSelect as d, BSPagination as c, BSRadioSelect as L, BSSelect as I, BSSidebar as U, DSCList as b, GraphQLList as f, UUList as x, UUListTypes as D } from "./cdh-vue-lib.components.es.js";
+import { u as N } from "./useInputValue-e686f6e9.js";
+import { useInputValueAsNumber as w, useInputValueAsNumberOrNull as A } from "./cdh-vue-lib.composables.es.js";
 import "vue";
 import "uuid";
 import "@fortawesome/vue-fontawesome";
 import "bootstrap";
 import "vue-i18n";
+import "@vue/apollo-composable";
 export {
-  p as BSButton,
-  l as BSCard,
-  B as BSDropdown,
-  a as BSDropdownMultiSelect,
-  m as BSIcon,
-  s as BSModal,
-  n as BSMultiSelect,
-  d as BSPagination,
-  c as BSRadioSelect,
+  l as BSButton,
+  B as BSCard,
+  a as BSDropdown,
+  m as BSDropdownMultiSelect,
+  s as BSIcon,
+  n as BSModal,
+  d as BSMultiSelect,
+  c as BSPagination,
+  L as BSRadioSelect,
   I as BSSelect,
   U as BSSidebar,
   b as DSCList,
-  f as UUList,
-  x as UUListTypes,
-  L as useInputValue,
-  N as useInputValueAsNumber,
-  V as useInputValueAsNumberOrNull
+  f as GraphQLList,
+  x as UUList,
+  D as UUListTypes,
+  N as useInputValue,
+  w as useInputValueAsNumber,
+  A as useInputValueAsNumberOrNull
 };

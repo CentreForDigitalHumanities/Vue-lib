@@ -57,6 +57,7 @@ export default defineConfig({
         },
         rollupOptions: {
             external: [
+                "rxjs",
                 "vue",
                 "uuid",
                 "vue-i18n",
@@ -64,6 +65,10 @@ export default defineConfig({
                 "@fortawesome/fontawesome-svg-core",
                 "@fortawesome/free-solid-svg-icons",
                 "@fortawesome/vue-fontawesome",
+                "@apollo/client",
+                "@apollo/client/core",
+                "@vue/apollo-composable",
+                "graphql",
             ],
             output: {
                 globals: {

@@ -2,6 +2,7 @@ import type {
     BSButtonSize,
     BSButtonVariant,
 } from "@/cdh-vue-lib/components/bootstrap/BSButton.vue";
+import type { OperationVariables} from "@apollo/client";
 
 interface FilterDefinition {
     field: string;
@@ -137,6 +138,24 @@ interface DSCListConfig {
     container?: "default" | "sidebar";
 }
 
+export type InputMaybe<T> = T | null;
+
+interface GraphQLListVariables extends OperationVariables {
+    limit?: InputMaybe<number>;
+    offset?: InputMaybe<number>;
+    search?: InputMaybe<string>;
+    ordering?: InputMaybe<string>;
+}
+
+type GraphQLListData<Item extends Data<string>> = {
+    pageInfo: {
+        count?: number | null;
+        offset?: number | null;
+        limit?: number | null;
+    };
+    results: (Item | null)[];
+};
+
 export type {
     FilterDefinition,
     FilterProps,
@@ -155,4 +174,6 @@ export type {
     DDCLink,
     DDCButton,
     DSCListConfig,
+    GraphQLListVariables,
+    GraphQLListData,
 };
