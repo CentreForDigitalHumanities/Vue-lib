@@ -1,7 +1,11 @@
-<script 
-    lang="ts" 
-    setup 
-    generic="PageData extends GraphQLListData<Data<string>>, TResult, Variables extends GraphQLListVariables"
+<script
+    lang="ts"
+    setup
+    generic="
+        PageData extends GraphQLListData<Data<string>>,
+        TResult,
+        Variables extends GraphQLListVariables
+    "
 >
 import _ from "lodash";
 import UUList from "./UUList.vue";
@@ -22,7 +26,13 @@ import { computed, watch, type UnwrapNestedRefs } from "vue";
 //
 // Component defs
 //
-export interface Props {
+export interface Props<
+    TResult = unknown,
+    Variables extends GraphQLListVariables = GraphQLListVariables,
+    PageData extends GraphQLListData<Data<string>> = GraphQLListData<
+        Data<string>
+    >,
+> {
     queryDocument: TypedDocumentNode<TResult, Variables>;
     variables?: GraphQLListVariables;
     orderingOptions?: SortOption[];
@@ -34,8 +44,7 @@ export interface Props {
     fetchPolicy?: WatchQueryFetchPolicy;
 }
 
-
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props<TResult, Variables, PageData>>(), {
     variables: undefined,
     orderingOptions: undefined,
     container: "default",
@@ -47,7 +56,7 @@ const props = withDefaults(defineProps<Props>(), {
 const emits = defineEmits<{
     (
         e: "update:variables",
-        value: UnwrapNestedRefs<GraphQLListVariables>
+        value: UnwrapNestedRefs<GraphQLListVariables>,
     ): void;
 }>();
 
@@ -103,7 +112,7 @@ watch(
         }
         emits("update:variables", value);
     },
-    { immediate: true }
+    { immediate: true },
 );
 
 //
@@ -117,7 +126,7 @@ watch(
 // As the query returns data under a single, varying, key, we can't just use
 // results directly. This shim solves that problem. TS is happy due to
 // complicated typing :)
-const pageData = computed<PageData | undefined>(() => {
+const pageData = computed(() => {
     if (!result.value) {
         return undefined;
     }
@@ -257,7 +266,6 @@ function updateFilterValues(newFilterValues: FilterValues) {
     }
 }
 </script>
-
 
 <template>
     <UUList
