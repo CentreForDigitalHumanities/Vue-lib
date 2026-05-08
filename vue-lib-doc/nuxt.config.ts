@@ -43,7 +43,7 @@ export default defineNuxtConfig({
             devSourcemap: true,
             preprocessorOptions: {
                 scss: {
-                    quietDeps: true
+                    quietDeps: true,
                 }
             }
         }

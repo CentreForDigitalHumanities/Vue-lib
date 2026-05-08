@@ -15,13 +15,22 @@ export default function (
     props: Record<string, unknown>,
     children: unknown,
 ) {
-    let mountPoint: HTMLElement | null = document.createElement("div");
-    const app = getCurrentInstance()?.appContext.app;
-
-    let vNode: VNode | null = createVNode(component, props, children);
-    if (app && app._context) {
-        vNode.appContext = app._context;
+    if (!document) {
+        // Fail silently in a non-browser environment.
+        return {
+            vNode: null,
+            destroy: () => {},
+            mountPoint: null,
+        };
     }
+
+    let mountPoint: HTMLElement | null = document.createElement("div");
+    let vNode: VNode | null = createVNode(component, props, children);
+
+    const appContext = getCurrentInstance()?.appContext;
+    vNode.appContext = appContext ?? null;
+
+    document.body.appendChild(mountPoint);
     render(vNode, mountPoint);
 
     const destroy = () => {

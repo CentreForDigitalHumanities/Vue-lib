@@ -26,9 +26,9 @@ export default function (options: ConfirmOptions) {
         {
             callback: options.callback,
             onClose: close,
-            headerText: options.headerText || "Please confirm",
-            confirmText: options.confirmText || "Yes",
-            abortText: options.abortText || "No",
+            headerText: options.headerText ?? "Please confirm",
+            confirmText: options.confirmText ?? "Yes",
+            abortText: options.abortText ?? "No",
         },
         { default: () => options.text },
     );
