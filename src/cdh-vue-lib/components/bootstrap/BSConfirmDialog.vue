@@ -21,13 +21,8 @@ function close() {
 
 function runCallback() {
     const returnValue = props.callback();
-    // If we got a promise from our callback, wait until it's resolved before
-    // closing
-    if (
-        returnValue !== undefined &&
-        typeof returnValue === "object" &&
-        "then" in returnValue
-    ) {
+    // If we got a promise from our callback, close only after it's resolved.
+    if (returnValue instanceof Promise) {
         returnValue.finally(close);
     } else {
         close();
