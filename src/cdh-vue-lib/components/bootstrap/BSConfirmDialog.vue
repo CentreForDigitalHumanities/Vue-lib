@@ -7,7 +7,7 @@ interface Props {
     headerText?: string;
     confirmText?: string;
     abortText?: string;
-    callback: () => never | undefined | Promise<never>;
+    callback: () => void | Promise<void>;
 }
 
 const props = defineProps<Props>();

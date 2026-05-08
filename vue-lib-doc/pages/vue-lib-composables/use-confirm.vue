@@ -11,7 +11,7 @@ const parametersData: PropDefinition[] = [
     },
     {
         name: "callback",
-        type: "() => Promise<never> | Promise<boolean> | void",
+        type: "() => void | Promise<void>",
         required: true,
         description:
             "Function called when the user confirms. If it returns a Promise, the dialog stays open until the promise settles.",
