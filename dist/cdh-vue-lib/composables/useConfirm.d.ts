@@ -1,6 +1,6 @@
 export interface ConfirmOptions {
     text: string;
-    callback: () => Promise<never> | Promise<boolean> | Promise<void> | void;
+    callback: () => void | Promise<void>;
     headerText?: string;
     confirmText?: string;
     abortText?: string;

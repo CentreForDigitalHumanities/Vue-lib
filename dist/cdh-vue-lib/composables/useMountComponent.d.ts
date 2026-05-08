@@ -8,6 +8,10 @@ import type { Component, VNode } from "vue";
  * @returns An object containing the mounted component's VNode, a destroy function, and a reference to the div element.
  */
 export default function (component: Component, props: Record<string, unknown>, children: unknown): {
+    vNode: null;
+    destroy: () => void;
+    mountPoint: null;
+} | {
     vNode: VNode<import("vue").RendererNode, import("vue").RendererElement, {
         [key: string]: any;
     }>;

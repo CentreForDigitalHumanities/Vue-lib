@@ -17,22 +17,22 @@ express or implied.
 * See the Licence for the specific language governing
 permissions and limitations under the Licence.
 */
-import { a as v, _ as m } from "./BSPagination-68a9cc37.js";
+import { a as x, _ as d } from "./BSPagination-68a9cc37.js";
 import { u as M } from "./BSPagination-68a9cc37.js";
-import { defineComponent as T, ref as C, openBlock as N, createBlock as k, withCtx as s, createElementVNode as d, toDisplayString as c, createVNode as i, unref as p, createTextVNode as b, renderSlot as _, getCurrentInstance as y, render as x } from "vue";
+import { defineComponent as C, ref as N, openBlock as T, createBlock as k, withCtx as u, createElementVNode as f, toDisplayString as c, createVNode as i, unref as p, createTextVNode as b, renderSlot as y, getCurrentInstance as V, render as v } from "vue";
 import "uuid";
 import "@fortawesome/vue-fontawesome";
 import "bootstrap";
 import "vue-i18n";
-function Y(e) {
-  const o = V(e);
-  return o === null ? 0 : o;
+function P(e) {
+  const n = _(e);
+  return n === null ? 0 : n;
 }
-function V(e) {
-  const o = e.target.valueAsNumber;
-  return isNaN(o) ? null : o;
+function _(e) {
+  const n = e.target.valueAsNumber;
+  return isNaN(n) ? null : n;
 }
-const $ = { class: "modal-title" }, g = { class: "btn-group w-100" }, h = /* @__PURE__ */ T({
+const $ = { class: "modal-title" }, g = { class: "btn-group w-100" }, h = /* @__PURE__ */ C({
   __name: "BSConfirmDialog",
   props: {
     headerText: {},
@@ -41,86 +41,92 @@ const $ = { class: "modal-title" }, g = { class: "btn-group w-100" }, h = /* @__
     callback: { type: Function }
   },
   emits: ["close"],
-  setup(e, { emit: o }) {
-    const u = e, t = C(!0);
+  setup(e, { emit: n }) {
+    const a = e, t = N(!0);
     function l() {
       t.value = !1;
     }
-    function a() {
-      const n = u.callback();
-      n !== void 0 && typeof n == "object" && "then" in n ? n.finally(l) : l();
+    function s() {
+      const o = a.callback();
+      o instanceof Promise ? o.finally(l) : l();
     }
-    return (n, r) => (N(), k(v, {
+    return (o, r) => (T(), k(x, {
       active: t.value,
       "show-close-button": !1,
       "background-click-closes": !1,
       centered: !0,
-      onHidden: r[2] || (r[2] = (f) => n.$emit("close"))
+      onHidden: r[2] || (r[2] = (m) => o.$emit("close"))
     }, {
-      title: s(() => [
-        d("h5", $, c(n.headerText || "Are you sure?"), 1)
+      title: u(() => [
+        f("h5", $, c(o.headerText || "Are you sure?"), 1)
       ]),
-      footer: s(() => [
-        d("div", g, [
-          i(p(m), {
+      footer: u(() => [
+        f("div", g, [
+          i(p(d), {
             variant: "primary",
-            onClick: r[0] || (r[0] = (f) => a())
+            onClick: r[0] || (r[0] = (m) => s())
           }, {
-            default: s(() => [
-              b(c(n.confirmText || "Yes"), 1)
+            default: u(() => [
+              b(c(o.confirmText || "Yes"), 1)
             ]),
             _: 1
           }),
-          i(p(m), {
+          i(p(d), {
             variant: "secondary",
-            onClick: r[1] || (r[1] = (f) => l())
+            onClick: r[1] || (r[1] = (m) => l())
           }, {
-            default: s(() => [
-              b(c(n.abortText || "No"), 1)
+            default: u(() => [
+              b(c(o.abortText || "No"), 1)
             ]),
             _: 1
           })
         ])
       ]),
-      default: s(() => [
-        _(n.$slots, "default")
+      default: u(() => [
+        y(o.$slots, "default")
       ]),
       _: 3
     }, 8, ["active"]));
   }
 });
-function A(e, o, u) {
+function A(e, n, a) {
   var r;
-  let t = document.createElement("div");
-  const l = (r = y()) == null ? void 0 : r.appContext.app;
-  let a = i(e, o, u);
-  return l && l._context && (a.appContext = l._context), x(a, t), {
-    vNode: a,
+  if (!document)
+    return {
+      vNode: null,
+      destroy: () => {
+      },
+      mountPoint: null
+    };
+  let t = document.createElement("div"), l = i(e, n, a);
+  const s = (r = V()) == null ? void 0 : r.appContext;
+  return l.appContext = s ?? null, document.body.appendChild(t), v(l, t), {
+    vNode: l,
     destroy: () => {
-      t && x(null, t), t == null || t.remove(), t = null, a = null;
+      t && v(null, t), t == null || t.remove(), t = null, l = null;
     },
     mountPoint: t
   };
 }
-function j(e) {
-  const o = () => {
-    u();
-  }, { destroy: u } = A(
+function Y(e) {
+  const n = () => {
+    a();
+  }, { destroy: a } = A(
     h,
     {
       callback: e.callback,
-      onClose: o,
-      headerText: e.headerText || "Please confirm",
-      confirmText: e.confirmText || "Yes",
-      abortText: e.abortText || "No"
+      onClose: n,
+      headerText: e.headerText ?? "Please confirm",
+      confirmText: e.confirmText ?? "Yes",
+      abortText: e.abortText ?? "No"
     },
     { default: () => e.text }
   );
 }
 export {
-  j as useConfirm,
+  Y as useConfirm,
   M as useInputValue,
-  Y as useInputValueAsNumber,
-  V as useInputValueAsNumberOrNull,
+  P as useInputValueAsNumber,
+  _ as useInputValueAsNumberOrNull,
   A as useMountComponent
 };

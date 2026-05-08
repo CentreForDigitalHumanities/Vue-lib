@@ -9,7 +9,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<im
         type: import("vue").PropType<string>;
     };
     callback: {
-        type: import("vue").PropType<() => Promise<never> | undefined>;
+        type: import("vue").PropType<() => void | Promise<void>>;
         required: true;
     };
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
@@ -25,7 +25,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<im
         type: import("vue").PropType<string>;
     };
     callback: {
-        type: import("vue").PropType<() => Promise<never> | undefined>;
+        type: import("vue").PropType<() => void | Promise<void>>;
         required: true;
     };
 }>> & Readonly<{
