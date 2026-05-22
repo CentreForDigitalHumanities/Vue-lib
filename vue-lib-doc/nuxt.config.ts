@@ -35,4 +35,17 @@ export default defineNuxtConfig({
             "@fortawesome/free-brands-svg-icons",
         ],
     },
+    vite: {
+        optimizeDeps: {
+            exclude: ["cdh-vue-lib"],
+        },
+        css: {
+            devSourcemap: true,
+            preprocessorOptions: {
+                scss: {
+                    quietDeps: true,
+                }
+            }
+        }
+    }
 });

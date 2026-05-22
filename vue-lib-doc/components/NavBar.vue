@@ -16,6 +16,7 @@ const componentTabs = [
     { name: "BSSidebar", path: "/vue-lib-components/bs-sidebar" },
     { name: "DSCList", path: "/vue-lib-components/dsc-list" },
     { name: "UUList", path: "/vue-lib-components/uu-list" },
+    { name: "useConfirm", path: "/vue-lib-composables/use-confirm" },
 ];
 </script>
 <template>

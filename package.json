@@ -1,6 +1,6 @@
 {
     "name": "cdh-vue-lib",
-    "version": "0.6.0",
+    "version": "0.7.0-0",
     "type": "module",
     "author": "Humanities IT Portal development",
     "license": "EUPL-1.2",
@@ -11,10 +11,8 @@
     "module": "./dist/cdh-vue-lib.es.js",
     "exports": {
         ".": {
-            "import": [
-                "./dist/cdh-vue-lib.es.js",
-                "./dist/cdh-vue-lib.d.ts"
-            ]
+            "types": "./dist/cdh-vue-lib.d.ts",
+            "import": "./dist/cdh-vue-lib.es.js"
         },
         "./components": {
             "import": "./dist/cdh-vue-lib.components.es.js"
